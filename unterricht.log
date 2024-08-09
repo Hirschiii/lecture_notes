@@ -1,0 +1,10 @@
+system          > 
+system          > ConTeXt  ver: 2024.07.31 19:43 LMTX  fmt: 2024.8.8  int: english/english
+system          > 
+system          > 'cont-new.mkxl' loaded
+open source     > level 1, order 1, name '/Users/niklas/context/tex/texmf-context/tex/context/base/mkxl/cont-new.mkxl'
+system          > beware: some patches loaded from cont-new.mkiv
+close source    > level 1, order 1, name '/Users/niklas/context/tex/texmf-context/tex/context/base/mkxl/cont-new.mkxl'
+system          > files > jobname 'mathe/unterricht', input 'mathe/unterricht.tex', result 'mathe/unterricht'
+fonts           > latin modern fonts are not preloaded
+languages       > language 'en' is active

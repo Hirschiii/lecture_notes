@@ -1,0 +1,51 @@
+\startenvironment env_school
+
+% \usemodule[t][markdown]
+% \usepath[{mathe, mathe/unterricht}]
+
+% \startluacode
+%     function include_files(directory)
+%         local lfs = require("lfs")
+%         for file in lfs.dir(directory) do
+%             if file:match("%.tex$") then
+%                 context("\\component " .. directory .. "/" .. file)
+%             end
+%         end
+%     end
+% \stopluacode
+
+\setupbodyfont[11pt, sans]
+
+% Interactions and paper size
+% \setupinteractionscreen[option=bookmark]
+\setuppapersize[A4]
+
+% Headers and footers setup
+\setupheader[style=normal, location=middle]
+\setupheadertexts[{\getmarking[section]}] % This will place the current section title in the header
+\setupfooter[style=normal, location=middle]
+\setupfootertexts[] % Empty initially to suppress page numbers
+
+% Suppress page numbers initially across the document
+\setuppagenumbering[location=none]
+
+% A new ToC title
+\setupheadtext[content=All my contents]
+
+% turn off numbering of some levels
+% \setuphead[subsection][number=no]
+% \setuphead[subsubsection][number=no]
+
+% ToC
+% alternative=c, space to the page number is filled with dots
+\setupcombinedlist[content][list={chapter,section,subsection}, alternative=c,]
+% in MkII replace list with level=4: \subsubsubsections are not listed in ToC
+
+%\setuplist[chapter][width=5mm, style=bold]
+\setuplist[section][width=10mm, style=bold]
+% \setuplist[subsection][width=20mm]
+
+% pagestyle=normal for changing the appearance of pagenumber
+\setuplist[subsubsection][width=20mm, style=slanted, pagestyle=normal]
+
+\stopenvironment
