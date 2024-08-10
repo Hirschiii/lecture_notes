@@ -1,0 +1,179 @@
+\startenvironment env_08_graphics
+
+%==============================================================================
+                                                            % pour les sections
+
+\startuseMPgraphic{sectionl}
+path  p  ;
+p :=  unitsquare 
+      xyscaled (\overlaywidth,\overlayheight);
+path  pa ; 
+pa := unitsquare 
+      xyscaled (\the\textwidth+\the\rightmarginwidth+
+               2*\the\rightmargindistance,
+               \measure{epaisseur1}) 
+      shifted  (0mm,\overlayheight);
+path  pb ; 
+pb := unitsquare 
+      xyscaled (\the\textwidth-\measure{margetitre},\measure{epaisseur4}) 
+      shifted  (\measure{margetitre},0mm);
+fill  pa withcolor \MPcolor{high1color} ;
+fill  pb withcolor \MPcolor{high1color} ;
+setbounds currentpicture to p ;
+\stopuseMPgraphic
+
+%-----------------------------------------------------------------------------        
+
+\startuseMPgraphic{sectionr}
+path  p  ; 
+p :=  unitsquare 
+      xyscaled (\overlaywidth,\overlayheight);
+path  pa ; 
+pa := unitsquare  
+      xyscaled (\the\textwidth+\the\rightmarginwidth+\the\rightedgewidth+
+               2*\the\rightmargindistance,\measure{epaisseur1})  
+      shifted  (-\the\rightmarginwidth-\the\rightedgewidth-
+               2*\the\rightmargindistance,\overlayheight);
+path pb ;
+pb := unitsquare
+      xyscaled (\the\textwidth+\the\rightmarginwidth+\the\rightedgewidth+
+               2*\the\rightmargindistance-\measure{margetitre},
+               \measure{epaisseur4}) 
+      shifted  (\measure{margetitre},0mm);
+fill  pa withcolor \MPcolor{high1color} ;
+fill  pb withcolor \MPcolor{high1color} ;
+setbounds currentpicture to p ;
+\stopuseMPgraphic
+
+
+%==============================================================================
+                                                         % pour les subsections
+
+\startuseMPgraphic{ssectionl}
+path  p  ; 
+p :=  unitsquare 
+      xyscaled (\overlaywidth,\overlayheight);
+path pa ; 
+pa := unitsquare 
+      xyscaled (\the\textwidth-\measure{margetitre}+
+                \the\rightmarginwidth+2*\the\rightmargindistance,
+                \measure{epaisseur1}) 
+      shifted  (\measure{margetitre},\overlayheight);
+path pb ; 
+pb := unitsquare 
+      xyscaled (\the\textwidth+\the\rightmarginwidth+
+               2*\the\rightmargindistance,\measure{epaisseur4}) 
+      shifted  (-\the\rightmarginwidth-
+               2.0*\the\rightmargindistance,0mm);
+fill pa withcolor \MPcolor{high2color} ;
+fill pb withcolor \MPcolor{high2color} ;
+setbounds currentpicture to p ;
+\stopuseMPgraphic
+
+%-----------------------------------------------------------------------------        
+
+\startuseMPgraphic{ssectionr}
+path  p  ; 
+p :=  unitsquare 
+      xyscaled (\overlaywidth,\overlayheight);
+path  pa ; 
+pa := unitsquare 
+      xyscaled (\the\textwidth-\measure{margetitre}+\the\rightmarginwidth+
+                2.0*\the\rightmargindistance,\measure{epaisseur1}) 
+      shifted (\measure{margetitre},\overlayheight);
+path  pb ; 
+pb := unitsquare 
+      xyscaled (\the\textwidth-\measure{longtitre2},\measure{epaisseur4}) 
+      shifted (\measure{longtitre2},0mm);
+fill pa withcolor \MPcolor{high2color} ;
+fill pb withcolor \MPcolor{high2color} ;
+setbounds currentpicture to p ;
+\stopuseMPgraphic
+
+
+%==============================================================================
+                                                      % pour les subsubsections
+
+\startuseMPgraphic{sssection}
+path  p  ; 
+p :=  unitsquare 
+      xyscaled (\overlaywidth,\overlayheight);
+path pa ; 
+pa := unitsquare 
+      xyscaled (\the\textwidth-\measure{margetitre},\measure{epaisseur1}) 
+      shifted (\measure{margetitre},\overlayheight);
+path pb ; 
+pb := unitsquare 
+      xyscaled (\measure{longtitre3},\measure{epaisseur4}) 
+      shifted (\measure{margetitre},0mm);
+fill pa withcolor \MPcolor{high3color} ;
+fill pb withcolor \MPcolor{high3color} ;
+setbounds currentpicture to p ;
+\stopuseMPgraphic
+
+%==============================================================================
+                                                   % pour les figures et tables   
+
+\startuseMPgraphic{mpfigure}
+path p ;
+p :=  unitsquare 
+      xyscaled (\overlaywidth,\overlayheight);
+path pa ;
+pa := unitsquare
+      xyscaled 
+      (\the\textwidth+\the\rightmarginwidth+
+       2.0*\the\rightmargindistance,\measure{epaisseur1}) 
+      shifted
+      ((-\the\textwidth+\overlaywidth)/2-
+        \the\rightmarginwidth-2.0*\the\rightmargindistance,\overlayheight);
+fill pa withcolor \MPcolor{high1color} ;
+setbounds currentpicture to p ;
+\stopuseMPgraphic
+
+%-----------------------------------------------------------------------------        
+
+\startuseMPgraphic{mptable}
+path p ;
+p := unitsquare  xyscaled (\overlaywidth,\overlayheight);
+path pa ;
+pa := unitsquare xyscaled 
+      (\the\textwidth+\the\rightmarginwidth+
+      2.0*\the\rightmargindistance,\measure{epaisseur1}) 
+      shifted
+      (0,\overlayheight);
+fill pa withcolor \MPcolor{high1color} ;
+setbounds currentpicture to p ;
+\stopuseMPgraphic
+
+%==============================================================================
+                                                        % pour les encadrements   
+\startuseMPgraphic{textframe}
+begingroup;                                     %  si texte sur plusieurs pages 
+  for i=1 upto nofmultipars   :    % pour chaque partie, dessine bande à droite
+    draw ( (ulcorner multipars[i] yshifted (+3mm)) --
+           (llcorner multipars[i] yshifted (-3mm)) )
+         xshifted ((\measure{margetitre})/2-\measure{margeencadre}/2) 
+         withcolor \MPcolor{fill1color}
+         withpen pensquare
+         xscaled (\measure{margetitre}-\measure{margeencadre});        %largeur
+   
+    if multilocs[i] == 3:                   % 3 c'est l'indice du dernier block
+         draw ( (llcorner multipars[i]           % on rajoute des traits de fin
+                 shifted (\measure{margeencadre}-\measure{margeencadre}/2,0mm)) --
+                (llcorner multipars[i] 
+                 shifted (\measure{margetitre}-\measure{margeencadre}
+                         -\measure{margeencadre}/2,0mm)) )
+         withcolor \MPcolor{high1color}
+         withpen pensquare scaled (\measure{epaisseur1});
+
+         draw ( (llcorner multipars[i] shifted (\measure{margetitre},0mm) ) --
+                (lrcorner multipars[i]) )
+         withcolor \MPcolor{maincolor}
+         withpen pensquare scaled (\measure{epaisseur1}); 
+    fi;
+  endfor ;
+endgroup;
+\stopuseMPgraphic
+
+
+\stopenvironment

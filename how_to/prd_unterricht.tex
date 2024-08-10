@@ -1,7 +1,6 @@
 \startproduct prd_unterricht
 \project project_school
 
-\starttext
 
 \setvariables[meta]
   [title={HowTo},
@@ -10,19 +9,13 @@
    author={Niklas von Hirschfeld},
   ]
 
+
+\starttext
+
 \MyTitlePage
-
-
-\page[yes, blank]  % Ensure a new page for the ToC
-
-% Table of Contents
 \completecontent
 
-\page[yes, blank]  % Ensure a new page for the ToC
-
 % Start page numbering here
-\setuppagenumber[number=1] % Reset and start numbering from 1
-\setuppagenumbering[location={footer, middle}, alternative=singlesided, state=start]
 
 \startluacode
     include_markdown_files("how_to/unterricht", "./.pandoc_templates/lecture-notes.context")

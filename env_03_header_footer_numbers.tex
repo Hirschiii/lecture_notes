@@ -1,0 +1,33 @@
+\startenvironment env_03_header_footer_numbers
+
+\setupsectionblock[frontpart][page=]
+\setupsectionblock[bodypart] [page=]
+\setupsectionblock[appendix] [page=]
+\setupsectionblock[backpart] [page=]
+
+%-----------------------------------------------------------------------------
+
+\setuppagenumbering
+  [alternative=doublesided,                             % document recto-verso
+   location=]    % suppression affichage par défaut numéro page centré en-tête
+
+%-----------------------------------------------------------------------------
+
+\setupheadertexts
+  []                                      % page droite, à gauche : rien
+  [{\ifnum\pagenumber=1{                  % page gauche, à gauche : "sommaire"
+    \tfe\bf\ss\WORD\color[niv3color]{Sommaire}
+    {\color[high1color]{~.}}}%
+    \fi}]
+  []                                      % page gauche, à droite : rien
+
+
+\setupfootertexts
+  []
+  [{\tfx\ss\bf{\ifnum\pagenumber<10{0}\fi}\pagenumber}]
+  [{\tfx\ss\bf{\ifnum\pagenumber<10{0}\fi}\pagenumber ~-~ 
+    \color[niv3color]
+    {\uppercase{Notizen Abitur 2025 - GLH}}}]
+  []
+
+\stopenvironment

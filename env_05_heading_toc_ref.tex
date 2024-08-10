@@ -1,0 +1,75 @@
+\startenvironment env_05_heading_toc_ref
+
+\setuphead
+  [chapter]
+  [style={\tfb\Word\ss},                     % taille b, majuscules, sans serif
+   page=yes,                                 % on démarre sur une nouvelle page
+   aftersection=\page,    % force saut de page fin section, bug no need normalt
+   after={\blank[2*big]},                         % grand espace après le titre
+]                           % par contre ce code apparait dans les bookmarks...
+
+\setuphead
+  [section]
+  [style={\tfb\Word\ss},                     % taille b, majuscules, sans serif
+   page=yes,                                 % on démarre sur une nouvelle page
+   aftersection=\page,    % force saut de page fin section, bug no need normalt
+   after={\blank[2*big]},                         % grand espace après le titre
+]                           % par contre ce code apparait dans les bookmarks...
+  
+\setuphead
+  [subsection]
+  [style={\tfa\Word\ss},                     % taille a, majuscules, sans serif
+   aftersection=,                     % pour ne pas hériter de celui de section
+   sectionstopper=,                   % pour ne pas hériter de celui de section
+   after={\blank[2*big]},
+   before={\blank[small]},
+]
+
+\setuphead
+  [subsubsection]
+  [style={\tf\Word\ss},                % taille normale, majuscules, sans serif
+   after={\blank[2*big]},
+]
+
+\setuphead
+  [subsubsubsection]
+  [style=\tf\rm,                                   % taille normale, avec serif
+   numberstyle=\tf\rm,                            % pareil pour la numérotation
+   command=,                          % pour ne pas hériter de celui de section
+   sectionstopper={~-~},                 % rajout tiret et espaces après numéro
+   distance=0mm,          % distance nulle entre le texte du titre et le numéro
+   align={flushleft, nothyphenated, verytolerant},    % pour rentrer ds colonne
+   alternative=paragraph,                   % m.en.forme, no indent second line
+   sectionconversionset=sectionnumberspetit, % m.en.forme numérotation spéciale
+   after=\nowhitespace,                                          %voir plus bas
+]
+                                
+\setuphead
+  [section,
+   subsection, 
+   subsubsection, 
+   subsubsubsection, 
+   subsubsubsubsection]
+  [number=yes]                             % on numérote les sections indiquées
+
+% A new ToC title
+% \setupheadtext[content=Inhaltsverzeichnes]
+
+% turn off numbering of some levels
+\setuphead[subsection][number=no]
+\setuphead[subsubsection][number=no]
+
+% ToC
+% alternative=c, space to the page number is filled with dots
+\setupcombinedlist[content][list={chapter,section,subsection}, alternative=c,]
+% in MkII replace list with level=4: \subsubsubsections are not listed in ToC
+
+\setuplist[chapter][width=5mm, style=bold]
+% \setuplist[section][width=10mm, style=bold]
+\setuplist[section][width=10mm]
+\setuplist[subsection][width=20mm]
+
+% pagestyle=normal for changing the appearance of pagenumber
+\setuplist[subsubsection][width=20mm]
+
+\stopenvironment
