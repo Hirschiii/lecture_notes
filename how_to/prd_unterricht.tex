@@ -1,0 +1,34 @@
+
+\startproduct prd_unterricht
+\project project_school
+
+
+\starttext
+
+% Title Page
+\startalignment[middle]
+    \definedfont[SerifBold at 24pt]
+	Hier ist das "HowTo" für meine Schul-Notizen
+    \blank[3*line]
+    \definedfont[Serif at 18pt]
+    Abitur 2025
+    \blank[2*line]
+    Niklas von Hirschfeld
+\stopalignment
+
+\page[yes, blank]  % Ensure a new page for the ToC
+
+% Table of Contents
+\completecontent
+
+\page[yes, blank]  % Ensure a new page for the ToC
+
+% Start page numbering here
+\setuppagenumber[number=1] % Reset and start numbering from 1
+\setuppagenumbering[location={footer, middle}, alternative=singlesided, state=start]
+
+\processmarkdownfile[template=./pandoc_templates/lecture-notes.context]{how_to/unterricht/markdown_syntax.md}
+
+
+\stoptext
+\stopproduct

@@ -1,0 +1,45 @@
+$if(includesource)$
+$for(sourcefile)$
+\attachment[file=$curdir$/$sourcefile$,method=hidden]
+$endfor$
+$endif$
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\starttext
+% $if(title)$
+% \startalignment[middle]
+%   {\tfd\setupinterlinespace $title$}
+% $if(subtitle)$
+%   \smallskip
+%   {\tfa\setupinterlinespace $subtitle$}
+% $endif$
+% $if(author)$
+%   \smallskip
+%   {\tfa\setupinterlinespace $for(author)$$author$$sep$\crlf $endfor$}
+% $endif$
+% $if(date)$
+%   \smallskip
+%   {\tfa\setupinterlinespace $date$}
+% $endif$
+%   \bigskip
+% \stopalignment
+% $endif$
+% $if(abstract)$
+% \midaligned{\it Abstract}
+% \startnarrower[2*middle]
+% $abstract$
+% \stopnarrower
+% \blank[big]
+% $endif$
+% $for(include-before)$
+% $include-before$
+% $endfor$
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+\stoptext

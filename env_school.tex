@@ -48,4 +48,25 @@
 % pagestyle=normal for changing the appearance of pagenumber
 \setuplist[subsubsection][width=20mm, style=slanted, pagestyle=normal]
 
+
+% make chapter, section bookmarks visible when opening document
+\placebookmarks[chapter, section, subsection, subsubsection, subsubsubsection, subsubsubsubsection][chapter, section]
+\setupinteractionscreen[option={bookmark,title}]
+
+
+\setupitemize[autointro]    % prevent orphan list intro
+\setupitemize[indentnext=no]
+
+\defineitemgroup[enumerate]
+\setupenumerate[each][fit][itemalign=left,distance=.5em,style={\feature[+][default:tnum]}]
+
+\setupfloat[figure][default={here,nonumber}]
+\setupfloat[table][default={here,nonumber}]
+
+\setupxtable[frame=off]
+\setupxtable[head][topframe=on]
+\setupxtable[body][]
+\setupxtable[foot][]
+\setupxtable[lastrow][bottomframe=on]
+
 \stopenvironment
