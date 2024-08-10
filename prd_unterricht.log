@@ -176,12 +176,10 @@ system          > stop used files
 
 system          > start commandline options
 
-system          > currentrun="1"
-system          > engine="luatex"
+system          > currentrun="3"
 system          > fulljobname="mathe/prd_unterricht.tex"
 system          > input="mathe/prd_unterricht.tex"
-system          > kindofrun="1"
-system          > luatex="true"
+system          > kindofrun="2"
 system          > maxnofruns="9"
 system          > texmfbinpath="/usr/bin"
 
@@ -206,28 +204,28 @@ modules         > stop used modules
 
 mkiv lua stats  > used config file: selfautodir:/share/texmf-dist/web2c/texmfcnf.lua
 mkiv lua stats  > used cache path: /home/niklas/.texlive2023/texmf-var/luatex-cache/context/0399a8df3aef8d154781d0a9c2b8e28d
-mkiv lua stats  > resource resolver: loadtime 0.116 seconds, 1 scans with scantime 0.112 seconds, 0 shared scans, 62 found files, scanned paths: /usr/share/texmf-dist
-mkiv lua stats  > stored bytecode data: 458 modules (0.399 sec), 97 tables (0.019 sec), 555 chunks (0.418 sec)
+mkiv lua stats  > resource resolver: loadtime 0.217 seconds, 1 scans with scantime 0.209 seconds, 0 shared scans, 62 found files, scanned paths: /usr/share/texmf-dist
+mkiv lua stats  > stored bytecode data: 458 modules (0.758 sec), 97 tables (0.048 sec), 555 chunks (0.806 sec)
 mkiv lua stats  > traced context: maxstack: 1458, freed: 2, unreachable: 1456
 mkiv lua stats  > cleaned up reserved nodes: 65 nodes, 10 lists of 463
 mkiv lua stats  > node memory usage: 18 attribute, 5 attribute_list, 2 glue, 57 glue_spec, 3 kern, 2 penalty, 2 temp, 2 user_defined
 mkiv lua stats  > node list callback tasks: 8 unique task lists, 7 instances (re)created, 1569 calls
-mkiv lua stats  > h-node processing time: 0.024 seconds including kernel
-mkiv lua stats  > driver time: 0.012 seconds 
+mkiv lua stats  > h-node processing time: 0.021 seconds including kernel
+mkiv lua stats  > driver time: 0.011 seconds 
 mkiv lua stats  > used backend: pdf (backend for directly generating pdf output)
-mkiv lua stats  > jobdata time: 0.006 seconds saving, 0.002 seconds loading
+mkiv lua stats  > jobdata time: 0.007 seconds saving, 0.002 seconds loading
 mkiv lua stats  > callbacks: internal: 3064, file: 81073, direct: 25, late: 20, function 235659, total: 319841 (45692 per page)
-mkiv lua stats  > randomizer: resumed with value 0.37408345518634
+mkiv lua stats  > randomizer: resumed with value 0.46739965630695
 mkiv lua stats  > loaded tex modules: 3 requested, all found (*-database t-markdown t-markdownthemewitiko_markdown_defaults)
 mkiv lua stats  > result saved in file: prd_unterricht.pdf, compresslevel 3, objectcompresslevel 1
 mkiv lua stats  > loaded patterns: en::1, load time: 0.000
 mkiv lua stats  > interactive elements: 0 references, 1 destinations
 mkiv lua stats  > loaded fonts: 13 files: latinmodern-math.otf, lmmono10-regular.otf, lmmono8-regular.otf, lmmono9-regular.otf, lmmonolt10-bold.otf, lmroman10-bold.otf, lmroman10-regular.otf, lmroman12-regular.otf, lmsans10-bold.otf, lmsans10-oblique.otf, lmsans10-regular.otf, lmsans8-regular.otf, lmsans9-regular.otf
-mkiv lua stats  > font engine: otf 3.133, afm 1.513, tfm 1.000, 32 instances, 17 shared in backend, 3 common vectors, 14 common hashes, load time 0.763 seconds 
-mkiv lua stats  > graphics processing time: 0.013 seconds including tex, 1 processed images, 1 unique asked, 0 bad names
+mkiv lua stats  > font engine: otf 3.133, afm 1.513, tfm 1.000, 32 instances, 17 shared in backend, 3 common vectors, 14 common hashes, load time 0.995 seconds 
+mkiv lua stats  > graphics processing time: 0.014 seconds including tex, 1 processed images, 1 unique asked, 0 bad names
 mkiv lua stats  > used platform: linux-64, type: unix, binary subtree: usr
 mkiv lua stats  > used engine: luatex version: 1.16, functionality level: 7567, banner: this is luatex, version 1.16.0 (tex live 2023 gentoo linux)
-mkiv lua stats  > used hash slots: 63542 of 65536 + 250000
-mkiv lua stats  > lua properties: engine: lua 5.3, used memory: 491 MB, ctx: 507 MB, max: unknown MB, hash chars: min(64,40), symbol mask: utf (τεχ)
-mkiv lua stats  > runtime: 25.217 seconds, 7 processed pages, 7 shipped pages, 0.278 pages/second
+mkiv lua stats  > used hash slots: 63541 of 65536 + 250000
+mkiv lua stats  > lua properties: engine: lua 5.3, used memory: 371 MB, ctx: 384 MB, max: unknown MB, hash chars: min(64,40), symbol mask: utf (τεχ)
+mkiv lua stats  > runtime: 18.969 seconds, 7 processed pages, 7 shipped pages, 0.369 pages/second
 
