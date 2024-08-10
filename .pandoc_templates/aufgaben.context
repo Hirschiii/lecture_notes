@@ -1,0 +1,48 @@
+$if(includesource)$
+$for(sourcefile)$
+\attachment[file=$curdir$/$sourcefile$,method=hidden]
+$endfor$
+$endif$
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\starttext
+
+\setvariables[meta]
+  [
+$if(title)$
+  title={$title$},
+$endif$
+$if(subtitle)$
+subtitle={$subtitle$},
+$endif$
+$if(author)$
+author={$author$},
+$endif$
+$if(date)$
+date={$date$},
+$endif$
+  ]
+
+\MyTitlePage
+
+\page[yes, blank]  % Ensure a new page for the ToC
+
+$if(toc)$
+% Table of Contents
+\completecontent
+
+\page[yes, blank]  % Ensure a new page for the ToC
+$endif$
+
+% Start page numbering here
+\setuppagenumber[number=1] % Reset and start numbering from 1
+\setuppagenumbering[location={footer, middle}, alternative=singlesided, state=start]
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+\stoptext

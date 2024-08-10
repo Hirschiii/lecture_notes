@@ -1,18 +1,17 @@
 \startenvironment env_school
 
-
 % \usepath[{mathe, mathe/unterricht}]
 
-% \startluacode
-%     function include_files(directory)
-%         local lfs = require("lfs")
-%         for file in lfs.dir(directory) do
-%             if file:match("%.tex$") then
-%                 context("\\component " .. directory .. "/" .. file)
-%             end
-%         end
-%     end
-% \stopluacode
+\startluacode
+function include_markdown_files(directory, template)
+	local lfs = require("lfs")
+	for file in lfs.dir(directory) do
+		if file:match("%.md$") then
+			context("\\processmarkdownfile[template=" .. template .."]{" .. directory .. "/" .. file .."}")
+		end
+	end
+end
+\stopluacode
 
 \setupbodyfont[11pt, sans]
 
@@ -68,5 +67,33 @@
 \setupxtable[body][]
 \setupxtable[foot][]
 \setupxtable[lastrow][bottomframe=on]
+
+% Setup the title page
+\unprotect
+
+% \setups[namespace:set] is automatically called right after 'set' is assigned
+\setvariables[meta]
+  [title={Schul Notizen},
+   subtitle={Abitur 2025},
+   date={},
+   author={Niklas von Hirschfeld},
+  ]
+  
+
+\def\MyTitlePage{
+\startalignment[middle]
+    \definedfont[SerifBold at 24pt]
+	\getvariable{meta}{title}
+    \blank[3*line]
+    \definedfont[Serif at 18pt]
+	\getvariable{meta}{subtitle}
+    \blank[2*line]
+	\getvariable{meta}{author}
+\stopalignment
+
+}
+
+
+\protect
 
 \stopenvironment

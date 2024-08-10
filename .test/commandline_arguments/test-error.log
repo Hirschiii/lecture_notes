@@ -1,0 +1,8 @@
+return {
+ ["filename"]="/home/niklas/git/lecture_notes/test/commandline_arguments/test.tex",
+ ["lastcontext"]="\n<to be read again> \n \\par \n\\getvariable #1#2->\\begincsname \\??variables #1:#2\n                                        \\endcsname \nl.5 \n   ",
+ ["lastluaerror"]="?",
+ ["lasttexerror"]="! Missing \\endcsname inserted",
+ ["linenumber"]=5,
+ ["offset"]=10,
+}

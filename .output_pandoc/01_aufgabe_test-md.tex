@@ -1,0 +1,31 @@
+
+\starttext
+
+\setvariables[meta]
+  [
+  title={Das ist ein test},
+subtitle={Soo cooler subtitle},
+author={Niklas von Hirschfeld},
+date={2024-08-10},
+  ]
+
+\MyTitlePage
+
+\page[yes, blank]  % Ensure a new page for the ToC
+
+% Table of Contents
+\completecontent
+
+\page[yes, blank]  % Ensure a new page for the ToC
+
+% Start page numbering here
+\setuppagenumber[number=1] % Reset and start numbering from 1
+\setuppagenumbering[location={footer, middle}, alternative=singlesided, state=start]
+
+\startsectionlevel[title={haha},reference={haha}]
+
+jlkdsjf
+
+\stopsectionlevel
+
+\stoptext
