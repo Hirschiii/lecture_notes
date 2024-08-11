@@ -1,0 +1,34 @@
+\startproduct prd_unterricht
+\project project_school
+
+
+\startmode[how_to]
+\setvariables[meta]
+  [title={HowTo},
+   subtitle={Für meine Schulnotizen - Abitur 2025},
+   date={},
+   author={Niklas von Hirschfeld},
+  ]
+\setvariables[notes][path=how_to/unterricht]
+\stopmode
+
+
+
+
+\starttext
+
+\MyTitlePage
+\completecontent
+
+% Start page numbering here
+
+\startluacode
+	local path = tokens.getters.macro(tokens.getters.macro("??variables") .. "notes:path")
+    include_markdown_files(path, "./.pandoc_templates/lecture-notes.context")
+\stopluacode
+
+% \processmarkdownfile[template=./pandoc_templates/lecture-notes.context]{how_to/unterricht/markdown_syntax.md}
+
+
+\stoptext
+\stopproduct

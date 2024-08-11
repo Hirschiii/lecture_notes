@@ -1,5 +1,7 @@
 #!/bin/env bash
 
+export TEXMF="/usr/share/texmf-dist:$HOME/texmf"
+
 # HowTo
 context --result=howto_unterricht how_to/prd_unterricht.tex
 context how_to/prd_aufgaben.tex
