@@ -1,33 +1,75 @@
 \startproduct prd_unterricht
 \project project_school
+\environment env_document
 
 
 \startmode[how_to]
-\setvariables[meta]
-  [title={HowTo},
-   subtitle={Für meine Schulnotizen - Abitur 2025},
-   date={},
-   author={Niklas von Hirschfeld},
-  ]
+\setvariables[meta][title={HowTo}]
 \setvariables[notes][path=how_to/unterricht]
 \stopmode
 
+\startmode[mathe]
+\setvariables[meta][title={Mathematik}]
+\setvariables[notes][path=mathe/unterricht]
+\stopmode
+
+\startmode[informatik]
+\setvariables[meta][title={Informatik}]
+\setvariables[notes][path=informatik/unterricht]
+\stopmode
+
+\startmode[physik]
+\setvariables[meta][title={Physik}]
+\setvariables[notes][path=physik/unterricht]
+\stopmode
+
+\startmode[englisch]
+\setvariables[meta][title={Englisch}]
+\setvariables[notes][path=englisch/unterricht]
+\stopmode
+
+\startmode[politik]
+\setvariables[meta][title={Politik}]
+\setvariables[notes][path=politik/unterricht]
+\stopmode
+
+\startmode[deutsch]
+\setvariables[meta][title={Deutsch}]
+\setvariables[notes][path=deutsch/unterricht]
+\stopmode
+
+\startmode[wun]
+\setvariables[meta][title={Werte und Normen}]
+\setvariables[notes][path=wun/unterricht]
+\stopmode
+
+\setvariables[meta]
+  [
+   subtitle={Unterricht - Abitur 2025},
+   date={},
+   author={Niklas von Hirschfeld},
+  ]
 
 
 
 \starttext
 
+\startfrontmatter
 \MyTitlePage
 \completecontent
+\stopfrontmatter
 
 % Start page numbering here
+
+\startbodymatter
 
 \startluacode
 	local path = tokens.getters.macro(tokens.getters.macro("??variables") .. "notes:path")
     include_markdown_files(path, "./.pandoc_templates/lecture-notes.context")
 \stopluacode
 
-% \processmarkdownfile[template=./pandoc_templates/lecture-notes.context]{how_to/unterricht/markdown_syntax.md}
+\stopbodymatter
+
 
 
 \stoptext
