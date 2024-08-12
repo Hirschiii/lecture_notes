@@ -1,5 +1,6 @@
-\startproduct prd_unterricht
+\startproduct prd_aufgaben
 \project project_school
+\environment env_document
 \environment env_aufgaben
 
 
@@ -14,14 +15,12 @@ for file in lfs.dir("informatik/aufgaben/") do
 
 		context("\\doifundefined{conditionmacro}{")
 
-		context("\\executesystemcommand{context --mode=" .. file .. " --result=informatik_aufgaben_" .. string.sub(file, 1, -4) .. " informatik/\\jobname.tex }")
+		context("\\executesystemcommand{context --mode=" .. file .. " --result=howto_aufgaben_" .. string.sub(file, 1, -4) .. " informatik/\\jobname.tex }")
 
 		context("}")
 	end
 end
 \stopluacode
-
-% \processmarkdownfile[template=./pandoc_templates/lecture-notes.context]{informatik/unterricht/markdown_syntax.md}
 
 \stoptext
 \stopproduct

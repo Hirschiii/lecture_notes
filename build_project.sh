@@ -1,8 +1,8 @@
-#!/bin/env bash
+#!/bin/bash
 
 # TODO: mv files in right directory structur
 
-export TEXMF="/usr/share/texmf-dist:$HOME/texmf"
+export TEXMF="$TEXMF:$HOME/texmf:/usr/local/texlive/2024/texmf-dist"
 
 subjects=("mathe" "informatik" "physik" "englisch" "politik" "deutsch" "wun")
 
@@ -16,31 +16,56 @@ check_if_build()
 	return 0
 }
 
-compile_aufgaben()
+move_file()
 {
-	subject=$1
-	if check_if_build "$subject" "aufgaben"; then
-		context --jobname="${subject}-aufgaben" --mode="$subject" --result="${subject}-aufgaben" prd_aufgaben.tex	
+	filename="${1}.pdf"
+	subject=$2
+	type=$3
+	if [[ type == "unterricht" ]]; then
+		mkdir -p "out/${subject}/"
+		echo "mv $filename "out/${subject}/unterricht.pdf""
+		mv $filename "out/${subject}/unterricht.pdf"
+	else
+		mkdir -p "out/${subject}/${type}"
+		echo "mv $filename "out/${subject}/${type}/""
+		mv $filename "out/${subject}/${type}/"
 	fi
 }
+
 
 compile_unterricht()
 {
 	subject=$1
+	filename="${subject}-unterricht"
 	if check_if_build "$subject" "unterricht"; then
-		context --jobname="${subject}-unterricht" --mode="$subject" --result="${subject}-unterricht" prd_unterricht.tex	
+		echo "Yes, we are compiling"
+		context --jobname="${subject}-unterricht" --mode="$subject" --result="$filename" prd_unterricht.tex &> /dev/null
+		move_file $filename $subject "unterricht"
 	fi
 }
+
+
+compile_aufgaben()
+{
+	subject=$1
+	filename=$2
+	if check_if_build "$subject" "aufgaben"; then
+		context --jobname="${subject}-aufgaben" --mode="$subject" --result="$filename" prd_aufgaben.tex	
+	fi
+}
+
 
 compile_presentation()
 {
 	subject=$1
+	filename=
 	if check_if_build "$subject" "presentation"; then
-		context --jobname="${subject}-presentation" --mode="$subject" --result="${subject}-presentation" prd_unterricht.tex	
+		context --jobname="${subject}-presentation" --mode="$subject" --result="$filename" prd_unterricht.tex	
 	fi
 }
 
 for i in "${subjects[@]}"; do
+	echo "compile: $i"
 	compile_unterricht "$i"
 	# compile_aufgaben(i)
 	# compile_presentation(i)

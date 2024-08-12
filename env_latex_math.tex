@@ -1,0 +1,26 @@
+\startenvironment env_latex_math
+
+% Commands to translate LaTeX environment calls
+% into the appropriate ConTeXt macros.
+
+% The \end of a \begin,\end pair is problematic, since \stoptext
+% depends on TeX's \end.  We fix that as follows, using the 
+% \everystoptext hook.  (Note that some versions of ConTeXt
+% have already redefined \end, but this should all work out.
+
+\unprotect
+\let\@@end=\end
+\appendtoks
+  \let\end=\@@end
+\to \everystoptext
+\protect
+
+% With that out of the way, the actual trans-
+% lation macros are straightforward.
+
+\def\begin#1{%
+   \csname start#1\endcsname}
+ \def\end#1{%
+   \csname stop#1\endcsname}
+
+\stopenvironment

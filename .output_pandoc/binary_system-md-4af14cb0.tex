@@ -1,0 +1,101 @@
+
+\starttext
+
+\setvariables[meta]
+  [
+  title={Binärsystem},
+author={Niklas von Hirschfeld},
+date={2024-08-12},
+  ]
+
+\MyTitlePage
+
+\page[yes, blank]  % Ensure a new page for the ToC
+
+
+% Start page numbering here
+\setuppagenumber[number=1] % Reset and start numbering from 1
+\setuppagenumbering[location={footer, middle}, alternative=singlesided, state=start]
+
+\startsectionlevel[title={Aufbau},reference={aufbau}]
+
+{\bf Bi}när kommt von \quotation{zwei zuständen}
+{[}@Binary_advantages{]} . Diese können beliebig dargestellt werden,
+üblicherweise werden sie aber mit \quotation{0} und \quotation{1}
+dargestellt. Auf einer CPU werden sie durch physische gatter
+dargestellt, welche entweder auf oder zu sind. Diese werden mit logik
+gattern, wie AND und OR, erweitert um komplexere Rechnungen
+durchzuführen.
+
+\stopsectionlevel
+
+\startsectionlevel[title={Unterschied zum
+Dualsystem},reference={unterschied-zum-dualsystem}]
+
+\stopsectionlevel
+
+\startsectionlevel[title={Rechengesetze},reference={rechengesetze}]
+
+Wie in den meisten Zahlensystemen gibt es Rechengesetze. Es wird jeweils
+stellenweise gerechnet.
+
+\startsectionlevel[title={Addition},reference={addition}]
+
+Die Addition kann, ähnlich wie bei dem Dezimalsystem, schriftlich und
+{\bf stellenweise} durchgeführt. Dafür gibt es vier Fälle, je nachdem,
+welche zwei Ziffern addiert werden.
+
+\startsectionlevel[title={Fall 1},reference={fall-1}]
+
+\startformula 
+0+0=0
+ \stopformula
+
+\stopsectionlevel
+
+\startsectionlevel[title={Fall 1},reference={fall-1-1}]
+
+\startformula 
+0+1=1
+ \stopformula
+
+\stopsectionlevel
+
+\startsectionlevel[title={Fall 1},reference={fall-1-2}]
+
+\startformula 
+1+0=1
+ \stopformula
+
+\stopsectionlevel
+
+\startsectionlevel[title={Fall 1},reference={fall-1-3}]
+
+\startformula 
+1+1=0
+ \stopformula
+
+\startitemize[packed]
+\item
+  Übertrag von 1
+\stopitemize
+
+\stopsectionlevel
+
+\stopsectionlevel
+
+\startsectionlevel[title={Subtraktion},reference={subtraktion}]
+
+\stopsectionlevel
+
+\startsectionlevel[title={Multiplikation},reference={multiplikation}]
+
+\stopsectionlevel
+
+\startsectionlevel[title={Division},reference={division}]
+
+\stopsectionlevel
+
+\stopsectionlevel
+
+\stoptext
