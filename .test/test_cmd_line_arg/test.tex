@@ -1,0 +1,13 @@
+% Use: context --arguments=test=toll test.tex
+\starttext
+
+\doifundefinedelse{test}{Ich binn sooo undefiniert}{Ich bin ja soo definiert}
+
+\setvariable{Namespace}{Key}{\env{test}}
+
+\startluacode
+local value = tokens.getters.macro(tokens.getters.macro("??variables") .. "Namespace:Key")
+context("Gooot this: " .. value)
+\stopluacode
+
+\stoptext

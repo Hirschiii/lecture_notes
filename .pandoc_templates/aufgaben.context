@@ -27,13 +27,10 @@ $endif$
 
 \MyTitlePage
 
-\page[yes, blank]  % Ensure a new page for the ToC
-
 $if(toc)$
 % Table of Contents
 \completecontent
 
-\page[yes, blank]  % Ensure a new page for the ToC
 $endif$
 
 % Start page numbering here
