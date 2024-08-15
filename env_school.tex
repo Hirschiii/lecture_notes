@@ -4,13 +4,11 @@
 
 \setupbodyfont[11pt]
 
-\usebtxdataset[default][sources.bib]
-\setupbtx[dataset=default]
-\usebtxdefinitions[apa] % see p.15
-\definebtxrendering[bibrendering][aps][dataset=default]
+\usebtxdataset[sources.bib]
 
-% enable tracing
-\enabletrackers[publications, publications.crossref, publications.details, publications.cite, publications.strings]
+\usebtxdefinitions[apa]
+
+\setupbtxrendering[continue=yes]
 
 \definereferenceformat [cite]  [type=title,left={},right={}]
 \definereferenceformat [bibpage]   [type=page]

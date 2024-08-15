@@ -21,7 +21,9 @@ function Header(el)
 		)
 		table.insert(blocks, start_paragraph)
 
-		return blocks
+		-- return blocks
+		-- Returning the blocks should not trigger a new paragraph
+		return pandoc.List(blocks)
 	elseif in_paragraph and el.level > 0 and el.level <= 6 then
 		-- Wenn eine andere Überschrift gefunden wird, beenden wir den Paragraph
 		in_paragraph = false

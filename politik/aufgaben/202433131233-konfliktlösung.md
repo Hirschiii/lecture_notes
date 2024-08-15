@@ -11,7 +11,12 @@ publish: false
 
 ## Stichpunkte
 
+- Ein-China-Prinzip
+  - d. h. um den Grundsatz, dass es nur ein China gibt und dass Taiwan Teil dieses Chinas ist.
+
 ## Zusammenfassugn
+
+Während sich der Konflikt von 1949 bis etwa Anfang der 1990er Jahre darum drehte, zu welchem China Taiwan gehört (entweder zur Republik China auf Taiwan oder zur Volksrepublik China auf dem Festland), geht es jetzt darum, ob Taiwan ein souveräner, von China unabhängiger Staat ist.
 
 ## Historischer Hintergrund
 
@@ -30,3 +35,7 @@ publish: false
 ## Konfliktverlauf
 
 ## Konfliktende
+
+# REsources
+
+https://books.google.de/books?hl=en&lr=&id=PuPEEAAAQBAJ&oi=fnd&pg=PP1&dq=China+taiwan+konflikt+analysis&ots=CzTtVPpn0e&sig=-W0bupVzEYQY6XC4MOFHupdzD7M&redir_esc=y#v=onepage&q&f=false
