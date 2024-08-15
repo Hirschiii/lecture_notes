@@ -1,0 +1,73 @@
+
+\setvariables
+  [metadata]
+  [
+  title={Caesercode},
+author={Niklas von Hirschfeld},
+institute={Gymnasium Lüneburger Heide},
+  ]
+
+\starttext
+
+\startcolumnset[twocolumn]
+
+\startblock[title=Einleitung]
+
+Der {\bf Caesercode} (auch Caeser-Verschlüsselung oder -Verschiebung)
+ist ein {\em symmetrisches}\footnote{es wird sowohl für die Ver- wie
+  auch Entschlüsselung der selbe Schlüssel verwendet.}
+Verschlüsselungsverfahren, welches nach Julius Caesar benannt ist.
+Dieser habe es für die Kommunikation mit seinen militärischen
+Verbündeten genutzt.
+
+Bei der Verschlüsselung wird jeder Buchstaben durch einen anderen
+Buchstaben mit einem festen Abstand im Alphabet ersetzt.
+
+\startMPcode
+
+u := 1cm;
+shift_value := 3; % Number of positions to shift in the Caesar cipher
+
+% Function to calculate the shifted character code
+vardef caesar_encrypt(expr char, shift) =
+  if (char >= "a") and (char <= "z"):
+    ((char - "a" + shift) mod 26) + "a"
+  elseif (char >= "A") and (char <= "Z"):
+    ((char - "A" + shift) mod 26) + "A"
+  else:
+    char % Non-alphabetic characters remain unchanged
+  fi
+enddef;
+
+% Example word to encrypt
+string word;
+word := "MetaFun";
+
+% Draw original word
+draw textext("Original:") shifted (0, 2.5u);
+for i=0 upto length(word)-1:
+  draw textext(word[i]) shifted (i*u, 2u);
+endfor;
+
+% Draw arrows indicating encryption
+for i=0 upto length(word)-1:
+  drawarrow ((i*u, 1.8u)--(i*u, 1.2u)) withpen pencircle scaled 0.5pt;
+endfor;
+
+% Draw encrypted word
+draw textext("Encrypted:") shifted (0, u);
+for i=0 upto length(word)-1:
+  numeric encrypted_char;
+  encrypted_char := caesar_encrypt(word[i], shift_value);
+  draw textext(char encrypted_char) shifted (i*u, 0.5u);
+endfor;
+
+% Label indicating the shift value
+draw textext("Shift = " & decimal shift_value) shifted ((length(word)*u + 0.5u), u);
+
+\stopMPcode
+
+\stopblock
+
+\stopcolumnset
+\stoptext

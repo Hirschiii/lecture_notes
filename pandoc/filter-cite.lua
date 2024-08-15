@@ -11,7 +11,8 @@ function Cite(citations)
 		end
 
 		-- Construct the ConTeXt \cite command
-		table.insert(result, pandoc.RawInline("context", "\\crossref[" .. citation_key .. "]"))
+		-- table.insert(result, pandoc.RawInline("context", "\\crossref[" .. citation_key .. "]"))
+		table.insert(result, pandoc.RawInline("context", "\\cite{" .. citation_key .. "}"))
 	end
 
 	return result

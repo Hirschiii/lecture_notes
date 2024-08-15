@@ -6,15 +6,15 @@ export TEXMF="$TEXMF:$HOME/texmf:/usr/local/texlive/2024/texmf-dist"
 
 subjects=("how_to" "mathe" "informatik" "physik" "englisch" "politik" "deutsch" "wun" "seminarfach")
 
-types=("unterricht" "aufgaben" "presentation")
+types=("unterricht" "aufgaben" "presentation" "poster")
 
 unameOut="$(uname -s)"
 case "${unameOut}" in
-    Linux*)     machine=Linux;;
-    Darwin*)    machine=Mac;;
-    CYGWIN*)    machine=Cygwin;;
-    MINGW*)     machine=MinGw;;
-    *)          machine="UNKNOWN:${unameOut}"
+Linux*) machine=Linux ;;
+Darwin*) machine=Mac ;;
+CYGWIN*) machine=Cygwin ;;
+MINGW*) machine=MinGw ;;
+*) machine="UNKNOWN:${unameOut}" ;;
 esac
 
 # Log file to store timestamps
@@ -25,13 +25,12 @@ if [ ! -f "$LOG_FILE" ]; then
 	touch "$LOG_FILE"
 fi
 
-get_file_stamp()
-{
+get_file_stamp() {
 	local file=$1
 	case "$machine" in
-		Linux) stat -c %Y $file;;
-		Mac) stat -f %Sm -t %Y%m%d%H%M%S $file;;
-		*) ;;
+	Linux) stat -c %Y $file ;;
+	Mac) stat -f %Sm -t %Y%m%d%H%M%S $file ;;
+	*) ;;
 	esac
 }
 
@@ -47,14 +46,11 @@ update_log() {
 	local new_timestamp="$2"
 
 	# Remove the old entry if it exists
-	echo "Try to delete: $path"
+	escaped_path=$(echo "$path" | sed 's/[^^]/[&]/g; s/\^/\\^/g')
 	if [[ $machine == Mac ]]; then
-		escaped_path=$(echo "$path" | sed 's/[^^]/[&]/g; s/\^/\\^/g')
-		echo "ON mac"
 		sed -i '' "/^$escaped_path:/d" "$LOG_FILE"
 	else
-		echo "ON linux"
-		sed -i "/^$path:/d" "$LOG_FILE"
+		sed -i "/^$escaped_path:/d" "$LOG_FILE"
 	fi
 
 	# Add the new entry
@@ -118,9 +114,11 @@ compile_unterricht() {
 	filename="${subject}-unterricht"
 	if check_directory "${subject}/unterricht/"; then
 		echo "Compiling ${subject}"
-		echo "context --jobname=\"${subject}-unterricht\" --mode=\"$subject\" --result=\"$filename\" prd_unterricht.tex &>/dev/null"
 		context --jobname="${subject}-unterricht" --mode="$subject" --result="$filename" prd_unterricht.tex &>/dev/null
 		move_file $filename $subject "unterricht"
+		if [ $? -ne 0 ]; then
+			echo "context --jobname=\"${subject}-unterricht\" --mode=\"$subject\" --result=\"$filename\" prd_unterricht.tex &>/dev/null"
+		fi
 	fi
 }
 
@@ -137,9 +135,35 @@ compile_aufgaben() {
 			if check_file $file; then
 				echo "Compiling ${file}"
 
-				echo "context --jobname=\"${file}-aufgaben\" --result=\"$basename\" --arguments=file=\"${file}\" prd_aufgaben.tex &>/dev/null"
 				context --jobname="${file}-aufgaben" --result="$basename" --arguments=file="${file}" prd_aufgaben.tex &>/dev/null
 				move_file $basename $subject "aufgaben"
+			fi
+
+			# Add your file processing commands here
+		fi
+	done
+}
+
+compile_poster() {
+	subject=$1
+	filename=$2
+
+	# Loop through each file in the directory
+	find "$subject/poster" -type f | while read -r file; do
+		# Add your file processing commands here
+		if [ -f "$file" ]; then
+			basename=$(basename $file)
+			basename="${basename%.*}"
+			if check_file $file; then
+				echo "Compiling ${file}"
+
+				context --jobname="${file}-poster" --result="$basename" --arguments=file="${file}" prd_poster.tex &>/dev/null
+				move_file $basename $subject "poster"
+				if [ $? -ne 0 ]; then
+					echo "context --jobname=\"${file}-poster\" --result=\"$basename\" --arguments=file=\"${file}\" prd_poster.tex &>/dev/null"
+				else
+					echo "workd with ${?}"
+				fi
 			fi
 
 			# Add your file processing commands here
@@ -159,6 +183,7 @@ for i in "${subjects[@]}"; do
 	echo "Checking: $i"
 	compile_unterricht "$i"
 	compile_aufgaben "$i"
+	compile_poster "$i"
 	# compile_presentation(i)
 done
 

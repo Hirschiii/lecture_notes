@@ -1,13 +1,7 @@
----
-title: "Überlagerung von Wellen"
-subtitle: "Rückblick"
-author: Niklas von Hirschfeld
-date: 2024-08-14
-toc: true
-publish: false
----
+\starttext
+\chapter[title={2024-08-14 - Überlagerung von
+Wellen},reference={Überlagerung von Wellen}]
 
-```{=context}
 \placefigure[here][fig:waves_no_offset]{Überlagerung zwei exakt gleicher Wellen}{
 \startMPcode
     draw function (1, "x", ".5 * sin(2x)", 1, 10, .01) scaled 1.5cm
@@ -33,19 +27,20 @@ publish: false
     withpen pencircle scaled 1mm withcolor transparent(1,.5,black);
 \stopMPcode
 }
-```
 
-Im ersten Beispiel[@fig:waves_no_offset] wird die Amplitude _verdoppelt_, im zweiten Beispiel[@fig:waves_offset] gleichen sich die beiden Wellen zu _keiner_ Welle aus.
+Im ersten Beispiel\cite{fig:waves_no_offset} wird die Amplitude {\em
+verdoppelt}, im zweiten Beispiel\cite{fig:waves_offset} gleichen sich
+die beiden Wellen zu {\em keiner} Welle aus.
 
-Hier betrachten wir immer 2 gleichartige Wellen und interesieren uns für die
+Hier betrachten wir immer 2 gleichartige Wellen und interesieren uns für
+die
 
 Wällenlänge: $\lambda$
 
-$$
+\startformula 
 \lambda = \frac{g \cdot \sin(\text{arcan}\frac{a_n}{l})}{n}=\frac{g\cdot \sin(\tan^{-1}(\frac{a_n}{l}))}{n}
-$$
+ \stopformula
 
-```{=context}
 \placefigure[here][fig:waves_interference]{Überlagerung von Wellen durch ein Gitter}{
 \startMPcode
     % Define the size of the pattern
@@ -103,6 +98,8 @@ $$
     withpen pencircle scaled 1mm withcolor transparent(1,.5,black);
 \stopMPcode
 }
-```
 
-Abstand zwischen 2 Maxima gleicher Ordnung messen und durch zwei Dividieren.
+Abstand zwischen 2 Maxima gleicher Ordnung messen und durch zwei
+Dividieren.
+
+\stoptext

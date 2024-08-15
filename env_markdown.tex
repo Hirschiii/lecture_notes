@@ -9,8 +9,9 @@
 				  --lua-filter=pandoc/filter-cite.lua
 				  --lua-filter=pandoc/filter-pararef.lua
 				  --lua-filter=pandoc/filter-paragraph_h5_filter.lua
+				  --lua-filter=pandoc/filter-\externalfilterparameter{mode}.lua
 				  --bibliography=sources.bib
-				  --template=\externalfilterparameter{template} 
+				  --template=./pandoc/template-\externalfilterparameter{mode}.context
                   -i \externalfilterinputfile\space
                   -o \externalfilteroutputfile},
    format=markdown,

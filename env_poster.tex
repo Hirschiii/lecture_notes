@@ -1,0 +1,103 @@
+\startenvironment env_poster
+
+\setuppapersize[A4][A4]
+
+\setupbodyfont[11pt]
+
+\setuplayout
+  [
+    % cutspace=2cm,
+    leftmargin=1cm,
+    leftmargindistance=0.5cm,
+    width=middle,
+    rightmargin=1cm,
+	rightmargindistance=0.5cm,
+    % backspace=5cm,
+    % %
+    topspace=1cm,
+    header=3cm,
+    headerdistance=2cm,
+    height=middle,
+    % footerdistance=0pt,
+    footer=0pt,
+    bottomspace=2cm,
+  ]
+
+\setupbackgrounds
+  [page]
+  [background=color,backgroundcolor=gray]
+
+\definecolumnset
+  [twocolumn]
+  [n=2]
+
+\setupcolumnset[twocolumn]
+  [
+    distance=4cm,
+    background=color,
+    backgroundcolor=white,
+    backgroundoffset=1.5cm,
+	% width=5cm,
+    frame=on,
+    frameoffset=1.5cm,
+    rulethickness=1pt,
+  ]
+
+\definestyle
+  [titlestyle]
+  [style={\tfd\setupinterlinespace\WORD}]
+\definestyle
+  [authorstyle]
+  [style={\tfc\setupinterlinespace}]
+\definestyle
+  [institutestyle]
+  [style={\tfb\setupinterlinespace}]
+
+\startsetups header:title
+  \framed
+    [
+      frame=off,
+      height=\headerheight,
+      width=\dimexpr\makeupwidth+3cm\relax,
+      align=middle,
+    ]{%
+      \titlestyle{\getvariable{metadata}{title}\par}
+
+      \vfill
+
+      \authorstyle{\getvariable{metadata}{author}\par}
+
+      \vfill
+
+      \institutestyle{\getvariable{metadata}{institute}\par}
+    }
+\stopsetups
+
+% \startsetups header:logo
+%   \framed
+%     [
+%       frame=off,
+%       height=\headerheight,
+%       width=10cm,
+%       align=middle,
+%     ]{%
+%       \getvariable{metadata}{logo}
+%     }
+% \stopsetups
+
+% \setupheadertexts[\setups{header:logo}][\setups{header:title}]
+\setupheadertexts[\setups{header:title}]
+\setuppagenumbering[location=]
+
+\definehead
+  [block]
+  [subject]  
+  [
+    style=\bfa,
+    align=middle,
+    before={\blank[line]},
+    after={\blank[line]},
+    textcommand={\framed[width=.9\textwidth]},
+  ]
+
+\stopenvironment
