@@ -1,10 +1,9 @@
 ---
 title: "Binärsystem"
+subtitle: "Eine Erläuterung und Vergleich"
 author: Niklas von Hirschfeld
 date: 2024-08-12
-tags:
-  -
-enableToc: true
+toc: true
 publish: false
 ---
 

@@ -1,5 +1,4 @@
 
-\starttext
 
 \setvariables[meta]
   [
@@ -9,16 +8,17 @@ author={Niklas von Hirschfeld},
 date={2024-08-12},
   ]
 
-\MyTitlePage
+\starttext
+
+\startfrontmatter
+\component c_titlepage
 
 % Table of Contents
-\completecontent
+\component c_content
 
+\stopfrontmatter
 
-% Start page numbering here
-\setuppagenumber[number=1] % Reset and start numbering from 1
-\setuppagenumbering[location={footer, middle}, alternative=singlesided, state=start]
-
+\startbodymatter
 \startsectionlevel[title={Aufgaben},reference={aufgaben}]
 
 \startsectionlevel[title={S. 214},reference={s.-214}]
@@ -327,5 +327,10 @@ Parametergleichung mit eingeben.
 \stopsectionlevel
 
 \stopsectionlevel
+
+\stopbodymatter
+
+\startbackmatter
+\stopbackmatter
 
 \stoptext

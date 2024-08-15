@@ -1,6 +1,7 @@
 \startproduct prd_unterricht
 \project project_school
 \environment env_document
+\environment env_unterricht
 
 
 \startmode[how_to]
@@ -43,6 +44,11 @@
 \setvariables[notes][path=wun/unterricht]
 \stopmode
 
+\startmode[seminarfach]
+\setvariables[meta][title={Seminarfach}]
+\setvariables[notes][path=seminarfach/unterricht]
+\stopmode
+
 \setvariables[meta]
   [
    subtitle={Unterricht - Abitur 2025},
@@ -55,8 +61,8 @@
 \starttext
 
 \startfrontmatter
-\MyTitlePage
-\completecontent
+\component c_titlepage
+\component c_content
 \stopfrontmatter
 
 % Start page numbering here
@@ -65,12 +71,12 @@
 
 \startluacode
 	local path = tokens.getters.macro(tokens.getters.macro("??variables") .. "notes:path")
-    include_markdown_files(path, "./.pandoc_templates/lecture-notes.context")
+    include_markdown_files(path, "./pandoc/template-lecture-notes.context")
 \stopluacode
 
 \stopbodymatter
 
-
+\component c_bibliography
 
 \stoptext
 \stopproduct

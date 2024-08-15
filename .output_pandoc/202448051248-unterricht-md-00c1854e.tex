@@ -1,0 +1,89 @@
+\starttext
+\chapter[title={2024-08-12 - Wiederholung und
+Einleitung},reference={Wiederholung und Einleitung}]
+
+\startsectionlevel[title={Wiederholung},reference={wiederholung}]
+
+\startitemize[packed]
+\item
+  Was ist ein koordinaten system
+\item
+  Was sind Vektoren
+  \startitemize[packed]
+  \item
+    Lagen
+  \item
+    Gleichungen
+  \item
+    Kolineare Koordinaten
+  \stopitemize
+\item
+  Was sind Geraden
+  \startitemize[packed]
+  \item
+    Lagen
+  \item
+    Gleichungen
+  \stopitemize
+\item
+  Was sind Ebenen
+  \startitemize[packed]
+  \item
+    Lagen
+  \item
+    Gleichungen
+  \stopitemize
+\stopitemize
+
+\startsectionlevel[title={Vektorprodukt},reference={vektorprodukt}]
+
+\startsectionlevel[title={Kreuzprodukt},reference={kreuzprodukt}]
+
+\startformula 
+\begin{aligned}
+\vec{u} \times \vec{v} = \begin{pmatrix}
+u_2 \cdot v_3 - u_3 \cdot v_2\\
+u_3 \cdot v_1 - u_1 \cdot v_3\\
+u_1 \cdot v_2 - u_2 \cdot 1
+\end{pmatrix}
+\end{aligned}
+ \stopformula
+
+\type"{image} ./media/kreuzprodukt_hilfe.png :alt: fishy :class: bg-primary :width: 200px :align: center"
+
+Der Normalvektor steht Orthogonal zu einem Vektor, einger Gerade oder
+einer Ebene. Für eine Ebene kann er mit dem Kreuzprodukt der
+Spannvektroen dieser berechnet werden.
+
+Den Normalvektor Berechnen: $\vec{n} = \vec{AB} \times \vec{AC}$
+
+Normalengleichung:
+
+\startformula 
+E: \quad (\vec{x}-\vec{p})\cdot \vec{n}=0
+ \stopformula
+
+\startitemize[packed]
+\item
+  $\vec{p}$ Stützvektor
+\stopitemize
+
+\stopsectionlevel
+
+\startsectionlevel[title={Skalar},reference={skalar}]
+
+\stopsectionlevel
+
+\stopsectionlevel
+
+\startsectionlevel[title={Ebenen},reference={ebenen}]
+
+\startformula 
+E: \quad \frac{x_1}{u}+\frac{x_2}{v}+\frac{x_3}{w}=1
+ \stopformula
+
+\stopsectionlevel
+
+\stopsectionlevel
+
+\stoptext

@@ -1,0 +1,44 @@
+
+
+\setvariables[meta]
+  [
+  title={Citation test},
+subtitle={Test different styles},
+author={Niklas von Hirschfeld},
+date={2024-08-13},
+  ]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+
+% Table of Contents
+\component c_content
+
+\stopfrontmatter
+
+\startbodymatter
+\startsectionlevel[title={KA},reference={ka}]
+
+\startitemize[packed]
+\item
+  test \crossref[Binary_advantages]
+\item
+  test {[}^Binary_advantages{]}
+\item
+  test \footnote{Binary_advantages}
+\item
+  test \crossref[Binary_advantages]
+\item
+  test {[}Binary_advantages{]}
+\stopitemize
+
+\stopsectionlevel
+
+\stopbodymatter
+
+\startbackmatter
+\stopbackmatter
+
+\stoptext

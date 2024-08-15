@@ -7,7 +7,6 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
-\starttext
 
 \setvariables[meta]
   [
@@ -25,21 +24,26 @@ date={$date$},
 $endif$
   ]
 
-\MyTitlePage
+\starttext
+
+\startfrontmatter
+\component c_titlepage
 
 $if(toc)$
 % Table of Contents
-\completecontent
-
+\component c_content
 $endif$
 
-% Start page numbering here
-\setuppagenumber[number=1] % Reset and start numbering from 1
-\setuppagenumbering[location={footer, middle}, alternative=singlesided, state=start]
+\stopfrontmatter
 
+\startbodymatter
 $body$
+\stopbodymatter
 
+\startbackmatter
 $for(include-after)$
 $include-after$
 $endfor$
+\stopbackmatter
+
 \stoptext

@@ -1,7 +1,18 @@
 \startenvironment env_school
 
-\setupbodyfont[11pt, sans]
+\usemodule[crossref][refColor=green,reffixColor=blue,refrefColor=red]
 
-% \usebtxdataset[sources.bib]
+\setupbodyfont[11pt]
+
+\usebtxdataset[default][sources.bib]
+\setupbtx[dataset=default]
+\usebtxdefinitions[apa] % see p.15
+\definebtxrendering[bibrendering][aps][dataset=default]
+
+% enable tracing
+\enabletrackers[publications, publications.crossref, publications.details, publications.cite, publications.strings]
+
+\definereferenceformat [cite]  [type=title,left={},right={}]
+\definereferenceformat [bibpage]   [type=page]
 
 \stopenvironment

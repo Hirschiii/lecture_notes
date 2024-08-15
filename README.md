@@ -1,3 +1,10 @@
+# TODOS
+
+- Beispiel block
+- Wissen Dokument fuer jedes Fach
+- Infoblock etc
+- Pararef filter only in Documents
+
 # Telefonate
 
 Module fuer firefox epub
@@ -8,7 +15,7 @@ Wenn ich akademische texte schreibe
 
 Semantische referencierung
 
-Wenn ich convertiere 
+Wenn ich convertiere
 
 Fuer markdown ein symbol ausdenken
 

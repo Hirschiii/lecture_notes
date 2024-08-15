@@ -1,6 +1,8 @@
 \startenvironment env_document
 
 % \usepath[{mathe, mathe/unterricht}]
+\usemodule[pararef]
+\usemodule [setups]
 
 \startluacode
 function include_markdown_files(directory, template)
@@ -14,8 +16,6 @@ end
 \stopluacode
 
 
-% \setupinteractionscreen[option=bookmark]
-\setuppapersize[A4]
 
 \setupinteraction                                           
   [state=start,                                             % enable hyperlinks
@@ -81,10 +81,6 @@ end
 \setupxtable[foot][]
 \setupxtable[lastrow][bottomframe=on]
 
-
-% Setup the title page
-\unprotect
-
 % \setups[namespace:set] is automatically called right after 'set' is assigned
 \setvariables[meta]
   [title={Schul Notizen},
@@ -92,21 +88,15 @@ end
    date={},
    author={Niklas von Hirschfeld},
   ]
-  
 
-\def\MyTitlePage{
-\startalignment[middle]
-    \definedfont[SerifBold at 24pt]
-	\getvariable{meta}{title}
-    \blank[3*line]
-    \definedfont[Serif at 18pt]
-	\getvariable{meta}{subtitle}
-    \blank[2*line]
-	\getvariable{meta}{author}
-\stopalignment
+% \setupinteractionscreen[option=bookmark]
+\setuppapersize[A4]
 
-}
+% \showframe
+% \showgrid
 
-\protect
+% \showlayout
+% \showframe
+
 
 \stopenvironment

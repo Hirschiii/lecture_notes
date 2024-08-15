@@ -5,7 +5,11 @@
 
 \defineexternalfilter
   [markdown]
-  [filtercommand={pandoc -t context 
+  [filtercommand={pandoc -t context
+				  --lua-filter=pandoc/filter-cite.lua
+				  --lua-filter=pandoc/filter-pararef.lua
+				  --lua-filter=pandoc/filter-paragraph_h5_filter.lua
+				  --bibliography=sources.bib
 				  --template=\externalfilterparameter{template} 
                   -i \externalfilterinputfile\space
                   -o \externalfilteroutputfile},

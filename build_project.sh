@@ -4,9 +4,18 @@
 
 export TEXMF="$TEXMF:$HOME/texmf:/usr/local/texlive/2024/texmf-dist"
 
-subjects=("mathe" "informatik" "physik" "englisch" "politik" "deutsch" "wun")
+subjects=("how_to" "mathe" "informatik" "physik" "englisch" "politik" "deutsch" "wun" "seminarfach")
 
 types=("unterricht" "aufgaben" "presentation")
+
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
 
 # Log file to store timestamps
 LOG_FILE="modification.log"
@@ -15,6 +24,16 @@ LOG_FILE="modification.log"
 if [ ! -f "$LOG_FILE" ]; then
 	touch "$LOG_FILE"
 fi
+
+get_file_stamp()
+{
+	local file=$1
+	case "$machine" in
+		Linux) stat -c %Y $file;;
+		Mac) stat -f %Sm -t %Y%m%d%H%M%S $file;;
+		*) ;;
+	esac
+}
 
 # Function to retrieve the last logged timestamp for a path (file or directory)
 get_logged_timestamp() {
@@ -29,7 +48,14 @@ update_log() {
 
 	# Remove the old entry if it exists
 	echo "Try to delete: $path"
-	sed -i "/^$path:/d" "$LOG_FILE"
+	if [[ $machine == Mac ]]; then
+		escaped_path=$(echo "$path" | sed 's/[^^]/[&]/g; s/\^/\\^/g')
+		echo "ON mac"
+		sed -i '' "/^$escaped_path:/d" "$LOG_FILE"
+	else
+		echo "ON linux"
+		sed -i "/^$path:/d" "$LOG_FILE"
+	fi
 
 	# Add the new entry
 	echo "$path:$new_timestamp" >>"$LOG_FILE"
@@ -38,7 +64,7 @@ update_log() {
 # Function to check and update a single file
 check_file() {
 	local file="$1"
-	local current_timestamp=$(stat -c %Y "$file")
+	local current_timestamp=$(get_file_stamp $file)
 	local last_logged_timestamp=$(get_logged_timestamp "$file")
 
 	if [ "$current_timestamp" != "$last_logged_timestamp" ]; then
@@ -54,7 +80,7 @@ check_file() {
 # Function to check and update a directory
 check_directory() {
 	local dir="$1"
-	local current_timestamp=$(stat -c %Y "$dir")
+	local current_timestamp=$(get_file_stamp "$dir")
 	local last_logged_timestamp=$(get_logged_timestamp "$dir")
 
 	if [ "$current_timestamp" != "$last_logged_timestamp" ]; then
@@ -90,9 +116,9 @@ move_file() {
 compile_unterricht() {
 	subject=$1
 	filename="${subject}-unterricht"
-	echo "Check dir: $subject"
 	if check_directory "${subject}/unterricht/"; then
 		echo "Compiling ${subject}"
+		echo "context --jobname=\"${subject}-unterricht\" --mode=\"$subject\" --result=\"$filename\" prd_unterricht.tex &>/dev/null"
 		context --jobname="${subject}-unterricht" --mode="$subject" --result="$filename" prd_unterricht.tex &>/dev/null
 		move_file $filename $subject "unterricht"
 	fi
@@ -108,14 +134,13 @@ compile_aufgaben() {
 		if [ -f "$file" ]; then
 			basename=$(basename $file)
 			basename="${basename%.*}"
-			echo "chekc: $file"
 			if check_file $file; then
 				echo "Compiling ${file}"
 
-				# context --jobname="${file}-aufgaben" --result="$basename" --arguments=file="${subject}/aufgaben/${file}" prd_aufgaben.tex &>/dev/null
+				echo "context --jobname=\"${file}-aufgaben\" --result=\"$basename\" --arguments=file=\"${file}\" prd_aufgaben.tex &>/dev/null"
 				context --jobname="${file}-aufgaben" --result="$basename" --arguments=file="${file}" prd_aufgaben.tex &>/dev/null
+				move_file $basename $subject "aufgaben"
 			fi
-			move_file $basename $subject "aufgaben"
 
 			# Add your file processing commands here
 		fi
@@ -131,6 +156,7 @@ compile_presentation() {
 }
 
 for i in "${subjects[@]}"; do
+	echo "Checking: $i"
 	compile_unterricht "$i"
 	compile_aufgaben "$i"
 	# compile_presentation(i)

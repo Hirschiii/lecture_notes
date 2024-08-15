@@ -1,24 +1,28 @@
 
-\starttext
 
 \setvariables[meta]
   [
   title={Binärsystem},
+subtitle={Eine Erläuterung und Vergleich},
 author={Niklas von Hirschfeld},
 date={2024-08-12},
   ]
 
-\MyTitlePage
+\starttext
 
+\startfrontmatter
+\component c_titlepage
 
-% Start page numbering here
-\setuppagenumber[number=1] % Reset and start numbering from 1
-\setuppagenumbering[location={footer, middle}, alternative=singlesided, state=start]
+% Table of Contents
+\component c_content
 
+\stopfrontmatter
+
+\startbodymatter
 \startsectionlevel[title={Aufbau},reference={aufbau}]
 
 {\bf Bi}när kommt von \quotation{zwei zuständen}
-{[}@Binary_advantages{]} . Diese können beliebig dargestellt werden,
+\crossref[Binary_advantages] . Diese können beliebig dargestellt werden,
 üblicherweise werden sie aber mit \quotation{0} und \quotation{1}
 dargestellt. Auf einer CPU werden sie durch physische gatter
 dargestellt, welche entweder auf oder zu sind. Diese werden mit logik
@@ -95,5 +99,10 @@ welche zwei Ziffern addiert werden.
 \stopsectionlevel
 
 \stopsectionlevel
+
+\stopbodymatter
+
+\startbackmatter
+\stopbackmatter
 
 \stoptext
