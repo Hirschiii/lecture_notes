@@ -4,23 +4,25 @@
 
 \setupbodyfont[11pt]
 
+\setupalign[hanging, hz, verytolerant]
+\language[de]
+
+\setupindenting[yes,medium]
+
 \setuplayout
   [
-    % cutspace=2cm,
-    leftmargin=1cm,
-    leftmargindistance=0.5cm,
-    width=middle,
-    rightmargin=1cm,
-	rightmargindistance=0.5cm,
-    % backspace=5cm,
-    % %
-    topspace=1cm,
-    header=3cm,
-    headerdistance=2cm,
-    height=middle,
-    % footerdistance=0pt,
-    footer=0pt,
-    bottomspace=2cm,
+	width=middle,
+	height=middle,
+   	backspace=1.5cm,
+   	topspace=1.5cm,
+   	footer=0cm,
+   	bottomspace=1.5cm,
+   	cutspace=0cm,
+   	grid=no,
+   	margindistance=0.5cm,
+   	margin=0cm,
+	header=3cm,
+	headerdistance=1cm,
   ]
 
 \setupbackgrounds
@@ -33,13 +35,13 @@
 
 \setupcolumnset[twocolumn]
   [
-    distance=4cm,
+    distance=2cm,
     background=color,
     backgroundcolor=white,
-    backgroundoffset=1.5cm,
+    backgroundoffset=0.5cm,
 	% width=5cm,
     frame=on,
-    frameoffset=1.5cm,
+    frameoffset=0.5cm,
     rulethickness=1pt,
   ]
 
@@ -99,5 +101,10 @@
     after={\blank[line]},
     textcommand={\framed[width=.9\textwidth]},
   ]
+
+% \showframe
+% \showgrid
+%
+% \showlayout
 
 \stopenvironment
