@@ -12,10 +12,8 @@ publish: false
 **Bi**när kommt von "zwei zuständen" [@Binary_advantages] . Diese können beliebig
 dargestellt werden, üblicherweise werden sie aber mit "0" und "1" dargestellt.
 Auf einer CPU werden sie durch physische gatter dargestellt, welche entweder
-auf oder zu sind. Diese[@cicero-tuscu2011] werden mit logik gattern, wie AND und OR, erweitert um
+auf oder zu sind. Diese werden mit logik gattern, wie AND und OR, erweitert um
 komplexere Rechnungen durchzuführen.
-
-
 
 # Unterschied zum Dualsystem
 
