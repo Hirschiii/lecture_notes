@@ -1,0 +1,71 @@
+\startbuffer[biblio]
+
+@Book{cicero-tuscu2011,
+ author     = {Cicéron, Marcus Tullius},
+ editor     = {Fohlen, G.},
+ publisher  = {Les Belles Lettres},
+ title      = {Tusculanes},
+ year       = {2011},
+ address    = {Paris},
+ edition    = {7e tirage},
+ isbn       = {9782251010830},
+ series     = {œuvres philosophiques},
+ volume     = {1},
+ ppn_gvk    = {1823774121},
+ translator = {Jules Humbert},
+}
+
+@Book{Aristote2008,
+ Title                    = {Les Politiques},
+ Author                   = {Aristote},
+ Editor                   = {Pellegrin, Pierre},
+ Publisher                = {Garnier-Flammarion},
+ Year                     = {2008},
+ Address                  = {Paris, France},
+ Series                   = {Le monde de la philosophie},
+ Date                     = {2008},
+ ISBN                     = {978-2-08-121816-1},
+ Location                 = {Paris, France},
+ Pagetotal                = {xxiii+518},
+ Translator               = {Pierre Pellegrin}
+}
+\stopbuffer
+
+\usebtxdataset[ancient philosophy][biblio.buffer]
+
+\usebtxdefinitions[apa]
+
+\definebtxrendering[ancient philosophy][apa][dataset=ancient philosophy]
+
+\setupbtxrendering[continue=yes]
+
+\starttext
+
+\startchapter[title={An Introduction To Philosophy}]
+
+In the notes that follow, we will focus on philosophical thought as political philosophy. Aristotle, the Greek philosopher who published and commented on the Constitutions of the ancient Greek cities, begins his work {Politics} with the thesis that {man is a political animal}\footnote{\cite[alternative=entry][ancient philosophy::Aristote2008]}.
+
+
+Cicero, the great politician and scholarly writer, had the well-known phrase, \quotation{Socrates brought philosophy down from heaven to earth.}\footnote{\cite[alternative=entry][ancient philosophy::cicero-tuscu2011]}, which refers to the fundamental question of philosophy's interest in {\it human things}.
+
+
+\stopchapter
+
+\starttext
+
+\startbackmatter
+
+\startchapter[title={Bibliographie}]
+
+\startsection[title={Ancient Philosophy}]
+
+
+\placelistofpublications[ancient philosophy][method=local]
+
+\stopsection
+
+\stopchapter
+
+\stopbackmatter
+
+\stoptext

@@ -111,10 +111,11 @@ move_file() {
 
 compile_unterricht() {
 	subject=$1
+	mode=$2
 	filename="${subject}-unterricht"
 	if check_directory "${subject}/unterricht/"; then
 		echo "Compiling ${subject}"
-		context --jobname="${subject}-unterricht" --mode="$subject" --result="$filename" prd_unterricht.tex &>/dev/null
+		context --mode=$mode --jobname="${subject}-unterricht" --mode="$subject" --result="$filename" prd_unterricht.tex &>/dev/null
 		move_file $filename $subject "unterricht"
 		if [ $? -ne 0 ]; then
 			echo "context --jobname=\"${subject}-unterricht\" --mode=\"$subject\" --result=\"$filename\" prd_unterricht.tex &>/dev/null"
@@ -124,7 +125,7 @@ compile_unterricht() {
 
 compile_aufgaben() {
 	subject=$1
-	filename=$2
+	mode=$2
 
 	# Loop through each file in the directory
 	find "$subject/aufgaben" -type f | while read -r file; do
@@ -135,8 +136,11 @@ compile_aufgaben() {
 			if check_file $file; then
 				echo "Compiling ${file}"
 
-				context --jobname="${file}-aufgaben" --result="$basename" --arguments=file="${file}" prd_aufgaben.tex &>/dev/null
+				context --mode=$mode --jobname="${file}-aufgaben" --result="$basename" --arguments=file="${file}" prd_aufgaben.tex &>/dev/null
 				move_file $basename $subject "aufgaben"
+				if [ $? -ne 0 ]; then
+					echo "context --jobname=\"${file}-aufgaben\" --result=\"$basename\" --arguments=file=\"${file}\" prd_aufgaben.tex &>/dev/null"
+				fi
 			fi
 
 			# Add your file processing commands here
@@ -173,7 +177,6 @@ compile_poster() {
 
 compile_presentation() {
 	subject=$1
-	filename=
 	if check_if_build "$subject" "presentation"; then
 		context --jobname="${subject}-presentation" --mode="$subject" --result="$filename" prd_unterricht.tex
 	fi
@@ -181,9 +184,9 @@ compile_presentation() {
 
 for i in "${subjects[@]}"; do
 	echo "Checking: $i"
-	compile_unterricht "$i"
-	compile_aufgaben "$i"
-	compile_poster "$i"
+	compile_unterricht "$i" "pdf"
+	compile_aufgaben "$i" "pdf"
+	compile_poster "$i" "pdf"
 	# compile_presentation(i)
 done
 
