@@ -3,4 +3,4 @@ modification.log
 *.log
 *.tuc
 *.log
-*.pdf
+.output_pandoc

@@ -17,7 +17,7 @@ function Header(el)
 		paragraph_title = pandoc.utils.stringify(el.content)
 		local start_paragraph = pandoc.RawBlock(
 			"context",
-			"\\startParagraph{reference=" .. paragraph_title .. ",title=" .. paragraph_title .. "}"
+			"\\startParagraph[reference=" .. paragraph_title .. ",title=" .. paragraph_title .. "]"
 		)
 		table.insert(blocks, start_paragraph)
 

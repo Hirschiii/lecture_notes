@@ -111,14 +111,26 @@ move_file() {
 
 compile_unterricht() {
 	subject=$1
-	mode=$2
 	filename="${subject}-unterricht"
 	if check_directory "${subject}/unterricht/"; then
-		echo "Compiling ${subject}"
-		context --mode=$mode --jobname="${subject}-unterricht" --mode="$subject" --result="$filename" prd_unterricht.tex &>/dev/null
+		echo "Compiling ${subject} - unterricht"
+		context --jobname="${subject}-unterricht" --mode="$subject" --result="$filename" prd_unterricht.tex &>/dev/null
 		move_file $filename $subject "unterricht"
 		if [ $? -ne 0 ]; then
 			echo "context --jobname=\"${subject}-unterricht\" --mode=\"$subject\" --result=\"$filename\" prd_unterricht.tex &>/dev/null"
+		fi
+	fi
+}
+
+compile_wissen() {
+	subject=$1
+	filename="${subject}-wissen"
+	if check_directory "${subject}/wissen/"; then
+		echo "Compiling ${subject} - wissen"
+		context --jobname="${subject}-wissen" --mode="$subject" --result="$filename" prd_wissen.tex &>/dev/null
+		move_file $filename $subject "wissen"
+		if [ $? -ne 0 ]; then
+			echo "context --jobname=\"${subject}-wissen\" --mode=\"$subject\" --result=\"$filename\" prd_wissen.tex &>/dev/null"
 		fi
 	fi
 }
@@ -134,9 +146,10 @@ compile_aufgaben() {
 			basename=$(basename $file)
 			basename="${basename%.*}"
 			if check_file $file; then
-				echo "Compiling ${file}"
+				echo "Compiling ${file} - aufgaben"
 
 				context --mode=$mode --jobname="${file}-aufgaben" --result="$basename" --arguments=file="${file}" prd_aufgaben.tex &>/dev/null
+				echo "context --jobname=\"${file}-aufgaben\" --result=\"$basename\" --arguments=file=\"${file}\" prd_aufgaben.tex &>/dev/null"
 				move_file $basename $subject "aufgaben"
 				if [ $? -ne 0 ]; then
 					echo "context --jobname=\"${file}-aufgaben\" --result=\"$basename\" --arguments=file=\"${file}\" prd_aufgaben.tex &>/dev/null"
@@ -165,8 +178,6 @@ compile_poster() {
 				move_file $basename $subject "poster"
 				if [ $? -ne 0 ]; then
 					echo "context --jobname=\"${file}-poster\" --result=\"$basename\" --arguments=file=\"${file}\" prd_poster.tex &>/dev/null"
-				else
-					echo "workd with ${?}"
 				fi
 			fi
 
@@ -184,9 +195,10 @@ compile_presentation() {
 
 for i in "${subjects[@]}"; do
 	echo "Checking: $i"
-	compile_unterricht "$i" "pdf"
-	compile_aufgaben "$i" "pdf"
-	compile_poster "$i" "pdf"
+	compile_unterricht "$i" 
+	compile_wissen "$i" 
+	compile_aufgaben "$i" 
+	compile_poster "$i" 
 	# compile_presentation(i)
 done
 

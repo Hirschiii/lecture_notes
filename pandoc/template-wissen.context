@@ -1,0 +1,13 @@
+\starttext
+$if(title)$
+\chapter[title={$date$ - $title$},reference={$title$}]
+$else$
+\chapter[title={$sourcefile$},reference={$sourcefile$}]
+$endif$
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+\stoptext

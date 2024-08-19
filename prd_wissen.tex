@@ -1,57 +1,57 @@
-\startproduct prd_unterricht
+\startproduct prd_wissen
 \project project_school
 \environment env_document
-\environment env_unterricht
+\environment env_wissen
 
 
 \startmode[how_to]
 \setvariables[meta][title={HowTo}]
-\setvariables[notes][path=how_to/unterricht]
+\setvariables[notes][path=how_to/wissen]
 \stopmode
 
 \startmode[mathe]
 \setvariables[meta][title={Mathematik}]
-\setvariables[notes][path=mathe/unterricht]
+\setvariables[notes][path=mathe/wissen]
 \stopmode
 
 \startmode[informatik]
 \setvariables[meta][title={Informatik}]
-\setvariables[notes][path=informatik/unterricht]
+\setvariables[notes][path=informatik/wissen]
 \stopmode
 
 \startmode[physik]
 \setvariables[meta][title={Physik}]
-\setvariables[notes][path=physik/unterricht]
+\setvariables[notes][path=physik/wissen]
 \stopmode
 
 \startmode[englisch]
 \setvariables[meta][title={Englisch}]
-\setvariables[notes][path=englisch/unterricht]
+\setvariables[notes][path=englisch/wissen]
 \stopmode
 
 \startmode[politik]
 \setvariables[meta][title={Politik}]
-\setvariables[notes][path=politik/unterricht]
+\setvariables[notes][path=politik/wissen]
 \stopmode
 
 \startmode[deutsch]
 \setvariables[meta][title={Deutsch}]
-\setvariables[notes][path=deutsch/unterricht]
+\setvariables[notes][path=deutsch/wissen]
 \stopmode
 
 \startmode[wun]
 \setvariables[meta][title={Werte und Normen}]
-\setvariables[notes][path=wun/unterricht]
+\setvariables[notes][path=wun/wissen]
 \stopmode
 
 \startmode[seminarfach]
 \setvariables[meta][title={Seminarfach}]
-\setvariables[notes][path=seminarfach/unterricht]
+\setvariables[notes][path=seminarfach/wissen]
 \stopmode
 
 \setvariables[meta]
   [
-   subtitle={Unterricht - Abitur 2025},
+   subtitle={Wissen - Abitur 2025},
    date={},
    author={Niklas von Hirschfeld},
   ]
@@ -71,7 +71,7 @@
 
 \startluacode
 	local path = tokens.getters.macro(tokens.getters.macro("??variables") .. "notes:path")
-    include_markdown_files(path, "unterricht")
+    include_markdown_files(path, "wissen")
 \stopluacode
 
 \stopbodymatter

@@ -8,7 +8,7 @@ function include_markdown_files(directory, template)
 	local lfs = require("lfs")
 	for file in lfs.dir(directory) do
 		if file:match("%.md$") then
-			context("\\processmarkdownfile[template=" .. template .."]{" .. directory .. "/" .. file .."}")
+			context("\\processmarkdownfile[mode=" .. template .."]{" .. directory .. "/" .. file .."}")
 		end
 	end
 end
