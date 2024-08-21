@@ -33,3 +33,7 @@ publish: false
 - Elitäre Reaktionen --> moralisch oder religiöse Rigorositäten (=Strenge/Härte)
 - Fantasie der “Ausbrüche” aus der “Wattewelt” Pädagogen u.ä. überlegen
 - Paragraph locked by Schüler Lana Lorbach
+
+# Aufgaben bis Mittwoch
+
+- Markieren Si eim text, wie der Protagoniss...

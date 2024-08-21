@@ -1,11 +1,39 @@
 % Resourcen hier fuer: https://tex.stackexchange.com/questions/358553/markdown-to-context-workflow
 \startenvironment env_markdown
 
+\startluacode
+function include_markdown_files(directory, template)
+	local lfs = require("lfs")
+
+	-- Table to hold filenames
+	local files = {}
+
+	-- Capture all filenames into the table
+	for file in lfs.dir(directory) do
+		if file ~= "." and file ~= ".." then
+			table.insert(files, file)
+		end
+	end
+
+	-- Sort the filenames based on the numerical or date prefix
+	table.sort(files, function(a, b)
+			return a < b
+	end)
+
+	for _, file in ipairs(files) do
+		if file:match("%.md$") then
+			context("\\processmarkdownfile[mode=" .. template .."]{" .. directory .. "/" .. file .."}")
+		end
+	end
+end
+\stopluacode
+
 \usemodule[filter]
 
 \defineexternalfilter
   [markdown]
-  [filtercommand={pandoc -t context
+  [filtercommand={pandoc -f markdown+grid_tables
+				  -t context
 				  --lua-filter=pandoc/filter-cite.lua
 				  --lua-filter=pandoc/filter-pararef.lua
 				  --lua-filter=pandoc/filter-paragraph_h5_filter.lua
