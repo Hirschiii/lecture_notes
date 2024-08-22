@@ -1,11 +1,14 @@
 \starttext
-$if(title)$
-\chapter[title={$date$ - $title$},reference={$title$}]
+$if(chapter)$
+\chapter[title={$title$},reference={$title$}]
+\startsectionlevel[title={$date$ - $subtitle$},reference={$date$-$subtitle$}]
 $else$
-\chapter[title={$sourcefile$},reference={$sourcefile$}]
+\startsectionlevel[title={$date$ - $title$},reference={$date$-$title$}]
 $endif$
 
 $body$
+
+\stopsectionlevel
 
 $for(include-after)$
 $include-after$

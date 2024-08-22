@@ -9,6 +9,8 @@ function Div(el)
 		return pandoc.RawBlock("context", "\\startblocktext\n" .. content .. "\n\\stopblocktext")
 	elseif el.classes:includes("leftbar") then
 		return pandoc.RawBlock("context", "\\startleftbartext\n" .. content .. "\n\\stopleftbartext")
+	elseif el.classes:includes("inmargin") then
+		return pandoc.RawBlock("context", "\\inmargin{" .. content .. "}")
 	else
 		return el
 	end

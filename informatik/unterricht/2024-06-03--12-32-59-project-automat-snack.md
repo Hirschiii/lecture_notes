@@ -1,10 +1,11 @@
 ---
-title: 'Projekt: Snackautomat'
+title: 'Automaten'
 author: Niklas von Hirschfeld
 date: 2024-06-03
 tags: 
 - projekt
 enableToc: true
+chapter: true
 publish: false
 language: de
 ---

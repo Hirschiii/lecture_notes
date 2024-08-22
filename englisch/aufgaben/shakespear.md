@@ -59,7 +59,7 @@ _Answer_ rhyme or same word (last word)
 
 ### Characters
 
-### 2024-08-22
+## 2024-08-22
 
 > Theseus and Hippolyta re figures from classical mythology, but in this excerp they are presented as loving characters.
 
@@ -78,7 +78,7 @@ _Answer_ rhyme or same word (last word)
 - She is a warrior and doesn't like being conquered
     - possible conflict between T. and H.
 
-#### Monologue
+### Monologue
 
 Hippolyta says very little during this emotional controcersy about a girl's
 unhappy future. In a short monolog, imagin what she might say to Theseus about
@@ -92,6 +92,11 @@ monologue $\neq$ soliloquy
 
 **Soliloquy:** Only the spectater can hear it, not the other characters.
 :::
+
+::: inmargin
+**My lord** is probably not correct. Figures like *Helena* do call him "*My lord*" but not Hippolyta.
+:::
+
 
 My lord, I have watched the events of this day with a heart heavier than you
 may know. This quarrel over a maiden’s future, her heart torn between love and

@@ -15,6 +15,7 @@ date: 2024-06-06
 lang: de-DE
 section-titles: false
 toc: true
+chapter: false
 ---
 
 # 2024-06-06 Snackautomat

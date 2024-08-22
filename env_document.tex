@@ -3,7 +3,24 @@
 \usemodule[pararef]
 \usemodule [setups]
 
-\setupindenting[yes,medium]
+\usemodule[visual]
+
+\mainlanguage[de]
+
+% \setupmargindata[inmargin][location=right, align=block,stack=yes, stack=continue, style=\tfx\setupinterlinespace]
+
+\setupmargindata
+  [inmargin]
+  [rule=off, % No rule (line) between margin notes and main text
+   location=right, % Place margin notes on the right side
+   align=flushleft, % Align margin notes to the left
+   stack=no,
+   style=\tfx\setupinterlinespace, % Smaller font and italics for margin notes
+   before={\blank[medium]}, % Space before margin note
+   after={\blank[small]}]
+
+\setupindenting[yes, small] % Small indent for paragraphs
+\setupwhitespace[small]
 
 \setupinteraction                                           
   [state=start,                                             % enable hyperlinks
@@ -16,16 +33,14 @@
 \setupinteractionscreen
   [option=bookmark,nomenubar]
 
-\definesectionlevels
-   [default]
-   [section, subsection, subsubsection, subsubsubsection, subsubsubsubsection]
 
-\setuphead[chapter]            [style=\tfd\setupinterlinespace,header=empty]
-\setuphead[section]            [style=\tfc\setupinterlinespace]
-\setuphead[subsection]         [style=\tfb\setupinterlinespace]
-\setuphead[subsubsection]      [style=\bf]
-\setuphead[subsubsubsection]   [style=\sc]
-\setuphead[subsubsubsubsection][style=\it]
+
+\setuphead[chapter]            [header=empty]
+\setuphead[section]            []
+\setuphead[subsection]         []
+\setuphead[subsubsection]      [style=\bf,number=no]
+\setuphead[subsubsubsection]   [style=\sc,number=no]
+\setuphead[subsubsubsubsection][style=\it,number=no]
 
 \setupxtable[frame=off]
 \setupxtable[head][topframe=on]
@@ -41,9 +56,12 @@
 \setupcombinedlist[content][list={chapter,section,subsection,subsubsection,subsubsubsection}, alternative=c,]
 % in MkII replace list with level=4: \subsubsubsections are not listed in ToC
 
-\setuplist[chapter][width=5mm, style=bold]
+\setuplist[chapter][width=5mm,style=bold]
 \setuplist[section][width=10mm]
-\setuplist[subsection][width=20mm]
+\setuplist[subsection][width=15mm]
+\setuplist[subsubsection][width=20mm,margin=20mm]
+\setuplist[subsubsubsection][width=20mm,margin=20mm]
+\setuplist[subsubsubsubsection][width=20mm,margin=20mm]
 
 % pagestyle=normal for changing the appearance of pagenumber
 % \setuplist[subsubsection][width=20mm, style=slanted, pagestyle=normal]
@@ -78,7 +96,22 @@
   ]
 
 % \setupinteractionscreen[option=bookmark]
-\setuppapersize[A4]
+% \setuppapersize[A4]
+
+\setuppapersize[A4][A4]
+
+\setuplayout
+  [backspace=2cm, % Space on the left margin
+   width=fit, % Adjust width to fit remaining space
+   topspace=1cm, % Top margin
+   header=0.7cm, % Header size
+   footer=0.7cm, % Footer size
+   height=fit, % Adjust height to fit remaining space
+   bottomspace=1.5cm, % Bottom margin
+   rightmargin=3.5cm, % Space for margin notes
+   marginspace=0.5cm, % Space between main content and margin notes
+   leftmargindistance=0.5cm, % Space between left margin and main content
+   rightmargindistance=0.5cm]
 
 \setuppagenumber[number=0]
 

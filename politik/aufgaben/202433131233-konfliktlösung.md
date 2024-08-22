@@ -14,6 +14,12 @@ publish: false
 - Ein-China-Prinzip
   - d. h. um den Grundsatz, dass es nur ein China gibt und dass Taiwan Teil dieses Chinas ist.
 
+::: inmargin
+**Ich bin soo** 
+
+Toll und das ist ein gaanz wichtiger inhalt.
+:::
+
 ## Zusammenfassugn
 
 Während sich der Konflikt von 1949 bis etwa Anfang der 1990er Jahre darum drehte, zu welchem China Taiwan gehört (entweder zur Republik China auf Taiwan oder zur Volksrepublik China auf dem Festland), geht es jetzt darum, ob Taiwan ein souveräner, von China unabhängiger Staat ist.

@@ -1,10 +1,11 @@
 ---
-title: 'A- / Symmetrische Verfahren'
-subtitle: 'note_title'
+title: 'Codierung und Kryptographie'
+subtitle: 'Symmetrische vs Asymmetrische Verfahren'
 author: Niklas von Hirschfeld
 date: 2024-08-20
 toc: true
 publish: false
+chapter: true
 ---
 
 # Symmetrisch
