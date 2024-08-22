@@ -1,0 +1,58 @@
+\startenvironment env_frames
+
+\definecolor[darkred]   [r=0.8]
+\definecolor[darkgreen] [g=0.8]
+\definecolor[darkblue]  [b=0.8]
+
+\definecolor[lightred]   [0.95(red,white)]
+\definecolor[lightgreen] [0.95(green,white)]
+\definecolor[lightblue]  [0.95(blue,white)]
+
+\definecolor[darkgray]  [s=0.5]
+\definecolor[lightgray] [s=0.95]
+
+\defineframedtext
+  [leftbartext]
+  [
+    width=broad,
+    frame=off,
+    framecolor=darkgray,
+    leftframe=on,
+    rulethickness=2ex,
+    offset=0.25ex,
+    loffset=3ex, 
+    background=color,
+    backgroundcolor=lightgray,
+  ]
+
+
+\defineframedtext
+  [exampletext]
+  [leftbartext]
+  [
+    framecolor=darkgreen,
+    backgroundcolor=lightgreen,
+  ]
+
+\defineframedtext
+  [alerttext]
+  [leftbartext]
+  [
+    framecolor=darkred,
+    backgroundcolor=lightred,
+  ]
+
+\defineframedtext
+  [blocktext]
+  [leftbartext]
+  [
+    framecolor=darkblue,
+    backgroundcolor=lightblue,
+  ]
+
+% \startleftbartext
+% ...
+% \stopleftbartext
+
+
+\stopenvironment

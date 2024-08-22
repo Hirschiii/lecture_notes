@@ -149,7 +149,6 @@ compile_aufgaben() {
 				echo "Compiling ${file} - aufgaben"
 
 				context --mode=$mode --jobname="${file}-aufgaben" --result="$basename" --arguments=file="${file}" prd_aufgaben.tex &>/dev/null
-				echo "context --jobname=\"${file}-aufgaben\" --result=\"$basename\" --arguments=file=\"${file}\" prd_aufgaben.tex &>/dev/null"
 				move_file $basename $subject "aufgaben"
 				if [ $? -ne 0 ]; then
 					echo "context --jobname=\"${file}-aufgaben\" --result=\"$basename\" --arguments=file=\"${file}\" prd_aufgaben.tex &>/dev/null"

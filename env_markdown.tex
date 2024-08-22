@@ -30,13 +30,14 @@ end
 
 \usemodule[filter]
 
+				  % --lua-filter=pandoc/filter-cite.lua
+				  % --lua-filter=pandoc/filter-pararef.lua
+				  % --lua-filter=pandoc/filter-paragraph_h5_filter.lua
+
 \defineexternalfilter
   [markdown]
   [filtercommand={pandoc -f markdown+grid_tables
 				  -t context
-				  --lua-filter=pandoc/filter-cite.lua
-				  --lua-filter=pandoc/filter-pararef.lua
-				  --lua-filter=pandoc/filter-paragraph_h5_filter.lua
 				  --lua-filter=pandoc/filter-\externalfilterparameter{mode}.lua
 				  --bibliography=sources.bib
 				  --template=./pandoc/template-\externalfilterparameter{mode}.context
