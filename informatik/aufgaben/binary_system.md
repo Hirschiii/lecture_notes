@@ -10,7 +10,7 @@ bib: true
 
 # Aufbau
 
-**Bi**när kommt von "zwei zuständen" [@Binary_advantages] . Diese können
+**Bi**när kommt von "zwei zuständen" [@Bi_advantages] . Diese können
 beliebig ausgewählt werden, üblicherweise werden sie aber mit "0" und "1"
 dargestellt. Auf einer CPU sind sie durch physische Gatter abgebildet, welche
 entweder auf oder zu sind und so Strom durch lassen, oder nicht. Diese werden
@@ -38,7 +38,7 @@ $$
 ::: example
 **Beispiel:**
 
-Die folgenden Ziffern $0110$ würden im Dezimalsystem den Wert $\[110\]_{10}$ angeben. Im Binärsystem allerdings $\[6\]_2$.
+Die folgenden Ziffern $0110$ würden im Dezimalsystem den Wert $\[110\]_{10}$ angeben. Im Binärsystem allerdings $\[6\]_10$.
 
 $$
 \[0110\]_2 = 0 \cdot 2^3 + 1 \cdot 2^2 + 1 \cdot 2^1 + 0 \cdot 2^0 = \[6\]_{10}
@@ -72,8 +72,8 @@ Die Addition kann, ähnlich wie bei dem Dezimalsystem, schriftlich und **stellen
 | $1+0=1$              | $1-0=1$                                                                   | $1 \times 0=0$ | $1 \div 0 =$ *Nicht Definiert* |
 | $1+1=0$ Übertrag $1$ | $1-1=0$                                                                   | $1 \times 1=1$ | $1 \div 1 =1$                  |
 
-## Beispiel: Addition
-
+::: example
+**Beispiel: Addition**
 
 $$
 \startalign[n=3]
@@ -82,27 +82,10 @@ $$
 \NC = \NC 1101 \NR
 \stopalign
 $$
-
-
-::: leftbar
-Die Addition kann Stellenweise erfolgen, da wir die Zahlen in **Summanden zerlegen können:**
-
-$$
-\startalign[n=11]
-\NC   \NC 1001 \NC \rightarrow \NC 1000 \NC + \NC 000 \NC + \NC 00 \NC + \NC 1 \NR
-\NC + \NC 100  \NC \rightarrow \NC      \NC   \NC 100 \NC + \NC 00 \NC + \NC 0 \NR
-% here should be a horizontal line
-\NC   \NC      \NC \rightarrow \NC 1000 \NC + \NC 100 \NC + \NC 00 \NC + \NC 1 \NR
-\NC   \NC      \NC \rightarrow \NC 1101 \NC   \NC     \NC   \NC    \NC   \NC   \NR
-\NC = \NC 1101 \NC             \NC      \NC   \NC     \NC   \NC    \NC   \NC   \NR
-\stopalign
-$$
 :::
 
-
-## Beispiel: Division
-
-Die Division durch $0$ ist, wie auch beim Dezimalsystem, **nicht** Definiert.
+::: example
+**Beispiel: Division**
 
 ```{=context}
 \startformula[interlinespace=-5pt]
@@ -124,23 +107,9 @@ Die Division durch $0$ ist, wie auch beim Dezimalsystem, **nicht** Definiert.
 \stopformula
 ```
 
-Im ersten Schritt können wir die $11$ nicht durch $1$ oder $10$
-teilen und somit ein $0$ schreiben und mit $00$ subtrahieren.
-Damit erhalten wir die zusätzliche Stelle und können nun $11$
-durch $100$ rechnen. Die $11$ passt genau $1$ mal in die $100$.
-Wir ziehen also $11$, schreiben den Rest ($1$) herunter und
-fahren wie gewohnt fort.
-
-# Darstellung im Coputer
-
-
-
----
-
-Vorstellung nächste Stunde
-
-https://de.wikipedia.org/wiki/IEEE_754
-
-https://www.cuemath.com/numbers/binary-division/
-
-https://www.matheretter.de/wiki/binarzahlen-division
+Im ersten Schritt können wir die $11$ nicht durch $1$ teilen und somit müssen
+wir weiteren Stellen nutzen. Diese sin $00$. So teilen wir $100$ durch $11$ und
+subtrahieren vorher die zustätzlich genutzte Zahl $00$. Die $11$ passt genau
+$1$ mal in die $100$. Wir ziehen also $11$, schreiben den Rest ($1$) herunter
+und fahren wie gewohnt fort. 
+:::

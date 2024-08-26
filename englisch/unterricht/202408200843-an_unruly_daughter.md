@@ -1,9 +1,11 @@
 ---
-title: "Shakespear - An unruly daughter"
+title: "Shakespear"
+subtitle: "An unruly daughter"
 author: Niklas von Hirschfeld
 date: 2024-08-20
 toc: true
 publish: false
+chapter: true
 ---
 
 # Stylistic devices
