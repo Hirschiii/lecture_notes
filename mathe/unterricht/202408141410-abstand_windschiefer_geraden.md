@@ -1,10 +1,11 @@
 ---
-title: "Abstand zweier windschiefer Geraden"
+title: "Analytische Geometrie"
 subtitle: "note_title"
 author: Niklas von Hirschfeld
 date: 2024-08-14
 toc: true
 publish: false
+chapter: true
 ---
 
 Bei zwei windschiefen Geraden wird erst eine Hilfebene hinzugezogen. Diese muss folgende Bedingungen erfüllen:

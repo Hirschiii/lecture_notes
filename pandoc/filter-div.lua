@@ -12,6 +12,7 @@ function Div(el)
 	elseif el.classes:includes("inmargin") then
 		return pandoc.RawBlock("context", "\\inmargin{" .. content .. "}")
 	else
-		return el
+		local block_name = el.classes[1] or "generic"
+		return pandoc.RawBlock("context", "\\start" .. block_name .. "\n" .. content .. "\n\\stop" .. block_name)
 	end
 end

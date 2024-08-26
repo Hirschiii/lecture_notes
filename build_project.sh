@@ -103,6 +103,9 @@ move_file() {
 	if [[ "$type" == "unterricht" ]]; then
 		mkdir -p "out/${subject}/"
 		mv $filename "out/${subject}/unterricht.pdf"
+	elif [[ "$type" == "wissen" ]]; then
+		mkdir -p "out/${subject}/"
+		mv $filename "out/${subject}/wissen.pdf"
 	else
 		mkdir -p "out/${subject}/${type}"
 		mv $filename "out/${subject}/${type}/"
@@ -149,6 +152,7 @@ compile_aufgaben() {
 				echo "Compiling ${file} - aufgaben"
 
 				context --mode=$mode --jobname="${file}-aufgaben" --result="$basename" --arguments=file="${file}" prd_aufgaben.tex &>/dev/null
+				# echo "context --jobname=\"${file}-aufgaben\" --result=\"$basename\" --arguments=file=\"${file}\" prd_aufgaben.tex &>/dev/null"
 				move_file $basename $subject "aufgaben"
 				if [ $? -ne 0 ]; then
 					echo "context --jobname=\"${file}-aufgaben\" --result=\"$basename\" --arguments=file=\"${file}\" prd_aufgaben.tex &>/dev/null"

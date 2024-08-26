@@ -1,3 +1,9 @@
+$if(environments)$
+$for(environments)$
+\environment env_$it$
+$endfor$
+$endif$
+
 $if(includesource)$
 $for(sourcefile)$
 \attachment[file=$curdir$/$sourcefile$,method=hidden]
@@ -44,6 +50,10 @@ $body$
 $for(include-after)$
 $include-after$
 $endfor$
+
+$if(bib)$
+\component c_bibliography
+$endif$
 \stopbackmatter
 
 \stoptext

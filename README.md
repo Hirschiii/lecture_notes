@@ -5,6 +5,9 @@
 - Infoblock etc
 - Pararef filter only in Documents
 
+
+- Wissen der Fächer am KC orientieren
+
 # Telefonate
 
 Module fuer firefox epub
@@ -31,3 +34,4 @@ kleine log datei mit "last modified" oder hash wert
 mit nushell?
 
 generell die menge der abhängigkeiten reduzieren
+

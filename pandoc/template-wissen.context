@@ -1,11 +1,20 @@
+$if(environments)$
+$for(environments)$
+\environment env_$it$
+$endfor$
+$endif$
+
 \starttext
-$if(title)$
-\chapter[title={$date$ - $title$},reference={$title$}]
+$if(chapter)$
+\chapter[title={$title$},reference={$title$}]
+\startsectionlevel[title={$subtitle$},reference={$subtitle$}]
 $else$
-\chapter[title={$sourcefile$},reference={$sourcefile$}]
+\startsectionlevel[title={$title$},reference={$title$}]
 $endif$
 
 $body$
+
+\stopsectionlevel
 
 $for(include-after)$
 $include-after$

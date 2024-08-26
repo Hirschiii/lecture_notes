@@ -1,0 +1,49 @@
+\starttext
+
+\startformula
+\startalign
+\HL
+\NC  a + b \NC = c \NR
+\NC  d + e \NC = f \NR
+\HL
+\NC  g + h \NC = i \NR
+\HL
+\stopalign
+\stopformula
+
+\placetable
+[here]
+[tbl:tablecommands]
+{Commands to be used within a table}
+{\starttabulate[|l|p(.6\textwidth)|]
+\HL
+\NC {\bf Command}
+\NC {\bf Meaning}
+\NR
+\HL
+\NC \tex{HL}
+\NC Inserts a horizontal line
+\NR
+\NC \tex{NC}
+\NC Begins a new column
+\NR
+\NC \tex{NR}
+\NC Begins a new row
+\NR
+\NC \tex{VL}
+\NC Inserts a vertical line delimiting a column (used in place of \tex{NC})
+\NR
+\NC \tex{NN}
+\NC Begins a column in maths mode (used in place of \tex{NC})
+\NR
+\NC \tex{TB}
+\NC Adds some extra vertical space between two rows
+\NR
+\NC \tex{NB}
+\NC Indicates that the next row starts an indivisible block within which there
+cannot be a page break
+\NR
+\HL
+\stoptabulate}
+
+\stoptext
