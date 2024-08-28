@@ -1,10 +1,11 @@
 ---
-title: 'Das Parfum - Die Geburt'
-subtitle: 'note_title'
+title: 'Das Parfum'
+subtitle: 'Die Geburt'
 author: Niklas von Hirschfeld
 date: 2024-08-21
 toc: true
 publish: false
+chapter: true
 ---
 
 # Sprachliche Auffälligkeiten

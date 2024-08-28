@@ -91,12 +91,17 @@ LIDAR-Systemen
 Die Messung der "Time of flight", also der Strecke, die die Energiewelle in welcher Zeit zurückgelegt hat, sieht wie folgt aus[@Gotzig2015Mar]:
 
 $$
-d=\frac{c_0\cdot t}{2}
+s=\frac{c_0\cdot t}{2}
 $$
 
-- $d =$ Abstand
+- $s =$ Abstand
 - $c_0 =$ Geschwindigkeit der Energiewelle, bei Lidar: Lichtgeschwindigkeit (ca. $300 \frac{km}{s}$) und bei Radar: geschwindigkeit ausbreitung von elektromagnetischer Wellen (annähernd Lichtgeschwindigkeit)
 - $t =$ Zeit in $s$.
+
+$$
+\lambda = c \cdot T = \frac{c}{f}
+$$
+
 
 # Aufgabe 3
 

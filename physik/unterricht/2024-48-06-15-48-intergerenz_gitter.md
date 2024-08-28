@@ -1,11 +1,13 @@
 ---
-title: 'Interferenz Gitter Versuch'
+title: 'Wellen'
+subtitle: 'Interferenz Gitter Versuch'
 author: Niklas von Hirschfeld
 date: 2024-06-06
 tags: 
 - experiment
 - abitur
 enableToc: true
+chapter: true
 ---
 
 # Beobachtung
@@ -23,9 +25,7 @@ Abstand der Maxima: 12cm
 
 
 $$
-\begin{aligned}
 \sin{\alpha} = \frac{\lambda}{g} \quad \text{und} \quad \tan{\alpha}=\frac{a}{l}
-\end{aligned}
 $$
 
 Wobei $\lambda$ die Wellenlaenge ist.
@@ -40,11 +40,11 @@ $$
 
 
 $$
-\begin{aligned}
-\lambda&=g \cdot &&\sin{(\tan^{-1}{(\frac{a}{l})})}\\
-&= (2\cdot 10^{-6}) \cdot &&\sin{(\tan^{-1}{(\frac{0,12}{0,27})})}\\
-&=434\cdot 10^{-9}m
-\end{aligned}
+\startalign
+\lambda \NC =g \cdot \NC \sin{(\tan^{-1}{(\frac{a}{l})})}\NR
+ \NC = (2\cdot 10^{-6}) \cdot \NC \sin{(\tan^{-1}{(\frac{0,12}{0,27})})}\NR
+ \NC =434\cdot 10^{-9}m
+\stopalign
 $$
 
 # Versuch Wiederholung
@@ -58,11 +58,11 @@ $$
 Berechnung der Wellenlaenge $\lambda$:
 
 $$
-\begin{aligned}
-\lambda&=g \cdot &&\sin{(\tan^{-1}{(\frac{a}{l})})}\\
-&= (2\cdot 10^{-6}) \cdot &&\sin{(\tan^{-1}{(\frac{0,07}{0,38})})}\\
-&= 6,34\cdot 10^{-7}m=634nm
-\end{aligned}
+\startalign
+\lambda \NC =g \cdot \NC \sin{(\tan^{-1}{(\frac{a}{l})})}\NR
+ \NC = (2\cdot 10^{-6}) \cdot \NC \sin{(\tan^{-1}{(\frac{0,07}{0,38})})}\NR
+ \NC = 6,34\cdot 10^{-7}m=634nm \NR
+\stopalign
 $$
 
 
@@ -99,19 +99,17 @@ $$
 #### 1. Ordnung
 
 $$
-\begin{aligned}
-2a = 0.103m; \quad a = 0.0515m; \quad l = 0.15m \\
-\end{aligned}
+2a = 0.103m; \quad a = 0.0515m; \quad l = 0.15m
 $$
 
 Berechnung der Wellenlaenge $\lambda$:
 
 $$
-\begin{aligned}
-\lambda&=\frac{g}{n} \cdot \sin{(\tan^{-1}{(\frac{a_n}{l})})}\\
-&= (2\cdot 10^{-6}) \cdot \sin{(\tan^{-1}{(\frac{0,0515}{0,15})})}\\
-&= 6,49\cdot 10^{-7}m
-\end{aligned}
+\startalign
+\lambda \NC =\frac{g}{n} \cdot \sin{(\tan^{-1}{(\frac{a_n}{l})})}\NR
+\NC = (2\cdot 10^{-6}) \cdot \sin{(\tan^{-1}{(\frac{0,0515}{0,15})})}\NR
+\NC = 6,49\cdot 10^{-7}m\NR
+\stopalign
 $$
 
 # Bedeutung der einzelnen Bestandteile
