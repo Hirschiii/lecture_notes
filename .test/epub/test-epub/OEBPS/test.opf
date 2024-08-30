@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="bookid" version="3.0">
+
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:title>My first eBook 2</dc:title>
+        <dc:language>en</dc:language>
+        <dc:identifier id="bookid">urn:uuid:8cb5cc80-4f13-9c9b-2fa8-5ee10ea6643d</dc:identifier>
+        <dc:creator>context mkiv</dc:creator>
+        <dc:date>2024-08-30T07:58:47Z</dc:date>
+        <!--
+            <dc:subject></dc:subject>
+            <dc:description></dc:description>
+            <dc:publisher></dc:publisher>
+            <dc:source></dc:source>
+            <dc:relation></dc:relation>
+            <dc:coverage></dc:coverage>
+            <dc:rights></dc:rights>
+        -->
+        <meta name="cover" content="huhn-jpg" />
+        <meta name="generator" content="ConTeXt MkIV" />
+        <meta property="dcterms:modified">2024-08-30T07:58:47Z</meta>
+    </metadata>
+
+    <manifest>
+        <item id="test-defaults-css" href="styles/test-defaults.css" media-type="text/css" />
+        <item id="test-images-css" href="styles/test-images.css" media-type="text/css" />
+        <item id="test-styles-css" href="styles/test-styles.css" media-type="text/css" />
+        <item id="test-div-html" href="test-div.html" media-type="application/html" />
+        <item id="huhn-jpg" href="huhn.jpg" media-type="image/jpeg" />
+        <item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav" />
+        <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml" />
+    </manifest>
+
+    <spine toc="ncx">
+        <itemref idref="cover-xhtml" />
+        <itemref idref="test-div-html" />
+    </spine>
+
+</package>

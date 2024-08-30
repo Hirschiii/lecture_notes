@@ -75,19 +75,41 @@ $$
         0.5 * sin(40 * (2^(-(x^2) * 2 + 1)) * x + (pi/2)) + 0.5
     enddef;
 
+    % Beugungsfunktion
+    vardef beg_diffraktion(expr b, lambda, theta) =
+        (sin(pi*b*sin(theta)/lambda)/(pi*b*sin(theta)/lambda))**2
+    enddef;
+
+    % Interferenzfunktion
+    vardef interfunktion(expr d, lambda, theta) =
+        cos(pi*d*sin(theta)/lambda)**2
+    enddef;
+
+    % Gesamte Intensität
+    vardef intensitaet(expr d, b, lambda, theta) =
+        beg_diffraktion(b, lambda, theta) * interfunktion(d, lambda, theta)
+    enddef;
+
+
     % Draw the interference pattern
     for i=0 step 1 until (lines - 1):
         numeric x, x_width, brightness;
         x := (i/lines);
         % Calculate the position relative to the center
         numeric relative_x;
-        relative_x := (x - center) / (width / 20); % Narrower width for a sharper fall-off
+        relative_x := x - 0.5;
 
         % Combine the sharp fall-off function with a sine wave
         % brightness := sigmoid_prime(x) * sin(2 * relative_x + (pi/2));
         % brightness := sigmoid_prime(x - 0.5);
-        brightness := gaussian(x - 0.5) * mysin(x - 0.5);
-
+        % brightness := gaussian(x - 0.5) * mysin(x - 0.5);
+        % brightness := intensitaet(0.6, 0.6, 0.6, x - 0.5);
+        % brightness := interfunktion(0.6, 0.6, x - 0.5);
+        if relative_x == 0:
+            brightness := 1;
+        else:
+            brightness := intensitaet(4, 1.5, 0.8, relative_x);
+        fi;
         % Draw the rectangle with modulated brightness
         fill (x * width, 0) -- (x * width + (width / lines), 0) --
              (x * width + (width / lines), height) -- (x * width, height) -- cycle
@@ -99,7 +121,7 @@ $$
     fill unitsquare xyscaled (width, height/10) shifted (0, height) withcolor black;
     fill unitsquare xyscaled (width, height/10) shifted (0, -height/10) withcolor black;
 
-    draw function (1, "x", "gaussian(x-0.5) * mysin(x - 0.5)", 0, 1, 0.00001) xyscaled (16cm,4cm) shifted (0, height * 1.2)
+    draw function (1, "x", "intensitaet(4, 1.5, 0.8, x - 0.5)", 0, 1, 0.00001) xyscaled (16cm,4cm) shifted (0, height * 1.2)
     withpen pencircle scaled 1mm withcolor transparent(1,.5,black);
 \stopMPcode
 }

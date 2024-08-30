@@ -5,49 +5,77 @@
 \environment env_frames
 
 
+% \setupbackend[export=yes,xhtml=yes]
+% \setupbackend[export=yes]
+
+
+\setupinteraction[state=start,
+	color=,contrastcolor=,
+	% This metadata is used for the PDF
+	title={Unterricht},
+	author={Niklas von Hirschfeld}
+]
+
+\setupexport
+   [
+   firstpage={assets/titlepage/test.jpg},
+   author={Niklas von Hirschfeld},
+   ]
+
+
+
 \startmode[how_to]
 \setvariables[meta][title={HowTo}]
 \setvariables[notes][path=how_to/unterricht]
+\setupinteraction[title={Unterricht - HowTo}]
 \stopmode
 
 \startmode[mathe]
 \setvariables[meta][title={Mathematik}]
 \setvariables[notes][path=mathe/unterricht]
+\setupinteraction[title={Unterricht - Mathematik}]
 \stopmode
 
 \startmode[informatik]
 \setvariables[meta][title={Informatik}]
 \setvariables[notes][path=informatik/unterricht]
+\setupinteraction[title={Unterricht - Informatik}]
 \stopmode
 
 \startmode[physik]
 \setvariables[meta][title={Physik}]
 \setvariables[notes][path=physik/unterricht]
+\setupinteraction[title={Unterricht - Physik}]
 \stopmode
 
 \startmode[englisch]
 \setvariables[meta][title={Englisch}]
 \setvariables[notes][path=englisch/unterricht]
+\setupinteraction[title={Unterricht - Englisch}]
 \stopmode
 
 \startmode[politik]
 \setvariables[meta][title={Politik}]
 \setvariables[notes][path=politik/unterricht]
+\setupinteraction[title={Unterricht - Politik}]
 \stopmode
 
 \startmode[deutsch]
 \setvariables[meta][title={Deutsch}]
 \setvariables[notes][path=deutsch/unterricht]
+\setupinteraction[title={Unterricht - Deutsch}]
 \stopmode
 
 \startmode[wun]
 \setvariables[meta][title={Werte und Normen}]
 \setvariables[notes][path=wun/unterricht]
+\setupinteraction[title={Unterricht - Werte und Normen}]
 \stopmode
 
 \startmode[seminarfach]
 \setvariables[meta][title={Seminarfach}]
 \setvariables[notes][path=seminarfach/unterricht]
+\setupinteraction[title={Unterricht - Seminarfach}]
 \stopmode
 
 \setvariables[meta]

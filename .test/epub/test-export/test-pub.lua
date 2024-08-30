@@ -1,0 +1,23 @@
+return {
+ ["author"]="Hans 2",
+ ["firstpage"]="huhn.jpg",
+ ["htmlfiles"]={ "test-div.html" },
+ ["htmlroot"]="test-div.html",
+ ["identifier"]="12f7a03c-40b1-a2aa-8474-157a610b3f98",
+ ["imagefile"]="styles/test-images.css",
+ ["imagepath"]="images",
+ ["images"]={},
+ ["language"]="en",
+ ["metadata"]={
+  ["author"]="Hans 3",
+  ["subtitle"]="",
+  ["title"]="My first eBook 3",
+  ["version"]="\\date ",
+ },
+ ["name"]="test",
+ ["stylepath"]="styles",
+ ["styles"]={ "test-defaults.css", "test-images.css", "test-styles.css" },
+ ["title"]="My first eBook 2",
+ ["xhtmlfiles"]={ "test-tag.xhtml" },
+ ["xmlfiles"]={ "test-raw.xml" },
+}

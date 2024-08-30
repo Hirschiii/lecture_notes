@@ -118,6 +118,7 @@ compile_unterricht() {
 	if check_directory "${subject}/unterricht/"; then
 		echo "Compiling ${subject} - unterricht"
 		context --jobname="${subject}-unterricht" --mode="$subject" --result="$filename" prd_unterricht.tex &>/dev/null
+		echo "context --jobname=\"${subject}-unterricht\" --mode=\"$subject\" --result=\"$filename\" prd_unterricht.tex &>/dev/null"
 		move_file $filename $subject "unterricht"
 		if [ $? -ne 0 ]; then
 			echo "context --jobname=\"${subject}-unterricht\" --mode=\"$subject\" --result=\"$filename\" prd_unterricht.tex &>/dev/null"

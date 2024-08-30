@@ -1,0 +1,76 @@
+% mode=mkiv
+\mainlanguage[en]
+\setupbackend[export=yes,xhtml=yes]
+
+\setupinteraction[state=start,
+	color=,contrastcolor=,
+	% This metadata is used for the PDF
+	title={My first eBook 1},
+	subtitle={},
+	keywords={},
+	author={Hans 1}
+]
+\setupexport[
+	hyphen=yes,
+	% This metadata is used by ConTeXt’s ePub script
+	% title, subtitle and author are taken from \setupinteraction, if not set
+	title={My first eBook 2},
+	subtitle={},
+	author={Hans 2},
+	firstpage={huhn.jpg},
+]
+\settaggedmetadata[
+	% here you can set as many metadata entries as you like, but you need to process them yourself
+	title={My first eBook 3},
+	author={Hans 3},
+	subtitle={},
+	version={\date} % TODO: doesn’t expand
+]
+
+\definehighlight[emph][style=italicface] % use \emph{something} instead of {\em something}
+
+\starttext
+
+\startchapter[title=Example]
+
+\startparagraph
+\input tufte
+\stopparagraph
+
+\startsection[title={A section}]
+
+\startparagraph
+\input tufte
+
+\startitemize[packed,joinup]
+  \startitem First \stopitem
+  \startitem Second \stopitem
+  \startitem Third \stopitem
+  \startitem Fourth\stopitem
+\stopitemize
+
+\stopparagraph
+
+\startparagraph
+\input knuth
+\stopparagraph
+
+\startparagraph
+\input zapf
+\stopparagraph
+
+\stopsection
+\stopchapter
+
+\startchapter[title=Quoth\footnote{by Edgar Allan Poe}]
+\startlines
+\quotation{Prophet!} said I, \quotation{thing of evil!—prophet still, if bird or devil!
+By that Heaven that bends above us—by that God we both adore—
+Tell this soul with sorrow laden if, within the distant Aidenn,
+It shall clasp a sainted maiden whom the angels name Lenore—
+Clasp a rare and radiant maiden whom the angels name Lenore.}
+\emph{Quoth the Raven \quotation{Nevermore.}}
+\stoplines
+\stopchapter
+
+\stoptext

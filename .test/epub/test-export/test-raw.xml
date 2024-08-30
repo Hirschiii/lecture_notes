@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<!--
+
+    input filename   : test
+    processing date  : 2024-08-30 09:58:44+02:00
+    context version  : 2024.02.27 09:18
+    exporter version : 0.35
+
+-->
+
+<?xml-stylesheet type="text/css" href="styles/test-defaults.css" ?>
+<?xml-stylesheet type="text/css" href="styles/test-images.css" ?>
+<?xml-stylesheet type="text/css" href="styles/test-styles.css" ?>
+<document author="Hans 1" context="2024.02.27 09:18" date="2024-08-30 09:58:44+02:00" file="test" language="en" title="My first eBook 1" version="0.35" xmlns:m="http://www.w3.org/1998/Math/MathML">
+ <metadata>
+  <metavariable name="author">Hans 3</metavariable>
+  <metavariable name="title">My first eBook 3</metavariable>
+  <metavariable name="version">\date </metavariable>
+ </metadata>
+ <section detail="chapter" chain="chapter" level="2">
+  <sectioncaption>
+   <sectionnumber>1</sectionnumber>
+   <sectiontitle>Example</sectiontitle>
+  </sectioncaption>
+  <sectioncontent>
+   <paragraph>We thrive in information--thick worlds because of our marvelous and everyday ca­pacity to select, edit, single out, structure, highlight, group, pair, merge, harmo­nize, synthesize, focus, organize, condense, reduce, boil down, choose, categorize, catalog, classify, list, abstract, scan, look into, idealize, isolate, discriminate, dis­tinguish, screen, pigeonhole, pick over, sort, integrate, blend, inspect, filter, lump, skip, smooth, chunk, average, approximate, cluster, aggregate, outline, summarize, itemize, review, dip into, flip through, browse, glance into, leaf through, skim, re­fine, enumerate, glean, synopsize, winnow the wheat from the chaff and separate the sheep from the goats.</paragraph>
+   <section detail="section" chain="section" level="3">
+    <sectioncaption>
+     <sectionnumber>1.1</sectionnumber>
+     <sectiontitle>A section</sectiontitle>
+    </sectioncaption>
+    <sectioncontent>
+     <paragraph>We thrive in information--thick worlds because of our marvelous and everyday ca­pacity to select, edit, single out, structure, highlight, group, pair, merge, harmo­nize, synthesize, focus, organize, condense, reduce, boil down, choose, categorize, catalog, classify, list, abstract, scan, look into, idealize, isolate, discriminate, dis­tinguish, screen, pigeonhole, pick over, sort, integrate, blend, inspect, filter, lump, skip, smooth, chunk, average, approximate, cluster, aggregate, outline, summarize, itemize, review, dip into, flip through, browse, glance into, leaf through, skim, re­fine, enumerate, glean, synopsize, winnow the wheat from the chaff and separate the sheep from the goats.<itemgroup detail="itemize" chain="itemize" level="1" packed="yes" symbol="1"><item><itemtag>•</itemtag><itemcontent>First</itemcontent></item><item><itemtag>•</itemtag><itemcontent>Second</itemcontent></item><item><itemtag>•</itemtag><itemcontent>Third</itemcontent></item><item><itemtag>•</itemtag><itemcontent>Fourth</itemcontent></item></itemgroup></paragraph>
+     <paragraph>Thus, I came to the conclusion that the designer of a new system must not only be the implementer and first large--scale user; the designer should also write the first user manual.      <break/>
+The separation of any of these four components would have hurt TEX significantly. If I had not participated fully in all these activities, literally hundreds of improve­ments would never have been made, because I would never have thought of them or perceived why they were important.      <break/>
+But a system cannot be successful if it is too strongly influenced by a single person. Once the initial design is complete and fairly robust, the real test begins as people with many different viewpoints undertake their own experiments.</paragraph>
+     <paragraph>Coming back to the use of typefaces in electronic publishing: many of the new ty­pographers receive their knowledge and information about the rules of typography from books, from computer magazines or the instruction manuals which they get with the purchase of a PC or software. There is not so much basic instruction, as of now, as there was in the old days, showing the differences between good and bad typographic design. Many people are just fascinated by their PC's tricks, and think that a widely--praised program, called up on the screen, will make every­thing automatic from now on.</paragraph>
+    </sectioncontent>
+   </section>
+  </sectioncontent>
+ </section>
+ <section detail="chapter" chain="chapter" level="2">
+  <sectioncaption>
+   <sectionnumber>2</sectionnumber>
+   <sectiontitle>Quoth<descriptionsymbol detail="footnote" insert="1"><sup>1</sup></descriptionsymbol><description detail="footnote" chain="footnote" insert="1"><descriptiontag><sup>1</sup> </descriptiontag><descriptioncontent>by Edgar Allan Poe</descriptioncontent></description></sectiontitle>
+  </sectioncaption>
+  <sectioncontent>
+   <lines detail="lines" chain="lines">
+    <line><delimited detail="quotation-1"><delimitedsymbol symbol="left">“</delimitedsymbol><delimitedcontent>Prophet!</delimitedcontent><delimitedsymbol symbol="right">”</delimitedsymbol></delimited> said I, <delimited detail="quotation-1"><delimitedsymbol symbol="left">“</delimitedsymbol><delimitedcontent>thing of evil!—prophet still, if bird or devil!</delimitedcontent><line>By that Heaven that bends above us—by that God we both adore—</line><line>Tell this soul with sorrow laden if, within the distant Aidenn,</line><line>It shall clasp a sainted maiden whom the angels name Lenore—</line><line>Clasp a rare and radiant maiden whom the angels name Lenore.</line><delimitedsymbol symbol="right">”</delimitedsymbol></delimited></line>
+    <line><highlight detail="emph">Quoth the Raven <delimited detail="quotation-1"><delimitedsymbol symbol="left">“</delimitedsymbol><delimitedcontent>Nevermore.</delimitedcontent><delimitedsymbol symbol="right">”</delimitedsymbol></delimited></highlight></line>
+   </lines>
+  </sectioncontent>
+ </section>
+</document>
