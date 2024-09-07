@@ -5,6 +5,9 @@
 - Infoblock etc
 - Pararef filter only in Documents
 
+# Ideen
+
+- Eigenen git repo, wenn pushed neu compeliert und online zur verfuegung stellen
 
 - Wissen der Fächer am KC orientieren
 
@@ -34,4 +37,5 @@ kleine log datei mit "last modified" oder hash wert
 mit nushell?
 
 generell die menge der abhängigkeiten reduzieren
+
 
