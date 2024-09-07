@@ -1,0 +1,45 @@
+\usemodule[pararef]
+\usemodule[crossref]
+
+\starttext
+
+\startchapter[title={Lorem ipsum}]
+\startsection[title={Dolor sit}]
+
+\startParagraph[title={Ich bin direkt hier}]
+\input tufte 
+\stopParagraph
+
+\startParagraph[reference=ref1,title={Ich habe Abstand zum Paragraph}]
+
+\input tufte 
+\stopParagraph
+
+\startParagraph
+Here are two references to destinations on the same page:
+\startitemize[nowhite]
+\item ref1 should be: para. 1.1/2 and is: \crossref[label={para.}][ref1]
+\item ref2 should be: sec. 1.2 and is: \crossref[label={sec.}][ref2]
+\stopitemize
+Here is one references with brakets:
+\startitemize[nowhite]
+\item ref1 should be: (para. 1.1/2) and is: \crossref[left={(},right={)},label={para.}][ref1]
+\stopitemize
+\stopParagraph
+
+\stopsection
+\startsection[title={Amet},reference=ref2]
+
+\page
+
+\startParagraph
+Here are two references to destinations on an other page:
+\startitemize[nowhite]
+\item ref1 should be: para. 1.1/2 on page 1 and is: \crossref[label={para.}][ref1]
+\item ref2 should be: sec. 1.2 on page 1 and is: \crossref[label={sec.}][ref2]
+\stopitemize
+\stopParagraph
+
+\stopsection
+\stopchapter
+\stoptext

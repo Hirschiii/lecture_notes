@@ -11,7 +11,7 @@
 
 \setupmargindata
   [inmargin]
-  [rule=off, % No rule (line) between margin notes and main text
+  [rule=on, % No rule (line) between margin notes and main text
    location=right, % Place margin notes on the right side
    align=flushleft, % Align margin notes to the left
    stack=no,
@@ -121,5 +121,10 @@
 % \showlayout
 % \showframe
 
+\startuseMPgraphic{textpartdivider}
+ 	draw (0cm,0cm)--(8cm,0cm) withcolor \MPcolor{\textpartdividerColor};
+\stopuseMPgraphic
+
+\define\textpartdivider{\midaligned{\useMPgraphic{textpartdivider}}\blank[big]}
 
 \stopenvironment
