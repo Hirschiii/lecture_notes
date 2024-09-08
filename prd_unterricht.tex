@@ -99,7 +99,11 @@
 \startbodymatter
 
 \startluacode
-	local path = tokens.getters.macro(tokens.getters.macro("??variables") .. "notes:path")
+	local subject = tokens.getters.macro(tokens.getters.macro("??variables") .. "notes:path")
+	local path = environment.argument("school-path")
+
+	path = path .. "/" .. subject
+
     include_markdown_files(path, "unterricht")
 \stopluacode
 

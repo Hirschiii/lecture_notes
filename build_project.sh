@@ -1,10 +1,13 @@
 #!/bin/bash
 
+SCHOOL_FOLDER="$HOME/notes/schule"
+
 # TODO: mv files in right directory structur
+# TODO: add special for "How_to"
 
 export TEXMF="$TEXMF:$HOME/texmf:/usr/local/texlive/2024/texmf-dist"
 
-subjects=("how_to" "mathe" "informatik" "physik" "englisch" "politik" "deutsch" "wun" "seminarfach")
+subjects=("mathe" "informatik" "physik" "englisch" "politik" "deutsch" "wun" "seminarfach")
 
 types=("unterricht" "aufgaben" "presentation" "poster")
 
@@ -115,13 +118,13 @@ move_file() {
 compile_unterricht() {
 	subject=$1
 	filename="${subject}-unterricht"
-	if check_directory "${subject}/unterricht/"; then
+	if check_directory "${SCHOOL_FOLDER}/${subject}/unterricht/"; then
 		echo "Compiling ${subject} - unterricht"
-		context --jobname="${subject}-unterricht" --mode="$subject" --result="$filename" prd_unterricht.tex &>/dev/null
+		context --jobname="${subject}-unterricht" --mode="$subject" --result="$filename" --school-path="${SCHOOL_FOLDER}" prd_unterricht.tex &>/dev/null
 		# echo "context --jobname=\"${subject}-unterricht\" --mode=\"$subject\" --result=\"$filename\" prd_unterricht.tex &>/dev/null"
 		move_file $filename $subject "unterricht"
 		if [ $? -ne 0 ]; then
-			echo "context --jobname=\"${subject}-unterricht\" --mode=\"$subject\" --result=\"$filename\" prd_unterricht.tex &>/dev/null"
+			echo "context --jobname=\"${subject}-unterricht\" --mode=\"$subject\" --result=\"$filename\" --arguments=path=\"${SCHOOL_FOLDER}\" prd_unterricht.tex &>/dev/null"
 		fi
 	fi
 }
@@ -129,12 +132,12 @@ compile_unterricht() {
 compile_wissen() {
 	subject=$1
 	filename="${subject}-wissen"
-	if check_directory "${subject}/wissen/"; then
+	if check_directory "${SCHOOL_FOLDER}/${subject}/wissen/"; then
 		echo "Compiling ${subject} - wissen"
-		context --jobname="${subject}-wissen" --mode="$subject" --result="$filename" prd_wissen.tex &>/dev/null
+		context --jobname="${subject}-wissen" --mode="$subject" --result="$filename" --school-path="${SCHOOL_FOLDER}" prd_wissen.tex &>/dev/null
 		move_file $filename $subject "wissen"
 		if [ $? -ne 0 ]; then
-			echo "context --jobname=\"${subject}-wissen\" --mode=\"$subject\" --result=\"$filename\" prd_wissen.tex &>/dev/null"
+			echo "context --jobname=\"${subject}-wissen\" --mode=\"$subject\" --result=\"$filename\" --school-path=\"${SCHOOL_FOLDER}\" prd_wissen.tex &>/dev/null"
 		fi
 	fi
 }
@@ -144,13 +147,13 @@ compile_aufgaben() {
 	mode=$2
 
 	# Loop through each file in the directory
-	find "$subject/aufgaben" -type f | while read -r file; do
+	find "${SCHOOL_FOLDER}/$subject/aufgaben" -type f | while read -r file; do
 		# Add your file processing commands here
 		if [ -f "$file" ]; then
 			basename=$(basename $file)
 			basename="${basename%.*}"
 			if check_file $file; then
-				echo "Compiling ${file} - aufgaben"
+				echo "Compiling ${file}"
 
 				context --mode=$mode --jobname="${file}-aufgaben" --result="$basename" --arguments=file="${file}" prd_aufgaben.tex &>/dev/null
 				# echo "context --jobname=\"${file}-aufgaben\" --result=\"$basename\" --arguments=file=\"${file}\" prd_aufgaben.tex &>/dev/null"
@@ -170,7 +173,7 @@ compile_poster() {
 	filename=$2
 
 	# Loop through each file in the directory
-	find "$subject/poster" -type f | while read -r file; do
+	find "${SCHOOL_FOLDER}/$subject/poster" -type f | while read -r file; do
 		# Add your file processing commands here
 		if [ -f "$file" ]; then
 			basename=$(basename $file)
