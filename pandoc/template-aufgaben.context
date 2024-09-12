@@ -33,7 +33,9 @@ $endif$
 \starttext
 
 \startfrontmatter
-\component c_titlepage
+$if(titlepage)$
+\component components/c_titlepage_$titlepage$
+$endif$
 
 $if(toc)$
 % Table of Contents

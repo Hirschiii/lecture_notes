@@ -124,7 +124,7 @@ compile_unterricht() {
 		# echo "context --jobname=\"${subject}-unterricht\" --mode=\"$subject\" --result=\"$filename\" prd_unterricht.tex &>/dev/null"
 		move_file $filename $subject "unterricht"
 		if [ $? -ne 0 ]; then
-			echo "context --jobname=\"${subject}-unterricht\" --mode=\"$subject\" --result=\"$filename\" --arguments=path=\"${SCHOOL_FOLDER}\" prd_unterricht.tex &>/dev/null"
+			echo "context --jobname=\"${subject}-unterricht\" --mode=\"$subject\" --result=\"$filename\" --school-path=\"${SCHOOL_FOLDER}\" prd_unterricht.tex &>/dev/null"
 		fi
 	fi
 }

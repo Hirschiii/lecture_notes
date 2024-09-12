@@ -35,7 +35,7 @@
 
 
 
-\setuphead[chapter]            [header=empty,number=no,sectionresetset=1,align=middle,style=\bfb]
+\setuphead[chapter]            [header=empty,number=no,sectionresetset=1,align=middle,style=\bfb,before={\blank[-1cm]}]
 \setuphead[section]            [style=\bfa,textstyle=boldslanted,align=middle]
 \setuphead[subsection]         [style=\bf,textstyle=bold,align=right]
 \setuphead[subsubsection]      [style=\bf,align=right]
@@ -104,7 +104,7 @@
   [backspace=2cm, % Space on the left margin
    width=fit, % Adjust width to fit remaining space
    topspace=1cm, % Top margin
-   header=0.7cm, % Header size
+   header=1.2cm, % Header size
    footer=0.7cm, % Footer size
    height=fit, % Adjust height to fit remaining space
    bottomspace=1.5cm, % Bottom margin
@@ -113,11 +113,26 @@
    leftmargindistance=0.5cm, % Space between left margin and main content
    rightmargindistance=0.5cm]
 
+\startsectionblockenvironment[frontpart]
+\setuppagenumbering[location=]
+\setupheader[text][before={},after={}]
+\setupheadertexts[][]
+\stopsectionblockenvironment
+
+\setupheader
+  [text]
+  [before={\startframed[frame=off,bottomframe=on,framecolor=black,]},
+   after={\stopframed},
+  ]
+\setupheadertexts[chapter][section]
+
+% \setuppagenumbering[location={footer,middle}]
+\setuppagenumbering[location={header,middle}]
 \setuppagenumber[number=0]
 
 % \showframe
 % \showgrid
-
+%
 % \showlayout
 % \showframe
 
