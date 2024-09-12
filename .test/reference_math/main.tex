@@ -1,0 +1,58 @@
+\setupbodyfont[gentium]
+\setupwhitespace[medium]
+
+This is the first mathematical formula
+ \startplaceformula[title={Ich bin toll},suffix={Ich bin toller suffiz},reference=enq:tangent]
+ \startformula
+   \sin^2(t)^2 + \cos^2(t) = 1.
+ \stopformula
+ \stopplaceformula
+
+This is another formula
+ \startplaceformula
+ \startformula
+   \cos^2(t) = \frac{1}{1+\tan^2(t)}.
+ \stopformula
+ \stopplaceformula
+As one may see from relation~(\in[enq:tangent]), $\cos(t)$ and
+$\sin(t)$ can be determined by $\tan(t)$\dots
+
+This is the third formula
+ \startplaceformula[Pythagora]
+ \startformula
+    |a+b|^2 = |a|^2 + |b|^2
+ \stopformula
+ \stopplaceformula
+Clearly equality (\in[Pythagora]) holds for $a,b \in {\Bbb R}^n$
+if and only if $(a|b) =0$, where the scalar product
+$(\cdot|\cdot)$ on ${\Bbb R}^n$ is defined to be
+ \startformula
+   (a|b) := a\cdot b =\sum_{j=1}^{n}a_jb_j, \qquad |a|^2 := (a|a).
+ \stopformula
+(Note that the above equation is {\it not\/} numbered).
+
+% a reference + list  ==> entry with number + additional text in the list
+\startplaceformula
+  [reference=formula:mass2,
+   list={Mass-energy equivalence from list option}]
+\startformula e=mc^2 \stopformula
+\stopplaceformula
+
+% a reference + title  ==> entry with title text, no number
+\startplaceformula
+  [title={Mass-energy equivalence},     %   <====== here
+   reference=formula:mass3]
+\startformula e=mc^2 \stopformula
+\stopplaceformula
+
+% a reference + title + list ==> entry with list text, no number
+\startplaceformula
+  [title={Mass-energy equivalence},     %   <====== here
+   reference=formula:mass4,
+   list={Mass-energy equivalence from list option}]
+\startformula e=mc^2 \stopformula
+\stopplaceformula
+
+This is the list:
+
+\placelist[formula][criterium=all,alternative=c]

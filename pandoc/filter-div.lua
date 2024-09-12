@@ -11,6 +11,19 @@ function Div(el)
 		return pandoc.RawBlock("context", "\\startleftbartext\n" .. content .. "\n\\stopleftbartext")
 	elseif el.classes:includes("inmargin") then
 		return pandoc.RawBlock("context", "\\inmargin{" .. content .. "}")
+	elseif el.classes:includes("math") then
+		local title = el.attributes["title"]
+		local reference = el.attributes["reference"]
+		return pandoc.RawBlock(
+			"context",
+			"\\startplaceformula[list={"
+				.. title
+				.. "},reference="
+				.. reference
+				.. "]\n\\startformula\n"
+				.. content
+				.. "\n\\stopformula\\stopplaceformula"
+		)
 	else
 		local block_name = el.classes[1] or "generic"
 		return pandoc.RawBlock("context", "\\start" .. block_name .. "\n" .. content .. "\n\\stop" .. block_name)
