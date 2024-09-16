@@ -39,4 +39,4 @@
 /Users/niklas/notes/schule/physik/wissen/:20240914193759
 /Users/niklas/notes/schule/politik/unterricht/:20240916102609
 /Users/niklas/notes/schule/deutsch/aufgaben/2024-09-16-1026-klausur.md:20240916102655
-/Users/niklas/notes/schule/deutsch/unterricht/:20240916111405
+/Users/niklas/notes/schule/deutsch/unterricht/:20240916114038
