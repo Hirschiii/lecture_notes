@@ -9,18 +9,21 @@
 
 % \setupmargindata[inmargin][location=right, align=block,stack=yes, stack=continue, style=\tfx\setupinterlinespace]
 
-\setupmargindata
-  [inmargin]
-  [rule=on, % No rule (line) between margin notes and main text
-   location=right, % Place margin notes on the right side
-   align=flushright, % Align margin notes to the left
-   stack=no,
-   style=\tfx\setupinterlinespace, % Smaller font and italics for margin notes
-   before={\blank[medium]}, % Space before margin note
-   after={\blank[small]}]
+% \setupmargindata
+%   [inmargin]
+%   [rule=on, % No rule (line) between margin notes and main text
+%    location=right, % Place margin notes on the right side
+%    % align=left, % Align margin notes to the left
+%    stack=no,
+%    style=\tfx\setupinterlinespace, % Smaller font and italics for margin notes
+%    % style={\tfx\setupinterlinespace, \setupalign[block]},
+%    before={\blank[medium]}, % Space before margin note
+%    after={\blank[small]}]
+
+\setupmargindata[inmargin][location=right,style=\tfx\setupinterlinespace,align=left]
 
 \setupindenting[yes, small] % Small indent for paragraphs
-\setupwhitespace[small]
+\setupwhitespace[medium]
 
 \setupinteraction                                           
   [state=start,                                             % enable hyperlinks
@@ -36,7 +39,7 @@
 
 
 \setuphead[chapter]            [header=empty,number=no,sectionresetset=1,align=middle,style=\bfb,before={\blank[-1cm]}]
-\setuphead[section]            [style=\bfa,textstyle=boldslanted,align=middle]
+\setuphead[section]            [style=\bfa,textstyle=boldslanted,before=\testpage[12],align=middle]
 \setuphead[subsection]         [style=\bf,textstyle=bold,align=right]
 \setuphead[subsubsection]      [style=\bf,align=right]
 \setuphead[subsubsubsection]   [style=\sc,number=no,align=right]
@@ -56,12 +59,12 @@
 \setupcombinedlist[content][list={chapter,section,subsection,subsubsection,subsubsubsection}, alternative=c,]
 % in MkII replace list with level=4: \subsubsubsections are not listed in ToC
 
-\setuplist[chapter][width=5mm,style=bold]
+\setuplist[chapter][style=bold]
 \setuplist[section][width=10mm]
 \setuplist[subsection][width=15mm]
-\setuplist[subsubsection][width=20mm,margin=20mm]
-\setuplist[subsubsubsection][width=20mm,margin=20mm]
-\setuplist[subsubsubsubsection][width=20mm,margin=20mm]
+\setuplist[subsubsection][width=20mm]
+\setuplist[subsubsubsection][margin=25mm]
+\setuplist[subsubsubsubsection][margin=30mm]
 
 % pagestyle=normal for changing the appearance of pagenumber
 % \setuplist[subsubsection][width=20mm, style=slanted, pagestyle=normal]
@@ -108,7 +111,7 @@
    footer=0.7cm, % Footer size
    height=fit, % Adjust height to fit remaining space
    bottomspace=1.5cm, % Bottom margin
-   rightmargin=3.5cm, % Space for margin notes
+   rightmargin=4cm, % Space for margin notes
    marginspace=0.5cm, % Space between main content and margin notes
    leftmargindistance=0.5cm, % Space between left margin and main content
    rightmargindistance=0.5cm]
@@ -132,7 +135,6 @@
 
 % \showframe
 % \showgrid
-%
 % \showlayout
 % \showframe
 

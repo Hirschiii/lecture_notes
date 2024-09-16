@@ -1,0 +1,48 @@
+\startenvironment env_definitions
+
+\definecolor[lightblue]  [0.95(blue,white)]
+\definecolor[darkblue]  [b=0.8]
+
+\defineframedtext
+  [frameddefinition]
+  [
+	width=\dimexpr\textwidth + 1.5cm\relax,
+    frame=on,
+	rightframe=off,
+    framecolor=darkblue,
+    rulethickness=1pt,
+	location=right,
+	loffset=0cm,
+	roffset=0.5cm,
+	toffset=-0.2cm,
+	boffset=-0.2cm,
+	% align=middle,
+    % offset=2ex,
+	% loffset=0.5cm,
+	% loffset=0.5cm,
+    background=color,
+    backgroundcolor=lightblue,
+  ]
+
+
+\definehead[definition][subsubsubsubsection][
+	number=no,
+	style=\bf,
+	beforesection={\blank[big]\offset[leftoffset=-0.5cm]\startframeddefinition},
+	aftersection=\stopframeddefinition\blank[big]
+	]
+\setupheadtext[definitions=All my contents]
+
+\setuplist[definition][margin=5mm]
+\setuplist[chapter][style=\bf]
+
+
+%% this can be changed according to one's wishes
+% \setupnumber[definition][way=bysection, numbersection=yes] 
+
+\definecombinedlist
+    [definitions]
+    [chapter,definition]
+    [level=subsection]
+
+\stopenvironment

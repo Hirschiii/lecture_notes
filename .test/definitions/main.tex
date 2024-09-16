@@ -16,8 +16,45 @@
 %    width=fit,                        % Automatische Breite für Überschrift
 %    stopper=.]                        % Punkt nach der Nummer der Definition
 
-\definehead[definition][subsubsubsubsection]{}
+% \showframe
+% \showgrid
+% \showlayout
+% \showframe
+
+\definecolor[lightblue]  [0.95(blue,white)]
+\definecolor[darkblue]  [b=0.8]
+
+\defineframedtext
+  [frameddefinition]
+  [
+	width=\dimexpr\textwidth + 1cm\relax,
+    frame=on,
+	rightframe=off,
+    framecolor=darkblue,
+    rulethickness=2pt,
+	location=right,
+	offset=0.5cm,
+	frameoffset=1cm,
+	% align=middle,
+    % offset=2ex,
+	% loffset=0.5cm,
+	% loffset=0.5cm,
+    background=color,
+    backgroundcolor=lightblue,
+  ]
+
+
+\definehead[definition][subsubsubsubsection][
+	number=no,
+	style=\bf,
+	beforesection={\blank[medium]\offset[leftoffset=-0.5cm]\startframeddefinition},
+	aftersection=\stopframeddefinition\blank[medium]
+	]
 \setupheadtext[definitions=All my contents]
+
+\setuplist[definition][margin=10mm]
+\setuplist[chapter][style=\bf]
+
 
 %% this can be changed according to one's wishes
 % \setupnumber[definition][way=bysection, numbersection=yes] 
@@ -36,9 +73,14 @@
 Dies ist der Text des ersten Kapitels.
 
 % Erste Definition
+% \offset[leftoffset=-0.5cm]{
 \startdefinition[title={Ich bin eins}]
   Dies ist die erste Definition.
 \stopdefinition
+% }
+
+Dask jlkdfj aslkfj skjfd slkjf laksjd fljksa fljksa dlfjslkd fjsalkd fjklas fdjslkaf jsao ij fdksjflkjasd fkajsdlfkjsa ldkfjsa lkdjflaskdjflkjasdlkfjsdlkjf kjdskaf jksdjfkjs f
+
 \startdefinition[title={Ich bin eins}]
   Dies ist die erste Definition.
 \stopdefinition

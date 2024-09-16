@@ -8,3 +8,11 @@
 - Wissen der Fächer am KC orientieren
 - Module fuer firefox epub
 - Semantische referencierung
+
+## Figures
+
+- div for mp figures
+- have them in buffers
+- they need all environments
+- PlaceFigure should not be in the buffer **only** the MP code
+- use startMPpage instead of startMPcode

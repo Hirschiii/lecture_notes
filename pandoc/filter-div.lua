@@ -11,6 +11,29 @@ function Div(el)
 		return pandoc.RawBlock("context", "\\startleftbartext\n" .. content .. "\n\\stopleftbartext")
 	elseif el.classes:includes("inmargin") then
 		return pandoc.RawBlock("context", "\\inmargin{" .. content .. "}")
+	elseif el.classes:includes("definition") then
+		local title = el.attributes["title"]
+		return pandoc.RawBlock(
+			"context",
+			"\\startdefinition[title={" .. title .. "}]\n" .. content .. "\n\\stopdefinition"
+		)
+	elseif el.classes:includes("buffer") then
+		local title = el.attributes["title"]
+		local reference = el.attributes["reference"]
+		return pandoc.RawBlock(
+			"context",
+			"\\startbuffer["
+				.. reference
+				.. "]\n"
+				.. content
+				.. "\n\\stopbuffer\n\\placefigure[here]["
+				.. reference
+				.. "]{"
+				.. title
+				.. "}{\n\\typesetbuffer["
+				.. reference
+				.. "]}"
+		)
 	elseif el.classes:includes("math") then
 		local title = el.attributes["title"]
 		local reference = el.attributes["reference"]

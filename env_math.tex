@@ -15,4 +15,149 @@
 
 \definereferenceformat[eqref][label=Formel]
 
+\defineMPinstance[LTI]  
+                 [
+                   format=metafun,
+                   extensions=yes,
+                   initializations=yes,
+                   method=double,
+                  ]
+
+\startMPdefinitions{LTI}
+def pole =
+    image(
+        draw (1, 1) -- (-1, -1);
+        draw (1, -1) -- (-1, 1);
+    )
+enddef ;
+
+def zero =
+    image(
+        unfill fullcircle scaled 2;
+        draw   fullcircle scaled 2;
+    )
+enddef;
+
+def PZplot = applyparameters "PZplot" "do_PZplot" enddef ;
+
+presetparameters "PZplot" [
+  xmin = -2.5,  xmax = 2.5,
+  ymin = -2.5,  ymax = 2.5,
+  dx   = 1,     dy   = 1,
+  sx   = 5mm,   sy   = 5mm,
+  scale = 0.5,
+
+  grid = false,
+
+  poles = { },
+  zeros = { },
+
+  style = "\switchtobodyfont[8pt]",
+
+];
+
+vardef do_PZplot =
+  image (
+    pushparameters "PZplot";
+
+    newnumeric xmin, xmax, ymin, ymax;
+    xmin := getparameter "xmin";
+    xmax := getparameter "xmax";
+    ymin := getparameter "ymin";
+    ymax := getparameter "ymax";
+
+    newnumeric sx, sy;
+    sx := getparameter "sx";
+    sy := getparameter "sy";
+
+    newnumeric dx, dy;
+    dx := getparameter "dx";
+    dy := getparameter "dy";
+
+    newpath xaxis, yaxis;
+
+    xaxis := (xmin*sx, 0) -- (xmax*sx, 0);
+    yaxis := (0, ymin*sy) -- (0, ymax*sy);
+
+    newpath xtick, ytick;
+    xtick := (-0.1sx, 0) -- (0.1sx, 0);
+    ytick := (0, -0.1sy) -- (0, 0.1sy);
+
+    newstring style;
+    style := getparameter "style";
+
+    newboolean grid;
+    grid  := getparameter "grid";
+
+    for x = dx step dx until xmax :
+        if grid :
+            draw yaxis shifted (x*sx, 0) withcolor 0.5white;
+        fi
+        draw ytick shifted (x*sx, 0);
+        label.bot(style & decimal x, (x*sx, 0));
+    endfor
+
+    label.lrt(style & "0", origin);
+
+    for x = -dx step -dx until xmin :
+        if grid :
+            draw yaxis shifted (x*sx, 0) withcolor 0.5white;
+        fi
+        draw ytick shifted (x*sx, 0);
+        label.bot(style & decimal x, (x*sx, 0));
+    endfor
+
+    for y = dy step dy until ymax :
+        if grid :
+            draw xaxis shifted (0, y*sy) withcolor 0.5white;
+        fi
+        draw xtick shifted (0, y*sy);
+        label.lft(style & decimal y, (0, y*sy));
+    endfor
+
+    for y = -dy step -dy until ymin :
+        if grid :
+            draw xaxis shifted (0, y*sy) withcolor 0.5white;
+        fi
+        draw xtick shifted (0, y*sy);
+        label.lft(style & decimal y, (0, y*sy));
+    endfor
+
+
+    drawarrow xaxis;
+    drawarrow yaxis;
+
+    label.rt( style & "$\sigma$",  (xmax*sx, 0));
+    label.top(style & "$jω$", (0, ymax*sy));
+
+    newpair p ;
+
+    newnumeric scale;
+    scale := getparameter "scale";
+
+    if (getparametercount "zeros") > 0 :
+          for i = 1 upto getparametercount "zeros":
+            p := getparameter "zeros" i;
+            draw (zero xysized(scale*sx, scale*sx))
+                 shifted (xpart p*sx, ypart p*sy)
+                 withpen pencircle scaled 1bp;
+            endfor
+    fi
+
+    if (getparametercount "poles") > 0 :
+          for i = 1 upto getparametercount "poles":
+            p := getparameter "poles" i;
+            draw (pole xysized(scale*sx, scale*sx))
+                 shifted (xpart p*sx, ypart p*sy)
+                 withpen pencircle scaled 1bp;
+            endfor
+    fi
+
+
+    popparameters;
+
+  )
+enddef;
+\stopMPdefinitions
+
 \stopenvironment

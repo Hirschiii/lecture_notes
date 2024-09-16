@@ -7,7 +7,7 @@ SCHOOL_FOLDER="$HOME/notes/schule"
 
 export TEXMF="$TEXMF:$HOME/texmf:/usr/local/texlive/2024/texmf-dist"
 
-subjects=("mathe" "informatik" "physik" "englisch" "politik" "deutsch" "wun" "seminarfach")
+subjects=("how_to" "mathe" "informatik" "physik" "englisch" "politik" "deutsch" "wun" "seminarfach")
 
 types=("unterricht" "aufgaben" "presentation" "poster")
 
@@ -21,7 +21,7 @@ MINGW*) machine=MinGw ;;
 esac
 
 # Log file to store timestamps
-LOG_FILE="modification.log"
+LOG_FILE="modification.txt"
 
 # Initialize the log file if it doesn't exist
 if [ ! -f "$LOG_FILE" ]; then
