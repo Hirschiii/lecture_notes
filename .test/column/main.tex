@@ -1,0 +1,15 @@
+\setuppapersize[A5]
+
+\definecolumnset[TwoColumns][n=2]
+
+\startcolumnset [TwoColumns]
+  \title{Test page}
+  \framed
+    [frame=off,
+     bottomframe=on,
+     width=\textwidth,
+     frameoffset=1mm,
+     foregroundstyle=small,
+    ]{\copyright\ \date[][year] Donald E. Knuth}
+  \input knuth
+\stopcolumnset

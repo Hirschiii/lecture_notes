@@ -10,7 +10,7 @@ function Div(el)
 	elseif el.classes:includes("leftbar") then
 		return pandoc.RawBlock("context", "\\startleftbartext\n" .. content .. "\n\\stopleftbartext")
 	elseif el.classes:includes("inmargin") then
-		return pandoc.RawBlock("context", "\\inmargin{" .. content .. "}")
+		return pandoc.RawBlock("context", "\\margintext{" .. content .. "}")
 	elseif el.classes:includes("definition") then
 		local title = el.attributes["title"]
 		return pandoc.RawBlock(

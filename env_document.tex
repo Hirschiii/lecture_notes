@@ -1,29 +1,16 @@
 \startenvironment env_document
 
+% -------- Init ------------
+
+\usemodule[crossref][refColor=green,reffixColor=blue,refrefColor=red]
+\usepath[envs,components]
+
 \usemodule[pararef]
 \usemodule [setups]
 
 \usemodule[visual]
 
 \mainlanguage[de]
-
-% \setupmargindata[inmargin][location=right, align=block,stack=yes, stack=continue, style=\tfx\setupinterlinespace]
-
-% \setupmargindata
-%   [inmargin]
-%   [rule=on, % No rule (line) between margin notes and main text
-%    location=right, % Place margin notes on the right side
-%    % align=left, % Align margin notes to the left
-%    stack=no,
-%    style=\tfx\setupinterlinespace, % Smaller font and italics for margin notes
-%    % style={\tfx\setupinterlinespace, \setupalign[block]},
-%    before={\blank[medium]}, % Space before margin note
-%    after={\blank[small]}]
-
-\setupmargindata[inmargin][location=right,style=\tfx\setupinterlinespace,align=left]
-
-\setupindenting[yes, small] % Small indent for paragraphs
-\setupwhitespace[medium]
 
 \setupinteraction                                           
   [state=start,                                             % enable hyperlinks
@@ -37,27 +24,102 @@
   [option=bookmark,nomenubar]
 
 
+% -------- Font ------------
 
-\setuphead[chapter]            [header=empty,number=no,sectionresetset=1,align=middle,style=\bfb,before={\blank[-1cm]}]
-\setuphead[section]            [style=\bfa,textstyle=boldslanted,before=\testpage[12],align=middle]
-\setuphead[subsection]         [style=\bf,textstyle=bold,align=right]
-\setuphead[subsubsection]      [style=\bf,align=right]
-\setuphead[subsubsubsection]   [style=\sc,number=no,align=right]
-\setuphead[subsubsubsubsection][style=\it,number=no,align=right]
+% Enable old style numbers and protrusion
+\definefontfeature[default][default][onum=yes, protrusion=quality, expansion=quality]
 
-\setupxtable[frame=off]
-\setupxtable[head][topframe=on]
-\setupxtable[body][]
-\setupxtable[foot][]
-\setupxtable[lastrow][bottomframe=on]
+\starttypescript[mainface]
+    \definetypeface [mainface] [rm] [serif] [pagella] [default]
+    \definetypeface [mainface] [ss] [sans]  [heros]   [default]
+    \definetypeface [mainface] [tt] [mono]  [cursor]  [default]
+    \definetypeface [mainface] [mm] [math]  [pagella] [default]
+\stoptypescript
+\setupbodyfont[mainface,10pt]
 
+% Enable protrusion
+\setupalign[hz,hanging]
+
+\setupindenting[10pt, yes]
+
+% -------- Layout ----------
+
+\setuppapersize[A4][A4]
+
+\setuplayout[
+   backspace=2cm, % Space on the left margin
+   width=360pt, % Adjust width to fit remaining space
+   topspace=1cm, % Top margin
+   header=1.2cm, % Header size
+   footer=0.7cm, % Footer size
+   bottomspace=1.5cm, % Bottom margin
+   rightmargin=5cm, % Space for margin notes
+   rightmargindistance=20pt,
+   % marginspace=0.5cm, % Space between main content and margin notes
+   % leftmargindistance=0.5cm, % Space between left margin and main content
+   % rightmargindistance=0.5cm
+]
+
+\startsectionblockenvironment[frontpart]
+\setuppagenumbering[location=]
+\setupheader[text][before={},after={}]
+\setupheadertexts[][]
+\stopsectionblockenvironment
+
+\setupheader
+  [text]
+  [before={\startframed[frame=off,bottomframe=on,framecolor=black,]},
+   after={\stopframed},
+  ]
+
+% \setupfooter
+%   [text]
+%   [before={\startframed[frame=off,topframe=on,framecolor=black,]},
+%    after={\stopframed},
+%   ]
+
+\setupheadertexts[chapter][section]
+
+% \setuppagenumbering[location={footer,middle}]
+% \setuppagenumbering[location={header,right,marginedge}]
+\setuppagenumbering[location={right,margin,header}]
+
+% -------- Headings --------
+
+% setup the headings
+\setuphead[chapter]
+          [
+			header=empty,
+            style=\itd,
+            number=no,
+            before={\blank[3*big,force]},
+            after={\blank[4*big,force]},
+          ]
+
+\setuphead[section]
+          [style=\itb,
+           align=middle]
+
+\setuphead[subsection]
+          [style=\ita]
+
+\setuphead[subsubsection]
+          [style=\ita,number=no]
+
+% \setuphead[chapter]            [header=empty,number=no,sectionresetset=1,align=middle,style=\bfb,before={\blank[-1cm]}]
+% \setuphead[section]            [style=\bfa,textstyle=boldslanted,before=\testpage[12],align=middle]
+% \setuphead[subsection]         [style=\bf,textstyle=bold,align=right]
+% \setuphead[subsubsection]      [style=\bf,align=right]
+% \setuphead[subsubsubsection]   [style=\sc,number=no,align=right]
+% \setuphead[subsubsubsubsection][style=\it,number=no,align=right]
+
+% ---------- Setup ToC ----------
 % A new ToC title
-\setupheadtext[content=Inhaltsverzeichnes]
+% \setupheadtext[content=Inhaltsverzeichnes]
+
 
 % ToC
 % alternative=c, space to the page number is filled with dots
-\setupcombinedlist[content][list={chapter,section,subsection,subsubsection,subsubsubsection}, alternative=c,]
-% in MkII replace list with level=4: \subsubsubsections are not listed in ToC
 
 \setuplist[chapter][style=bold]
 \setuplist[section][width=10mm]
@@ -74,15 +136,24 @@
 \placebookmarks[chapter, section, subsection, subsubsection, subsubsubsection, subsubsubsubsection][chapter, section]
 \setupinteractionscreen[option={bookmark,title}]
 
+% ---------- Define extra figures ---------
 
-\setupitemize[autointro]    % prevent orphan list intro
-\setupitemize[indentnext=no]
+% Set Captions
+\setupcaption[style={\tfx\setupinterlinespace[line=10pt]}, headstyle=\rm, suffix={:}]
+\setupcaption[table][minwidth=\hsize, width=\hsize]
+
+\definemeasure[fullwidth_extra][\the\dimexpr\textwidth+\marginwidth]
+
+% \defineexternalfigure[marginwidth] [width=\marginwidth]
+% \defineexternalfigure[textwidth]   [width=\textwidth]
+% \defineexternalfigure[fullwidth]   [width=\the\dimexpr\textwidth+\measure{fullwidth_extra}\relax]
+
+\setupfloat[figure][indentnext=no, location={inner,middle}, default={here,top,bottom,page}]
+\setupfloat[table] [indentnext=no, location={inner,middle}, default={here,top,bottom,page}]
+
 
 \defineitemgroup[enumerate]
 \setupenumerate[each][fit][itemalign=left,distance=.5em,style={\feature[+][default:tnum]}]
-
-\setupfloat[figure][default={here,nonumber}]
-\setupfloat[table][default={here,nonumber}]
 
 \setupxtable[frame=off]
 \setupxtable[head][topframe=on]
@@ -101,39 +172,17 @@
 % \setupinteractionscreen[option=bookmark]
 % \setuppapersize[A4]
 
-\setuppapersize[A4][A4]
 
-\setuplayout
-  [backspace=2cm, % Space on the left margin
-   width=fit, % Adjust width to fit remaining space
-   topspace=1cm, % Top margin
-   header=1.2cm, % Header size
-   footer=0.7cm, % Footer size
-   height=fit, % Adjust height to fit remaining space
-   bottomspace=1.5cm, % Bottom margin
-   rightmargin=4cm, % Space for margin notes
-   marginspace=0.5cm, % Space between main content and margin notes
-   leftmargindistance=0.5cm, % Space between left margin and main content
-   rightmargindistance=0.5cm]
+% \setupmargindata[inmargin][location=right,style=\tfx\setupinterlinespace,align=left,width=\rightmarginwidth]
+% setup the side notes
+\setupmargindata
+    [margintext]
+    [location=outer,
+     width=\rightmarginwidth,
+     align=flushleft,
+     stack=continue,
+     style={\tfx\setupinterlinespace[line=10pt]}]
 
-\startsectionblockenvironment[frontpart]
-\setuppagenumbering[location=]
-\setupheader[text][before={},after={}]
-\setupheadertexts[][]
-\stopsectionblockenvironment
-
-\setupheader
-  [text]
-  [before={\startframed[frame=off,bottomframe=on,framecolor=black,]},
-   after={\stopframed},
-  ]
-\setupheadertexts[chapter][section]
-
-% \setuppagenumbering[location={footer,middle}]
-\setuppagenumbering[location={header,middle}]
-\setuppagenumber[number=0]
-
-% \showframe
 % \showgrid
 % \showlayout
 % \showframe

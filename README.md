@@ -9,6 +9,8 @@
 - Module fuer firefox epub
 - Semantische referencierung
 
+- Vielleicht comments https://www.contextgarden.net/Command/_comment
+
 ## Figures
 
 - div for mp figures
