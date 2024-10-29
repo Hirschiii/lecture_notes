@@ -98,13 +98,19 @@
 
 \setuphead[section]
           [style=\itb,
+		  before=\testpage[12],
            align=middle]
 
 \setuphead[subsection]
-          [style=\ita]
+          [style=\itb]
 
 \setuphead[subsubsection]
           [style=\ita,number=no]
+
+\setuphead[subsubsubsection]
+          [align=flushleft,
+		  style=\ita,
+		  number=no]
 
 % \setuphead[chapter]            [header=empty,number=no,sectionresetset=1,align=middle,style=\bfb,before={\blank[-1cm]}]
 % \setuphead[section]            [style=\bfa,textstyle=boldslanted,before=\testpage[12],align=middle]

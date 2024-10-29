@@ -1,0 +1,30 @@
+\startproduct
+	\usepath[components]
+    \component components/00_test
+    \component components/1**
+	\startluacode
+		local lfs = require("lfs")
+
+		-- Table to hold filenames
+		local files = {}
+
+		-- Capture all filenames into the table
+		for file in lfs.dir("components") do
+			if file ~= "." and file ~= ".." then
+				table.insert(files, file)
+			end
+		end
+
+		-- Sort the filenames based on the numerical or date prefix
+		table.sort(files, function(a, b)
+				return a < b
+		end)
+
+		for _, file in ipairs(files) do
+			if file:match("%.md$") then
+			context("\\component " .. file)
+			end
+		end
+
+	\stopluacode
+\stopproduct
