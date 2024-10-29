@@ -1,46 +1,12 @@
 \startenvironment env_document
 
-% -------- Init ------------
-
-\usemodule[crossref][refColor=green,reffixColor=blue,refrefColor=red]
-\usepath[envs,components]
-
-\usemodule[pararef]
-\usemodule [setups]
-
-\usemodule[visual]
-
-\mainlanguage[de]
-
 \setupinteraction                                           
   [state=start,                                             % enable hyperlinks
    color=niv3color]                            % choose the color of hyperlinks
 
-\placebookmarks 
-  [chapter,section,subsection]   % make bookmarks visible when opening document
-  [chapter]   % select unfolded levels when opening document
-  
-\setupinteractionscreen
-  [option=bookmark,nomenubar]
+\placebookmarks[chapter, title, section, subsection, subsubsection, subsubsubsection, subsubsubsubsection][chapter, section]
+\setupinteractionscreen[option={bookmark,title}]
 
-
-% -------- Font ------------
-
-% Enable old style numbers and protrusion
-\definefontfeature[default][default][onum=yes, protrusion=quality, expansion=quality]
-
-\starttypescript[mainface]
-    \definetypeface [mainface] [rm] [serif] [pagella] [default]
-    \definetypeface [mainface] [ss] [sans]  [heros]   [default]
-    \definetypeface [mainface] [tt] [mono]  [cursor]  [default]
-    \definetypeface [mainface] [mm] [math]  [pagella] [default]
-\stoptypescript
-\setupbodyfont[mainface,10pt]
-
-% Enable protrusion
-\setupalign[hz,hanging]
-
-\setupindenting[10pt, yes]
 
 % -------- Layout ----------
 
@@ -49,15 +15,15 @@
 \setuplayout[
    backspace=2cm, % Space on the left margin
    width=360pt, % Adjust width to fit remaining space
+   height=fit,
    topspace=1cm, % Top margin
    header=1.2cm, % Header size
-   footer=0.7cm, % Footer size
-   bottomspace=1.5cm, % Bottom margin
-   rightmargin=5cm, % Space for margin notes
+   rightedge=0.8cm,
+   leftedge=0.8cm,
+   footer=1cm, % Footer size
+   bottomspace=1cm, % Bottom margin
+   rightmargin=4.2cm, % Space for margin notes
    rightmargindistance=20pt,
-   % marginspace=0.5cm, % Space between main content and margin notes
-   % leftmargindistance=0.5cm, % Space between left margin and main content
-   % rightmargindistance=0.5cm
 ]
 
 \startsectionblockenvironment[frontpart]
@@ -72,19 +38,23 @@
    after={\stopframed},
   ]
 
-% \setupfooter
-%   [text]
-%   [before={\startframed[frame=off,topframe=on,framecolor=black,]},
-%    after={\stopframed},
-%   ]
-
 \setupheadertexts[chapter][section]
 
-% \setuppagenumbering[location={footer,middle}]
-% \setuppagenumbering[location={header,right,marginedge}]
 \setuppagenumbering[location={right,margin,header}]
 
 % -------- Headings --------
+
+\definesectionlevels
+   [default]
+   [chapter,section, subsection, subsubsection, subsubsubsection, subsubsubsubsection,subsubsubsubsection]
+
+% \definesectionlevels[default][
+%   {chapter,title},
+%   {section,subject},
+%   {subsection,subsubject},
+%   {subsubsection,subsubsubject},
+%   {subsubsubsection,subsubsubject},
+%   {subsubsubsubsection,subsubsubject}]
 
 % setup the headings
 \setuphead[chapter]
@@ -96,36 +66,40 @@
             after={\blank[4*big,force]},
           ]
 
+% setup the headings
+\setuphead[title]
+          [
+			header=empty,
+            style=\itd,
+            number=no,
+            before={\blank[3*big,force]},
+            after={\blank[4*big,force]},
+          ]
+
 \setuphead[section]
-          [style=\itb,
-		  before=\testpage[12],
+          [style=\itc,
+            before={\testpage[12]\blank[big]},
+            after={\blank[2*big]},
            align=middle]
 
-\setuphead[subsection]
-          [style=\itb]
+\setuphead[subsection][
+            before={\testpage[12]\blank[medium]},
+            after={\blank[2*medium]},
+		  style=\itb]
 
 \setuphead[subsubsection]
-          [style=\ita,number=no]
+          [style=\ita,
+		  number=no]
 
 \setuphead[subsubsubsection]
-          [align=flushleft,
+          [
+		  align=flushleft,
 		  style=\ita,
 		  number=no]
 
-% \setuphead[chapter]            [header=empty,number=no,sectionresetset=1,align=middle,style=\bfb,before={\blank[-1cm]}]
-% \setuphead[section]            [style=\bfa,textstyle=boldslanted,before=\testpage[12],align=middle]
-% \setuphead[subsection]         [style=\bf,textstyle=bold,align=right]
-% \setuphead[subsubsection]      [style=\bf,align=right]
-% \setuphead[subsubsubsection]   [style=\sc,number=no,align=right]
-% \setuphead[subsubsubsubsection][style=\it,number=no,align=right]
+
 
 % ---------- Setup ToC ----------
-% A new ToC title
-% \setupheadtext[content=Inhaltsverzeichnes]
-
-
-% ToC
-% alternative=c, space to the page number is filled with dots
 
 \setuplist[chapter][style=bold]
 \setuplist[section][width=10mm]
@@ -134,69 +108,37 @@
 \setuplist[subsubsubsection][margin=25mm]
 \setuplist[subsubsubsubsection][margin=30mm]
 
-% pagestyle=normal for changing the appearance of pagenumber
-% \setuplist[subsubsection][width=20mm, style=slanted, pagestyle=normal]
 
+% ---------- Margintext ----------
 
-% make chapter, section bookmarks visible when opening document
-\placebookmarks[chapter, section, subsection, subsubsection, subsubsubsection, subsubsubsubsection][chapter, section]
-\setupinteractionscreen[option={bookmark,title}]
-
-% ---------- Define extra figures ---------
-
-% Set Captions
-\setupcaption[style={\tfx\setupinterlinespace[line=10pt]}, headstyle=\rm, suffix={:}]
-\setupcaption[table][minwidth=\hsize, width=\hsize]
-
-\definemeasure[fullwidth_extra][\the\dimexpr\textwidth+\marginwidth]
-
-% \defineexternalfigure[marginwidth] [width=\marginwidth]
-% \defineexternalfigure[textwidth]   [width=\textwidth]
-% \defineexternalfigure[fullwidth]   [width=\the\dimexpr\textwidth+\measure{fullwidth_extra}\relax]
-
-\setupfloat[figure][indentnext=no, location={inner,middle}, default={here,top,bottom,page}]
-\setupfloat[table] [indentnext=no, location={inner,middle}, default={here,top,bottom,page}]
-
-
-\defineitemgroup[enumerate]
-\setupenumerate[each][fit][itemalign=left,distance=.5em,style={\feature[+][default:tnum]}]
-
-\setupxtable[frame=off]
-\setupxtable[head][topframe=on]
-\setupxtable[body][]
-\setupxtable[foot][]
-\setupxtable[lastrow][bottomframe=on]
-
-% \setups[namespace:set] is automatically called right after 'set' is assigned
-\setvariables[meta]
-  [title={Schul Notizen},
-   subtitle={Abitur 2025},
-   date={},
-   author={Niklas von Hirschfeld},
-  ]
-
-% \setupinteractionscreen[option=bookmark]
-% \setuppapersize[A4]
-
-
-% \setupmargindata[inmargin][location=right,style=\tfx\setupinterlinespace,align=left,width=\rightmarginwidth]
-% setup the side notes
 \setupmargindata
     [margintext]
     [location=outer,
-     width=\rightmarginwidth,
+     width=\outermarginwidth,
      align=flushleft,
      stack=continue,
      style={\tfx\setupinterlinespace[line=10pt]}]
 
-% \showgrid
-% \showlayout
-% \showframe
+% ---------- Figures ----------
 
-\startuseMPgraphic{textpartdivider}
- 	draw (0cm,0cm)--(8cm,0cm) withcolor \MPcolor{\textpartdividerColor};
-\stopuseMPgraphic
+% setup the captions
+\setupcaption[style={\tfx\setupinterlinespace[line=10pt]}, headstyle=\rm, suffix={:}]
+\setupcaption[table][minwidth=\hsize, width=\hsize]
 
-\define\textpartdivider{\midaligned{\useMPgraphic{textpartdivider}}\blank[big]}
+\definemeasure[fullwidth_extra][\the\dimexpr\outermargindistance+\outermarginwidth]
+
+\defineexternalfigure[marginwidth] [width=\outermarginwidth]
+\defineexternalfigure[textwidth]   [width=\textwidth]
+\defineexternalfigure[fullwidth]   [width=\the\dimexpr\textwidth+\measure{fullwidth_extra}\relax]
+
+\setupfloat[figure][indentnext=no, location=middle, default={here,top,bottom,page}]
+\setupfloat[table] [indentnext=no, location=middle, default={here,top,bottom,page}]
+
+\definefloat [widetable][widetables][table, location=inner]
+\setupcaption[widetable][width=\the\dimexpr\textwidth+\measure{fullwidth_extra}\relax]
+
+% \placefigure[outermargin] does not play nice with margintext.
+% We need \margintext{\palcefigure[...]{...}}
+% So we define wrappers with the same interface as default ConTeXt commands
 
 \stopenvironment

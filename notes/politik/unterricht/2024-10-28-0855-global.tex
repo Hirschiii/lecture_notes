@@ -1,0 +1,93 @@
+\section{2024-10-28 Global Governance}
+
+
+\startmyquote {bpb: Definition}
+Global Governance ist keine Weltregierung sondern ein internationaler Rahmen von Prinzipien, Regeln und Gesetzen inklusive einer Reihe von Institutionen um diese aufrechtzuerhalten, die notwendig sind, um globale Probleme zu bewältigen.
+\stopmyquote
+
+
+\startitemize[packed]
+\item Involvierung folgender Systeme der zwischenstaatlichen Beziehungen
+\startitemize[packed]
+\item Nichtregierungsorganiseationen
+\item Bürgerbewegung
+\item mulinationale wirtschaftliche Organisationen
+\item globale Finanmärkte
+\stopitemize
+\stopitemize
+
+
+\startbuffer[fig:global_governance:flowchart:uno]
+\environment env_document
+
+\usemodule[chart]
+\startTEXpage
+\setupFLOWcharts
+[nx=3,
+ny=3,
+dx=2\bodyfontsize,
+dy=2\bodyfontsize,
+maxwidth=\textwidth
+]
+
+\setupFLOWshapes
+[framecolor=black,
+background=color,
+backgroundcolor=white,
+]
+
+\startFLOWchart[DSP]
+
+	\startFLOWcell
+	\name{UNO}
+	\text{UNO}
+	\location{2,2}
+	\shape{5}
+	\connection [rl] {gpp}
+	\connection [lr] {gg}
+	\stopFLOWcell
+
+	\startFLOWcell
+	\name{gpp}
+	\text{"global public policy"}
+	\location{3,2}
+	\shape{35}
+	\stopFLOWcell
+
+	\startFLOWcell
+	\name{gg}
+	\text{"global governance"}
+	\location{1,2}
+	\shape{35}
+	\stopFLOWcell
+
+	\startFLOWcell
+	\name{gg-ziele}
+	\text[l]{
+	{\bf Ziele:}
+	\startitemize[packed]
+	\item global
+	\item government
+	\stopitemize
+	{\bf Kritik:} Legitimationsdefizit
+	}
+	\location{1,3}
+	\shape{none}
+	\stopFLOWcell
+
+
+
+\stopFLOWchart
+
+\FLOWchart[DSP]
+
+\stopTEXpage
+\stopbuffer
+
+\startframedtext[width=\dimexpr\textwidth+\rightmarginwidth+\rightmargindistance\relax,frame=off,offset=none] % This spans textwidth + margin width
+
+\placefigure[force][fig:global_governance:flowchart:uno]{Flowchart}{
+\typesetbuffer[fig:global_governance:flowchart:uno]
+}
+
+\stopframedtext

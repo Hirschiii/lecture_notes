@@ -1,0 +1,83 @@
+\startproduct prd_document
+\project project_lecture_notes
+\environment env_document
+
+\environment env_margin_notes
+\environment env_frames
+\environment env_definitions
+\environment env_sidenote
+\environment env_tables
+\environment env_bib
+\environment env_math
+
+\startmode[single]
+
+\startluacode
+	local file = environment.argument("path")
+
+	context("\\input " .. file)
+
+\stopluacode
+\stopmode
+
+\startmode[multiple]
+\setvariables[meta][title=\env{title}]
+
+\setupinteraction[title={\getvariable{meta}{title}}]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+\component c_toc
+\stopfrontmatter
+
+\setuppagenumber[number=1]
+
+\startbodymatter
+
+\environment env_document_multiple
+
+\startluacode
+	local path = environment.argument("path")
+
+	local lfs = require("lfs")
+
+	-- Table to hold filenames
+	local files = {}
+
+	-- Capture all filenames into the table
+	for file in lfs.dir(path) do
+		if file ~= "." and file ~= ".." then
+			table.insert(files, file)
+		end
+	end
+
+	-- Sort the filenames based on the numerical or date prefix
+	table.sort(files, function(a, b)
+			return a < b
+	end)
+
+	for _, file in ipairs(files) do
+		if file:match("%.tex$") then
+			context("\\input " .. path  .. file)
+		end
+	end
+
+\stopluacode
+
+\stopbodymatter
+
+\startbackmatter
+\component c_definitions
+% \component c_bibliography
+\stopbackmatter
+
+\stopmode
+
+
+
+
+\stoptext
+
+\stopproduct

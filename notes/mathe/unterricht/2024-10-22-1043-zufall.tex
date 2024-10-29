@@ -1,0 +1,58 @@
+\section{2024-10-22}
+
+11-Meter ist kein Zufallsexperiment
+
+\startitemize[packed]
+\item Das Ergebnis darf nicht beeinflusbar sein
+\item Es muss reproduzierbar sein
+\stopitemize
+
+11-Meter ist nur ein Zufallsexperiment, wenn es stark {\bf vereinfacht} wird.
+
+\startframedtipp
+Ein Versuch, bei dem alle Ergebnisse gleich Wahrscheinlich sind
+\stopframedtipp
+
+\startframedtipp
+Wenn ein Zufallsexperiment mit einem Binärbaum darstellbar ist, ist es ein {\bf Bernoulli-Versuch}
+
+\startitemize[packed]
+\item Eigentlich einstufig
+\item Kann wiederholt werden: in jeder Stufe muss der Selbe Versuch dargestellt werden. Das ist dan eine Bernoulli-Kette. Wenn man den Versuch $n$-Mal wiederholt ist es eine Kette von der länge $n$
+\stopitemize
+\stopframedtipp
+
+
+\startbuffer[mp:bernoulli:kette:karten]
+\startMPpage
+
+numeric x, y, a;
+
+% a = 2;
+%
+% label("(8 / 2**" & decimal a & ") = " & decimal (8 / (2**a)), origin);
+% label(decimal 2*2, origin);
+
+
+draw fullcircle scaled 20 shifted origin;
+label(decimal 0 & decimal 0, origin);
+
+for a=1 upto 3:
+	for i=1 upto 2^a:
+		x := ((240 / (2**a)) * (i - 0.5)) - 120;  % Horizontal spacing depends on level
+		y := -40 * a;
+		draw fullcircle scaled 20 shifted (x,y);
+		label(decimal a & decimal i, (x,y));
+	endfor
+endfor
+
+\stopMPpage
+\stopbuffer
+
+\placefigure[force][mp:bernoulli:kette:karten]{Darstellung einer bernoulli-Kette der Länge 3 für beim ziehen von Karten, ob es Kreuz ist, oder nicht.}{
+\typesetbuffer[mp:bernoulli:kette:karten]
+}
+
+\startframedtipp
+Klausuraufgaben kann man x y als bernoulli modelieren (S. 272 Nr. 6)
+\stopframedtipp

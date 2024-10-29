@@ -1,0 +1,86 @@
+\section[title={2024-09-19 - Engels - Die Entwicklung vom
+Affen zum Menschen},reference={2024-09-19-Engels - Die Entwicklung vom
+Affen zum Menschen}]
+
+\startbuffer[fig:flow:affe_zu_mensch]
+\usemodule[chart]\environment env_document
+
+\startTEXpage
+\setupFLOWcharts
+[maxwidth=\textwidth,
+nx=3,
+ny=3,
+dx=\bodyfontsize,
+dy=\bodyfontsize,
+width=10\bodyfontsize,
+height=6\bodyfontsize]
+
+\startFLOWchart[DSP]
+
+    \startFLOWcell
+    \name{Affen}
+    \text{Affenählicher Vorfahre}
+    \location{1,1}
+    \connection[rl] {hand}
+    \stopFLOWcell
+
+    \startFLOWcell
+    \name{hand}
+    \text{Ausbildung\\der Hand}
+    \location{2,1}
+    \connection[rl] {frue_arbeit}
+    \stopFLOWcell
+
+    \startFLOWcell
+    \name{frue_arbeit}
+    \text{Frühform der Arbeit durch die Bearbeitung von Naturgegenständen}
+    \location{3,1}
+    \connection[bt] {gemeinschaft}
+    \stopFLOWcell
+
+    \startFLOWcell
+    \name{gemeinschaft}
+    \text{Bildung von Gemeinschaften aus einem Bedürfnis nach Kommunikation}
+    \location{3,2}
+    \connection[lr] {kehlkopf}
+    \stopFLOWcell
+
+    \startFLOWcell
+    \name{kehlkopf}
+    \text{Entwicklung von Kehlkopf und Sprache}
+    \location{2,2}
+    \connection[lr] {gehirn}
+    \stopFLOWcell
+
+    \startFLOWcell
+    \name{gehirn}
+    \text{Vergrößerung des Gehirns}
+    \location{1,2}
+    \connection[bt] {sinne}
+    \stopFLOWcell
+
+    \startFLOWcell
+    \name{sinne}
+    \text{Ausbildung der Sinnesorgane}
+    \location{1,3}
+    % \connection[bt] {sinne}
+    \stopFLOWcell
+
+
+\stopFLOWchart
+
+\FLOWchart[DSP]
+\stopTEXpage
+
+\stopbuffer
+\placefigure[here][fig:flow:affe_zu_mensch]{Entwicklung vom Affen zum Mensch}{
+\typesetbuffer[fig:flow:affe_zu_mensch]}
+
+\startitemize[packed]
+\item
+  Arbeit
+\item
+  Sprechen
+\item
+  Weiter ausbildung der Sinnesorgane
+\stopitemize

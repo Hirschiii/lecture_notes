@@ -1,0 +1,18 @@
+\startenvironment env_sidenote
+
+
+\usemodule[annotation]
+
+% setup the numbering of the side notes
+\define[2]\SidenoteCommand 
+    {\high{\placeannotationnumber}% 
+     \margintext{\high{\placeannotationnumber}\,\placeannotationcontent \vskip4pt}}
+
+
+\defineannotation 
+    [sidenote] 
+    [alternative=command,
+	command=\SidenoteCommand,
+	number=yes] 
+
+\stopenvironment

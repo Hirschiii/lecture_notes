@@ -1,0 +1,144 @@
+\section[title={Größen zur Beschreibung einer
+Welle},reference={Größen zur Beschreibung einer Welle}]
+
+\startitemize[packed]
+\item
+  Zentrale Größen zur Beschreibung einer Welle sind ihre Amplitude
+  $\hat{y}$, ihre Schwingungsdauer $T$, ihre Frequenz $f$ und ihre
+  Phasen- bzw. Ausbreitungsgeschwindigkeit $c$.
+\stopitemize
+
+\startbuffer[fig:wellen_beschriftet]
+\startMPpage
+
+u := 1cm;
+
+drawarrow (((-1 * pi) - 1) * u,0)--(((2 * pi) + 1) *u,0);
+
+drawarrow (0,-1.5 * u)--(0,1.5 * u);
+
+draw function (1, "x", "sin(x)", (-1 * pi) - 1, (2 * pi) + 1, .01) scaled u;
+
+label.rt(btex $y$ etex, (0, 1.5 * u));
+label.top(btex $x$ etex, (((2 * pi) + 1) * u, 0));
+
+draw (-0.1 * u, 1 * u)--(0.1 * u, 1 * u);
+draw (-0.1 * u, -1 * u)--(0.1 * u, -1 * u);
+
+label.rt(btex $1$ etex, (0, 1 * u));
+label.rt(btex $-1$ etex, (0, -1 * u));
+
+draw (pi * u,0.1 * u)--(pi * u, -0.1 * u);
+draw (2pi * u,0.1 * u)--(2pi * u, -0.1 * u);
+draw (-1 * pi * u,0.1 * u)--(-1 * pi * u, -0.1 * u);
+
+label.bot(btex $\pi$ etex, (pi * u, 0));
+label.bot(btex $2\pi$ etex, (2 * pi * u, 0));
+label.bot(btex $-\pi$ etex, (-1 * pi * u, 0));
+
+% ---------- Groessen ---------- %
+
+% ------------ Wellenlaenge ------------ %
+
+% lambda_left := (0, 0.5 * u);
+% lambda_right := (2 * pi * u, 0.5 * u);
+
+draw (0, 0.5 * u)--(2 * pi * u, 0.5 * u) withcolor blue;
+draw (0, 0.7 * u)--(0, 0.3 * u) withcolor blue;
+draw (2 * pi * u, 0.7 * u)--(2 * pi * u, 0.3 * u) withcolor blue;
+
+label.top(btex $\lambda$ etex, (pi * u, 0.5 * u));
+
+% ------------ Amplitude ------------ %
+
+draw (-0.5 * u, 0)--(-0.5 * u,1 * u) withcolor red;
+draw (-0.7 * u, 0)--(-0.3 * u, 0) withcolor red;
+draw (-0.7 * u, 1 * u)--(-0.3 * u, 1 * u) withcolor red;
+
+label.lft(btex $\hat{y}$ etex, (-0.5 * u, 0.5 * u));
+
+\stopMPpage
+
+\stopbuffer
+
+\startframedtext[width=\dimexpr\textwidth+\rightmarginwidth+\rightmargindistance\relax,frame=off,offset=none] % This spans textwidth + margin width
+\placefigure[here][fig:wellen_beschriftet]{Größen anhand der sinus 'Welle'}{
+\typesetbuffer[fig:wellen_beschriftet]}
+\stopframedtext
+
+
+\startframedtext[width=\dimexpr\textwidth+\rightmarginwidth+\rightmargindistance\relax,frame=off,offset=none] % This spans textwidth + margin width
+
+% \startplacetable[location=here,title={Größen zum Beschreiben einer Welle, von Leiphi}]
+\startplacetable[title={Größen zum Beschreiben einer Welle, von Leiphi}]
+% \setupTABLE[each][align=flushleft]
+\setupTABLE[r][each][bottomframe=on]
+\setupTABLE[r][first][topframe=on]
+\setupTABLE[c][first][leftframe=on]
+\setupTABLE[c][last][rightframe=on]
+
+\bTABLE[offset=1mm,frame=off]
+
+\bTR \bTD $T$ \eTD 
+	\bTD 
+	Schwingungsdauer: Zeit, die jedes einzelne Teilchen der harmonischen Welle für
+	eine volle Schwingung benötigt. Wir gehen dabei davon aus, dass alle
+	schwingenden Teilchen die gleiche Schwingungsdauer wie das erregende Teilchen
+	besitzen.
+	\eTD 
+\eTR
+
+\bTR \bTD $f$ \eTD 
+	\bTD 
+	(Erreger-)Frequenz: Anzahl der Schwingungsperioden jedes einzelnen Teilchens
+	pro Zeiteinheit. Wir gehen dabei davon aus, dass alle schwingenden Teilchen die
+	gleiche Frequenz wie das erregende Teilchen besitzen. Es gilt $f=\frac{1}{T}$.
+	\eTD
+\eTR
+\bTR \bTD $\Gamma$ \eTD 
+	\bTD 
+	Kreisfrequenz: Überstrichener Winkel (im Bogenmaß) jedes einzelne Teilchens pro
+	Zeiteinheit. Wir gehen dabei davon aus,  dass alle schwingenden Teilchen die
+	gleiche Kreisfrequenz wie das erregende Teilchen besitzen. Es gilt $\Gamma= 2 \cdot \pi \cdot f=\frac{2\cdot \pi}{T}$
+	\eTD 
+\eTR
+
+\bTR 
+	\bTD [nc=2,rightframe=on]
+	Bemerkung: Unter den von uns genannten Annahmen sind Amplitude $\hat{y}$ und
+	Schwingungsdauer $T$ (bzw. Erregerfrequenz $f$ und Kreisfrequenz $\Gamma$) einer Welle
+	allein durch den Erreger der Welle bestimmt.
+	\eTD 
+\eTR
+\bTR \bTD $c$ \eTD 
+	\bTD 
+	Phasen- oder Ausbreitungsgeschwindigkeit der Welle: Geschwindigkeit,
+	mit der sich die Störung über den Wellenträger ausbreitet. Leicht zu bestimmen
+	ist $c$, wenn man einen ausgezeichneten Punkt (z.B.
+	den Wellenberg) beobachtet.
+
+	Achtung: Die Phasengeschwindigkeit ist nicht
+	mit der Geschwindigkeit der von der Welle erfassten Teilchen zu verwechseln.
+	\eTD 
+\eTR
+\bTR
+	\bTD [nc=2,rightframe=on] 
+	Bemerkung: Die Phasen- oder Ausbreitungsgeschwindigkeit $c$ einer Welle ist
+	allein durch den Wellenträger bestimmt.
+	\eTD 
+\eTR
+\bTR \bTD $\lambda$ \eTD 
+	\bTD 
+	Wellenlänge: x-Abstand eines Teilchens zum nächsten Teilchen im gleichen
+	Schwingungszustand (d.h. die beiden Teilchen müssen die gleiche Auslenkung und
+	die gleiche Geschwindigkeit haben.
+
+	Anmerkung: Zu Teilchen mit gleichem
+	Schwingungszustand sagt man auch gleichphasig schwingende Teilchen.
+	\eTD 
+\eTR
+
+\eTABLE
+\stopplacetable
+
+\stopframedtext % }}}

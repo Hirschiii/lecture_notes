@@ -1,0 +1,196 @@
+\chapter{Schwinungen und Wellen}
+
+\startitemize[packed]
+\item Wellen treten in verschiedensten Formen auf: Wasserwellen, Schallwellen, elektromagnetische Wellen
+\item Eine Welle ist eine räumliche und zeitliche Zustandsänderung physikalischer Größen, die meist nach bestimmten periodischen Gesetzmäßigkeiten erfolgt.
+\item Die Ausbreitung einer Welle ist ein Energietransport, aber kein Materialtransport.
+\stopitemize
+
+\startdefinition[title={Welle}]
+Eine Welle ist eine räumliche und zeitliche Zustandsänderung physikalischer Größen, die meist nach bestimmten periodischen Gesetzmäßigkeiten erfolgt[@LeifiWellen].
+\stopdefinition
+
+Die Ausbreitung {\bf mechanischer Wellen} erfordert einen Träger in dem sich
+schwingungsfähige Teilchen befinden. Ein solcher Träger kann dabei fest,
+flüssig oder auch gasförmig sein.
+
+Weiter müssen diese schwingungsfähigen Teilchen untereinander eine Kopplung
+aufweisen, so dass sich die von außen einwirkende Störung über das System
+fortpflanzen kann.
+
+Ein Erreger zwingt ein Teilchen aus seiner {\em Ruhelage}\sidenote{{\em Ruhelage} ist die \quotation{Gleichgewichtslage}}. Aufgrund der Trägheit
+übernimmt das nächte Teilchen die Störung etwas zeitversetzt und so entsteht
+eine Phasenverschiebung $\Delta \phi$ zwischen den Bewegungen benachbarter
+Teilchen. Auf diese Weise pflanzt sich die Störung durch den Körper fort.
+
+\section{Überlagerung von Wellen}
+
+Wellen können miteinander Interferieren. Dabei unterscheidet man zwischen
+\quotation{konstruktiver} (Versterkender) und
+\quotation{destruktiver}\sidenote{destruktive Interferenz findet auch häufige
+anwendung im Täglichen Lebene. Zum Beispiel funktioniert \quotation{active
+noice cancelling} auf diese art und weise.} (Schwächender) Interferenz. Bei
+konstruktiver Interferenz treffen ein Tal auf ein Tal, oder ein Berg auf einen
+Berg (\in{s. Abb.}[fig:waves_no_offset]). Bei destruktiver Interferenz Treffen
+ein Tal auf einen Berg (\in{s. Abb.}[fig:waves_offset]).
+
+\placefigure[here][fig:waves_no_offset]{Konstruktiver Interferenz zweier identischer Wellen. Hier zwei mal $\sin(2x)$, dargestellt in lila.}{
+\startMPcode
+	u := 1cm;
+
+    draw function (1, "x", ".5 * sin(2x)", 1, 10, .01) scaled u
+    withpen pencircle scaled 1mm withcolor transparent(1,.5,red);
+
+    draw function (2, "x", ".5 * sin(2x)", 1, 10, .01) scaled u
+    withpen pencircle scaled 1mm withcolor transparent(1,.5,blue);
+
+    draw function (3, "x", ".5 * (sin(2x)+sin(2x))", 1, 10, .01) scaled u
+    withpen pencircle scaled 1mm withcolor transparent(1,.5,black);
+\stopMPcode
+}
+
+\placefigure[here][fig:waves_offset]{Destruktive Interferenz zweier versetzter Welen, hier $\sin(2x + \pi)$ (rot) und $\sin(2x)$ (blau)}{
+\startMPcode
+	u := 1cm;
+
+    draw function (1, "x", "sin(2x + pi)", 1, 10, .01) scaled u
+    withpen pencircle scaled 1mm withcolor transparent(1,.5,red);
+
+    draw function (2, "x", "sin(2x)", 1, 10, .01) scaled u
+    withpen pencircle scaled 1mm withcolor transparent(1,.5,blue);
+
+    draw function (3, "x", "sin(2x)+sin(2x + pi)", 1, 10, .01) scaled u
+    withpen pencircle scaled 1mm withcolor transparent(1,.5,black);
+\stopMPcode
+}
+
+\section{Lidar vs Radar}
+
+
+Lidar, Radar, oder auch Sonar, funktionieren alle sehr ähnlich, indem
+Energiewellen ausgesendet werden und auf eine Reflexion gewartet wird.
+
+\subsection[title={Radar},reference={radar}]
+
+\quotation{{\bf Ra}dio {\bf d}etection {\bf a}nd {\bf r}anging}, kurz
+Radar, ist die Bezeichnung für verschiedene Erkennungs- oder auch
+Ortungsverfahren, welche mit {\bf elektromagnetischen Wellen} im
+Radiofrequenzbereich (kleiner als
+$300\text{MHz}$\footnote{\cite[alternative=entry][Radiowellen_LEIFI]})
+
+\subsubsection[title={Funktionsweise},reference={funktionsweise}]
+
+Für die Funktionsweise von Radar-Sensoren sind drei grundlegende
+physikalische Gesetze von
+bedeutung\footnote{\cite[alternative=entry][Wolff2024Aug]}:
+
+\startitemize[packed]
+\item
+  Die {\bf Reflexion} elektromagnetischer Wellen.
+\item
+  Die {\bf konstante Ausbreitungsgeschwindigkeit} der
+  elektromagnetischen Wellen, welche sich mit knapp Lichtgeschwindigkeit
+  ausbreiten (ca $300 \frac{km}{s}$).
+\item
+  Die {\bf geradlinige Ausbreitung} der elektromagnetischen Wellen.
+\stopitemize
+
+Die elektromagnetischen Wellen werden also ausgesendet und deren
+Reflexion gemessen. Mit der Zeitdifferenz des aussenden und des
+empfangen kann die Distanz ermittelt werden, welche die Wellen
+zurückgelegt haben.
+
+\subsubsection[title={Anwendung},reference={anwendung}]
+
+Die Anwendungsmöglichkeiten sind vielfältig. Die Technologie wird unter
+anderem dafür genutzt, um Positionen zu bestimmen, oder auch füllstände
+in Lagertanks\footnote{\cite[alternative=entry][IFM_Radar]}
+
+\subsection[title={Lidar},reference={lidar}]
+
+„{\bf Li}ght {\bf d}etection {\bf a}nd {\bf r}anging“, kurz Lidar, ist
+eine Technologie, welche die präziese messung von Entfernungen mit sehr
+geringer latenz erlaubt\footnote{\cite[alternative=entry][IBM_LIDAR]}.
+
+\subsubsection[title={Funktionsweise},reference={funktionsweise-1}]
+
+Klassische Lidar-Sensoren bezitzen einen Transmitter und einen
+Empfänger. Über den Transmitter wird ein {\bf gepulster Laser} wird
+ausgesendet. Der Zeitpunkt dessen Reflexion wird mit dem Empfänger
+gemessen und somit die \quotation{Flugdauer} ermittelt. Da die
+Lichtgeschwindigkeit konstant ist (ca $300
+\frac{km}{s}$\footnote{\cite[alternative=entry][lichtgeschwindigkeit_LEIFI]})
+ist diese Methode sehr schnell und präziese.
+
+
+\subsubsection[title={Anwendung},reference={anwendung-1}]
+
+Lidar Technologie findet in der heutigen Welt eine breite und
+vielschichtige Anwendung. Von Forschung bis Technologie im Alltag,
+Lidar-Sensoren sind überall zu finden und auch nicht mehr weg zu denken.
+
+In der Archäologie wurde 2018 mithilfe von Lidar-Luftscans eine bisher
+übersehene Maya-Ruinenstadt gefunden. Dank der Scans konnte eine
+großflächige und detailreiche 3D-Karte kreiert werden, welche die
+Umrisse der Ruinen
+aufdeckte\footnote{\cite[alternative=entry][lidar_defunk]}.
+
+Auch für das autonome Fahren spielt die Lidar-Technologie eine große
+Rolle. Die Autos müssen ihre Umgebung in drei Dimensionen erfassen
+können. Die Lidar-Sensoren werden mit vielen anderen Sensoren, wie auch
+Kameras, kombiniert um die aktuelle Situation einzuschätzen. Lidar ist
+deshalb geeignet, da es sehr präzise Messungen mit sehr geringer Latenz
+ermöglicht\footnote{\cite[alternative=entry][9127855]}. Aber nicht nur
+für das Autonome steuern von Autos wird diese Technologie genutzt, auch
+Staubsaug-Roboter nutzen sie, um sich in einem Raum zurecht zu finden.
+
+
+\subsection{Funktionsweise}
+
+\startframedtask
+Erklären Sie die Funktionsweise dieser beiden Technologien physikalisch.
+Geben Sie dafür auch die Gleichungen an, mit denen die nötigen
+Berechnungen durchgeführt werden können. Verzichten Sie auf Erklärungen
+zur Nutzung der Raman-Streuung mit LIDAR-Systemen
+
+\stopframedtask
+
+Die Messung der \quotation{Time of flight}, also der Strecke, die die
+Energiewelle in welcher Zeit zurückgelegt hat, sieht wie folgt
+aus\footnote{\cite[alternative=entry][Gotzig2015Mar]}:
+
+\startformula 
+s=\frac{c_0\cdot t}{2}
+ \stopformula
+
+\startitemize[packed]
+\item
+  $s =$ Abstand
+\item
+  $c_0 =$ Geschwindigkeit der Energiewelle, bei Lidar:
+  Lichtgeschwindigkeit (ca. $300 \frac{km}{s}$) und bei Radar:
+  geschwindigkeit ausbreitung von elektromagnetischer Wellen (annähernd
+  Lichtgeschwindigkeit)
+\item
+  $t =$ Zeit in $s$.
+\stopitemize
+
+\startformula 
+\lambda = c \cdot T = \frac{c}{f}
+ \stopformula
+
+
+\subsection{Einordnung}
+
+\startplacetable[location=none]
+\setupTABLE[r][1][style=bold,background=color,backgroundcolor=gray,width=2.5cm]
+\setupTABLE[c][1][style=bold,background=color,backgroundcolor=gray]
+\bTABLE
+\startCSV
+[background=DiagonalRule] \DiagonalLabel{Kategorie}{Art}, Radar, Lidar
+Wellenlänge:, $1m$, zwischen $1m$ und $780nm$
+Frequenzen:, $300MHz$, $300GHz$ bis $385THz$
+Art:, Radiowellen, Infrarot
+\stopCSV
+\eTABLE
+\stopplacetable

@@ -1,0 +1,139 @@
+\setupinteraction[title={\getvariable{meta}{title}}]
+
+\setuplayout[
+   backspace=1cm, % Space on the left margin
+   width=fit, % Adjust width to fit remaining space
+   height=fit,
+   topspace=0.5cm, % Top margin
+   header=0.5cm, % Header size
+   rightedge=0.5cm,
+   leftedge=1cm,
+   footer=1cm, % Footer size
+   bottomspace=1cm, % Bottom margin
+   rightmargin=3cm, % Space for margin notes
+   rightmargindistance=0.5cm,
+]
+
+\setupbodyfont[mainface,9pt]
+
+\setuphead[chapter]
+          [
+			header=empty,
+            style=\itd,
+            number=no,
+            % before={\blank[big,force]},
+            after={\blank[2*big,force]},
+          ]
+
+% \showgrid
+\showlayout
+\showframe
+
+\starttext
+
+\startbodymatter
+\chapter[title={Lernzettel -
+Stochastic},reference={lernzettel---stochastic}]
+
+\section[title={Wahrscheinlichkeiten},reference={wahrscheinlichkeiten}]
+
+\startnarrower[left]\setupindenting[-\leftskip,yes]
+
+\margintext{{\em Zuffalsexperiments:} Ziehen, mit Zurücklegen, von zwei Kugeln aus
+einer Urne mit fünf roten und drei blauen Kugeln.
+
+{\em Ergebnismenge:} $S=\{rr; rb; br; bb\}$.
+
+Das {\em Ereignis} $E = \{rr; rb; br\}$ bedeutet, dass mindestens eine
+Kugel rot ist. Das {\em Gegenereignis} von $E$ ist $\overline{E}$
+}
+
+Die {\bf Wahrscheinlichkeiten} aller Ergebnisse eines Zuffalsexperiments
+sind Zahlen im interval $\[0; 1\]$ mit Summe $1$. Sie bilden die {\em
+Wahrscheinlichkeitsverteilung}. Die Ergebnisse fässt man in der {\bf
+Ergebnismenge} zusammen, eine {\em Teilmenge} davon ist ein {\bf
+Ergebnis}.
+
+\margintext{Als {\bf fair} bezeichnet man ein Spiel, bei dem der Erwartungswert für
+den Gewinn null ist. Gewinn = Auszahlung - Einsatz
+}
+
+\stopnarrower
+
+\startframedtipp
+{\bf Definition:} Wenn jedem Ergebnis eines Zufallsexperiments ein
+Zahlenwert zugeordnet wird, spricht man von einer {\bf Zufallsgröße}.
+Die {\bf Wahrscheinlichkeitsverteilung} ener Zufallsrgöße $X$ ist eine
+Tabelle, bei der jedem Wert $k$ von $X$ die Wahrscheinlichkeit $P(X=k)$
+zugeordnet ist. Für eine Zufallsgröße $X$ mit den Werten
+$x_1,x_2, ..., x_n$ heißt $\mu = x_1 \cdot
+P(X=x_1) + x_2 \cdot P(X = x_2)... + x_n \cdot P(X = x_n)$ {\bf
+Erwartungswert} von $X$. Er gibt an, welchen Mittelwert man bei
+ausreichend großer Versuchsanzahl auf lange Sicht erwartet.
+
+\stopframedtipp
+
+\startsectionlevel[title={Zufallsgrößen},reference={zufallsgrößen}]
+
+\startframedtext[width=\dimexpr\textwidth+\rightmarginwidth\relax,frame=off,offset=none,toffset=1mm] % This spans textwidth + margin width
+% \startframedtext[width=\dimexpr\textwidth+\rightmarginwidth+\rightmargindistance\relax,frame=off] % This spans textwidth + margin width
+
+\startplacetable[location=here,title={Größen}]
+\setupTABLE[each][align={middle,lohi}]
+\setupTABLE[c][5][align={flushleft}]
+\setupTABLE[row][1][background=color,backgroundcolor=gray,align={flushleft,lohi}]
+\setupTABLE[row][2][background=color,backgroundcolor=gray]
+\bTABLE[option=stretch,offset=1mm]
+\bTR
+	\bTD[nc=2] Basisgröße \eTD
+	\bTD[nc=2] Basiseinheit \eTD
+\eTR
+\startCSV
+Name, Symbol, Formel, Beschreibung
+Varianz, $V$, $(x_1-\mu)^2\cdot P(X=x_1)+... +(x_n-\mu)^2\cdot P(X=x_n)$, Ein Maß für die Streuung
+Standardabweichung, $\sigma$, $\sqrt{V}$, Abweichung der Werte von dem eigenen Durchschnittswert
+Erwartungswert, $\mu$, $x_1 \cdot P(X = x_1) + x_2 \cdot P(X = x_2) + ... + x_n \cdot P(X = x_n)$
+\stopCSV
+
+\eTABLE
+\stopplacetable
+
+\stopframedtext% }}}
+
+\section[title={Bedingte
+Wahrscheinlichkeiten},reference={bedingte-wahrscheinlichkeiten}]
+
+{\bf Beispiel am Urnenmodell}
+
+In einer Urne sind {\bf 10} Kugeln, {\bf 5} davon sind Markiert
+(Ereignis $M$). Also $P(M)=\frac{5}{10}=50\%$. Es gibt allerding {\bf
+drei} von {\bf vier} roten Kugeln, welche Markiert sind und und {\bf
+zwei} von {\bf sechs} nicht rote Kugeln. Wenn man nun beim ziehen vorher
+schon weiß, welche Farbe die Kugel hat, bevor man die Markierung sieht,
+verändert sich die Wahrscheinlichkeit auf $\frac{3}{4}=75\%$.
+
+\margintext{Das bedingende Ereignis $R$ wird als Index notiert. Man liest $P_R(M)$:
+\quotation{Wahrscheinlichkeit von $M$ unter der Bedingung $R$}
+}
+
+Man bezeichnet die Wahrscheinlichkeit für eine Markierung ($M$) unter
+der Bedingung rot ($R$) als {\bf bedingte Wahrscheinlichkeit} und
+schreibt.
+
+\startformula
+P_R(M) = \frac{P(M \cap R)}{P(R)}
+\stopformula
+
+
+\startframedtipp
+Laplace-Versuch: Ein versuch, bei dem jedes Ergebnis\sidenote{Ergebnis ist jede Möglichkeit beim einmaligen ausführen eines Zufallsexperiments. Zum Beispiel bei einem Würfel ist jede Seite in Ergebnis. Ein Ereignis setzt sich aus ein oder mehrern Ergebnissen zusammen.} die gleich Wahrscheinlich ist
+\stopframedtipp
+
+\stopbodymatter
+
+% \startbackmatter
+% \component c_definitions
+% \component c_bibliography
+% \stopbackmatter
+
+\stoptext

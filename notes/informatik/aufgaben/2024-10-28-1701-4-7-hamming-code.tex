@@ -1,0 +1,268 @@
+\startmode[single]
+
+\setvariables[meta]
+  [title={Elektronenbeugunsröhre},
+   subtitle={Versuchsprotokoll},
+   date={2024-10-18},
+   author={Niklas von Hirschfeld},
+  ]
+\setupinteraction[title={\getvariable{meta}{title}}]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+\component c_toc
+\stopfrontmatter
+
+\setuppagenumber[number=1]
+
+\startbodymatter
+\stopmode
+
+\definecolor[blue][r=0.2, g=0.5, b=0.8]
+\definecolor[green][r=0.2, g=0.7, b=0.3]
+\definecolor[yellow][r=0.8, g=0.7, b=0.2]
+\definecolor[orange][r=1, g=0.5, b=0.2]
+
+% Content here:
+
+\startchapter[title={(7, 4) Hamming-Code}]
+
+\startframedtext[location=middle,align=middle,width=\dimexpr\textwidth+\rightmarginwidth+\rightmargindistance\relax,frame=off]
+\startnarrower[left,right]
+Der {\em (7, 4) Hamming-Code} ist eine möglichkeit Bit-Fehler bei der
+Übertragung (z.B. in einem Netzwerk) zu erkennen. Dies ist notwendig, da die
+Datenübertragung in der Regel nicht fehlerfrei ist.
+\stopnarrower
+\stopframedtext
+
+
+Der Hamming-Code nutzt dafür ein ähnliches Verfahren wie bei einem
+Parität\sidenote{Ein Bit, welches angibt ob die anzahl der einsen in dem Byte
+gerade oder ungerade war. Sollte sich dies ändern (z.B. durch fehlerhafte
+übertragung) wird diese Fehler sichtbar. Man kann aber nicht sagen, was falsch
+ist, {\bf nur} das etwas an diesem Byte falsch ist.}. Allerdings wird nicht nur
+ein Bit genutzt, sonder ganze drei. Dadurch kommt auch der Name zustande
+(\in{s. Abb.}[fig:hamming:text]). Die \color[blue]{$7$} steht für die Anzahl
+insgesammt zu übertragene Bits und die \color[green]{$4$} wie viele davon für
+Informationen genutzt werden. Also bleiben \color[orange]{$3$} übrig, mit
+welchen man {\bf einen} exakten Fehler bestimmen kann. Im gegensatzt zu einem
+Paritätsbit kann auch die genaue Position ermittelt werden. Sollte es
+allerdings zu mehr als einem Fehler kommen kann die Position nicht mehr
+bestimmt werden.
+
+\margintext{
+
+\startplacefigure[title={Zustandekommen der Zahlen 7 und 4},reference={fig:hamming:text},width=\rightmarginwidth,location=here]
+\startalignment[middle]
+% Hamming code title
+{\tfa 
+\color[yellow]{(}
+\color[blue]{7}
+,
+\color[green]{4}
+\color[yellow]{) Hamming-Code}
+
+\vskip 0.4cm
+
+% Binary sequence in Hamming code
+1011\color[orange]{010}
+
+\vskip 0.4cm
+
+% Mathematical equation for (7 - 4 = 3)
+\color[blue]{$7$}$-$
+\color[green]{$4$}$=$
+\color[orange]{$3$}
+}
+\stopalignment
+\stopplacefigure
+
+}
+
+Damit können insgesammt $57\%$ ($4\div7$) der übertragenen Daten für die
+eigentliche Information genutzt werden, der Rest gilt zur Fehlerbestimmung.
+
+
+\startsectionlevel[title={Berechnung des Hamming-Code}]
+
+\startbuffer[mp:fig:hammingocde:bits:darstellung]
+\startMPpage
+
+u := 1cm;
+% Farben definieren
+color blue; blue := (0.2, 0.3, 0.7);
+color green; green := (0.3, 0.6, 0.3);
+color orange; orange := (0.8, 0.5, 0.2);
+color yellow; yellow := (1, 0.8, 0.3);
+color gray; gray := (0.6, 0.6, 0.6);
+
+
+% Kreise definieren
+path cone, ctwo, cthree;
+cone := fullcircle scaled (3 * u) shifted (u * dir 0);
+ctwo := fullcircle scaled (3 * u) shifted (u * dir 120);
+cthree := fullcircle scaled (3 * u) shifted (u * dir 240);
+
+% Kreise mit Transparenz und Farben füllen
+fill cone withcolor blue withtransparency (1, 0.6);
+fill ctwo withcolor orange withtransparency (1, 0.6);
+fill cthree withcolor green withtransparency (1, 0.6);
+
+draw cone withcolor blue;
+draw ctwo withcolor orange;
+draw cthree withcolor green;
+
+label("$p_1$", (u * 1.5 * dir 0));
+label("$p_2$", (u * 1.5 * dir 120));
+label("$p_3$", (u * 1.5 * dir 240));
+
+label("$d_1$", (u * dir 60));
+label("$d_2$", (u * dir 180));
+label("$d_3$", (u * dir 300));
+label("$d_4$", origin);
+
+
+\stopMPpage
+\stopbuffer
+
+\margintext{
+\placefigure[here][mp:fig:hammingocde:bits:darstellung]{Visualisierung der Aufteilung unter den Bits}{
+\typesetbuffer[mp:fig:hammingocde:bits:darstellung]
+}}
+
+
+Die $3$ und $4$ kommen zu stande, da jeder Paritätbit {\bf drei} der anderen
+Bits \quotation{Überwacht}. Den drei Paritätbits ($p_1, p_2
+\text{ und } p_3$) werden also die vier Bits ($d_1, d_2, d_3 \text{ und }
+d_4$) zugewiesen (\in{s. Abb.}[mp:fig:hammingocde:bits:darstellung]).
+
+Um jetzt die Paritätsbits zu berechnen wird die anzahl der Einsen in den
+zugehörigen Bits gezählt. Sollte diese gerade sein, ist der Paritätbit eine
+Null, sollte die Anzahl ungerade sein ein Eins.
+
+\startbuffer[fig:mp:hammingcode:bits:zuweisen]
+\startMPpage
+
+u := 1cm;
+% Farben definieren
+color blue; blue := (0.2, 0.3, 0.7);
+color green; green := (0.3, 0.6, 0.3);
+color orange; orange := (0.8, 0.5, 0.2);
+color yellow; yellow := (1, 0.8, 0.3);
+color gray; gray := (0.6, 0.6, 0.6);
+
+
+% Kreise definieren
+path cone, ctwo, cthree;
+cone := fullcircle scaled (3 * u) shifted (u * dir 0);
+ctwo := fullcircle scaled (3 * u) shifted (u * dir 120);
+cthree := fullcircle scaled (3 * u) shifted (u * dir 240);
+
+% Kreise mit Transparenz und Farben füllen
+fill cone withcolor blue withtransparency (1, 0.6);
+fill ctwo withcolor orange withtransparency (1, 0.6);
+fill cthree withcolor green withtransparency (1, 0.6);
+
+draw cone withcolor blue;
+draw ctwo withcolor orange;
+draw cthree withcolor green;
+
+label("$p_1$", (u * 1.5 * dir 0));
+label("$p_2$", (u * 1.5 * dir 120));
+label("$p_3$", (u * 1.5 * dir 240));
+
+label("$1$", (u * dir 60));
+label("$0$", (u * dir 180));
+label("$1$", (u * dir 300));
+label("$1$", origin);
+
+\stopMPpage
+\stopbuffer
+
+\margintext{
+\placefigure[here][fig:mp:hammingcode:bits:zuweisen]{Verteilung der Bits in der Besipielrechnung}{
+\typesetbuffer[fig:mp:hammingcode:bits:zuweisen]
+}}
+
+Nun berechnen wir die Paritätbits an dem Beispiel der der Bits: $1011$. Wir
+weisen die Bits wie in \in{Abbildung}[fig:mp:hammingcode:bits:zuweisen] dargestellt zu.
+
+Bei $p_1$ zählen wir drei Bits mit $1$, da drei ungerade ist wird dieser
+Paritätbit auf $p_1 = 1$ gesetzt. Für $p_2 \text{ und } p_3$ zählen wir jeweils
+nur zwei, somit werden sie auf $p_2 = p_3 = 0$ gesetzt. Es egeben sich folgende
+Bits (mit der zugewiesenen Bezeichnung darunter):
+
+\placetable[here,none][]{}{
+\starttable[|m|m|m|m|m|m|m|]
+\NC 1   \NC 0   \NC 1   \NC 1   \NC 1   \NC 0   \NC 0 \SR
+\NC d_1 \NC d_2 \NC d_3 \NC d_4 \NC p_1 \NC p_2 \NC p_3 \SR
+\stoptable
+}
+
+Nun kann man feststellen, {\bf ob} und {\bf welches} Bit sich verändert hat.
+Sollte sich der Bit $d_3$ verändert haben, werden sowohl $p_1$ als auch $p_3$
+einen veränderung wiederspiegeln, wodurch $d_3$ identifierzt werden kann, da
+keinem anderen Bit diese zwei Paritätbits zugewiesen sind. Dies wird auch nochmal in \in{Abbildung}[fig:mp:hammingcode:bits:trig] deutlich.
+
+\startbuffer[fig:mp:hammingcode:bits:trig]
+\startMPpage
+
+u := 1cm;
+% Farben definieren
+color blue; blue := (0.2, 0.3, 0.7);
+color green; green := (0.3, 0.6, 0.3);
+color orange; orange := (0.8, 0.5, 0.2);
+color yellow; yellow := (1, 0.8, 0.3);
+color gray; gray := (0.6, 0.6, 0.6);
+
+
+% Kreise definieren
+path cone, ctwo, cthree;
+cone := fullcircle scaled (3 * u) shifted (u * dir 0);
+ctwo := fullcircle scaled (3 * u) shifted (u * dir 120);
+cthree := fullcircle scaled (3 * u) shifted (u * dir 240);
+
+% Kreise mit Transparenz und Farben füllen
+fill cone withcolor blue withtransparency (1, 0.6);
+fill ctwo withcolor gray withtransparency (1, 0.3);
+fill cthree withcolor green withtransparency (1, 0.6);
+
+draw cone withcolor blue;
+draw ctwo withcolor gray;
+draw cthree withcolor green;
+
+label("$p_1$", (u * 1.5 * dir 0));
+label("$p_2$", (u * 1.5 * dir 120));
+label("$p_3$", (u * 1.5 * dir 240));
+
+label("$1$", (u * dir 60));
+label("$0$", (u * dir 180));
+label("{\bfa $1$}", (u * dir 300));
+label("$1$", origin);
+
+\stopMPpage
+\stopbuffer
+
+\margintext{
+\placefigure[here][fig:mp:hammingcode:bits:trig]{Verteilung der Bits in der Besipielrechnung}{
+\typesetbuffer[fig:mp:hammingcode:bits:trig]
+}}
+
+\stopsectionlevel
+
+
+\stopchapter
+
+\startmode[single]
+
+\stopbodymatter
+
+\startbackmatter
+\component c_definitions
+% \component c_bibliography
+\stopbackmatter
+
+\stoptext
+\stopmode

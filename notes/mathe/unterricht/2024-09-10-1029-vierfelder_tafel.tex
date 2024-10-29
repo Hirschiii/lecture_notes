@@ -1,0 +1,88 @@
+\section[title={2024-09-10 - Vierfeldertafel},reference={2024-09-10-Vierfeldertafel}]
+
+\startframedtask
+S. 248
+
+\stopframedtask
+
+\textpartdivider
+
+{\bf Beispiel am Urnenmodell}
+
+In einer Urne sind {\bf 10} Kugeln, {\bf 5} davon sind Markiert
+(Ereignis $M$). Also $P(M)=\frac{5}{10}=50\%$. Es gibt allerding {\bf
+drei} von {\bf vier} roten Kugeln, welche Markiert sind und und {\bf
+zwei} von {\bf sechs} nicht rote Kugeln. Wenn man nun beim ziehen vorher
+schon weiß, welche Farbe die Kugel hat, bevor man die Markierung sieht,
+verändert sich die Wahrscheinlichkeit auf $\frac{3}{4}=75\%$.
+
+Man bezeichnet die Wahrscheinlichkeit für eine Markierung ($M$) unter
+der Bedingung rot ($R$) als {\bf bedingte Wahrscheinlichkeit} und
+schreibt.
+
+\margintext{Das bedingende Ereignis $R$ wird als Index notiert. Man liest $P_R(M)$:
+\quotation{Wahrscheinlichkeit von $M$ unter der Bedingung $R$}
+}
+
+\startformula 
+P_R(M)=\frac{3}{4}=75%
+ \stopformula
+
+\startframedtask
+{\bf Satz:} $P_E(F)$ ist die {\bf bedingte Wahrscheinlichkeit}
+
+\stopframedtask
+
+\section[title={Aufgaben},reference={aufgaben}]
+
+Eine Münze wird dreimal geworfen. Berechnen Sie $P_E(F)$ und $P_F(E)$.
+Beschreiben Sie die gesuchten Wahrscheinlichkeiten in Worten.
+
+\startframedtask
+\startitemize[a,packed][stopper=)]
+\item
+  E: \quotation{Beim zweiten Wurf lag \quote{Zahl} oben.} F:
+  \quotation{Es lag dreimal \quote{Zahl} oben}
+\stopitemize
+
+\stopframedtask
+
+$P_E(F)$ verändert sich zu \quotation{Es lag zwei mal Zahl oben}, da der
+Zweite Wurf bereits Zahl hat. Also ergibt sich die Wahrscheinlichkeit
+$P_E(F)=\frac{1}{4}$ anstatt $P(F)=\frac{1}{6}$
+
+$P_F(E)$ da dreimal \quote{Zahl} oben liegt, dann liegt auch beim
+zweiten Wurf \quote{Zahl} oben. Also eine Wahrscheinlichkeit von
+$P_F(E)=1$
+
+\startframedtask
+\startitemize[a,packed][start=2,stopper=)]
+\item
+  E: \quotation{Beim ersten Wurf lag \quote{Zahl} oben} F: \quotation{Es
+  lag genau einam \quote{Zahl} oben}
+\stopitemize
+
+\stopframedtask
+
+$P_E(F) = \frac{1}{3}$: Möglichkeiten: $100,110,111$ (1: Zahl, 0: nicht
+Zahl)
+
+$P_F(E) = \frac{1}{3}$: Möglichkeiten: $100,010,001$
+
+\startframedtask
+{\bf Was wir wissen müssen}
+
+\startitemize[packed]
+\item
+  Vierfeldertafeln aus und in sachzusammenhänge
+\item
+  Baumdiagramme hin und her
+\item
+  Was bedeutet bedingte Wahrscheinlichkeit
+\item
+  Fachsprache
+\item
+  Formeln kennen
+\stopitemize
+
+\stopframedtask

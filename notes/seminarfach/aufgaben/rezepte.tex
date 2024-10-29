@@ -1,0 +1,77 @@
+\setvariables[meta]
+  [title={Konzept},
+   subtitle={Versuchsprotokoll},
+   date={2024-10-18},
+   author={Marie Kurzhals, Lucas Weckler, Niklas von Hirschfeld},
+  ]
+\setupinteraction[title={Ausgewogene Ernährung verbunden mit Fitness}]
+
+\setupinteraction[state=start]
+
+\setupheadertexts[\getvariable{meta}{title}][chapter]
+
+\setuphead[chapter][
+	header=normal,
+	page=no
+	before={\testpage[12]\blank[big]},
+	after={\blank[2*big]},
+]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+\component c_toc
+\stopfrontmatter
+
+\setuppagenumber[number=1]
+
+\startbodymatter
+
+\chapter{Mitagessen - Döner}
+
+\useURL
+  [RezeptQuelle]
+  [https://www.instagram.com/reel/DAGd3NKI_ep/?igsh=MWsyNjlpc2lrOTVoMw==]
+  []
+  [source:rezept:doener]
+
+Döner auf Tofu basis. Das Rezept ist von @schmaleschuler\sidenote{\url[RezeptQuelle]} (Auf Insta.)
+
+Zutaten (pro Person):
+\startitemize[packed]
+\item Tofu (für drei Portionen):
+	\startitemize[packed]
+	\item 350g geräucherter Todu
+	\item 1 Zehe Knoblauch
+	\item 1 rote Zwiebel
+	\item 1 TL Olivenöl
+	\item 2 ELl Soja Sauce
+	\item Paprikapulver, Oregano
+	\stopitemize
+\item Fladenbrot
+\item 30ml Joghurt
+\item 30g Tomaten
+\item 30 Gurke
+\item 15g Hirtenkäse
+\item Petersilie
+\item Salat
+\stopitemize
+
+Nährwerte für den Döner komplett ca.:
+
+\startitemize[packed]
+\item 647 kcal
+\item 33g Protein
+\item 80g KH
+\item 13g Fett
+\stopitemize
+
+\stopbodymatter
+
+\startbackmatter
+% \component c_definitions
+% \component c_bibliography
+\stopbackmatter
+
+\stoptext

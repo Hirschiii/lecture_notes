@@ -12,7 +12,7 @@
 \definecolor[lightgray] [s=0.95]
 
 \defineframedtext
-  [leftbartext]
+  [framedtask]
   [
     width=broad,
     frame=off,
@@ -27,32 +27,42 @@
 
 
 \defineframedtext
-  [exampletext]
-  [leftbartext]
+  [framedexample]
+  [framedtask]
   [
-    framecolor=darkgreen,
-    backgroundcolor=lightgreen,
+    framecolor=darkblue,
+    backgroundcolor=lightblue,
   ]
 
 \defineframedtext
-  [alerttext]
-  [leftbartext]
+  [framedalert]
+  [framedtask]
   [
     framecolor=darkred,
     backgroundcolor=lightred,
   ]
 
 \defineframedtext
-  [blocktext]
-  [leftbartext]
+  [framedtipp]
+  [framedtask]
   [
-    framecolor=darkblue,
-    backgroundcolor=lightblue,
+    framecolor=darkgreen,
+    backgroundcolor=lightgreen,
   ]
 
-% \startleftbartext
+% \startframedtask
 % ...
-% \stopleftbartext
+% \stopframedtask
+\usemodule[annotation]
 
+\define[2]\AnnotationMyQuoteCommand
+	{\startblockquote
+	“#2”\wordright{\placeannotationtitle}%
+	\stopblockquote}
+
+\defineannotation
+	[myquote]
+	[alternative=command,
+	command=\AnnotationMyQuoteCommand]
 
 \stopenvironment

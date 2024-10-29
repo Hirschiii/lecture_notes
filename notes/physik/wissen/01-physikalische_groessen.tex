@@ -1,0 +1,30 @@
+\chapter{Größen}
+
+\startframedtext[width=\dimexpr\textwidth+\rightmarginwidth+\rightmargindistance\relax,frame=off,offset=none] % This spans textwidth + margin width
+
+\startplacetable[location=here,title={Basisgrößen und Basiseinheiten in der Physik}]
+\setupTABLE[each][align={middle,lohi}]
+\setupTABLE[c][5][align={flushleft}]
+\setupTABLE[row][1][background=color,backgroundcolor=gray,align={flushleft,lohi}]
+\setupTABLE[row][2][background=color,backgroundcolor=gray]
+\bTABLE[option=stretch,offset=1mm]
+\bTR
+	\bTD[nc=2] Basisgröße \eTD
+	\bTD[nc=3] Basiseinheit \eTD
+\eTR
+\startCSV
+Name, Symbol, Name, Symbol, Beschreibung
+Zeit, $t$, Sekunde, $s$, "Die Sekunde, Synbol $s$, ist die die SI-Einheit der Zeit."
+Länge, $l$, Meter, $m$, "Der Meter, Symbol $m$, ist die SI-Einheit der Länge."
+Masse, $m$, Kilogramm, $kg$, "Das Kilogramm, Symbol $kg$, ist die SI-Einheit der Masse."
+elektrische Stromstärke, $I$, Amper, $A$, "Das Ampere, Symbol $A$ , ist die SI-Einheit der elektrischen Stromstärke."
+Temperatur, $T$, Kelvin, $K$, "Das Kelvin, Symbol $K$ , ist die SI-Einheit der thermodynamischen Temperatur."
+Stoffmenge, $n$, Mol, $mol$, "Die Stoffmenge, Symbol $n$ , eines Systems ist ein Maß für die Anzahl spezifizierter elementarer Einzelteile."
+Lichtstärke, $I_v$, Candela, $cd$, "Das Candela, Symbol $cd$, ist die SI-Einheit der Lichtstärke in einer vorgegebenen Richtung."
+\stopCSV
+
+\eTABLE
+\stopplacetable
+
+\stopframedtext % }}}
+

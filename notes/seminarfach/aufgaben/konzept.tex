@@ -1,0 +1,528 @@
+\setvariables[meta]
+  [title={Thementag am GLH},
+   subtitle={Ausgewogene Ernährung verbunden mit Fitness},
+   date={2024-10-23},
+   author={Marie Kurzhals, Lucas Weckler, Niklas von Hirschfeld},
+  ]
+\setupinteraction[title={Ausgewogene Ernährung verbunden mit Fitness}]
+
+\enabletrackers[publications, publications.crossref, publications.details, publications.cite, publications.strings]
+
+\usebtxdataset[main][bib/default.bib,bib/physik.bib,bib/mathe.bib,bib/seminarfach.bib]
+\usebtxdefinitions[aps]
+\setupbtx[dataset=main]
+\definebtxrendering[bibrendering][aps][dataset=main]
+
+\setupheadertexts[chapter][section]
+% \setupheadertexts[\getvariable{meta}{title}][chapter]
+
+\setuphead[chapter][
+	header=normal,
+	page=yes,
+	before={\blank[big]},
+	after={\blank[2*big]},
+]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+\component c_toc
+\stopfrontmatter
+
+\setuppagenumber[number=1]
+
+\startbodymatter
+
+\chapter{Einleitung}
+
+\section[title={Thema},reference={thema}]
+
+Das Projekt kombiniert Bewegung und gesunde Ernährung, um den Schülern
+der 10. Klasse die Bedeutung von körperlicher Aktivität und ausgewogener
+Ernährung näherzubringen. Ziel ist es, ihnen praktisches Wissen zu
+vermitteln und sie zu motivieren, eigenständig gesunde Entscheidungen zu
+treffen.
+
+\section[title={Ziel des
+Projektes},reference={ziel-des-projektes}]
+
+\startitemize[packed]
+\item
+  Die Schüler lernen, selbstständig gesunde Mahlzeiten zuzubereiten.
+\item
+  Sie setzen sich mit verschiedenen Ernährungsformen auseinander (vegan,
+  vegetarisch, omnivor).
+\item
+  Durch Teamarbeit wird die Kommunikation und Zusammenarbeit der Schüler
+  gefördert.
+\item
+  Ein aktiver, bewegungsreicher Tag soll das Bewusstsein für die
+  Verbindung zwischen körperlicher Aktivität und gesunder Ernährung
+  stärken.
+\stopitemize
+
+
+
+\section[title={Ablauf des
+Tages},reference={ablauf-des-tages}]
+
+\startitemize[packed]
+\item
+  {\bf Einführung und Frühstück}
+  \startitemize[packed]
+  \item
+    {\bf Dauer:} 1 Block
+  \item
+    {\bf Lerneinheit:} Einführung in die Grundlagen der Ernährung: Was
+    sind Kalorien? Welche verschiedenen Ernährungsweisen gibt es?
+    (Anpassung je nach Wissensstand der Klasse)
+  \item
+    {\bf Praktische Phase:} Aufteilung in zwei Gruppen, die jeweils ein
+    veganes und ein omnivores Frühstück zubereiten.
+  \item
+    {\bf Reflexion:} Diskussion über Unterschiede und Gemeinsamkeiten
+    der Ernährungsformen.
+  \stopitemize
+\item
+  {\bf Bewegungseinheit: Spiel und Spaß}
+  \startitemize[packed]
+  \item
+    {\bf Dauer:} 1 Block
+  \item
+    Nach dem Frühstück folgt eine {\bf Bewegungseinheit}. Der Fokus
+    liegt auf einfachen, spielerischen Aktivitäten, die den Schülern
+    Spaß machen und zugleich Bewegung fördern (z.B. kleine Sportspiele,
+    Teamübungen).
+  \item
+    {\bf Ziel:} Das Bewusstsein stärken, dass Bewegung ein natürlicher
+    Teil eines gesunden Lebensstils ist.
+  \stopitemize
+\item
+  {\bf Mittagessen und Lerneinheit}
+  \startitemize[packed]
+  \item
+    {\bf Dauer:} 1 Block
+  \item
+    {\bf Lerneinheit:} Fortsetzung des Themas Ernährung.
+    Diskussionspunkte: Welche Nahrungsmittel sind gesund, welche
+    weniger? Wie wirkt sich Ernährung auf unsere Gesundheit aus? (z.B.
+    am Beispiel Pizza: gesunde vs.~ungesunde Varianten).
+  \item
+    {\bf Praktische Phase:} Die Schüler bereiten in zwei Gruppen ein
+    Mittagessen zu -- erneut in einer veganen und einer omnivoren
+    Version. Dabei sollen, so weit wie möglich, auf stark verarbeitetes
+    Essen zu verzichten.
+  \item
+    {\bf Ergebnissicherung:} Die Schüler reflektieren über die
+    Mahlzeiten und dokumentieren ihre Erfahrungen.
+  \stopitemize
+\item
+  {\bf Reflexion und Aufräumen:}
+  \startitemize[packed]
+  \item
+    {\bf Dauer:} 1 Block
+  \item
+    {\bf Reflexion:} Verinnerlichung und Rückblick der Themen.
+  \item
+    {\bf Aufräumen:} Der Rest der Zeit wird genutzt, um die Klassenräume
+    wieder sauber zu machen, um sie so zu hinterlassen, wie wir sie
+    vorgefunden haben.
+  \stopitemize
+\stopitemize
+
+
+
+\section[title={Aufteilung der Aufgaben im
+Team},reference={aufteilung-der-aufgaben-im-team}]
+
+\startplacetable[title={Aufgabenverteilung}]
+\setupTABLE[r][1][style=bold,background=color,backgroundcolor=gray,width=2.5cm,align=middle]
+\bTABLE[frame=off,option=stretch]
+\bTR
+	\bTD[nc=2] Marie \eTD
+	\bTD[nc=2] Lucas \eTD
+	\bTD[nc=2] Niklas \eTD
+\eTR
+\startCSV
+Bewegungseinheit, \at{S.}[section:bewegung], Einführung, \at{S.}[section:einfuehrung], Lerneinheit, \at{S.}[section:mittag:lerneinheit]
+Finanzplan, \at{S.}[chapter:finanziereung], Frühstück, \at{S.}[section:fruehstueck], Mittagessen, \at{S.}[section:mittagessen]
+\stopCSV
+\eTABLE
+\stopplacetable
+
+\chapter{Tagesablauf}
+
+\section[section:einfuehrung]{Einführung}
+
+Die ​Einführung in das Thema „​Gesunde Ernährung“​ soll den S​chülern ein u​mfassendes Grundwissen über d​ie Bedeutung einer a​usgewogenen und gesunden Ernährung vermitteln. Dabei ist es wichtig, dass die Schüler nicht nur theoretisches Wissen erlangen, sondern auch ein Verständnis dafür entwickeln, wie sich gesunde Ernährung konkret auf ihren Alltag und ihre Gesundheit auswirken kann.  
+
+Zu Beginn werden den Schülern die Grundlagen der Ernährung erklärt. Dazu gehört, dass sie die verschiedenen Nährstoffe kennenlernen, die der Körper benötigt, u​m g​esund z​u bleiben. Dazu zählen u​nter anderem Kohlenhydrate, Proteine, Fette, Vitamine und Mineralstoffe. Die Schüler lernen, welche Aufgaben diese Nährstoffe im Körper erfüllen, beispielsweise wie Proteine den Muskelaufbau unterstützen, Fette als Energielieferanten fungieren und Vitamine das Immunsystem stärken. 
+
+Ein weiterer wichtiger Punkt ist das Verständnis von Kalorien und dem individuellen Kalorienbedarf. Die Schüler erfahren, wie der Körper Energie aus der Nahrung gewinnt und wie viele Kalorien sie täglich benötigen, abhängig v​on Faktoren wie A​lter, Geschlecht,​ Körpergröße und Aktivitätsniveau.  
+
+Darüber h​inaus wird d​en Schülern ein Ü​berblick über verschiedene Ernährungsformen gegeben, darunter omnivore, vegetarische und vegane Ernährungsweisen. Die Schüler lernen, welche Unterschiede es in diesen Ernährungsstilen gibt und welche Vor- und Nachteile jeweils damit verbunden sind.  Dabei sollen sie erkennen, dass es nicht die eine „richtige“ Ernährungsweise gibt, sondern dass eine gesunde Ernährung an die individuellen Bedürfnisse und Vorlieben angepasst werden kann. 
+
+Zum Abschluss der Einheit findet eine Reflexionsrunde statt, in der die Schüler über ihre bisherigen Essgewohnheiten nachdenken und mögliche Verbesserungen diskutieren können. In dieser Phase haben die Schüler die Möglichkeit, ihre eigenen Essensentscheidungen kritisch zu hinterfragen und darüber nachzudenken, welche positiven Veränderungen sie in Zukunft umsetzen möchten.
+
+\section[section:fruehstueck]{Frühstück}
+
+
+Für das Frühstück\footnote{\cite[alternative=entry][fruehstueck]} haben wir uns einen Frühstücks Taco überlegt. Bei dem Taco wird der Wrap aus Frischkäse, Ei und Käse gemacht, dies sorgt für einen hohen Protein Gehalt\sidenote{
+Nährwerte des Tacos für eine Person:
+\framed[frame=off, offset=none]
+{
+\setupTABLE[c][1][align=flushright]
+\setupTABLE[c][2][loffset=-0.8mm]
+\setupTABLE[c][2,3][align=flushleft]
+\bTABLE[frame=off]
+\bTR \bTD 472 \eTD \bTD \eTD \bTD kcal \eTD    \eTR
+\bTR \bTD 37  \eTD \bTD g    \eTD \bTD Protein \eTD \eTR
+\bTR \bTD 6   \eTD \bTD g    \eTD \bTD KH      \eTD \eTR
+\bTR \bTD 29  \eTD \bTD g    \eTD \bTD Fett    \eTD \eTR
+\eTABLE
+}
+
+\starttabulate[|m|l|]
+\stoptabulate
+} im Essen. Das Rezept ist gut geeignet für diese Einheit da die Schüler das ganze zuhause in verschiedensten Variationen nachmachen können da die Toppings ohne Probleme geändert werden können.
+
+\subsection{Rezept für zwei Tacos}
+
+Zutatenliste:
+\startitemize[packed]
+\item 3 Eier 
+\item 100g körnigen Frischkäse light 
+\item 20g Cheddar 
+\item 50g Avocado 
+\item 50g Tomaten 
+\item Salz Pfeffer 
+\stopitemize
+
+Die Zubereitung verläuft relative einfach, man benötigt lediglich 4 Schritte
+
+\startnarrower[left]\setupindenting[-\leftskip,yes]
+{\bf 1. Teig anfertigen}: Die Eier, den körnigen Frischkäse und den Cheddar in einer Schüssel zu einem Teig verrühren 
+
+{\bf 2. Vorbereitung zum Backen}: Den Teig auf einem Backblech in der gewünschten Größe des Tacos ausbreiten 
+
+{\bf 3. Backen}: Das Backblech mit dem Teig bei 200 Grad Umluft für 10-15 Minuten Backen 
+
+{\bf 4. Belegen}: Denn Taco nach belieben belegen und Genießen
+\stopnarrower
+
+\section[section:bewegung]{Bewegungseinheit}
+
+Die 80 – 90-minütige Bewegungseinheit zielt darauf ab die körperliche Fitness der Schüler zur fördern, die Verbindung zwischen Ernährung und Bewegung zu vermitteln, die Zusammenarbeit der Schüler in Gruppen bzw. Mannschaften zu verbessern und darüber hinaus die kognitive Leistungsfähigkeit der Schüler zu steigern und somit die Aufnahme der Lerninhalte zu verbessern. Der Zusammenhang zwischen Bewegung und kognitiver Leistungsfähigkeit besteht zum einen in einer verbesserten Konzentrationsfähigkeit nach Bewegungseinheiten oder aktiv gestalteten Pausen als auch mit langfristig verbesserten Leistungen bei Kindern und Jugendlichen die sich regelmäßig Bewegen bzw. Sport machen\footnote{\cite[alternative=entry][MariArticle]}.
+
+Die Bewegungseinheit beginnt mit einer 10 – 15-minütigen Aufwärmphase, welche dazu dient, sich sportspezifischen, bezogen auf die Folgenden Elemente der Bewegungseinheit aufzuwärmen und vorzubeugen\footnote{\cite[alternative=entry][Gesundheitskasse2023MarGesundheistkasse]}. 
+
+Begonnen wird mit 10 Minuten dynamischen Dehnen, wenn möglich mit von den Schülern vorgeschlagenen Übungen zu Armen, Beinen und dem Rumpf. 
+
+Darauf folgen 5 Minuten lockeres Laufen bzw. Joggen, welches mit Übungen wie z.B. Armekreisen, Knieheben oder Sidesteps kombiniert werden kann, um das Herz-Kreislaufsystem zu aktivieren.
+
+Der Hauptteil der Bewegungseinheit besteht aus einem {\bf Stationenlauf} und
+einem {\bf Teamspiel}. Die Schüler verteilen sich zunächst gleichmäßg an alle
+Station. Diese gestalten sich wie in der \in{Tabelle}[table:stationen] abgebildet und werden auch in der dort angegebene Reinfolge bearbeitet.
+
+
+
+
+% \startplacetable[title={Ablauf},location={here,force},width=\dimexpr\textwidth+\rightmarginwidth\relax]
+\startplacetable[title={Ablauf und erläuterung der Stationen},location={force},reference={table:stationen}]
+% \startframedtext[width=\dimexpr\textwidth+\rightmarginwidth\relax,frame=off,offset=none] % This spans textwidth + margin width
+
+{\bfa Ablauf und Stationen}
+\switchtobodyfont[10pt]
+\blank
+
+\setupTABLE[c][1][background=color,backgroundcolor=gray,align={center,lohi},bottomframe=on,topframe=on]
+\setupTABLE[r][1][background=color,backgroundcolor=gray,bottomframe=on,topframe=on]
+\setupTABLE[c][3][width=8cm,loffset=0.5cm]
+\bTABLE[frame=off]
+\bTABLEhead 
+\bTR
+	\bTD [width=2cm] Station Nr. \eTD
+	\bTD [nc=2] Beschreibung \eTD
+\eTR
+\eTABLEhead
+
+\bTABLEbody
+% Station 1
+\bTR \bTD [nr=3] 1 \eTD \bTD Materalien: \eTD \bTD
+\startitemize[packed]
+\item 2 Kästen
+\stopitemize
+\eTD \eTR
+\bTR \bTD Übung für: \eTD \bTD Beine \eTD \eTR
+\bTR \bTD [nc=2] 
+Beide Schüler führen jeweils eine Minute entweder High Jumps auf den Kasten / die Box oder Single Leg Squats (mit einem Fuß auf dem Kasten) aus. Nach 2 Minuten Pause wird getauscht.
+\eTD \eTR
+
+\bTR \bTD [nc=3,align=center] (2 Minuten Pause – Stationswechsel) \eTD \eTR
+
+% Station 2
+\bTR \bTD [nr=3] 2 \eTD \bTD Materalien: \eTD \bTD
+\startitemize[packed]
+\item 1 Matte
+\stopitemize
+\eTD \eTR
+\bTR \bTD Übung für: \eTD \bTD Rumpf \eTD \eTR
+\bTR \bTD [nc=2] 
+Legraises / Throwdowns, wie in \in{Abbildung}[fig:bewegung:station2:rumpf], nach einer Minute wird mit 2 Minuten Pause getauscht.
+\eTD \eTR
+
+\bTR \bTD [nc=3,align=center] (2 Minuten Pause – Stationswechsel) \eTD \eTR
+
+% Station 3
+\bTR \bTD [nr=3] 3 \eTD \bTD Materalien: \eTD \bTD
+\startitemize[packed]
+\item 1 Matte
+\item 1 Kasten
+\stopitemize
+\eTD \eTR
+\bTR \bTD Übung für: \eTD \bTD Arme und Oberkörpe \eTD \eTR
+\bTR \bTD [nc=2] 
+Beide Schüler führen jeweils eine Minute entweder Dips oder Single Leg Squats oder Push- Ups aus. Nach 2 Minuten Pause wird getauscht.
+\eTD \eTR
+
+\bTR \bTD [nc=3,align=center] (2 Minuten Pause – Stationswechsel) \eTD \eTR
+
+% Station 4
+\bTR \bTD [nr=3] 4 \eTD \bTD Materalien: \eTD \bTD
+Keine
+\eTD \eTR
+\bTR \bTD Übung für: \eTD \bTD Sprint und Ausdauerübung \eTD \eTR
+\bTR \bTD [nc=2] 
+Beide Schüler sprinten 30 Sekunden bzw. eine Hallenlänge und gehen 1 Minute.
+Dies wird drei Mal wiederholt.
+\eTD \eTR
+
+\bTR \bTD [nc=3,align=center] (2 Minuten Pause – Stationswechsel) \eTD \eTR
+
+% Station 5
+\bTR \bTD [nr=3] 5 \eTD \bTD Materalien: \eTD \bTD
+\startitemize[packed]
+\item 2 Seile
+\stopitemize
+\eTD \eTR
+\bTR \bTD Übung zum: \eTD \bTD Seilspringen \eTD \eTR
+\bTR \bTD [nc=2] 
+Beide Schüler machen zweimal eine Minute Seilspringen mit 2 Minuten Pause dazwischen.
+\eTD \eTR
+
+\bTR \bTD [nc=3,align=center] (2 Minuten Pause – Stationswechsel) \eTD \eTR
+
+\eTABLEbody
+\eTABLE
+
+% \stopframedtext% }}}
+\stopplacetable
+
+\placefigure[here][fig:bewegung:station2:rumpf]{Darstellung der Übung \quotation{Legraises}}{
+    \startcombination[2*1]
+        {\externalfigure[assets/seminarfach/bewegunsgstag/legraises_up.png][height=5cm]}{1.}
+        {\externalfigure[assets/seminarfach/bewegunsgstag/legraises_down.png][height=5cm]}{2.}
+    \stopcombination
+}
+
+
+Insgesamt fördern die Stationen sowohl Kraft als auch Ausdauer und zeigen den Schülern verschiedene Bewegungsmöglichkeiten die leicht in den eigenen Alltag zu integrieren sind. Bei einer größeren Klasse kann der Stationenlauf durch weitere Stationen ergänzt werden oder einzelne Stationen werden erweitert, so dass die Schüler sie in größeren Gruppen durchführen können.
+
+Angesetzt sind für den Stationenlauf 25 – 30 Minuten.
+
+Das Teamspiel ist dazu gedacht mehr Spaß in die Bewegungseinheit zu bringen und die Teamfähigkeit zu verbessern. Das Teamspiel sollte von den Schülern möglichst frei gewählt werden. Möglich wären z.B. Völkerball, Brennball, Fußball, Volleyball usw. Für das Teamspiel sind ebenfalls etwa 30 Minuten angesetzt 
+
+Die Bewegungseinheit wird mit einem kurzen Cooldown / einer Abkühlungsphase abgeschlossen, hierfür eignet sich beispielsweise statisches Dehnen mit von den Schülern vorgeschlagenen Übungen und die Schüler mit einzubeziehen. 
+
+Verantwortlich für die Durchführung und Betreuung der Stationen sind die, den Thementag organisierenden, Schüler ggf. gemeinsam mit einer Lehrkraft. Für die Materialien fallen keine zusätzlichen Kosten an da sie in der Sporthalle vorhanden sind.
+
+\section[section:mittagessen]{Mittagessen}
+
+Für das Mittagessen haben wir uns eine Variante des Döners\footnote{\cite[alternative=entry][doener]} überlegt. Dabei wird
+auf angebratenes und gewürztes Tofus gesetzt, da es eine kalorienarmes, aber
+gleichzeitig auch eiweißreiches Lebensmittel ist.
+
+Dieses Rezept eignet sich ebenfalls, da es zum einen einfach in der Zubereitung
+ist, sich aber auch leicht modifizieren lässt. Man kann es schnell nach den
+eigenen vorlieben anpassen, oder nach dem, was man gerade zur Verfügung hat. 
+
+Viele Rezepte benötigen eine gewisse vorbereitung und sind auf viele
+verschiedenen Lebensmittel angewiesen. Der Döner kann allerdings gut nach
+belieben variiert werden, so lange die Basis vorhanden ist.
+
+\subsection{Rezept}
+
+Für diesen Döner brauchen wir folgende Zutaten:
+
+\startitemize[packed,columns,two]
+\item Tofu (für drei Portionen):
+	\startitemize[packed]
+	\item 350g geräucherter Tofu
+	\item 1 Zehe Knoblauch
+	\item 1 rote Zwiebel
+	\item 1 TL Olivenöl
+	\item 2 EL Soja Sauce
+	\item Paprikapulver, Oregano
+	\stopitemize
+\item Fladenbrot
+\item 30ml Joghurt
+\item 30g Tomaten
+\item 30 Gurke
+\item 15g Hirtenkäse
+\item Petersilie
+\item Salat
+\stopitemize
+
+\subsubsection{Arbeitsschritte}
+
+\startnarrower[left]\setupindenting[-\leftskip,yes]
+
+{\bf 1. Tofu anbraten}: Um das Tofu vorzubereiten einfach alle Zutaten (Tofu,
+Knoblauch, Zwiebel, Olivenöl, Soja Sauce, Paprikapulver, Oregano) in einer
+Pfanne scharf anbraten, bis es knusprig ist.
+
+{\bf 2. Gemüse und Hirtenkäse kleinschneiden:} Dazu einfach mit einem Messer die Gurke, Tomaten und den Hirtenkäse in 1cm große Würfel kleinschneiden.
+
+{\bf 3. Döner befüllen:} Jetzt das Fladenbrot aufschneiden und zuerst den
+Joghurt als Basis in dem Brot verteilen und den Salat direkt darauf. Danach das Tofu mit dem Gemüse und dem
+Hirtenkäse vermischen und ebenfalls hinzugeben. Zum Schluss nach belieben Salzen und noch etwas Petersilie oben drüber.
+
+\stopnarrower
+
+\section[section:mittag:lerneinheit]{Lerneinheit}
+
+Das Ziel diese Lerneinheit ist es, die Grundprinzipien einer ausgewogenen
+Ernährung zu vermitteln und den Schülerinnen und Schülern Ideen an die Hand zu
+geben, mit welchen sie eine solche Ernährung Zuhause umsetzten können. Auch
+wollen wir kurz auf den Prozess des Einkaufen einzugehen.
+
+Als Grundlage dafür soll der zuvor zubereitete Döner fundieren. In Gruppen soll kurz erarbeitet werden. Welche Inhaltsstoffe\sidenote{
+Nährwerte des Döners für eine Person:
+\framed[frame=off, offset=none]
+{
+\setupTABLE[c][1][align=flushright]
+\setupTABLE[c][2][loffset=-0.8mm]
+\setupTABLE[c][2,3][align=flushleft]
+\bTABLE[frame=off]
+\bTR \bTD 517 \eTD \bTD  \eTD \bTD kcal \eTD \eTR
+\bTR \bTD 48  \eTD \bTD  g\eTD \bTD Protein \eTD \eTR
+\bTR \bTD 11  \eTD \bTD  g\eTD \bTD KH \eTD \eTR
+\bTR \bTD 29  \eTD \bTD  g\eTD \bTD Fett \eTD \eTR
+\eTABLE
+}
+} in diesem Essen sind und wie diese in dem menschlichen Körper wirken. Danach wird
+besprochen, was eine gesunde Mahlzeit ausmacht und es wird gemeinsam überlegt,
+welche Mahlzeiten gesund sind, und welche auch nicht.
+
+Zuletzt sollen die Schülerrinnen und Schüler selber Gerichte zusammenstellen.
+Dies kann auch in kleiner Gruppen geschehen. Danach soll sich untereinander
+ausgetauscht werden. Die Schülerinnen und Schüler sollen selbstständig darüber
+welche Ideen sie haben und diese im Austausch mit anderen auch verbessern. 
+
+\subsection{Bewusstes Einkaufen}
+
+Richtig einkaufen ist der erste Schritt zu einer gesunden Ernährung. Es ist
+wichtig, gut vorbereitet in den Supermarkt zu gehen, um nicht wahllos
+Lebensmittel zu kaufen, die oft ungesund sind. Folgende Tipps wollen wir den Schülerinnen und Schülern näher bringen:
+
+\startitemize[m,packed]
+\item {\bf Einkaufsliste schreiben:} Überlegt euch vorher, welche gesunden Mahlzeiten ihr in den nächsten Tagen kochen wollt, und schreibt eine Liste mit den benötigten Zutaten. So kauft ihr gezielt ein und vermeidet unnötige Snacks oder ungesunde Produkte.
+\item {\bf Frische und unverarbeitete Lebensmittel wählen:} Setzt auf frische, unverarbeitete Lebensmittel wie Obst, Gemüse, Vollkornprodukte und Proteine wie Hülsenfrüchte, Fisch oder mageres Fleisch. Diese enthalten mehr Nährstoffe und weniger Zusatzstoffe als Fertigprodukte.
+\item {\bf Auf Nährwertangaben achten:} Schaut euch die Verpackungen genau an und vergleicht die Nährwertangaben. Achtet auf Produkte, die wenig Zucker, Salz und gesättigte Fette enthalten.
+\item {\bf Saisonal und regional kaufen:} Saisonal und regional einzukaufen hilft nicht nur der Umwelt, sondern auch der Gesundheit. Frische, saisonale Lebensmittel enthalten oft mehr Vitamine und Nährstoffe.
+\stopitemize
+
+Indem ihr euch an diese einfachen Regeln haltet, könnt ihr sicherstellen, dass ihr gesunde und ausgewogene Zutaten nach Hause bringt. So wird es euch leichter fallen, euch im Alltag gesund zu ernähren!
+
+\subsubsection{Nutri-Score}
+
+Weiter wollen wir den Schülerinnen und Schülern die funktionsweise des Nutric-Score\footnote{\cite[alternative=entry][nutriscore]} erläutern. 
+Der Nutri-Score\margintext{
+% \startplacefigure[title={Nutri-Score-Kennzeichnung (A) für höchste Nährwertqualität\footnote{\cite[alternative=entry][NutriScoreImage]}}]
+\startplacefigure[title={Nutri-Score-Kennzeichnung (A) für höchste Nährwertqualität}]
+\externalfigure[assets/seminarfach/nutriscore.png][width=\outermarginwidth]
+\stopplacefigure
+} 
+ist eine leicht verständliche Kennzeichnung, die Produkte von A
+(grün, besonders günstig) bis E (rot, weniger günstig) bewertet. Die
+Schülerinnen lernen, dass diese Einstufung auf der Zusammensetzung der
+Nährstoffe eines Produkts basiert. Positive Faktoren wie Ballaststoffe,
+Proteine und Obstanteil wirken sich vorteilhaft auf die Bewertung aus, während
+hohe Anteile von Zucker, gesättigten Fetten und Salz die Bewertung
+verschlechtern.
+
+Auch wollen wir dabei auf die Nachteile, beziehungsweise die Tücken, des
+Nutri-Scores eingehen. So zum Beispiel kann der Score geziehlt manipuliert
+werden, so dass Lebensmittel gesünder dargeslellt werden, als sie es eigentlich
+sind.
+
+
+\chapter[chapter:finanziereung]{Finanzplan}
+
+\startplacetable[title={Kosten der Tacos (Stand 21.10.2024 bei Rewe)}]
+\setupTABLE[each][align={flushleft,lohi},offset=1mm]
+\setupTABLE[c][1][align={flushright,lohi}]
+\setupTABLE[row][1][background=color,backgroundcolor=gray]
+\bTABLE[frame=off,option=stretch]
+\startCSV
+"[nc=3,align={flushleft,lohi}] Produkt", Preis in Euro
+1,       kg, Körniger Frischkäse,       "4.95"
+200,     g,  Cheddar,                   "3.85"
+500,     g,  Avocado / 3 -- 4 Avocados, "Circa 6"
+500,     g,  Tomaten,                   "1.45"
+30,      ,   Eier,                      "7.77"
+,        ,   Salz,                      "0.99"
+,        ,   Pfeffer,                   "1.99"
+\stopCSV
+\bTR[topframe=on,rulethickness=2pt,offset=1mm]
+	\bTD[nc=2] \eTD
+	\bTD[align=flushleft] Gesamt \eTD
+	\bTD 27 \eTD
+\eTR
+\eTABLE
+\stopplacetable
+
+
+\startplacetable[title={Kosten des Döner (Stand 21.10.2024 bei Rewe)}]
+\setupTABLE[each][align={flushleft,lohi},offset=1mm]
+\setupTABLE[c][1][align={flushright,lohi}]
+\setupTABLE[row][1][background=color,backgroundcolor=gray]
+\bTABLE[frame=off,option=stretch]
+\startCSV
+"[nc=3,align={flushleft,lohi}] Produkt", Preis in Euro
+2.3, kg, Tofu,                     Ca. 14.40
+600, g,  Joghurt 0.1\%,            1.14
+600, g,  Tomate,                   1.74
+5,   ,   Zwiebeln,                 0.50
+,    ,   Olivenöl,                 3.29
+,    ,   Sojasoße,                 2.29
+,    ,   Paprikapulver,            2.19
+2,   ,   Salatgurken / 600g Gurke, 1.58
+,    ,   Knoblauch,                1.19
+\stopCSV
+\bTR[topframe=on,rulethickness=2pt,offset=1mm]
+	\bTD[nc=2] \eTD
+	\bTD[align=flushleft] Gesamt \eTD
+	\bTD 28.32 \eTD
+\eTR
+\eTABLE
+\stopplacetable
+
+Insgesamt kommen so Kosten von {\bf 55.32 Euro} zustande.
+
+Um den Thementag Ernährung und Bewegung, an dem zwei Rezepte gekocht werden sollen, zu finanzieren haben wir uns für eine Teilnahmegebühr entschieden, welche von den Eltern der Teilnehmer bezahlt wird und die Kosten für die beiden Rezepte deckt. Weitere Materialien wie Sportgeräte, Papier, Stifte etc. sind in der Schule bereits vorhanden und müssen somit nicht finanziert werden. Kochutensilien können, nach vorheriger Absprache, von den Teilnehmern mitgebracht werden. Herd und Backofen können nach Absprache mit der Schulleitung in der Schule genutzt werden. 
+
+Die Teilnahmegebühr wird 5€ betragen, da die vorangegangen Rechnung der potenziellen Kosten nur ein Schätzwert ist und die Preise der Lebensmittel je nach Marke oder Supermarkt abweichen können. Eine Gebühr von 5€ ist darüber hinaus passend, da der Preis für ein Essen beispielsweise in der Mensa ähnlich ist, dieser aber an dem Thementag nicht bezahlt werden muss, da die Teilnehmer das selbstgekochte Essen gemeinsam essen. Die Teilnahmegebühr kann vor Ort / in der Schule oder per Überweisung bezahlt werden und die Eltern werden falls nötig per E-Mail an die Zahlung erinnert. Sollte Geld übrig bleiben wird dies an die Eltern zurückgezahlt.
+
+Durch den geringen Preis wird den Teilnehmern darüber hinaus vermittelt das gesunde und vegetarische Lebensmittel nicht teurer sein müssen als die gewohnten Produkte.
+
+\stopbodymatter
+
+\startbackmatter
+% \component c_definitions
+\component c_bibliography
+\stopbackmatter
+
+\stoptext
+

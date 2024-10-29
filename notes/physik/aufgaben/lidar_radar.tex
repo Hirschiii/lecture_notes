@@ -1,0 +1,212 @@
+\setvariables[meta]
+  [title={Wellenoptik: Radar und Lidar},
+   subtitle={Bearbeitung des Arbeitsblatt: PhQ_WO_01_RadarLidar},
+   date={2024-10-20},
+   author={Niklas von Hirschfeld},
+  ]
+\setupinteraction[title={Wellenoptik: Radar und Lidar}]
+
+\setuphead[chapter][
+	header=normal,
+	page=no
+	before={\testpage[12]\blank[big]},
+	after={\blank[2*big]},
+]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+\component c_toc
+\stopfrontmatter
+
+\setuppagenumber[number=1]
+
+\startbodymatter
+\chapter[title={Aufgabe 1},reference={aufgabe-1}]
+
+\startframedtask
+Recherchieren Sie RADAR und LIDAR (Quellen angeben!).
+
+Beschreiben Sie (kurz), wie diese Technologien funktionieren und für
+welche Zwecke sie eingesetzt werden.
+
+\stopframedtask
+
+Lidar, Radar, oder auch Sonar, funktionieren alle sehr ähnlich, indem
+Energiewellen ausgesendet werden und auf eine Reflexion gewartet wird.
+
+\section[title={Radar},reference={radar}]
+
+\quotation{{\bf Ra}dio {\bf d}etection {\bf a}nd {\bf r}anging}, kurz
+Radar, ist die Bezeichnung für verschiedene Erkennungs- oder auch
+Ortungsverfahren, welche mit {\bf elektromagnetischen Wellen} im
+Radiofrequenzbereich (kleiner als
+$300\text{MHz}$\footnote{\cite[alternative=entry][Radiowellen_LEIFI]})
+
+\subsection[title={Funktionsweise},reference={funktionsweise}]
+
+Für die Funktionsweise von Radar-Sensoren sind drei grundlegende
+physikalische Gesetze von
+bedeutung\footnote{\cite[alternative=entry][Wolff2024Aug]}:
+
+\startitemize[packed]
+\item
+  Die {\bf Reflexion} elektromagnetischer Wellen.
+\item
+  Die {\bf konstante Ausbreitungsgeschwindigkeit} der
+  elektromagnetischen Wellen, welche sich mit knapp Lichtgeschwindigkeit
+  ausbreiten (ca $300 \frac{km}{s}$).
+\item
+  Die {\bf geradlinige Ausbreitung} der elektromagnetischen Wellen.
+\stopitemize
+
+Die elektromagnetischen Wellen werden also ausgesendet und deren
+Reflexion gemessen. Mit der Zeitdifferenz des aussenden und des
+empfangen kann die Distanz ermittelt werden, welche die Wellen
+zurückgelegt haben.
+
+\subsection[title={Anwendung},reference={anwendung}]
+
+Die Anwendungsmöglichkeiten sind vielfältig. Die Technologie wird unter
+anderem dafür genutzt, um Positionen zu bestimmen, oder auch füllstände
+in Lagertanks\footnote{\cite[alternative=entry][IFM_Radar]}
+
+\section[title={Lidar},reference={lidar}]
+
+„{\bf Li}ght {\bf d}etection {\bf a}nd {\bf r}anging“, kurz Lidar, ist
+eine Technologie, welche die präziese messung von Entfernungen mit sehr
+geringer latenz erlaubt\footnote{\cite[alternative=entry][IBM_LIDAR]}.
+
+\subsection[title={Funktionsweise},reference={funktionsweise-1}]
+
+Klassische Lidar-Sensoren bezitzen einen Transmitter und einen
+Empfänger. Über den Transmitter wird ein {\bf gepulster Laser} wird
+ausgesendet. Der Zeitpunkt dessen Reflexion wird mit dem Empfänger
+gemessen und somit die \quotation{Flugdauer} ermittelt. Da die
+Lichtgeschwindigkeit konstant ist (ca $300
+\frac{km}{s}$\footnote{\cite[alternative=entry][lichtgeschwindigkeit_LEIFI]})
+ist diese Methode sehr schnell und präziese.
+
+\
+
+\subsection[title={Anwendung},reference={anwendung-1}]
+
+Lidar Technologie findet in der heutigen Welt eine breite und
+vielschichtige Anwendung. Von Forschung bis Technologie im Alltag,
+Lidar-Sensoren sind überall zu finden und auch nicht mehr weg zu denken.
+
+In der Archäologie wurde 2018 mithilfe von Lidar-Luftscans eine bisher
+übersehene Maya-Ruinenstadt gefunden. Dank der Scans konnte eine
+großflächige und detailreiche 3D-Karte kreiert werden, welche die
+Umrisse der Ruinen
+aufdeckte\footnote{\cite[alternative=entry][lidar_defunk]}.
+
+Auch für das autonome Fahren spielt die Lidar-Technologie eine große
+Rolle. Die Autos müssen ihre Umgebung in drei Dimensionen erfassen
+können. Die Lidar-Sensoren werden mit vielen anderen Sensoren, wie auch
+Kameras, kombiniert um die aktuelle Situation einzuschätzen. Lidar ist
+deshalb geeignet, da es sehr präzise Messungen mit sehr geringer Latenz
+ermöglicht\footnote{\cite[alternative=entry][9127855]}. Aber nicht nur
+für das Autonome steuern von Autos wird diese Technologie genutzt, auch
+Staubsaug-Roboter nutzen sie, um sich in einem Raum zurecht zu finden.
+
+
+\chapter[title={Aufgabe 2},reference={aufgabe-2}]
+
+\startframedtask
+Erklären Sie die Funktionsweise dieser beiden Technologien physikalisch.
+Geben Sie dafür auch die Gleichungen an, mit denen die nötigen
+Berechnungen durchgeführt werden können. Verzichten Sie auf Erklärungen
+zur Nutzung der Raman-Streuung mit LIDAR-Systemen
+
+\stopframedtask
+
+Die Messung der \quotation{Time of flight}, also der Strecke, die die
+Energiewelle in welcher Zeit zurückgelegt hat, sieht wie folgt
+aus\footnote{\cite[alternative=entry][Gotzig2015Mar]}:
+
+\startformula 
+s=\frac{c_0\cdot t}{2}
+ \stopformula
+
+\startitemize[packed]
+\item
+  $s =$ Abstand
+\item
+  $c_0 =$ Geschwindigkeit der Energiewelle, bei Lidar:
+  Lichtgeschwindigkeit (ca. $300 \frac{km}{s}$) und bei Radar:
+  geschwindigkeit ausbreitung von elektromagnetischer Wellen (annähernd
+  Lichtgeschwindigkeit)
+\item
+  $t =$ Zeit in $s$.
+\stopitemize
+
+\startformula 
+\lambda = c \cdot T = \frac{c}{f}
+ \stopformula
+
+
+\chapter[title={Aufgabe 3},reference={aufgabe-3}]
+
+\startframedtask
+Ordnen Sie die in RADAR und LIDAR verwendeten Wellenlängen bzw.
+Frequenzen in das elektromagnetische Spektrum ein.
+
+https://www.leifiphysik.de/optik/elektromagnetisches-spektrum
+
+\stopframedtask
+
+\startuseMPgraphic{DiagonalRule}
+  rulethickness := \frameddimension{rulethickness};
+
+  drawoptions(
+    withpen pencircle scaled rulethickness
+    withcolor \MPcolor{\framedparameter{framecolor}});
+
+  pair leftcorner, rightcorner;
+  leftcorner  := (rulethickness, \overlayheight-rulethickness);
+  rightcorner := (\overlaywidth-rulethickness, rulethickness);
+
+  draw leftcorner -- rightcorner;
+\stopuseMPgraphic
+
+\defineoverlay
+  [DiagonalRule]
+  [\useMPgraphic{DiagonalRule}]
+
+  \define[2]\DiagonalLabel{%
+  \setuptabulate [after={\blank[\frameddimension{offset}]}]
+  \starttabulate [|p|r|]
+    \NC    \NC #2 \NC\NR
+    \NC #1 \NC    \NC\NR
+  \stoptabulate
+}
+
+\startplacetable[location=none]
+\setupTABLE[r][1][style=bold,background=color,backgroundcolor=gray,width=2.5cm]
+\setupTABLE[c][1][style=bold,background=color,backgroundcolor=gray]
+\bTABLE
+    \bTR
+      \bTD [background=DiagonalRule]
+        \DiagonalLabel{Kategorie}{Art}
+      \eTD
+      \bTD Radar \eTD
+      \bTD Lidar \eTD
+    \eTR
+\startCSV
+Wellenlänge:, $1m$, zwischen $1m$ und $780nm$
+Frequenzen:, $300MHz$, $300GHz$ bis $385THz$
+Art:, Radiowellen, Infrarot
+\stopCSV
+\eTABLE
+\stopplacetable
+
+\stopbodymatter
+
+\startbackmatter
+\component c_definitions
+% \component c_bibliography
+\stopbackmatter
+
+\stoptext

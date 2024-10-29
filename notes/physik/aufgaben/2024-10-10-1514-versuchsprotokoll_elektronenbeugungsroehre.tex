@@ -1,0 +1,508 @@
+\startmode[single]
+
+\setvariables[meta]
+  [title={Elektronenbeugunsröhre},
+   subtitle={Versuchsprotokoll},
+   date={2024-10-18},
+   author={Niklas von Hirschfeld},
+  ]
+
+\setupinteraction[title={\getvariable{meta}{title}}]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+\component c_toc
+\stopfrontmatter
+
+\setuppagenumber[number=1]
+
+\startbodymatter
+
+\chapter{Versuchsprotokoll}
+
+\stopmode
+
+\starttabulate
+\NC Name  \EQ \currentstructurename  \NC\NR
+\NC Level \EQ \currentstructurelevel \NC\NR
+\stoptabulate
+
+In diesem Versuch werden Elektronen, mittels der Elektronenkanone, durch eine
+vielzahl von übereinander gelegten und verdrehten {\em Graphitfolien} auf eine
+Floreszenzschicht geschossen. 
+
+Die Versuchsaufbau besteht aus:
+
+\startitemize[packed]
+\item Elektronenkanone
+\item Graphitfolien
+\item Glaskolben (mit Vakuum) und Floreszenzschicht
+\stopitemize
+
+Die Elektronen werden, mit der Elektronenkanone, durch die Graphitfolien
+geschossen und stoßen dann auf die Floreszenzschicht, wodurch sie für uns
+sichtbar und messbar werden.
+
+% MP Grafik / Buffer fuer den Aufbau {{{
+\startbuffer[fig:mp:wellen:beugungskanone:aufbau]
+\startMPpage
+
+u := 1cm;
+
+z0=(-5 * u, 0.5 * u);
+z1=(-5 * u, -0.5 * u);
+z2=(-1 * u, 0.5 * u);
+z3=(-1 * u, -0.5 * u);
+
+z4=(-2u, 0.7u);
+z5=(-2u, -0.7u);
+z6=(2u, 0.7u);
+z7=(2u, -0.7u);
+
+z8=(3.5u, 0);
+
+
+draw z0--z1--z3--z2--cycle;
+
+label("Elektronenkanone", (.5[x0,x2],0.2u + .5[y0,y1]));
+drawarrow (x0 + 0.2u, -0.2u + .5[y0,y1])--(x2 - 0.2u, -0.2u + .5[y0,y1]);
+
+for a = -0.3 step 0.05 until 0.3:
+	draw (a * u, 0.3 * u)--(a * u, -0.3 * u) withcolor .6white;
+endfor;
+
+
+draw (0, -1u)--(0, 0);
+
+label.bot("Graphitfolien", (0, -1u));
+
+draw (5.35u, -2u)--(5.35u, 0);
+
+label.bot("Floreszenzschicht", (5.35u, -2u));
+
+label("Vakuum", (2u, 0));
+
+path c;
+c = fullcircle scaled 4u shifted z8;
+
+path d;
+d = fullcircle scaled 6.5u shifted (x8 - 1.5u, y8);
+
+z9=(z4--z6) intersectiontimes c;
+z10=c intersectiontimes d;
+
+% label.bot(decimal x9 & ", " & decimal y9, z6);
+% label.bot(decimal x10 & ", " & decimal y10, z7);
+
+draw subpath (y9, -y9) of c ;
+draw subpath (y10, -y10) of d ;
+
+draw z4--z6 cutafter c;
+draw z5--z7 cutafter c;
+
+\stopMPpage
+\stopbuffer
+% }}}
+
+\placefigure[force][fig:mp:wellen:beugungskanone:aufbau]{Skizze des Aufbau}{
+\typesetbuffer[fig:mp:wellen:beugungskanone:aufbau]
+}
+
+
+% MP Grafik / Buffer fuer die Beobachtung {{{
+\startbuffer[fig:mp:wellen:beugungskanone:beobachtung]
+\startMPpage
+	pickup pencircle scaled 1pt;
+    color green; green := (0, 1, 0);
+
+    % Draw rings
+    draw fullcircle scaled 30 withcolor green withpen pencircle scaled 2pt;  % inner most ring
+    draw fullcircle scaled 50 withcolor green withpen pencircle scaled 2pt;  % second ring
+    draw fullcircle scaled 60 withcolor green;  % third ring
+    draw fullcircle scaled 95 withcolor green;  % outer most ring
+
+    % Optionally, draw a small dot in the center to represent the electron spot
+    fill fullcircle scaled 2 withcolor green;
+\stopMPpage
+\stopbuffer
+% }}}
+
+\margintext{
+	\placefigure[force][fig:mp:wellen:beugungskanone:beobachtung]{Skizze der Beobachtung}{
+	\typesetbuffer[fig:mp:wellen:beugungskanone:beobachtung]
+	}
+}
+
+\startsectionlevel[title={Beobachtung}]
+
+\starttabulate
+\NC Name  \EQ \currentstructurename  \NC\NR
+\NC Level \EQ \currentstructurelevel \NC\NR
+\stoptabulate
+
+% {{{
+Nach anschalten der Elektronenkanone erscheinen vorne auf der Floreszenzschicht
+ein grüner Punkt in der Mitte und Ringe um diesen herum, ca wie in
+\in{Abbilung}[fig:mp:wellen:beugungskanone:beobachtung]. Bei änderung der
+Beschleunigungsspannung  werden die Ringe enger und auch heller.
+
+Gemessen wurde der Durchmesser der Ringe bei verschiedenen Beschleunigungsspannungen.
+
+Auch lässt sich die Position der Ringe und des Punktes in der Mitte mittels
+{\bf Magneten} beeinflussen. Wird ein Magnet oben an den Galskolben gehalten,
+so verändert sich die Positionierung nach oben.
+% }}}
+\stopsectionlevel
+\startsectionlevel[title={Auswertung}]
+% {{{
+Für die Auswertung wollen wir zum einen die Geschwindigkeit der Elektronen
+wissen und auch die Wellenlänge berechnen.
+
+\subsection{Berechnung der Geschwindigkeit}
+
+Elektronen werden im homogenen elektrischen Feld (formal Kondensator)
+beschleunigt.
+
+\margintext{
+\starttabulate[|m|p|]
+\NC U_B \EQ Beschleunigungsspannung \NC\NR
+\NC e \EQ Elementarladung \NC \NR
+\NC m \EQ Masse des Elektron \NC \NR
+\NC v \EQ Geschwindigkeit \NC \NR
+\stoptabulate
+} 
+
+Im Feld besitzen sie $E_{el}=U_B \cdot e$ an Elektrischer Energie. Diese wird
+(gemäß Annahme vollständig) in {\em kinetische} Energie ($E_{kin}=\frac{1}{2}m \cdot v^2$) umgewandelt. Diese beiden Energien können wir gleichstellen und nach $v$ (Geschwindigkeit) umstellen.
+
+\startplaceformula[formel:wellen:verusch:beugungskanone:geschwindigkeit]
+\startformula 
+\startalign[n=3]
+\NC E_{el}                  \NC = E_{kin}                   \NC \NR
+\NC e \cdot U_B             \NC = \frac{1}{2} m \cdot v^2   \NC \quad \| \cdot 2 \| \div m \NR
+\NC \frac{2eU_B}{m}         \NC = v^2                       \NC \quad \| \sqrt{} \NR
+\NC \sqrt{\frac{2eU_B}{m}}  \NC = v                         \NC \NR
+\stopalign
+ \stopformula
+\stopplaceformula
+
+\startsectionlevel[title={Berechnung der Wellenlänge}]
+
+Die Formel für die Wellenlänge ($\lambda$) ergibt sich wie folgt:
+
+\startplaceformula[formel:beugungskanone:ringe]
+\startformula
+\tan \alpha = \frac{R}{l}
+\stopformula
+\stopplaceformula
+
+Wobei $R$ der Radius und $l$ der Abstand der Graphitfolien zu dem Schrim
+(\in{s. Abb.}[fig:mp:beugungskanone:ringe]). Für die Wellenlänge ergibt sich folgende Formel:
+
+\startplaceformula[formel:beugungskanone:welenlaenge]
+\startformula
+\lambda \cdot n = a \sin(\alpha)
+\stopformula
+\stopplaceformula
+
+Nun können wir die \in{Formel}[formel:beugungskanone:ringe] in die \in{Formel}[formel:beugungskanone:welenlaenge] einsetzen und erhalten:
+
+\startplaceformula[formel:beugungskanone:ringe_eingesetzt]
+\startformula
+\lambda = \frac{a \cdot \sin(\text{arctan}\frac{R}{l})}{n}
+\stopformula
+\stopplaceformula
+
+\starttabulate[|m|m|p|]
+\NC a \NC \NC Abstand der Spalte (Gitterkonstante\sidenote{Durch die Graphitfolien, welche an sich verschiedene Gitterkonstanten aufweisen, wird hier mit zwei Verschiedene Gitterkonstanten ($d_1$ und $d_2$) gerechnet}) \NC\NR
+\NC d_1 \EQ 123pm \NC Erste Gitterkonstante \NC \NR
+\NC d_2 \EQ 213pm \NC Zweite Gitterkonstante \NC \NR
+\NC R \EQ \frac{D}{2} \NC Radius der Ordnung \NC \NR
+\NC L \EQ 130mm \NC Abstand zum Schirm \NC \NR
+\stoptabulate
+
+\startbuffer[fig:mp:beugungskanone:ringe]
+\startMPpage
+
+u := 2cm;
+
+z0=-z3=(-2u, 0);
+z1=(2u, 1u);
+z2=(2u, -1u);
+
+for a = -0.1 step 0.02 until 0.1:
+	draw (x0 - a * u, 0.1 * u)--(x0 - a * u, -0.1 * u) withcolor .6white;
+endfor;
+
+path c;
+c = fullcircle scaled 2.5u shifted z0;
+
+draw c cutafter (z0 -- z1);
+
+draw z0--z1;
+draw z0--z2;
+
+draw z0--z3;
+draw z1--z3;
+
+draw fullcircle yscaled 2u xscaled 1u shifted z3;
+
+dotlabel("", z3);
+
+% label.lft("R", 0.5[z1,z2]);
+label.top(btex $\alpha$ etex, (-1*u, 0));
+label.bot(btex $l$ etex, .5[z0,z3]);
+label.rt(btex $R$ etex, .5[z1,z3]);
+
+label.bot("Graphitfolie", (xpart z0, -0.1 * u));
+
+\stopMPpage
+
+\stopbuffer
+
+\vtop{
+\margintext{
+	\starttabulate[|m|p|]
+	\NC D \EQ Durchmesser Ring \NC\NR
+	\NC R \EQ $\frac{D}{2}$ \NC\NR
+	\NC l \EQ Abstand Graphit zum Leuchtschirm \NC\NR
+	\stoptabulate
+}
+}
+
+\placefigure[force][fig:mp:beugungskanone:ringe]{Ringe im Interferenzmuster}{
+\typesetbuffer[fig:mp:beugungskanone:ringe]
+}
+
+
+
+\placetable[][table:wellen:versuch:beugungskanone:auswertung]{Auswertungen\sidenote{Diese Messungen sind nicht von uns selber. Es sind nur beispielhafte Zahlen.}}
+{
+
+\setupTABLE[r][1][style=bold,background=color,backgroundcolor=gray]
+\bTABLE
+% Header
+\startCSV
+U / V, $D_1$ / m, $D_2$ / m, v in m/s,	 $D_1$ zu $\lambda$, $D_2$ zu $\lambda$
+\stopCSV
+% Content
+\processseparatedfile[CSV][assets/physik/wellenoptik/beugungskanone.csv]
+\eTABLE
+}
+
+In der \in{Tabelle}[table:wellen:versuch:beugungskanone:auswertung] wurde, um
+die Geschwindigkeit zu berechnen, die
+\in{Formel}[formel:wellen:verusch:beugungskanone:geschwindigkeit] genutzt. Für
+die Wellenlänge wurde die
+\in{Formel}[formel:wellen:beugungskanone:wellenlaenge] genutzt. Da es zwei
+verschiedenen Gitterkonstanten gibt, hat auch jede Ordnung {\bf zwei} Ringe mit jeweils unterschiedlichen Durchmessern ($D_1$ und $D_2$).
+
+% MP Buffer fuer auswertung d1 und d2 {{{
+\startbuffer[mp:wellen:versuch:beugungskanone:auswertung:d1]
+\startMPpage
+    % Define the size of the plot
+    numeric u;
+    u := 1cm;
+
+    % Axes ranges
+    numeric xmin, xmax, ymin, ymax;
+
+    xmin := 1.50e-11;
+    xmax := 3e-11;
+    ymin := 2e7;
+    ymax := 4.50e7;
+
+    % Scaling factors to fit the plot into the canvas
+    numeric xscale, yscale;
+    xscale := 5u / (xmax - xmin);
+    yscale := 3u / (ymax - ymin);
+
+    % Function to transform (x, y) coordinates to the plot coordinates
+    vardef transform(expr x, y) =
+        ((x - xmin) * xscale, (y - ymin) * yscale)
+    enddef;
+
+    % Draw the axes
+    drawarrow transform(xmin, ymin)--transform(xmax, ymin) withpen pencircle scaled 0.8pt;
+    drawarrow transform(xmin, ymin)--transform(xmin, ymax) withpen pencircle scaled 0.8pt;
+
+    % Draw the grid (optional)
+    for i = 1.5e-11 step 5e-12 until 3e-11:
+        draw transform(i, ymin)--transform(i, ymax) withpen pencircle scaled 0.3pt dashed evenly;
+    endfor;
+    for j = 2e7 step 5e6 until 4.5e7:
+        draw transform(xmin, j)--transform(xmax, j) withpen pencircle scaled 0.3pt dashed evenly;
+    endfor;
+
+	label.bot("2e-11", transform(2e-11, ymin));
+	label.bot("2.5e-11", transform(2.5e-11, ymin));
+	label.bot("3e-11", transform(3e-11, ymin));
+
+	label.lft("2.5e7", transform(xmin, 2.5e7));
+	label.lft("3.5e7", transform(xmin, 3.5e7));
+	label.lft("4.5e7", transform(xmin, 4.5e7));
+
+    % Draw the points
+	drawdot transform(2.68e-11, 2.97e7) withpen pencircle scaled 3pt; 
+	drawdot transform(2.32e-11, 3.25e7) withpen pencircle scaled 3pt;
+	drawdot transform(2.19e-11, 3.51e7) withpen pencircle scaled 3pt;
+	drawdot transform(2.01e-11, 3.75e7) withpen pencircle scaled 3pt;
+	drawdot transform(1.92e-11, 3.98e7) withpen pencircle scaled 3pt;
+	drawdot transform(1.82e-11, 4.19e7) withpen pencircle scaled 3pt;
+
+    % Label the axes
+    label.top(btex $v \; \text{in} \frac{m}{s}$ etex, (0, 3u));
+    label.urt(btex $\lambda \; \text{von} D_1$ etex, (5u, 0));
+
+	% Define the function f(x)
+	vardef f(expr x) =
+	     6.65e-3 * (x**(-9.12e-1))
+	enddef;
+
+	% label(decimal f(2.68e-11), (2u, 2u));
+
+	% Plot the function f(x) smoothly
+    % pickup pencircle scaled 0.8pt;
+    % drawoptions(withcolor red); % Set the color for the function curve
+    path p;
+    p = transform(1.75e-11, f(1.75e-11));
+    % p = transform(1.5e-11, f(1.5e-11)) -- transform(2.8e-11, f(2.8e-11));
+    % p = transform(2.68e-11, 2.97e7) -- transform(2.32e-11, 3.25e7);
+    for x = 1.8e-11 step 5e-13 until 2.8e-11:
+        p := p -- transform(x, f(x));
+    endfor;
+    draw p;
+
+	label.rt(btex $f(x)=6.65 \text{e-03} \cdot x^{-9.12\mathrm{e}{-01}}$ etex, (0, -1u));
+	label.rt(btex $R\approx 9,87 \text{e-01}$ etex, (0, -1.5u));
+\stopMPpage
+\stopbuffer
+
+
+\startbuffer[mp:wellen:versuch:beugungskanone:auswertung:d2]
+\startMPpage
+    % Define the size of the plot
+    numeric u;
+    u := 1cm;
+
+    % Axes ranges
+    numeric xmin, xmax, ymin, ymax;
+
+    xmin := 1.50e-11;
+    xmax := 3e-11;
+    ymin := 2e7;
+    ymax := 4.50e7;
+
+    % Scaling factors to fit the plot into the canvas
+    numeric xscale, yscale;
+    xscale := 5u / (xmax - xmin);
+    yscale := 3u / (ymax - ymin);
+
+    % Function to transform (x, y) coordinates to the plot coordinates
+    vardef transform(expr x, y) =
+        ((x - xmin) * xscale, (y - ymin) * yscale)
+    enddef;
+
+    % Draw the axes
+    drawarrow transform(xmin, ymin)--transform(xmax, ymin) withpen pencircle scaled 0.8pt;
+    drawarrow transform(xmin, ymin)--transform(xmin, ymax) withpen pencircle scaled 0.8pt;
+
+    % Draw the grid (optional)
+    for i = 1.5e-11 step 5e-12 until 3e-11:
+        draw transform(i, ymin)--transform(i, ymax) withpen pencircle scaled 0.3pt dashed evenly;
+    endfor;
+    for j = 2e7 step 5e6 until 4.5e7:
+        draw transform(xmin, j)--transform(xmax, j) withpen pencircle scaled 0.3pt dashed evenly;
+    endfor;
+
+
+	label.bot("2e-11", transform(2e-11, ymin));
+	label.bot("2.5e-11", transform(2.5e-11, ymin));
+	label.bot("3e-11", transform(3e-11, ymin));
+
+	label.lft("2.5e7", transform(xmin, 2.5e7));
+	label.lft("3.5e7", transform(xmin, 3.5e7));
+	label.lft("4.5e7", transform(xmin, 4.5e7));
+
+    % Draw the points
+	drawdot transform(2.60e-11, 2.97e7) withpen pencircle scaled 3pt; 
+	drawdot transform(2.36e-11, 3.25e7) withpen pencircle scaled 3pt;
+	drawdot transform(2.12e-11, 3.51e7) withpen pencircle scaled 3pt;
+	drawdot transform(2.04e-11, 3.75e7) withpen pencircle scaled 3pt;
+	drawdot transform(1.88e-11, 3.98e7) withpen pencircle scaled 3pt;
+	drawdot transform(1.80e-11, 4.19e7) withpen pencircle scaled 3pt;
+
+    % Label the axes
+    label.top(btex $v \; \text{in} \frac{m}{s}$ etex, (0, 3u));
+    label.urt(btex $\lambda \; \text{von} D_1$ etex, (5u, 0));
+
+	% Define the function f(x)
+	vardef f(expr x) =
+	     4.97e-3 * (x**(-9.23e-1))
+	enddef;
+
+	% label(decimal f(2.68e-11), (2u, 2u));
+
+	% Plot the function f(x) smoothly
+    % pickup pencircle scaled 0.8pt;
+    % drawoptions(withcolor red); % Set the color for the function curve
+    path p;
+    p = transform(1.75e-11, f(1.75e-11));
+    % p = transform(1.5e-11, f(1.5e-11)) -- transform(2.8e-11, f(2.8e-11));
+    % p = transform(2.68e-11, 2.97e7) -- transform(2.32e-11, 3.25e7);
+    for x = 1.8e-11 step 5e-13 until 2.8e-11:
+        p := p -- transform(x, f(x));
+    endfor;
+    draw p;
+
+	label.rt(btex $f(x)=6.65 \mathrm{e}{-03} \cdot x^{-9.12\mathrm{e}{-01}}$ etex, (0, -1u));
+	label.rt(btex $R\approx 9,93 \mathrm{e}{-01}$ etex, (0, -1.5u));
+\stopMPpage
+\stopbuffer
+% }}}
+
+\startframedtext[width=\dimexpr\textwidth+\rightmarginwidth+\rightmargindistance\relax,frame=off] % This spans textwidth + margin width
+
+\placefigure[force][mp:wellen:versuch:beugungskanone:auswertung:d1]{$v$-$\lambda$-Diagram und Regression für die Durchmesser $D_1$ und $D_2$}{
+    \startcombination[2*1]
+        {\typesetbuffer[mp:wellen:versuch:beugungskanone:auswertung:d1]}{Für $D_1$}
+        {\typesetbuffer[mp:wellen:versuch:beugungskanone:auswertung:d2]}{Für $D_2$}
+    \stopcombination
+}
+
+\stopframedtext
+% }}}
+
+Mögliches Runden:
+
+\startformula
+\lambda = \frac{0,0067^{\frac{m^2}{s}}}{v} 
+\stopformula
+
+% \startformula
+% \startalign
+%
+% \NC \[\frac{1}{v}\] \NC =\frac{1}{\frac{m}{s}}=\frac{s}{m} \NC \qquad \[\lambda=m \NC \NR
+% \NC \[\text{Vorfaktor}\] \NC = \frac{m^2}{s} \NC \NC \NR
+%
+% \stopalign
+% \stopformula
+
+\stopsectionlevel
+\stopsectionlevel
+\startsectionlevel[title={Fazit}]
+\stopsectionlevel
+
+\startmode[single]
+
+\stopbodymatter
+
+\startbackmatter
+% \component c_definitions
+% \component c_bibliography
+\stopbackmatter
+\stoptext
+
+\stopmode

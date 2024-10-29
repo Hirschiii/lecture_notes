@@ -1,0 +1,154 @@
+\setvariables[meta]
+  [title={Huffman Kodierung},
+   subtitle={Zusammenfassung der Funktionsweise},
+   date={2024-10-21},
+   author={Niklas von Hirschfeld, Finn Garbers},
+  ]
+
+\setupinteraction[title={\getvariable{meta}{title}}]
+
+% \showlayout
+% \showframe
+
+\setuplayout[
+   backspace=1cm, % Space on the left margin
+   width=fit, % Adjust width to fit remaining space
+   height=fit,
+   topspace=0.5cm, % Top margin
+   header=0.5cm, % Header size
+   footer=1cm, % Footer size
+   bottomspace=1cm, % Bottom margin
+   leftedge=1.5cm,
+   rightedge=1cm,
+   rightmargin=3.5cm, % Space for margin notes
+   rightmargindistance=0.5cm
+]
+
+\setuppagenumbering[location=]
+\setupheader[text][before={},after={}]
+\setupheadertexts[][]
+
+\setuphead[chapter]
+          [
+			header=empty,
+			align=middle,
+            style=\itd,
+            number=no,
+            before={\blank[big,force]},
+            after={\blank[big,force]},
+          ]
+
+\starttext
+\startbodymatter
+
+\chapter{Huffman Codierung}
+
+\startframedtext[location=middle,align=middle,width=\dimexpr\textwidth\relax,frame=off]
+Ein Algorithmus zur {\bf verlustfreien} Datenkompression, der von {\bf David A. Huffman} in
+{\bf 1952} entwickelt wurde. Sie erstellt kürzere Codes für häufiger auftretende
+Zeichen, während seltenere Zeichen längere Codes erhalten. Ziel ist es, die
+Größe der zu speichernden oder zu übertragenden Daten zu reduzieren um somit
+die Übertragungsdauer zu verringern.
+\stopframedtext
+
+
+\section{Funktionsweise}
+
+Jedem einzigartigen {\bf Quellsymbol} wird ein festes {\bf Codewort}
+zuwgewiesen. Die Codewörte variieren in der länge. Um möglichst effizient die
+Codewörter zu gestalten, wird dem Quellsymbol, welches am häufigsten genutzt
+wird auch das kürzte Codewort zugewiesen.
+
+Dabei ist es wichtig, das die Symbole {\bf Präfixfrei}\sidenote{{\em
+Präfixfrei} heißt, kein Symbol darf mit einem anderen beginnen. So ist folgende
+Symbolgruppe Präfixfrei: $\{0, 100, 101, 11\}$, aber $\{10, 100, 101, 11\}$
+nicht.} sind. Dies ist nötig, um Symbole unterschiedlicher länge eindeutig zu erkennen.
+
+\section{Aufbau eines Baumes}
+
+Um korrekte Codewörter zu finden, ist die gängiste möglichkeit über einen
+$k$-nären Baum\sidenote{ein Baum desse Knoten jeweils $k$-viele Blätter
+aufweisen}. Folgend wird die vorgehensweise mittels eines binären Baums
+erläutert:
+
+\startitemize[packed,m]
+\item Für jedes Zeichen wird die Häufigkeit bestimmt
+\item Aufbauen des Binärbaum\sidenote{Ein {\bf Binärbaum} ist ein Baum, bei dem jeder Knotem {\bf maximal zwei}}
+\startitemize[packed,m]
+\item Die zwei kleinsten Knoten\sidenote{Zu beginn wird jeder Buchstabe als eigener Knoten betrachtet} finden (Falls es mehr als zwei Knoten gibt, wird der Knoten mit der geringsten Tiefe gewählt, ansonsten kann frei gefählt werden)
+\item Diese mit einem Knoten verknüpfen und die Häufigkeit der beiden Blätter addiert in den Knoten schreiben, bzw. speichern.
+\item Diese Schritte wiederholen, bis ein einzelner Binärbaum übrig ist.
+\stopitemize
+\item Nun wird an jeden linken Ast eine Eins geschrieben und an jeden rechten eine 0\sidenote{Es können natürlich beliebiege Zeichen gewählt werden, $0$ und $1$ bieten sich bei der speicherung auf einem Computer an, da sie ohne weiter Codierung direkt gespeichert werden können.}
+\stopitemize
+
+\section{Beispiel: Mississippi}
+
+\startbuffer[beispiel]
+\startMPpage
+
+u := 1.5cm;
+
+pair M,I,S,P, MP, SMP, SMPI;
+
+SMPI=(0, 0);
+SMP=(-1 * u, -1 * u);
+I=(1 * u, -1 * u);
+S=(-2 * u, -2 * u);
+MP=(0, -2 * u);
+P=(1 * u, -3 * u);
+M=(-1 * u, -3 * u);
+
+draw M--MP;
+draw P--MP;
+
+draw S--SMP;
+draw MP--SMP;
+
+draw SMP--SMPI;
+draw I--SMPI;
+
+color lightyellow;
+lightyellow := (1, 1, 0.8);
+
+fill fullcircle scaled u shifted I withcolor lightyellow;
+draw fullcircle scaled u shifted I;
+fill fullcircle scaled u shifted S withcolor lightyellow;
+draw fullcircle scaled u shifted S;
+fill fullcircle scaled u shifted P withcolor lightyellow;
+draw fullcircle scaled u shifted P;
+fill fullcircle scaled u shifted M withcolor lightyellow;
+draw fullcircle scaled u shifted M;
+fill fullcircle scaled u shifted MP withcolor white;
+draw fullcircle scaled u shifted MP;
+fill fullcircle scaled u shifted SMP withcolor white;
+draw fullcircle scaled u shifted SMP;
+fill fullcircle scaled u shifted SMPI withcolor white;
+draw fullcircle scaled u shifted SMPI;
+
+label("I", I);
+label("S", S);
+label("P", P);
+label("M", M);
+label("S", S);
+label("MP", MP);
+label("SMP", SMP);
+label("SMPI", SMPI);
+
+% label.ulft("1", 0.5[SMP--SMPI]);
+
+label.rt("M: 1", (-4 * u, 0));
+label.rt("I: 4", (-4 * u, -0.5 * u));
+label.rt("S: 4", (-4 * u, -1 * u));
+label.rt("P: 2", (-4 * u, -1.5 * u));
+
+\stopMPpage
+\stopbuffer
+
+\placefigure[force][beispiel]{Beispiel der Huffmancodierung mittels eines Binärbaumes.}{
+\typesetbuffer[beispiel]
+}
+
+\stopbodymatter
+
+\stoptext

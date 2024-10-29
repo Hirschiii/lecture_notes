@@ -1,0 +1,190 @@
+\section{2025-09-18 - Beugung}
+
+\startitemize[packed]
+\item
+  Interferenz ist auch an einem \quotation{einzel Spalt} möglich
+\stopitemize
+
+\startbuffer[fig:einzelspalt]
+\startMPpage
+
+u := 1cm;
+
+draw (0, 0.5 * u)--(1.5 * u, 0.5 * u);
+draw (0, -0.5 * u)--(1.5 * u, -0.5 * u);
+
+draw (1.5 * u, 0.5 * u)--(1.5 * u, -0.5 * u);
+draw (2.5 * u, 0.5 * u)--(2.5 * u, -0.5 * u);
+
+draw (4 * u, 0.5 * u)--(2.5 * u, 0.5 * u);
+draw (4 * u, -0.5 * u)--(2.5 * u, -0.5 * u);
+
+drawarrow (2 * u, -1.5 * u)--(1.5 * u, -0.6 * u);
+
+drawarrow (2 * u, -1.5 * u)--(2.5 * u, -0.6 * u);
+
+% label.bot("Kante gilt als 'Spalt'", (0.5 * u, -1.5 * u));
+label.bot("Kanten gelten als 'Spalt'", (2 * u, -1.5 * u));
+
+\stopMPpage
+
+\stopbuffer
+\placefigure[here][fig:einzelspalt]{Beugung am Einzelspalt}{
+\typesetbuffer[fig:einzelspalt]}
+
+\startsectionlevel[title={Gitterkonstruktion bei
+Interferenz},reference={gitterkonstruktion-bei-interferenz}]
+
+\startitemize[packed]
+\item
+  S. 171 B1 und B2
+\stopitemize
+
+Drehung des Gitters: Kreise
+
+Kreise auch mit {\bf sehr} vielen gegeneinander verdrehten Gittern
+
+\stopsectionlevel
+
+
+\startsectionlevel[title={Versuch:
+Elektronenbeugungsröhre},reference={versuch-elektronenbeugungsröhre}]
+
+\startdefinition[title={Berechnung geschwindigkeite von Elektronen in der Elektronenkanone}]
+
+Elektronen werden im homogenen elektrischen Feld (formal Kondensator)
+beschleunigt.
+
+Im Feld besitzen sie $E_{el}=U_B \cdot e$ ($U_B$ :
+Beschleunigungsspannung und $e$ : Elementarladung) an Elektrischer
+Energie. Diese wird (gemäß Annahme vollständig) in {\em kinetische}
+Energie umgewandelt.
+
+\startformula 
+\startalign[n=3]
+\NC E_{el}                  \NC = E_{kin}                   \NC \NR
+\NC e \cdot U_B             \NC = \frac{1}{2} m \cdot v^2   \NC \quad \| \cdot 2 \| \div m \NR
+\NC \frac{2eU_B}{m}         \NC = v^2                       \NC \quad \| \sqrt{} \NR
+\NC \sqrt{\frac{2eU_B}{m}}  \NC = v                         \NC \NR
+\stopalign
+ \stopformula
+
+mit $m$ Masse Elektron und und $v$ Geschwindigkeit Elektron.
+
+\stopdefinition
+
+% \hrule
+
+\startbuffer[fig:mp:beugungskanone:ringe]
+\startMPpage
+
+u := 2cm;
+
+z0=-z3=(-2u, 0);
+z1=(2u, 1u);
+z2=(2u, -1u);
+
+for a = -0.1 step 0.02 until 0.1:
+	draw (x0 - a * u, 0.1 * u)--(x0 - a * u, -0.1 * u) withcolor .6white;
+endfor;
+
+path c;
+c = fullcircle scaled 2.5u shifted z0;
+
+draw c cutafter (z0 -- z1);
+
+draw z0--z1;
+draw z0--z2;
+
+draw z0--z3;
+draw z1--z3;
+
+draw fullcircle yscaled 2u xscaled 1u shifted z3;
+
+dotlabel("", z3);
+
+% label.lft("R", 0.5[z1,z2]);
+label.top(btex $\alpha$ etex, (-1*u, 0));
+label.bot(btex $l$ etex, .5[z0,z3]);
+label.rt(btex $R$ etex, .5[z1,z3]);
+
+label.bot("Graphitfolie", (xpart z0, -0.1 * u));
+
+\stopMPpage
+
+\stopbuffer
+
+\vtop{
+\margintext{
+	\starttabulate[|m|p|]
+	\NC D \EQ Durchmesser Ring \NC\NR
+	\NC R \EQ $\frac{D}{2}$ \NC\NR
+	\NC l \EQ Abstand Graphit zum Leuchtschirm \NC\NR
+	\stoptabulate
+}
+}
+
+\placefigure[force][fig:mp:beugungskanone:ringe]{Ringe im Interferenzmuster}{
+\typesetbuffer[fig:mp:beugungskanone:ringe]
+}
+
+Dazu gehört die \in{Gleichung}[formel:beugungskanone:ringe].
+
+\startplaceformula[formel:beugungskanone:ringe]
+\startformula
+\tan \alpha = \frac{R}{l}
+\stopformula
+\stopplaceformula
+
+\margintext{
+	\starttabulate[|m|p|]
+	\NC a \EQ Abstand der Spalte \NC\NR
+	\NC n \EQ Ordnung \NC\NR
+	\NC \lambda \EQ Wellenlänge \NC\NR
+	\stoptabulate
+}
+
+Woraus sich...
+
+
+\startformula
+a \cdot \sin \alpha = n \cdot \lambda
+\stopformula
+
+... ableiten läst.
+
+Eingesetzt und umgeformt sieht diese Formel wie folgt aus:
+
+\startformula
+\lambda = \frac{a \cdot \sin(\text{arctan} \frac{R}{L})}{n}
+\stopformula
+
+
+\startframedtask
+Messbeispiele: 
+
+\startitemize[packed]
+
+\item Abstand des Leuchtschirems: $L = 130 mm$,
+\item Durchmesser des Glaskolbens: $D = 100mm$,
+\item Gitterkonstaanten: $d_1 = 123 pm; d_2 = 213 pm$
+
+\stopitemize
+\stopframedtask
+
+\startframedtask
+$U$ zu $v$
+$D_1$ und $D_2$ zu $\lambda$
+\stopframedtask
+
+\startformula 
+\lambda = \frac{a \cdot \sin(\text{arctan}\frac{R}{l})}{n}
+ \stopformula
+
+
+\stopsectionlevel
+
+
+\startframedtipp
+Abi aufgaben wellen: 2020 Wellen 2
+\stopframedtipp

@@ -1,0 +1,58 @@
+\startenvironment env_lecture_notes
+
+% -------- Init --------
+
+\usepath[envs,components]
+
+\usemodule[crossref][refColor=green,reffixColor=blue,refrefColor=red]
+\usemodule[pararef]
+\usemodule[gnuplot]
+
+\usemodule [setups]
+
+\usemodule[visual]
+
+\mainlanguage[de]
+\language[de]
+
+\setupinteraction                                           
+  [state=start,                                             % enable hyperlinks
+   color=niv3color]                            % choose the color of hyperlinks
+
+
+% -------- Variables -------
+
+% Metadata
+
+\setvariables[meta]
+  [title={Schul Notizen},
+   subtitle={Abitur 2025},
+   date={},
+   author={Niklas von Hirschfeld},
+  ]
+
+% Colors
+
+
+% -------- Font ------------
+
+% Enable old style numbers and protrusion
+\definefontfeature[default][default][onum=yes, protrusion=quality, expansion=quality]
+
+\starttypescript[mainface]
+    \definetypeface [mainface] [rm] [serif] [pagella] [default]
+    \definetypeface [mainface] [ss] [sans]  [heros]   [default]
+    \definetypeface [mainface] [tt] [mono]  [cursor]  [default]
+    \definetypeface [mainface] [mm] [math]  [pagella] [default]
+\stoptypescript
+\setupbodyfont[mainface,11pt]
+
+\setupindenting[10pt, yes]
+
+
+% \showgrid
+% \showlayout
+% \showframe
+
+\stopenvironment
+

@@ -1,0 +1,37 @@
+\chapter{Tabellen und Figuren}
+
+\margintext{
+\starttable[|c|c|c|]
+  \NC A \NC B \NC C\NC\SR
+  \NC 0.50 \NC 0.47 \NC 0.48  \NC \FR
+\stoptable
+}
+
+\startTEX
+\margintext{
+\starttable[|c|c|c|]
+  \nc a \nc b \nc c\nc\sr
+  \nc 0.50 \nc 0.47 \nc 0.48  \nc \fr
+\stoptable
+}
+\stopTEX
+
+\margintext{
+\startplacetable[title={test},location={here}]
+\starttable[|c|c|c|]
+  \NC A \NC B \NC C\NC\SR
+  \NC 0.50 \NC 0.47 \NC 0.48  \NC \FR
+\stoptable
+\stopplacefigure
+}
+
+\startTEX
+\margintext{
+\startplacetable[title={test},location={here}]
+\starttable[|c|c|c|]
+  \NC A \NC B \NC C\NC\SR
+  \NC 0.50 \NC 0.47 \NC 0.48  \NC \FR
+\stoptable
+\stopplacefigure
+}
+\stopTEX

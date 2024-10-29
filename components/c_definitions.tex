@@ -1,0 +1,23 @@
+\startcomponent c_toc
+
+% \doifnot  {\rawcountervalue[definitioncounter]} {0} {
+% \title{Contents} 
+% \placelist[chapter,section,subsection][alternative=c]
+% }
+
+% \doifelse{\rawcountervalue[definitioncounter]}{0}{
+%  Strange, \type{\getcounter} worked.
+%  no Definitions
+% }{
+%  Using \type{\getcounter} does not work.
+% }
+
+\incrementcounter[definitioncounter]
+\doifnot{\rawcountervalue[definitioncounter]}{0}{
+\title{Definitionen} 
+\startcolumns[n=2]
+	% \placedefinitions[criterium=all,alternative=c]
+	\placelist[chapter,definition][criterium=all,alternative=c]	
+\stopcolumns
+}
+\stopcomponent

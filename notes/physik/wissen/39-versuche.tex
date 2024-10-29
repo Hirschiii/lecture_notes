@@ -1,0 +1,85 @@
+\section{Versuche}
+\subsection{Fadenpendel}
+\subsection{Feder-Masse-Pendel}
+\subsection{Reflexion, Brechung, Beugung}
+\startsubsection{title={Stehende Welle}}
+\stopsubsection
+\subsection{Polarisation}
+% Interferenz am Gitter {{{
+\subsection{Interferenz am Gitter/Doppelspalt Licht}
+
+\startbuffer[mp:wellen:versuche:interferenzgitter:aufbau]
+\startMPpage
+
+u := 1cm;
+
+pickup pencircle scaled 1pt;
+
+draw (-5u, 0)--(0, 0);
+draw (1u, 0)--(4u, 0);
+draw (5u, 0)--(7u, 0);
+
+z0=(-5u, 0);
+
+pickup pencircle scaled .5pt;
+
+draw z0--(x0, y0 + 2u);
+draw (x0 - .5u, y0 + 1.5u)--(x0 + .5u, y0 + 1.5u);
+
+draw (x0 - .5u, y0 + .5u)--(x0 + .5u, y0 + .5u)--(x0, y0 + 1.5u)--cycle;
+
+
+z1=(-3.5u, 0);
+
+draw z1{dir 45}..(x1, y1 + 2u);
+draw z1{dir 135}..(x1, y1 + 2u);
+
+pickup pencircle scaled 1pt;
+
+z2=(-2u, 0);
+
+draw z2--(x2, y2 + .9u);
+draw (x2, y2 + 1.1u)--(x2, y2 + 2u);
+
+pickup pencircle scaled .5pt;
+
+z3=(-.5u, 0);
+
+draw z3{dir 55}..(x3, y3 + 2u);
+draw z3{dir 125}..(x3, y3 + 2u);
+
+z4=(2u, 0);
+
+for a=1 upto 10:
+drawdot (x4, y4 + (.2u * a)) withpen pensquare scaled 1.5pt;
+endfor
+
+z5=(6u, 0);
+
+draw z5--z5 + dir(90) * 2u withpen pencircle scaled 1pt;
+
+
+label.bot("0cm", z0);
+label.bot("3.5cm", z1);
+label.top("f50", z1 + (0, 2u));
+label.bot("8cm", z2);
+label.bot("23cm", z3);
+label.top("f100", z3 + (0, 2u));
+label.bot("33cm", z4);
+label.bot("70cm", z5);
+
+\stopMPpage
+\stopbuffer
+
+\placefigure[force][mp:wellen:versuche:interferenzgitter:aufbau]{Aufbau}{
+\typesetbuffer[mp:wellen:versuche:interferenzgitter:aufbau]
+}
+
+\subsubsection{Beobachtung}
+
+% }}}
+% Elektronenbeugungsröhre {{{
+\startsubsection{title={Elektronenbeugungsröhre}}
+\input notes/physik/aufgaben/2024-10-10-1514-versuchsprotokoll_elektronenbeugungsroehre.tex
+\stopsubsection
+% }}}

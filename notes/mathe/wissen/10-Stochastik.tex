@@ -1,0 +1,107 @@
+\chapter{Stochastik}
+
+\section{Bernoulli-Experiment}
+
+\startbuffer[fig:stochastik:bernoulli-kette:baum]
+\switchtobodyfont[8pt]
+\startMPpage
+
+u := 0.6cm;
+
+color lightgreen, lightred;
+lightgreen := (1, 0.8, 0.8);
+lightred := (0.8, 1, 1);
+
+% Define colors, if desired
+pickup pencircle scaled 1pt;
+
+vardef draw_node(expr x, y, myLable, myColor) =
+	draw fullcircle scaled (0.6 * u) shifted (x * u, y * u);
+	fill fullcircle scaled (0.6 * u) shifted (x * u, y * u) withcolor myColor;
+	label(myLable, (x * u,y * u));
+enddef;
+
+% Function to draw the tree recursively
+% vardef draw_tree(expr x, y, depth, text mylable) =
+vardef draw_tree(expr x, y, depth, layer, myHeight, depthLength, myLable, myColor, ergebnisString) =
+	save left_endpoint, right_endpoint;
+  % Base case: if depth is 0, draw a leaf node (circle)
+  if depth = 0:
+	draw_node(x, y, myLable, myColor);
+	label(ergebnisString, ((x + 1) * u, y * u));
+  else:
+
+	numeric myOffset;
+	myOffset = ((myHeight / (2**layer)));
+
+    pair left_endpoint, right_endpoint;
+    left_endpoint = (x + depthLength, y - (myOffset / 2));
+    right_endpoint = (x + depthLength, y + (myOffset / 2));
+    
+	draw (x * u, y * u) -- right_endpoint * u;
+	label.top("p", .5[(x * u, y * u), right_endpoint * u]);
+
+	draw (x * u, y * u) -- left_endpoint * u;
+	label.bot("1-p", .5[(x * u, y * u), left_endpoint * u]);
+
+	draw_node(x, y, myLable, myColor);
+
+	draw_tree(xpart right_endpoint, ypart right_endpoint, depth - 1, layer + 1, myHeight, depthLength, "1", lightgreen, ergebnisString & "1");
+	draw_tree(xpart left_endpoint, ypart left_endpoint, depth - 1, layer + 1, myHeight, depthLength, "0", lightred, ergebnisString & "0");
+  fi
+enddef;
+
+% draw_tree(0, 0, 2, "");
+% x, y, depth, layer, myHeight, depthLength, myLable, myColor
+draw_tree(0, 0, 3, 1, 8, 2, "", white, "");
+
+label("1. Wurf",	((0 * 2 + 0.75) * u, 5 * u));
+label("2. Wurf",	((1 * 2 +	0.75) * u, 5 * u));
+label("3. Wurf",	((2 * 2 +	0.75) * u, 5 * u));
+label("Ergebnis",	((3 * 2	+ 0.75) * u, 5 * u));
+
+\stopMPpage
+\stopbuffer
+
+\margintext{
+\placefigure[here][fig:stochastik:bernoulli-kette:baum]{Bernoulli-Experiment mit drei Wiederholungen}{
+\typesetbuffer[fig:stochastik:bernoulli-kette:baum]
+}}
+
+Bei einem Bernoulli-Experiment gibt es nur zwei Ereignisse\sidenote{Diese
+müssen nicht gleich wahrscheinlich sein.}. Zum Beispiel beim würfeln, ob ein
+$6$ gewürfelt wird, oder nicht. Das Ereignis $6$ gewürfelt wird in einem
+Baumdiagram mit $1$ dargestellt, das Gegenereignis mit $0$.
+
+Das Baumdiagram in der \in{Abbildung}[fig:stochastik:bernoulli-kette:baum]
+stellt den Würfelversuch mit drei Wiederholungen dar. Das Ergebnis "111" wird
+als "in allen drei Würfen eine $6$" gelesen. 
+
+Die Wahrscheinlichkleit eine $6$ zu würfeln liegt bei:
+
+\startformula
+
+p = \frac{1}{6}
+
+\stopformula
+
+Dadruch ergibt sich auch die Wahrscheinlichkeit für das Gegenereignis:
+
+\startformula
+
+1 - p = \frac{5}{6}
+
+\stopformula
+
+
+\startdefinition[title={Bernoulli-Experiment}]
+Ein {\bf Zufallsexperiment} heißt {\bf Bernoulli-Experiment}, wenn es genau zwei
+Ergebnisse hat. Ein {\bf Bernoulli-Kette} besteht aus mehreren voneinander
+unabhängigen Durchführungen eines Bernoulli-Experiment. Die Anzahl der Durchführungen nennt man {\bf Länge} $n$ der Bernoulli-Kette, die {\bf Treffwahrscheinlichkeit} wird mit $p$ angegeben.
+\stopdefinition
+
+\margintext{Ab Seite: 273}
+\section{Binominalkoeffizient}
+
+
+\stoptabulate

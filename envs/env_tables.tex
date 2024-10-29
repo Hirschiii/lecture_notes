@@ -1,0 +1,40 @@
+\startenvironment env_tables
+
+\usemodule[database]
+
+\defineseparatedlist
+[CSV] % tab-separated values
+[separator={,},
+quotechar={"},
+before=,after=, % we’ll place them explicitely
+first=\bTR,last=\eTR,
+left=\bTD,right=\eTD]
+% setups=unix]
+
+\startuseMPgraphic{DiagonalRule}
+  rulethickness := \frameddimension{rulethickness};
+
+  drawoptions(
+    withpen pencircle scaled rulethickness
+    withcolor \MPcolor{\framedparameter{framecolor}});
+
+  pair leftcorner, rightcorner;
+  leftcorner  := (rulethickness, \overlayheight-rulethickness);
+  rightcorner := (\overlaywidth-rulethickness, rulethickness);
+
+  draw leftcorner -- rightcorner;
+\stopuseMPgraphic
+
+\defineoverlay
+  [DiagonalRule]
+  [\useMPgraphic{DiagonalRule}]
+
+  \define[2]\DiagonalLabel{%
+  \setuptabulate [after={\blank[\frameddimension{offset}]}]
+  \starttabulate [|p|r|]
+    \NC    \NC #2 \NC\NR
+    \NC #1 \NC    \NC\NR
+  \stoptabulate
+}
+
+\stopenvironment

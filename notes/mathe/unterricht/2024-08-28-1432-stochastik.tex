@@ -1,0 +1,124 @@
+\chapter[title={Stochastik},reference={Stochastik}]
+\section[title={2024-08-28 - Einleitung},reference={2024-08-28-Einleitung}]
+
+\startframedexample
+{\bf Statistik vs Stochastik}
+
+Stochastik ist die Vorhersage
+
+Statistik ist die Auswertung der Vargangenheit
+
+\stopframedexample
+
+\startframedtask
+{\bf Satz:} Die Wahrscheinlichkeiten der Egebnisse eines
+Zufallsexperiments sind Zahlen im intervall $\[0;1\]$ mit Summe $1$. Sie
+bilden eine {\em Wahrscheinlichkeitsverteilung}. Sie sind die Prognosen
+für die relativen Häufigkeiten bei vielen Versuchswiederholungen.
+
+\stopframedtask
+
+\startframedtask
+{\bf Definition:} Wenn jedem Ergebnis eines Zufallsexperiments ein
+Zahlenwert zugeordnet wird, spricht man von einer {\bf Zufallsgröße}.
+Die {\bf Wahrscheinlichkeitsverteilung} ener Zufallsrgöße $X$ ist eine
+Tabelle, bei der jedem Wert $k$ von $X$ die Wahrscheinlichkeit $P(X=k)$
+zugeordnet ist. Für eine Zufallsgröße $X$ mit den Werten
+$x_1,x_2, ..., x_n$ heißt $\mu = x_1 \cdot
+P(X=x_1) + x_2 \cdot P(X = x_2)... + x_n \cdot P(X = x_n)$ {\bf
+Erwartungswert} von $X$. Er gibt an, welchen Mittelwert man bei
+ausreichend großer Versuchsanzahl auf lange Sicht erwartet.
+
+\stopframedtask
+
+\section[title={Beipsiel: Faires
+Spiel},reference={beipsiel-faires-spiel}]
+
+\margintext{Als {\bf fair} bezeichnet man ein Spiel, bei dem der Erwartungswert für
+den Gewinn null ist.
+
+Gewinn = Auszahlung - Einsatz
+}
+
+Beim Glücksspeil mit einem Würfel soll das Doppelte der Augenzahl (in
+Euro) ausgezahlt werden.
+
+\startitemize[a][stopper=)]
+\item
+  Bestimmen Sie die Auszahlung, die der Spieler im Mittel erwarten kann.
+\item
+  Geben Sie an, wie hoch der Einsatz sein muss, damit das Glücksspiel
+  fair ist.
+\stopitemize
+
+\textpartdivider
+
+\startitemize[a][stopper=)]
+\item
+  Wegen $\mu = \frac{1}{6}(2+4+6+8+10+12)=\frac{42}{6}=7$
+\item
+  Dei Einsatz sollte dem Erwartungswert entsprechen. So hat der anbieter
+  des Glückspieles zwar keinen gewinn, aber auf lange sicht auch keinen
+  direkten Verlust und die Teilnehmenden habe eine faiere Chanche.
+\stopitemize
+
+
+
+\section[title={Aufgaben:},reference={aufgaben}]
+
+\section[title={S. 238 Aufgabe
+1},reference={s.-238-aufgabe-1}]
+
+\startplacetable[location=none]
+\startxtable
+\startxtablehead[head]
+\startxrowgroup[lastrow]
+\startxrow
+\startxcell Gewinn (Chips) \stopxcell
+\startxcell Wahrscheinlichkeit \stopxcell
+\stopxrow
+\stopxrowgroup
+\stopxtablehead
+\startxtablebody[body]
+\startxrow
+\startxcell -1 \stopxcell
+\startxcell $\frac{1}{4}$ \stopxcell
+\stopxrow
+\startxrow
+\startxcell 0 \stopxcell
+\startxcell $\frac{1}{2}$ \stopxcell
+\stopxrow
+\startxrowgroup[lastrow]
+\startxrow
+\startxcell 1 \stopxcell
+\startxcell $\frac{1}{4}$ \stopxcell
+\stopxrow
+\stopxrowgroup
+\stopxtablebody
+\startxtablefoot[foot]
+\stopxtablefoot
+\stopxtable
+\stopplacetable
+
+\startitemize[a,packed][stopper=)]
+\item
+  Warum ist die Tabelle korrekt?
+\stopitemize
+
+Es gibt vier verschiedene Möglichkeiten für die Münzen zu fallen wenn
+$0$ gleich Zahl und $1$ gleich Kopf, sind das folgende Möglichkeiten:
+$00,01,10,11$. Jede dieser Möglichkeiten tritt mit der selben
+Wahrscheinlichkeit auf ($\frac{1}{4}$). In zwei der Fällen ($10,01$)
+bekommt man einen Chip zurück, ist also selber auf $0$. Wenn der Fall
+$00$ auftritt, verliert man den gesetzten Chip und bei $11$ gewinnt man
+einen
+
+\textpartdivider
+
+Roulett
+
+Erwartungswert bei 1Euro Einsatz:
+
+\startformula 
+\mu = \frac{1}{37}(36) = \frac{36}{37} \approx 0.97
+ \stopformula
