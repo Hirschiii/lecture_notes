@@ -22,3 +22,57 @@ Heißt drei von 5 Treffer
 Binominalkoefficient
 
 \stopframedtipp
+
+
+\startbuffer[mp:fig:unterricht:binominal:pascal]
+\startluacode
+  local function fact (n)
+    if n <= 0 then
+      return 1
+    else
+      return n * fact(n-1)
+    end
+  end
+
+  local function ncr(n,r)
+    return fact(n)/(fact(r)*fact(n-r))
+  end
+  userdata.P = {
+       fact = fact,
+       ncr  = ncr,
+  }
+  function MP.p_ncr(n, r)
+    mp.print(ncr(n,r))
+  end
+  function MP.p_ncr_x()
+    mp.print(ncr(mp.scan.pair()))
+  end
+\stopluacode
+
+\startMPpage
+
+numeric n,r,u,dx,dy,tt,final; u := 0.8cm;
+
+path p, q;
+pair A,now;
+
+A := dir(225)*u;
+dy := ypart A;
+dx := -2*(xpart A);
+
+for n=0 upto 8:
+  for r=0 upto n:
+%   tt := lua("mp.print(P.ncr(" & decimal n & "," &  decimal r & " ))");
+  % tt := lua.MP.p_ncr(n,r);
+    tt := runscript("MP.p_ncr_x()") (n,r)  ;
+    now := n*A + (r*dx,0);
+    label(textext("$" & decimal tt & "$"),now);
+   endfor;
+endfor;
+
+\stopMPpage
+\stopbuffer
+
+\placefigure[force][mp:fig:unterricht:binominal:pascal]{Pascal's dreieck}{
+\typesetbuffer[mp:fig:unterricht:binominal:pascal]
+}
