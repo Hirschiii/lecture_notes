@@ -1,4 +1,80 @@
+\definemathmatrix[pmatrix]        % defining matrix with parentheses
+	[matrix:parentheses]
+	[simplecommand=pmatrix]
+
 \margintext{2024-10-30}
 \section{Bernoulli Formel}
 
+\startformula
+(\startpmatrix
+	   \NC n \NR
+	   \NC k \NR
+\stoppmatrix) = \frac{n!}{k! \cdot (n-k)!}
+\stopformula
 
+\blank
+\hrule
+\blank
+
+\startitemize[packed]
+\item 20 aufgaben multiple choice
+\item jede aufgabe hat genau 5 aufgaben, genau eine ist richtig
+\item Jede aufgabe wird mit 1 BE berechnet
+\stopitemize
+
+Wie wahrscheinlich,  alle richtig: $(\frac{1}{5})^2$
+
+Wie wahrscheinlich genau 50\% richtig
+
+\startformula
+(\startpmatrix
+	   \NC 20 \NR
+	   \NC 10 \NR
+\stoppmatrix) \cdot 0.2^{10} \cdot 0.8^{10}
+\stopformula
+
+{\bfa Eine Note 1 (mindestens 80\% richtig, 17 Aufgaben)}
+
+\startformula
+(\startpmatrix
+	   \NC 20 \NR
+	   \NC 17 \NR
+\stoppmatrix) \cdot 0.2^{17} \cdot 0.8^{3}
+\stopformula
+
+\startformula
+\sum^{20}_{n=17} 
+(\startpmatrix
+	   \NC 20 \NR
+	   \NC n \NR
+\stoppmatrix) \cdot 0.2^{n} \cdot 0.8^{20 - n} = \frac{76081}{95367431640625} \approx 7.978 \cdot 10^{-10}
+\stopformula
+
+\blank
+{\bfa Einen unterkurs (<45\%)}
+\blank
+
+\margintext{
+{\bf TR-Befehle:}\crlf
+Der C.A.S. befehl ist: {\em binomialPDf} fuer einfache Wahrscheinlichkeiten und {\em binomialCDf} fuer kommulierte Wahrscheinlichkeiten
+
+Diese gehören {\bf nicht} die Dokumentation. In diese gehört zum Beispiel diese hier:
+
+\startformula
+P(9 \leq x \leq 12) \approx 9,97 \cdot 10^{-3}
+\stopformula
+}
+
+\startformula
+P(x\leq 8)=
+\sum^{8}_{n=0} = P(x=n)
+\sum^{8}_{n=0} 
+(\startpmatrix
+	   \NC 20 \NR
+	   \NC n \NR
+\stoppmatrix) \cdot 0.2^{n} \cdot 0.8^{20 - n} = \frac{94415494316032}{95367431640625} \approx 0.99
+\stopformula
+
+\startdefinition[title={Kommulieren}]
+Aufaddieren von Wahrscheinlichkeiten heist "kommulieren"
+\stopdefinition
