@@ -1,5 +1,12 @@
 \startmode[single]
 
+% \enabletrackers[publications, publications.crossref, publications.details, publications.cite, publications.strings]
+%
+% \usebtxdataset[main][bib/default.bib,bib/physik.bib,bib/mathe.bib,bib/seminarfach.bib]
+% \usebtxdefinitions[aps]
+% \setupbtx[dataset=main]
+% \definebtxrendering[bibrendering][aps][dataset=main]
+
 \setvariables[meta]
   [title={Elektronenbeugunsröhre},
    subtitle={Versuchsprotokoll},
@@ -20,14 +27,9 @@
 
 \startbodymatter
 
-\chapter{Versuchsprotokoll}
+\startchapter[title=Versuchsprotokoll]
 
 \stopmode
-
-\starttabulate
-\NC Name  \EQ \currentstructurename  \NC\NR
-\NC Level \EQ \currentstructurelevel \NC\NR
-\stoptabulate
 
 In diesem Versuch werden Elektronen, mittels der Elektronenkanone, durch eine
 vielzahl von übereinander gelegten und verdrehten {\em Graphitfolien} auf eine
@@ -137,11 +139,6 @@ draw z5--z7 cutafter c;
 
 \startsectionlevel[title={Beobachtung}]
 
-\starttabulate
-\NC Name  \EQ \currentstructurename  \NC\NR
-\NC Level \EQ \currentstructurelevel \NC\NR
-\stoptabulate
-
 % {{{
 Nach anschalten der Elektronenkanone erscheinen vorne auf der Floreszenzschicht
 ein grüner Punkt in der Mitte und Ringe um diesen herum, ca wie in
@@ -157,6 +154,8 @@ so verändert sich die Positionierung nach oben.
 \stopsectionlevel
 \startsectionlevel[title={Auswertung}]
 % {{{
+
+
 Für die Auswertung wollen wir zum einen die Geschwindigkeit der Elektronen
 wissen und auch die Wellenlänge berechnen.
 
@@ -188,7 +187,22 @@ Im Feld besitzen sie $E_{el}=U_B \cdot e$ an Elektrischer Energie. Diese wird
  \stopformula
 \stopplaceformula
 
-\startsectionlevel[title={Berechnung der Wellenlänge}]
+\startsectionlevel[title={Berechnung der Wellenlänge (Regression)}]
+
+\startframedwarning
+{\bfa Auswertungsmethode fehlerhaft}, die korrekte Auswertung befindet sich auf \at{Seite}[section:auswertung:wellenlaenge].
+
+\blank
+
+In der Regression wurde bei der Funktion $f(x)=a\cdot x^b$ der Wert für $b$
+nicht vorher gestzt. Wie sich bei der korrekten Auswertung herraustellt, muss
+$b$ aber exakt $-1$ sein. Da die Regression dies nur näherungsweise erreicht,
+ist sie nicht aussagekräftig.
+
+Ich lasse diese Auswertung trozdem hier drinne, zum einen weil ich sie bereits
+habe und zum anderen, das sie als Beispiel für einen solchen Fehler dient.
+\stopframedwarning
+
 
 Die Formel für die Wellenlänge ($\lambda$) ergibt sich wie folgt:
 
@@ -201,7 +215,7 @@ Die Formel für die Wellenlänge ($\lambda$) ergibt sich wie folgt:
 Wobei $R$ der Radius und $l$ der Abstand der Graphitfolien zu dem Schrim
 (\in{s. Abb.}[fig:mp:beugungskanone:ringe]). Für die Wellenlänge ergibt sich folgende Formel:
 
-\startplaceformula[formel:beugungskanone:welenlaenge]
+\startplaceformula[formel:beugungskanone:wellenlaenge]
 \startformula
 \lambda \cdot n = a \sin(\alpha)
 \stopformula
@@ -296,7 +310,7 @@ In der \in{Tabelle}[table:wellen:versuch:beugungskanone:auswertung] wurde, um
 die Geschwindigkeit zu berechnen, die
 \in{Formel}[formel:wellen:verusch:beugungskanone:geschwindigkeit] genutzt. Für
 die Wellenlänge wurde die
-\in{Formel}[formel:wellen:beugungskanone:wellenlaenge] genutzt. Da es zwei
+\in{Formel}[formel:beugungskanone:ringe_eingesetzt] genutzt. Da es zwei
 verschiedenen Gitterkonstanten gibt, hat auch jede Ordnung {\bf zwei} Ringe mit jeweils unterschiedlichen Durchmessern ($D_1$ und $D_2$).
 
 % MP Buffer fuer auswertung d1 und d2 {{{
@@ -473,35 +487,79 @@ verschiedenen Gitterkonstanten gibt, hat auch jede Ordnung {\bf zwei} Ringe mit 
 }
 
 \stopframedtext
-% }}}
+
 
 Mögliches Runden:
 
 \startformula
-\lambda = \frac{0,0067^{\frac{m^2}{s}}}{v} 
+\lambda = \frac{0,0067^{\unit{square meter / second}} }{v} 
 \stopformula
 
-% \startformula
-% \startalign
-%
-% \NC \[\frac{1}{v}\] \NC =\frac{1}{\frac{m}{s}}=\frac{s}{m} \NC \qquad \[\lambda=m \NC \NR
-% \NC \[\text{Vorfaktor}\] \NC = \frac{m^2}{s} \NC \NC \NR
-%
-% \stopalign
-% \stopformula
+
+\startformula
+\startalign[n=4]
+
+\NC \[\frac{1}{v}\] \NC =\frac{1}{\unit{meter per second}}=\frac{\unit{s}}{\unit{m}} \NC \qquad \[\lambda\]=\unit{meter} \NC \NR
+\NC \[\text{Vorfaktor}\] \NC = \frac{\unit{square meter}}{\unit{second}} \NC \NC \NR
+
+\stopalign
+\stopformula
+
+% UNits
+% \startitemize[packed]
+% \item 10 \unit{km/h}
+% \item \unit{10 km/h}
+% \item \unit{~1 km/h}
+% \item \unit{KiloMeter/Hour}
+% \item \unit{10 cubic meter / second}
+% \item \unit{kilo pascal square meter / second}
+% \item \unit{kilo pascal square meter / kelvin second }
+% \item \unit{10 AC}
+% \item $\frac{10 \unit{m/s}}{20 \unit{m/s}}$
+% \item {\ss 30 \unit{kilo pascal square meter / second kelvin}}
+% \item \unit{123.22^-3 km/s}
+% \item \unit{123.22e-3 km/s}
+% \stopitemize
 
 \stopsectionlevel
+
+\startsectionlevel[title={Berechnung der Wellenlänge},reference={section:auswertung:wellenlaenge}]
+
+Aus der de-BROGLIE-Wellenlänge\sidenote{\cite[entry][de-Broglie-leifi]}:
+
+
+\startplaceformula[formula:de-broglie-leifi]
+\startformula
+\lambda=\frac{h}{p} \quad \Leftrightarrow \quad p = \frac{h}{\lambda}
+\stopformula
+\stopplaceformula
+
+mit: 
+
+\starttabulate[|m|p|]
+\NC \lambda \EQ Wellenlänge \NC\NR
+\NC p \EQ Impuls \NC \NR
+\NC h \EQ Plank'sche Konstante ($h=\unit{6.626e-34}\text{Js}$) \NC \NR
+\stoptabulate
+
 \stopsectionlevel
+
+% }}}
+\stopsectionlevel
+
+
 \startsectionlevel[title={Fazit}]
 \stopsectionlevel
 
 \startmode[single]
 
+\stopchapter
+
 \stopbodymatter
 
 \startbackmatter
 % \component c_definitions
-% \component c_bibliography
+\component c_bibliography
 \stopbackmatter
 \stoptext
 
