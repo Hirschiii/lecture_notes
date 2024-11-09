@@ -1,0 +1,35 @@
+\startmode[single]
+
+\setvariables[meta]
+  [title={Spektrum verschiedener LED's},
+   subtitle={Versuchsprotokoll},
+   date={2024-11-08},
+   author={Niklas von Hirschfeld},
+  ]
+\setupinteraction[title={\getvariable{meta}{title}}]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+\component c_toc
+\stopfrontmatter
+
+\setuppagenumber[number=1]
+
+\startbodymatter
+\stopmode
+
+% Content here
+
+\startmode[single]
+
+\stopbodymatter
+
+\startbackmatter
+\component c_definitions
+% \component c_bibliography
+\stopbackmatter
+
+\stoptext
+\stopmode
