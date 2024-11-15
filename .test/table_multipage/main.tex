@@ -1,0 +1,25 @@
+\showframe
+
+\setuplayout[
+   backspace=2cm,
+   width=360pt,
+   rightedge=0.8cm,
+   leftedge=0.8cm,
+   rightmargin=4.2cm,
+   rightmargindistance=20pt,
+]
+
+
+\starttext
+\startplacetable[align=left,location={split},title={test}]
+\bTABLE[option=stretch,split=yes,textwidth=\dimexpr\textwidth+\rightmarginwidth+\rightmargindistance\relax]
+ \dorecurse{100}{
+      \bTR
+        \bTD Cell 1 \eTD
+        \bTD Cell 2 \eTD
+        \bTD Cell 3 \eTD
+      \eTR
+    }
+\eTABLE
+\stopplacetable
+\stoptext

@@ -136,6 +136,23 @@ draw z5--z7 cutafter c;
 	\typesetbuffer[fig:mp:wellen:beugungskanone:beobachtung]
 	}
 }
+\startsectionlevel[title={Durchführung}]
+Die Elektronen werden durch die Graphitfolien auf die Floreszenzschicht geschossen. Da wir selber keine Messungen durchgeführt haben, wird im folgenden mit diesen Messungen gerechnet:
+
+\placetable[][table:wellen:versuch:beugungskanone:durchführung]{Beispielhafte Messungen}
+{
+
+\setupTABLE[r][1][style=bold,background=color,backgroundcolor=gray]
+\bTABLE
+% Header
+\startCSV
+U / V, $D_1$ / m, $D_2$ / m
+\stopCSV
+% Content
+\processseparatedfile[CSV][assets/physik/wellenoptik/beugungskanone_durchfuehrung.csv]
+\eTABLE
+}
+\stopsectionlevel
 
 \startsectionlevel[title={Beobachtung}]
 
@@ -190,13 +207,13 @@ Im Feld besitzen sie $E_{el}=U_B \cdot e$ an Elektrischer Energie. Diese wird
 \startsectionlevel[title={Berechnung der Wellenlänge (Regression)}]
 
 \startframedwarning
-{\bfa Auswertungsmethode fehlerhaft}, die korrekte Auswertung befindet sich auf \at{Seite}[section:auswertung:wellenlaenge].
+{\bfa Auswertungsmethode fehlerhaft}, die korrekte Auswertung fängt auf \at{Seite}[section:auswertung:wellenlaenge] an.
 
 \blank
 
 In der Regression wurde bei der Funktion $f(x)=a\cdot x^b$ der Wert für $b$
 nicht vorher gestzt. Wie sich bei der korrekten Auswertung herraustellt, muss
-$b$ aber exakt $-1$ sein. Da die Regression dies nur näherungsweise erreicht,
+$b$ aber exakt $-1$ sein (\at{s. S.}[function:lambda:v], \in{Formel}[function:lambda:v]). Da die Regression dies nur näherungsweise erreicht,
 ist sie nicht aussagekräftig.
 
 Ich lasse diese Auswertung trozdem hier drinne, zum einen weil ich sie bereits
@@ -221,7 +238,7 @@ Wobei $R$ der Radius und $l$ der Abstand der Graphitfolien zu dem Schrim
 \stopformula
 \stopplaceformula
 
-Nun können wir die \in{Formel}[formel:beugungskanone:ringe] in die \in{Formel}[formel:beugungskanone:welenlaenge] einsetzen und erhalten:
+Nun können wir die \in{Formel}[formel:beugungskanone:ringe] in die \in{Formel}[formel:beugungskanone:wellenlaenge] einsetzen und erhalten:
 
 \startplaceformula[formel:beugungskanone:ringe_eingesetzt]
 \startformula
@@ -230,7 +247,7 @@ Nun können wir die \in{Formel}[formel:beugungskanone:ringe] in die \in{Formel}[
 \stopplaceformula
 
 \starttabulate[|m|m|p|]
-\NC a \NC \NC Abstand der Spalte (Gitterkonstante\sidenote{Durch die Graphitfolien, welche an sich verschiedene Gitterkonstanten aufweisen, wird hier mit zwei Verschiedene Gitterkonstanten ($d_1$ und $d_2$) gerechnet}) \NC\NR
+\NC a \EQ \NC Abstand der Spalte (Gitterkonstante\sidenote{Durch die Graphitfolien, welche an sich verschiedene Gitterkonstanten aufweisen, wird hier mit zwei Verschiedene Gitterkonstanten ($d_1$ und $d_2$) gerechnet}) \NC\NR
 \NC d_1 \EQ 123pm \NC Erste Gitterkonstante \NC \NR
 \NC d_2 \EQ 213pm \NC Zweite Gitterkonstante \NC \NR
 \NC R \EQ \frac{D}{2} \NC Radius der Ordnung \NC \NR
@@ -314,11 +331,11 @@ die Wellenlänge wurde die
 verschiedenen Gitterkonstanten gibt, hat auch jede Ordnung {\bf zwei} Ringe mit jeweils unterschiedlichen Durchmessern ($D_1$ und $D_2$).
 
 % MP Buffer fuer auswertung d1 und d2 {{{
-\startbuffer[mp:wellen:versuch:beugungskanone:auswertung:d1]
+\startbuffer[mp:wellen:versuch:beugungskanone:auswertung]
 \startMPpage
     % Define the size of the plot
     numeric u;
-    u := 1cm;
+    u := 1.5cm;
 
     % Axes ranges
     numeric xmin, xmax, ymin, ymax;
@@ -359,12 +376,20 @@ verschiedenen Gitterkonstanten gibt, hat auch jede Ordnung {\bf zwei} Ringe mit 
 	label.lft("4.5e7", transform(xmin, 4.5e7));
 
     % Draw the points
-	drawdot transform(2.68e-11, 2.97e7) withpen pencircle scaled 3pt; 
-	drawdot transform(2.32e-11, 3.25e7) withpen pencircle scaled 3pt;
-	drawdot transform(2.19e-11, 3.51e7) withpen pencircle scaled 3pt;
-	drawdot transform(2.01e-11, 3.75e7) withpen pencircle scaled 3pt;
-	drawdot transform(1.92e-11, 3.98e7) withpen pencircle scaled 3pt;
-	drawdot transform(1.82e-11, 4.19e7) withpen pencircle scaled 3pt;
+	drawdot transform(2.68e-11, 2.97e7) withpen pencircle scaled 3pt withcolor red; 
+	drawdot transform(2.32e-11, 3.25e7) withpen pencircle scaled 3pt withcolor red;
+	drawdot transform(2.19e-11, 3.51e7) withpen pencircle scaled 3pt withcolor red;
+	drawdot transform(2.01e-11, 3.75e7) withpen pencircle scaled 3pt withcolor red;
+	drawdot transform(1.92e-11, 3.98e7) withpen pencircle scaled 3pt withcolor red;
+	drawdot transform(1.82e-11, 4.19e7) withpen pencircle scaled 3pt withcolor red;
+
+    % D_2
+	drawdot transform(2.60e-11, 2.97e7) withpen pencircle scaled 3pt withcolor blue; 
+	drawdot transform(2.36e-11, 3.25e7) withpen pencircle scaled 3pt withcolor blue;
+	drawdot transform(2.12e-11, 3.51e7) withpen pencircle scaled 3pt withcolor blue;
+	drawdot transform(2.04e-11, 3.75e7) withpen pencircle scaled 3pt withcolor blue;
+	drawdot transform(1.88e-11, 3.98e7) withpen pencircle scaled 3pt withcolor blue;
+	drawdot transform(1.80e-11, 4.19e7) withpen pencircle scaled 3pt withcolor blue;
 
     % Label the axes
     label.top(btex $v \; \text{in} \frac{m}{s}$ etex, (0, 3u));
@@ -375,118 +400,45 @@ verschiedenen Gitterkonstanten gibt, hat auch jede Ordnung {\bf zwei} Ringe mit 
 	     6.65e-3 * (x**(-9.12e-1))
 	enddef;
 
-	% label(decimal f(2.68e-11), (2u, 2u));
-
-	% Plot the function f(x) smoothly
-    % pickup pencircle scaled 0.8pt;
-    % drawoptions(withcolor red); % Set the color for the function curve
-    path p;
-    p = transform(1.75e-11, f(1.75e-11));
-    % p = transform(1.5e-11, f(1.5e-11)) -- transform(2.8e-11, f(2.8e-11));
-    % p = transform(2.68e-11, 2.97e7) -- transform(2.32e-11, 3.25e7);
-    for x = 1.8e-11 step 5e-13 until 2.8e-11:
-        p := p -- transform(x, f(x));
-    endfor;
-    draw p;
-
-	label.rt(btex $f(x)=6.65 \text{e-03} \cdot x^{-9.12\mathrm{e}{-01}}$ etex, (0, -1u));
-	label.rt(btex $R\approx 9,87 \text{e-01}$ etex, (0, -1.5u));
-\stopMPpage
-\stopbuffer
-
-
-\startbuffer[mp:wellen:versuch:beugungskanone:auswertung:d2]
-\startMPpage
-    % Define the size of the plot
-    numeric u;
-    u := 1cm;
-
-    % Axes ranges
-    numeric xmin, xmax, ymin, ymax;
-
-    xmin := 1.50e-11;
-    xmax := 3e-11;
-    ymin := 2e7;
-    ymax := 4.50e7;
-
-    % Scaling factors to fit the plot into the canvas
-    numeric xscale, yscale;
-    xscale := 5u / (xmax - xmin);
-    yscale := 3u / (ymax - ymin);
-
-    % Function to transform (x, y) coordinates to the plot coordinates
-    vardef transform(expr x, y) =
-        ((x - xmin) * xscale, (y - ymin) * yscale)
-    enddef;
-
-    % Draw the axes
-    drawarrow transform(xmin, ymin)--transform(xmax, ymin) withpen pencircle scaled 0.8pt;
-    drawarrow transform(xmin, ymin)--transform(xmin, ymax) withpen pencircle scaled 0.8pt;
-
-    % Draw the grid (optional)
-    for i = 1.5e-11 step 5e-12 until 3e-11:
-        draw transform(i, ymin)--transform(i, ymax) withpen pencircle scaled 0.3pt dashed evenly;
-    endfor;
-    for j = 2e7 step 5e6 until 4.5e7:
-        draw transform(xmin, j)--transform(xmax, j) withpen pencircle scaled 0.3pt dashed evenly;
-    endfor;
-
-
-	label.bot("2e-11", transform(2e-11, ymin));
-	label.bot("2.5e-11", transform(2.5e-11, ymin));
-	label.bot("3e-11", transform(3e-11, ymin));
-
-	label.lft("2.5e7", transform(xmin, 2.5e7));
-	label.lft("3.5e7", transform(xmin, 3.5e7));
-	label.lft("4.5e7", transform(xmin, 4.5e7));
-
-    % Draw the points
-	drawdot transform(2.60e-11, 2.97e7) withpen pencircle scaled 3pt; 
-	drawdot transform(2.36e-11, 3.25e7) withpen pencircle scaled 3pt;
-	drawdot transform(2.12e-11, 3.51e7) withpen pencircle scaled 3pt;
-	drawdot transform(2.04e-11, 3.75e7) withpen pencircle scaled 3pt;
-	drawdot transform(1.88e-11, 3.98e7) withpen pencircle scaled 3pt;
-	drawdot transform(1.80e-11, 4.19e7) withpen pencircle scaled 3pt;
-
-    % Label the axes
-    label.top(btex $v \; \text{in} \frac{m}{s}$ etex, (0, 3u));
-    label.urt(btex $\lambda \; \text{von} D_1$ etex, (5u, 0));
-
-	% Define the function f(x)
-	vardef f(expr x) =
+	vardef g(expr x) =
 	     4.97e-3 * (x**(-9.23e-1))
 	enddef;
 
 	% label(decimal f(2.68e-11), (2u, 2u));
 
 	% Plot the function f(x) smoothly
-    % pickup pencircle scaled 0.8pt;
-    % drawoptions(withcolor red); % Set the color for the function curve
-    path p;
-    p = transform(1.75e-11, f(1.75e-11));
-    % p = transform(1.5e-11, f(1.5e-11)) -- transform(2.8e-11, f(2.8e-11));
-    % p = transform(2.68e-11, 2.97e7) -- transform(2.32e-11, 3.25e7);
+
+    path p,q;
+
+	p = transform(1.75e-11, f(1.75e-11));
+    q = transform(1.75e-11, g(1.75e-11));
+
     for x = 1.8e-11 step 5e-13 until 2.8e-11:
         p := p -- transform(x, f(x));
+        q := q -- transform(x, g(x));
     endfor;
-    draw p;
 
-	label.rt(btex $f(x)=6.65 \mathrm{e}{-03} \cdot x^{-9.12\mathrm{e}{-01}}$ etex, (0, -1u));
-	label.rt(btex $R\approx 9,93 \mathrm{e}{-01}$ etex, (0, -1.5u));
+	draw p withcolor red;
+    draw q withcolor blue;
+
+	drawdot (5.5u, 3u) withpen pencircle scaled 3pt withcolor red;
+	drawdot (6.5u, 3u) withpen pencircle scaled 3pt withcolor blue;
+	draw (5.4u, 2.5u)--(5.6u, 2.5u) withcolor red;
+	draw (5.4u, 1.5u)--(5.6u, 1.5u) withcolor blue;
+	label.rt("$D_2$", (5.5u, 3u));
+	label.rt("$D_1$", (6.5u, 3u));
+	label.rt("$f(x)=\unit{6.65e-3} \cdot x^{\unit{-9.12e-1}}$", (5.5u, 2.5u));
+	label.rt("$R\approx \unit{9.87e-1}$", (5.5u, 2u));
+	label.rt("$f(x)=\unit{4.97e-3} \cdot x^{\unit{-9.23e-1}}$", (5.5u, 1.5u));
+	label.rt("$R\approx \unit{9.93e-1}$", (5.5u, 1u));
+
 \stopMPpage
 \stopbuffer
-% }}}
 
-\startframedtext[width=\dimexpr\textwidth+\rightmarginwidth+\rightmargindistance\relax,frame=off] % This spans textwidth + margin width
 
-\placefigure[force][mp:wellen:versuch:beugungskanone:auswertung:d1]{$v$-$\lambda$-Diagram und Regression für die Durchmesser $D_1$ und $D_2$}{
-    \startcombination[2*1]
-        {\typesetbuffer[mp:wellen:versuch:beugungskanone:auswertung:d1]}{Für $D_1$}
-        {\typesetbuffer[mp:wellen:versuch:beugungskanone:auswertung:d2]}{Für $D_2$}
-    \stopcombination
+\placefigure[force][mp:wellen:versuch:beugungskanone:auswertung]{$v$-$\lambda$-Diagram und Regression für die Durchmesser $D_1$ und $D_2$}{
+        \typesetbuffer[mp:wellen:versuch:beugungskanone:auswertung]
 }
-
-\stopframedtext
 
 
 Mögliches Runden:
@@ -495,6 +447,7 @@ Mögliches Runden:
 \lambda = \frac{0,0067^{\unit{square meter / second}} }{v} 
 \stopformula
 
+Die Einheiten ergibt sich wie folgt:
 
 \startformula
 \startalign[n=4]
@@ -523,7 +476,7 @@ Mögliches Runden:
 
 \stopsectionlevel
 
-\startsectionlevel[title={Berechnung der Wellenlänge},reference={section:auswertung:wellenlaenge}]
+\startsectionlevel[title={Berechnung der Wellenlänge (de-BROGLIE)},reference={section:auswertung:wellenlaenge}]
 
 Aus der de-BROGLIE-Wellenlänge\sidenote{\cite[entry][de-Broglie-leifi]}:
 
@@ -538,9 +491,137 @@ mit:
 
 \starttabulate[|m|p|]
 \NC \lambda \EQ Wellenlänge \NC\NR
-\NC p \EQ Impuls \NC \NR
+\NC p \EQ Impuls ($p=\unit{m} \cdot v$)\NC \NR
 \NC h \EQ Plank'sche Konstante ($h=\unit{6.626e-34}\text{Js}$) \NC \NR
 \stoptabulate
+
+Formal gilt:
+
+\startformula
+\frac{dE}{dv}=p
+\stopformula
+
+womit sich folgendes ergibt:
+
+\startplaceformula[function:lambda:v]
+\startformula
+\lambda(v)=\frac{h}{m\cdot v}=\frac{h}{n} \cdot v^{-1}
+\stopformula
+\stopplaceformula
+
+Aus unsere Regression (\in{s.
+Abb.}[mp:wellen:versuch:beugungskanone:auswertung]) ergibt sich der
+Vorfaktor $\unit{6.65e-3}\unit{square meter per second}$. Verglichen mit dem
+erwarteten Vorfaktor\sidenote{Dieser ergibt sich aus den gemessen Werten der
+\in{Tabelle}[table:wellen:versuch:beugungskanone:auswertung] und der aus der de-BROGLIE-Wellenl hervorgehenden \in{Gleichung}[formula:de-broglie-leifi]}
+
+\startformula
+\lambda \cdot v = \frac{h}{\unit{meter}} \approx \unit{7.27e-4}\unit{square meter per second}
+\stopformula
+
+ist ein deutlicher Unterschied zu erkennen.
+
+\startbuffer[mp:wellen:versuch:beugungskanone:auswertung:de-broglie]
+\startMPpage
+    % Define the size of the plot
+    numeric u;
+    u := 1cm;
+
+    % Axes ranges
+    numeric xmin, xmax, ymin, ymax;
+
+    xmin := 1.50e-11;
+    xmax := 3e-11;
+    ymin := 2e7;
+    ymax := 4.50e7;
+
+    % Scaling factors to fit the plot into the canvas
+    numeric xscale, yscale;
+    xscale := 5u / (xmax - xmin);
+    yscale := 3u / (ymax - ymin);
+
+    % Function to transform (x, y) coordinates to the plot coordinates
+    vardef transform(expr x, y) =
+        ((x - xmin) * xscale, (y - ymin) * yscale)
+    enddef;
+
+    % Draw the axes
+    drawarrow transform(xmin, ymin)--transform(xmax, ymin) withpen pencircle scaled 0.8pt;
+    drawarrow transform(xmin, ymin)--transform(xmin, ymax) withpen pencircle scaled 0.8pt;
+
+    % Draw the grid (optional)
+    for i = 1.5e-11 step 5e-12 until 3e-11:
+        draw transform(i, ymin)--transform(i, ymax) withpen pencircle scaled 0.3pt dashed evenly;
+    endfor;
+    for j = 2e7 step 5e6 until 4.5e7:
+        draw transform(xmin, j)--transform(xmax, j) withpen pencircle scaled 0.3pt dashed evenly;
+    endfor;
+
+
+	label.bot("2e-11", transform(2e-11, ymin));
+	label.bot("2.5e-11", transform(2.5e-11, ymin));
+	label.bot("3e-11", transform(3e-11, ymin));
+
+	label.lft("2.5e7", transform(xmin, 2.5e7));
+	label.lft("3.5e7", transform(xmin, 3.5e7));
+	label.lft("4.5e7", transform(xmin, 4.5e7));
+
+    % D_2
+	drawdot transform(2.60e-11, 2.97e7) withpen pencircle scaled 3pt withcolor red; 
+	drawdot transform(2.36e-11, 3.25e7) withpen pencircle scaled 3pt withcolor red;
+	drawdot transform(2.12e-11, 3.51e7) withpen pencircle scaled 3pt withcolor red;
+	drawdot transform(2.04e-11, 3.75e7) withpen pencircle scaled 3pt withcolor red;
+	drawdot transform(1.88e-11, 3.98e7) withpen pencircle scaled 3pt withcolor red;
+	drawdot transform(1.80e-11, 4.19e7) withpen pencircle scaled 3pt withcolor red;
+
+	% D_1
+	drawdot transform(2.68e-11, 2.97e7) withpen pencircle scaled 3pt withcolor blue; 
+	drawdot transform(2.32e-11, 3.25e7) withpen pencircle scaled 3pt withcolor blue;
+	drawdot transform(2.19e-11, 3.51e7) withpen pencircle scaled 3pt withcolor blue;
+	drawdot transform(2.01e-11, 3.75e7) withpen pencircle scaled 3pt withcolor blue;
+	drawdot transform(1.92e-11, 3.98e7) withpen pencircle scaled 3pt withcolor blue;
+	drawdot transform(1.82e-11, 4.19e7) withpen pencircle scaled 3pt withcolor blue;
+
+    % Label the axes
+    label.top(btex $v \; \text{in} \frac{m}{s}$ etex, (0, 3u));
+    label.urt(btex $\lambda \; \text{von} D_1$ etex, (5u, 0));
+
+	% Define the function f(x)
+	vardef f(expr x) =
+	     7.27e-4 * (x**(-1))
+	enddef;
+
+	% label(decimal f(2.68e-11), (2u, 2u));
+
+	% Plot the function f(x) smoothly
+    % pickup pencircle scaled 0.8pt;
+    % drawoptions(withcolor red); % Set the color for the function curve
+    path p;
+    p = transform(1.75e-11, f(1.75e-11));
+    % p = transform(1.5e-11, f(1.5e-11)) -- transform(2.8e-11, f(2.8e-11));
+    % p = transform(2.68e-11, 2.97e7) -- transform(2.32e-11, 3.25e7);
+    for x = 1.8e-11 step 5e-13 until 2.8e-11:
+        p := p -- transform(x, f(x));
+    endfor;
+    draw p;
+
+
+	drawdot (5.5u, 3u) withpen pencircle scaled 3pt withcolor red;
+	drawdot (5.5u, 2.5u) withpen pencircle scaled 3pt withcolor blue;
+	draw (5.4u, 2u)--(5.6u, 2u);
+	label.rt("$D_2$", (5.5u, 3u));
+	label.rt("$D_1$", (5.5u, 2.5u));
+	label.rt(btex $f(x)=\unit{7.27e-4} \cdot x^{-1}$ etex, (5.5u, 2u));
+\stopMPpage
+\stopbuffer
+% }}}
+
+
+\placefigure[force][mp:wellen:versuch:beugungskanone:auswertung:de-broglie]{$v$-$\lambda$-Diagram für die Durchmesser $D_2$}{
+      \typesetbuffer[mp:wellen:versuch:beugungskanone:auswertung:de-broglie]
+}
+
+Auch wenn diese Funktion nicht ganz so durch die gemessenen Werte geht,   Die Abweichungen zu den gemessenen Werten können durch ungenauigkeit in der Messung erklärt werden.
 
 \stopsectionlevel
 
@@ -548,8 +629,6 @@ mit:
 \stopsectionlevel
 
 
-\startsectionlevel[title={Fazit}]
-\stopsectionlevel
 
 \startmode[single]
 
