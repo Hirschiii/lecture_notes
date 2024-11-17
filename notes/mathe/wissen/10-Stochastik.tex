@@ -1,5 +1,115 @@
 \chapter{Stochastik}
 
+\section{Begriffe}
+
+% \startitemize[packed]
+% \item {\bf Zufallsexperiment:} Ein Vorgang, welcher unter den selben Bedingungen beliebig oft wiederholt werden kann, wobei dessen Ausgang nicht vorhersehbar ist. Beispiel: Würfel, Münzwurf.
+% \item {\bf Ergebnis:} Ein möglicher Ausgang eines Zufallsexperiment. Beispiel: Alle Zahlen zwischen Eins und Sechs (${1;2;3;4;5;6}$) beim würfeln eines 6-seitiegen Würfel.
+% \stopitemize
+
+\startplacetable[location={split},title={Begriffe}]
+\setupTABLE[c][1][background=color,backgroundcolor=gray]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\bTABLE[split=yes,option=stretch,frame=on]
+\bTR
+\bTD Begriff \eTD  \bTD Definition \eTD
+\eTR
+
+\bTR
+\bTD Zufallsexperiment: \eTD
+\bTD
+Ein Vorgang, welcher unter den selben Bedingungen beliebig oft wiederholt werden kann, wobei dessen Ausgang nicht vorhersehbar ist. Beispiel: Würfel, Münzwurf.
+\eTD
+\eTR
+
+\bTR
+\bTD Ergebnis: \eTD
+\bTD
+Ein möglicher Ausgang eines Zufallsexperiment. Beispiel: Alle Zahlen zwischen Eins und Sechs (${1;2;3;4;5;6}$) beim würfeln eines 6-seitiegen Würfel.
+\eTD
+\eTR
+
+\bTR
+\bTD Ereignis: \eTD
+\bTD
+Eine {\em Teilmenge} der Ereignismenge.
+\eTD
+\eTR
+
+\bTR
+\bTD Wahrscheinlichkei ($P$): \eTD
+\bTD Eine Maß, wie wahrscheinlich das Eintreten eines Ereignisses ist. Angegeben mit einer Zahl von Null bis Eins ($\[0;1\]$)
+\eTD
+\eTR
+
+\bTR
+\bTD Faires Spiel: \eTD
+\bTD 
+Ein Spiel, bei dem der Erwartungswert für den Gewinn gleich Null ist:
+
+\startformula
+\text{Gewinn} = \text{Auszahlung} - \text{Einsatz}
+\stopformula
+
+Beispiel: Beim Würfeln soll das doppelte der Augenzahl in Euro ausgezahlt werden. Die Ergebnismenge beinhaltete die möglichen Auszahlungen:
+
+\startformula
+{2;4;6;8;10;12}
+\stopformula
+
+Somit entspricht der Erwartungswert:
+
+\startformula
+\mu = \frac{1}{6}\cdot (2+4+6+8+10+12) = \frac{42}{6}=7
+\stopformula
+
+Somit muss der Einsatz $7$ betragen, damit es sich um ein \quotation{Faires Spiel} handelt
+\eTD
+\eTR
+
+\bTR
+\bTD Laplace - Experiment: \eTD
+\bTD
+Ein Versuch, bei dem alle Ereignisse gleich wahrscheinlich sind. Beispiel: Würfeln
+\eTD
+\eTR
+
+\bTR
+\bTD Unabhägigkeit \eTD
+\bTD
+Wenn das Eintreten des einen Ereignisses die Wahrscheinlichkeit des anderen {\bf nicht} beeinflusst.
+\eTD
+\eTR
+
+\bTR
+\bTD Wahrscheinlichkeitsverteilung: \eTD
+\bTD 
+Wenn jedem Ereignis eines Zufallsexperiment ein Zahlenwert zugeordnet wird, spriucht man von einer Zufallsgröße. Die Wahrscheinlichkeitsverteilung einer Zufallsgröße $X$, ist eine Tabelle, bei der jedem Wert von $k$ von $X$ die Wahrscheinlichkeit $P(X=k)$ zugeordnet ist.
+
+\framed[aligne=middle,frame=off,offset=none]{
+\starttabulate[|m|c|c|c|c|c|]
+\NC k \VL 0 \NC 1 \NC 2 \NC 3 \NC 4 \NC\NR
+\HL
+\NC P(X=k) \VL 0,16 \NC 0,32 \NC 0,29 \NC 0,15 \NC 0,05 \NC \NR
+\stoptabulate
+}
+\eTD
+\eTR
+
+\bTR
+\bTD Varianz ($V$) \eTD
+\bTD
+ist eine Maß für die Streung einer Zufallsgröße.
+
+\startformula
+V=(x_1 - \mu)^2 \cdot P(X=x_1) + \dots + (x_n - \mu)^2 \cdot P(X=x_n)
+\stopformula
+
+\eTD
+\eTR
+\eTABLE
+\stopplacetable
+
 \section{Bernoulli-Experiment}
 
 \startbuffer[fig:stochastik:bernoulli-kette:baum]
@@ -102,6 +212,3 @@ unabhängigen Durchführungen eines Bernoulli-Experiment. Die Anzahl der Durchf�
 
 \margintext{Ab Seite: 273}
 \section{Binominalkoeffizient}
-
-
-\stoptabulate
