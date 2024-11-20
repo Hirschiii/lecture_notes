@@ -1,0 +1,48 @@
+\startmode[single]
+
+% \enabletrackers[publications, publications.crossref, publications.details, publications.cite, publications.strings]
+%
+% \usebtxdataset[main][bib/default.bib,bib/physik.bib,bib/mathe.bib,bib/seminarfach.bib]
+% \usebtxdefinitions[aps]
+% \setupbtx[dataset=main]
+% \definebtxrendering[bibrendering][aps][dataset=main]
+
+\setvariables[meta]
+  [title={Elektronenbeugunsröhre},
+   subtitle={Versuchsprotokoll},
+   date={2024-10-18},
+   author={Niklas von Hirschfeld},
+  ]
+
+\setupinteraction[title={\getvariable{meta}{title}}]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+\component c_toc
+\stopfrontmatter
+
+\setuppagenumber[number=1]
+
+\startbodymatter
+
+\startchapter[title=Versuchsprotokoll]
+
+\stopmode
+
+Schaltbilder
+
+\startmode[single]
+
+\stopchapter
+
+\stopbodymatter
+
+\startbackmatter
+% \component c_definitions
+\component c_bibliography
+\stopbackmatter
+\stoptext
+
+\stopmode

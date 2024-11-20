@@ -24,7 +24,9 @@ UNTERRICHT_SRCS := $(foreach dir, $(SRC_DIRS), $(wildcard $(SRC_BASE_DIR)/$(dir)
 WISSEN_SRCS := $(foreach dir, $(SRC_DIRS), $(wildcard $(SRC_BASE_DIR)/$(dir)/wissen/*.tex))
 # AUFGABEN_SRCS := $(foreach dir, $(SRC_DIRS), $(wildcard $(SRC_BASE_DIR)/$(dir)/aufgaben/*.tex))
 # AUFGABEN_SRCS := $(wildcard $(addprefix $(SRC_BASE_DIR)/, $(addsuffix /*.tex, $(SRC_DIRS)/aufgaben)))
-AUFGABEN_SRCS := $(wildcard $(addprefix $(SRC_BASE_DIR)/, $(addsuffix /aufgaben/*.tex, $(SRC_DIRS))))
+AUFGABEN_SRCS1 := $(wildcard $(addprefix $(SRC_BASE_DIR)/, $(addsuffix /aufgaben/*.tex, $(SRC_DIRS))))
+AUFGABEN_SRCS2 := $(wildcard $(addprefix $(SRC_BASE_DIR)/, $(addsuffix /unterricht/*.tex, $(SRC_DIRS))))
+AUFGABEN_SRCS := $(AUFGABEN_SRCS1) $(AUFGABEN_SRCS2)
 # AUFGABEN_SRCS := $(wildcard $(addsuffix /aufgaben/*.tex, $(PRE_SRC)/$(SRC_DIRS)))
 # POSTER_SRCS := $(wildcard $(addsuffix /poster/*.tex, $(SRC_DIRS)))
 # PRESENTATION_SRCS := $(wildcard $(addsuffix /presentation/*.tex, $(SRC_DIRS)))
@@ -61,11 +63,12 @@ $(OUTPUT_DIR)/%/wissen.pdf: $(SRC_BASE_DIR)/%/wissen/*.tex
 # Rule to compile individual aufgaben files
 # $(OUTPUTS_AUFGABEN): $(AUFGABEN_SRCS)
 FILE_NAME=$(word 4,$(subst /, ,$<))
+FILE_DIR=$(word 3,$(subst /, ,$<))
 $(OUTPUT_DIR)/%.pdf: $(SRC_BASE_DIR)/%.tex
-	@echo "Compiling aufgabe: Target=$@, Source=$<"
+	@echo "Compiling $(FILE_DIR): Target=$@, Source=$<"
 	@mkdir -p $(dir $@)
 	$(TEX) --mode=$(MODE_AUFGABEN) --path=$< --arguments=subject=$(FILE_SUBJECT),title="Aufgabe - $(FILE_SUBJECT)" --result="aufgaben-$(FILE_SUBJECT)" prd_document.tex &> /dev/null
-	@mv aufgaben-$(FILE_SUBJECT).pdf $(OUTPUT_DIR)/$(FILE_SUBJECT)/aufgaben/$(basename $(notdir $<)).pdf
+	mv aufgaben-$(FILE_SUBJECT).pdf $(OUTPUT_DIR)/$(FILE_SUBJECT)/$(FILE_DIR)/$(basename $(notdir $<)).pdf
 
 # Rule to compile individual aufgaben, poster, and presentation files
 # $(OUTPUT_DIR)/%.pdf: %.tex

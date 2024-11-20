@@ -6,15 +6,32 @@
 % \item {\bf Zufallsexperiment:} Ein Vorgang, welcher unter den selben Bedingungen beliebig oft wiederholt werden kann, wobei dessen Ausgang nicht vorhersehbar ist. Beispiel: Würfel, Münzwurf.
 % \item {\bf Ergebnis:} Ein möglicher Ausgang eines Zufallsexperiment. Beispiel: Alle Zahlen zwischen Eins und Sechs (${1;2;3;4;5;6}$) beim würfeln eines 6-seitiegen Würfel.
 % \stopitemize
+\startbuffer[table:in:table:Wahrscheinlichkeitsverteilung]
+\environment env_lecturenote
+\startTEXpage[offset=10pt]
+\starttabulate[|m|c|c|c|c|c|]
+\NC k \VL 0 \NC 1 \NC 2 \NC 3 \NC 4 \NC\NR
+\HL
+\NC P(X=k) \VL 0,16 \NC 0,32 \NC 0,29 \NC 0,15 \NC 0,05 \NC \NR
+\stoptabulate
+\stopTEXpage
+\stopbuffer
+
+% \placefigure[force][table:in:table:Wahrscheinlichkeitsverteilung]{Name}{
+% \typesetbuffer[table:in:table:Wahrscheinlichkeitsverteilung]
+% }
 
 \startplacetable[location={split},title={Begriffe}]
 \setupTABLE[c][1][background=color,backgroundcolor=gray]
 \setupTABLE[r][1][background=color,backgroundcolor=gray]
-\bTABLE[split=yes,option=stretch,frame=on]
+\bTABLE[split=repeat,option=stretch,frame=on]
+\bTABLEhead
 \bTR
-\bTD Begriff \eTD  \bTD Definition \eTD
+\bTH Begriff \eTH  \bTH Definition \eTH
 \eTR
+\eTABLEhead
 
+\bTABLEbody
 \bTR
 \bTD Zufallsexperiment: \eTD
 \bTD
@@ -54,7 +71,7 @@ Ein Spiel, bei dem der Erwartungswert für den Gewinn gleich Null ist:
 Beispiel: Beim Würfeln soll das doppelte der Augenzahl in Euro ausgezahlt werden. Die Ergebnismenge beinhaltete die möglichen Auszahlungen:
 
 \startformula
-{2;4;6;8;10;12}
+\{2;4;6;8;10;12\}
 \stopformula
 
 Somit entspricht der Erwartungswert:
@@ -86,13 +103,9 @@ Wenn das Eintreten des einen Ereignisses die Wahrscheinlichkeit des anderen {\bf
 \bTD 
 Wenn jedem Ereignis eines Zufallsexperiment ein Zahlenwert zugeordnet wird, spriucht man von einer Zufallsgröße. Die Wahrscheinlichkeitsverteilung einer Zufallsgröße $X$, ist eine Tabelle, bei der jedem Wert von $k$ von $X$ die Wahrscheinlichkeit $P(X=k)$ zugeordnet ist.
 
-\framed[aligne=middle,frame=off,offset=none]{
-\starttabulate[|m|c|c|c|c|c|]
-\NC k \VL 0 \NC 1 \NC 2 \NC 3 \NC 4 \NC\NR
-\HL
-\NC P(X=k) \VL 0,16 \NC 0,32 \NC 0,29 \NC 0,15 \NC 0,05 \NC \NR
-\stoptabulate
-}
+% \framed[aligne=middle,frame=off,offset=none]{
+\midaligned{\typesetbuffer[table:in:table:Wahrscheinlichkeitsverteilung][width=7cm]}
+% }
 \eTD
 \eTR
 
@@ -107,6 +120,7 @@ V=(x_1 - \mu)^2 \cdot P(X=x_1) + \dots + (x_n - \mu)^2 \cdot P(X=x_n)
 
 \eTD
 \eTR
+\eTABLEbody
 \eTABLE
 \stopplacetable
 
