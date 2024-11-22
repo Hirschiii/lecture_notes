@@ -1,0 +1,56 @@
+\startmode[single]
+
+\setvariables[meta]
+  [title={Mediation},
+   subtitle={How To},
+   date={2024-11-21},
+   author={Niklas von Hirschfeld},
+  ]
+\setupinteraction[title={\getvariable{meta}{title}}]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+% \component c_toc
+\stopfrontmatter
+
+\setuppagenumber[number=1]
+
+\startbodymatter
+\chapter{Mediation}
+
+\stopmode
+
+\startitemize[packed,m]
+\item Intro and chit chat
+\item Intro of the source and {\bf very} short summary (i.g. 1 sentence)
+\startitemize[packed]
+\item Title needs to be in there in source {\em AND} target language
+\stopitemize
+\item Main Body:
+\startitemize[packed]
+\item Order more free than, say, in a summary
+\item You can group content
+\item {\bf NO} (!!!) direct translation
+\item Use tense whatever is used in the shource
+\item Rule of thumb - Lenght: $\frac{2}{3}$
+\stopitemize
+\item Outro:
+\startitemize[packed]
+\item Social...
+\stopitemize
+\stopitemize
+
+\startmode[single]
+
+\stopbodymatter
+
+\startbackmatter
+% \component c_definitions
+% \component c_bibliography
+\stopbackmatter
+
+\stoptext
+\stopmode
+

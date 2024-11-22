@@ -33,6 +33,139 @@
 
 Schaltbilder
 
+\startbuffer[mp:versuchsprotokoll:planksche:schaltskizze]
+\startMPpage
+
+u := 1cm;
+
+% draw z5--z5 + dir(90) * 2u withpen pencircle scaled 1pt;
+
+def draw_lampe(expr x, y, r) =
+	path c;
+	c = fullcircle scaled (1 * u) shifted (x * u, y * u);
+	fill c withcolor white;
+	draw c;
+	draw ((x * u, y * u) + (dir (135 + r) * 0.5u))--((x * u, y * u) - (dir (135 + r) * 0.5u));
+	draw ((x * u, y * u) + (dir (45 + r) * 0.5u))--((x * u, y * u) - (dir (45 + r) * 0.5u));
+enddef;
+
+def draw_va(expr x, y, r) =
+	path c;
+	c = fullcircle scaled (1 * u) shifted (x * u, y * u);
+	fill c withcolor white;
+	draw c;
+	label("V/A", (x * u, y * u));
+enddef;
+
+def draw_source(expr x, y, r) =
+	path c, d;
+	c = fullcircle scaled (0.2 * u) shifted ((x + 0.5) * u, y * u);
+	d = fullcircle scaled (0.2 * u) shifted ((x - 0.5) * u, y * u);
+	fill c withcolor white;
+	fill d withcolor white;
+	draw c;
+	draw d;
+	label.top("$+$", ((x + 0.5) * u, (y + 0.2) * u));
+	label.top("$-$", ((x - 0.5) * u, (y + 0.2) * u)); 
+enddef;
+
+def draw_led(expr x, y, r) =
+
+	path d, c;
+	c = fullcircle scaled (1 * u) shifted (x * u, y * u);
+
+	d = ((x - 0.15) * u, (y + 0.3) * u)--((x - 0.15) * u, (y - 0.3) * u)--((x + 0.15) * u, y * u)--cycle;
+
+	fill c withcolor white;
+	fill d withcolor black;
+	draw d;
+	draw c;
+
+	draw ((x + 0.15) * u, (y + 0.3) * u)--((x + 0.15) * u, (y - 0.3) * u) withpen pensquare scaled .5mm;
+
+	% draw ((x, y) + (dir 135 * 0.5u))--((x, y) - (dir 135 * 0.5u));
+	% draw ((x, y) + (dir 45 * 0.5u))--((x, y) - (dir 45 * 0.5u));
+enddef;
+
+% draw (-3u, 0)--(3u, 0);
+
+
+path e;
+e = (-0.5u, 3u)--(-2u, 3u)--(-2u, 0u)--(2u, 0u)--(2u, 3u)--(0.5u, 3u);
+draw e;
+
+draw (-2u, -1u)--(2u, -1u);
+
+draw_source(0, 3, 0);
+
+draw_led(-2, -0.5, 0);
+draw_va(2, -0.5, 0);
+
+% draw_lampe(0, 0, 0);
+% draw_lampe(1, 1, 20);
+% draw_lampe(2, 2, 30);
+%
+% draw_led(3, 2, 0);
+%
+% draw_va(-2, 0, 0);
+
+% draw ((0, 0) + (dir 45 * 0.5u))--((0, 0) - (dir 45 * 0.5u));
+
+\stopMPpage
+\stopbuffer
+
+\placefigure[force][mp:versuchsprotokoll:planksche:schaltskizze]{Schaltskizze}{
+\typesetbuffer[mp:versuchsprotokoll:planksche:schaltskizze]
+}
+
+\blank
+\hrule
+\blank
+
+\section{Auswertung besprechung}
+
+Wir haben frequenz energie diag
+
+Beispielrechnung rote LED:
+
+\startformula
+\lambda_{\text{mx}}=\unit{6.32e-7 meter}
+\stopformula
+
+\startformula
+\startalign[n=3]
+\NC U_G=\NC\unit{1.2 Volt}\NC\NR
+\NC \NC\unit{1.19 Volt}\NC\NR
+\NC \NC\unit{1.27 Volt}\NC\NR
+\stopalign
+\stopformula
+
+\startformula
+\startalign[n=4]
+\NC E\NC=e\cdot U_G \NC \quad ; \quad e = \unit{1.602e-19 C} \NC \NR
+\NC \NC\approx \unit{1.922e-19 Joul} \NC \NC \NR
+\stopalign
+\stopformula
+
+\startformula
+\[e\] \cdot \[U\] = C \cdot V = C \cdot \frac{J}{C}=J
+\stopformula
+
+\startformula
+\startalign[n=4]
+\NC f \NC =\frac{c}{\lambda_{\text{max}}} \NC \quad \quad c = \unit{2.998e8 meter per second} \NC \NR
+\NC \NC \approx \unit{4.744e14 meter per second} \NC \NC \NR
+\stopalign
+\stopformula
+
+\subsection{Direktes Rechnen}
+
+\startformula
+\frac{E}{f}\approx \unit{4.051e-34 Joule times second}
+\stopformula
+
+Das Ergebnis entspricht im Wahmen der Messgenauigkeit dem Literaturverzeichnis
+
 \startmode[single]
 
 \stopchapter
