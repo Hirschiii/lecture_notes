@@ -22,29 +22,92 @@
 
 \chapter{1. Stunde}
 
-\startitemize[packed]
-\item Aufwärmen
-\startitemize[packed]
-\item Prellend durch die Turnhalle laufen, eventuell alle nebeneinander
-\item In einer Schlange, wieder prellend
-\startitemize[packed]
+\startitemize[]
+\item Aufwärmen (35 min)
+\startitemize[]
+\item Prellend durch die Turnhalle laufen, eventuell alle nebeneinander (5 min)
+\item In einer Schlange, wieder prellend (10 min)
+\startitemize[]
 \item Die vorderste Person geht vorraus
 \item Die hinterste läuft Slalom um die Personen vor ihr, bis sie an erster stelle steht
 \stopitemize
-\item Tische aufbauen
-\item Kurzes freies spiel (ca. 10 min)
-\item 
+\item Tische aufbauen (ca 5 min)
+\item Kurzes freies spiel (ca. 5 min)
+\item Einkontern Vor- und Rückhand (ca. 10 min)
+\stopitemize
+\item Übung (20 min)
+\startitemize[]
+\item Falkenberg mit Kontern. Passive Seite spielt nur rückhand Konter, zwei mal in dir Rückhand, dann einmal in die Vorhand. Die aktive Seite spiel alle Bälle in die Rückhand und muss sich bewegen
+\startitemize[m]
+\item (Passive Seite) Aufschlag aus der Rückhand in die Rückhand
+\item (Aktive Seite) Rückhand Konter zurück in die Rückhand
+\item (Passive Seite) Rückhand Konter wieder in die Rückhand
+\item (Aktive Seite) {\bf Vorhand Konter} aus der Rückhand, in die Rückhand
+\item (Passive Seite) Rückhand Konter in die {\bf Vorhand}
+\item (Aktive Seite) Vorhand Konter aus der Vorhand in die Rückhand
 \stopitemize
 \stopitemize
+\item Abschlusspiel
+\startitemize[packed]
+\item Entweder 7. Spiel (Turnier) oder Runde
+\stopitemize
+\stopitemize
+
+\chapter{2. Stunde}
+
+\startitemize[]
+\item Aufwärmen (20 min)
+\startitemize[packed]
+\item Kontern, Vorhand und Rückhand 
+\stopitemize
+\stopitemize
+
+\startbuffer[test]
+\startMPpage
+
+% Tischtennisplatte zeichnen
+pickup pencircle scaled 0.5pt;
+draw (0,0)--(100,0)--(100,200)--(0,200)--cycle; % Außenrand der Platte
+draw (50,0)--(50,200); % Mittellinie
+draw (0,100)--(100,100); % Netzlinie (vertikal)
+
+% % Spielermarkierungen
+% pickup pencircle scaled 2pt;
+% drawdot (30,75) withcolor red; % Spieler 1 Position
+% drawdot (170,75) withcolor blue; % Spieler 2 Position
+
+
+% Ballbewegung "Falkenberg"
+pickup pencircle scaled 1pt;
+% Rückhand diagonal von Spieler 1 zu Spieler 2
+% draw (35,-10)--(80, 210)--(30, -10)--(75, 210)--(25, -10)--(25, 210) dashed evenly;
+drawarrow (35,-10)--(82, 210) withcolor blue dashed evenly;
+drawarrow (78, 210)--(31, -10) withcolor blue;
+drawarrow (27, -10)--(74, 210) withcolor blue dashed evenly;
+drawarrow (70, 210)--(23, -10) withcolor red;
+drawarrow (19, -10)--(19, 210) withcolor blue dashed evenly;
+drawarrow (15, 210)--(15, -10) withcolor red;
+
+drawdot (120, 200) withcolor blue withpen pencircle scaled 3pt;
+drawdot (120, 190) withcolor red withpen pencircle scaled 3pt;
+
+draw (115, 180)--(125, 180) dashed evenly;
+draw (115, 170)--(125, 170);
+\stopMPpage
+\stopbuffer
+
+\placefigure[force][test]{Name}{
+\typesetbuffer[test]
+}
 
 \startmode[single]
 
 \stopbodymatter
 
-\startbackmatter
-\component c_definitions
+% \startbackmatter
+% \component c_definitions
 % \component c_bibliography
-\stopbackmatter
+% \stopbackmatter
 
 \stoptext
 \stopmode

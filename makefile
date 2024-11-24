@@ -1,6 +1,6 @@
 # Directories
 # SRC_DIRS := physik politik seminarfach wun
-SRC_DIRS := physik englisch wun deutsch how_to seminarfach informatik mathe politik
+SRC_DIRS := physik englisch wun deutsch how_to seminarfach informatik mathe politik sport
 SRC_BASE_DIR := notes
 OUTPUT_DIR := out
 
