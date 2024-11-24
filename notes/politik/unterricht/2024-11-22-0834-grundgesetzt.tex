@@ -1,0 +1,61 @@
+\section{2024-11-22 Grundgesetz}
+
+\startframedtipp
+In Klausur Bezug auf Grundgesetz
+\stopframedtipp
+
+Wie "Toleranz hört bei Intoleranz auf", hört Pazifismus bei gewlalt auf
+
+
+\startdefinition[title={Subsidiaritätsprinzip}]
+
+\startbuffer[mp:definition:subsidiaritaet]
+\startMPpage
+
+u := 1cm;
+
+z0=(0, 2cm);
+z1=(0, -2cm);
+
+z2=(4cm, 2cm);
+z3=(4cm, 1.5cm);
+z4=(4cm, 1cm);
+z5=(4cm, 0.5cm);
+z6=(4cm, 0);
+
+z7= (0    , 0);
+z8= (1.25cm  , 0);
+z9= (1.75cm, 0);
+z10=(2.27cm, 0);
+z11=(2.75cm, 0);
+
+for a=0 upto 4:
+
+	draw z0{dir (-90 - (5 * a))}..(-1cm - 0.5cm * a, 0)..{dir 45}z1;
+	draw z0{dir (-90 + (5 * a))}..(1cm + 0.5cm * a, 0)..{dir 135}z1;
+
+endfor
+
+draw z2--z7;
+draw z3--z8;
+draw z4--z9;
+draw z5--z10;
+draw z6--z11;
+
+label.rt("Kommune", z2);
+label.rt("Land", z3);
+label.rt("Bund", z4);
+label.rt("EU", z5);
+label.rt("UNO", z6);
+
+\stopMPpage
+\stopbuffer
+
+\placefigure[force][mp:definition:subsidiaritaet]{Solidiarität subsidiär}{
+\typesetbuffer[mp:definition:subsidiaritaet]
+}
+\stopdefinition
+
+\startframedtipp
+Exportierte Waffen dürfen nur unter Detuscher Kontroll und zustimmung genutzt.
+\stopframedtipp
