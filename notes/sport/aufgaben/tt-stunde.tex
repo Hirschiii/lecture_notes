@@ -1,0 +1,50 @@
+\startmode[single]
+
+\setvariables[meta]
+  [title={TT Stunde},
+   subtitle={Vorbereitung},
+   date={2024-11-24},
+   author={Niklas von Hirschfeld},
+  ]
+\setupinteraction[title={\getvariable{meta}{title}}]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+\component c_toc
+\stopfrontmatter
+
+\setuppagenumber[number=1]
+
+\startbodymatter
+\stopmode
+
+\chapter{1. Stunde}
+
+\startitemize[packed]
+\item Aufwärmen
+\startitemize[packed]
+\item Prellend durch die Turnhalle laufen, eventuell alle nebeneinander
+\item In einer Schlange, wieder prellend
+\startitemize[packed]
+\item Die vorderste Person geht vorraus
+\item Die hinterste läuft Slalom um die Personen vor ihr, bis sie an erster stelle steht
+\stopitemize
+\item Tische aufbauen
+\item Kurzes freies spiel (ca. 10 min)
+\item 
+\stopitemize
+\stopitemize
+
+\startmode[single]
+
+\stopbodymatter
+
+\startbackmatter
+\component c_definitions
+% \component c_bibliography
+\stopbackmatter
+
+\stoptext
+\stopmode
