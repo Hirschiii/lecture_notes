@@ -1,0 +1,98 @@
+\section{2024-11-25 Verlust behaftet vs frei}
+
+\startitemize[packed]
+\item Welche gibt es?
+\item Wo werden diese angewendet?
+\item Eines vertieft erarbeiten
+\stopitemize
+
+\subsection{Welche Verfahren gibt es?}
+
+
+\subsubsection{Bilder}
+
+\startframedtext[width=\dimexpr\textwidth+\rightmarginwidth+\rightmargindistance\relax,frame=off,offset=none] % This spans textwidth + margin width
+\startplacetable[location={here},title={}]
+\setupTABLE[c][1][background=color,backgroundcolor=gray]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\bTABLE[option=stratch,offset=1mm]
+\startCSV
+[background=DiagonalRule] \DiagonalLabel{Verfahren}{Merkmal}, Verlust, Kompressionsrate, Anwendungsbereich, Dynamikbereich, Transparenz, Lizenz
+png, frei, Besser bei einfachen Grafiken, "Buttons, Icons, Logos", bis zu 256 indizierte Farben, Ja, Frei
+webp, beides, Bei hoher Komprimierung besser Bildqualität als JPEG, Web, 8 Bit Farbtiefe, Ja, BSD
+gif (LZW), frei, abhängig von Farbpalette,"Computerspiele, Datenbanken, Banner, Kleine Animationene, In Chatts", 24-Bit,
+\stopCSV
+\eTABLE
+\stopplacetable
+\stopframedtext
+
+\subsubsection{Videos}
+
+\startplacetable[location={here},title={}]
+\setupTABLE[c][1][background=color,backgroundcolor=gray]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\bTABLE[option=stratch,offset=1mm]
+\startCSV
+[background=DiagonalRule] \DiagonalLabel{Verfahren}{Merkmal}, Verlust, Kompressionsrate, Anwendungsbereich, Dynamikbereich, Lizenz
+mp4, behaftet
+MPEG-2, behaftet, mäßig
+H.264, behaftet
+WMV,
+\stopCSV
+\eTABLE
+\stopplacetable
+
+\subsubsection{Ton}
+
+% \startframedtext[width=\dimexpr\textwidth+\rightmarginwidth+\rightmargindistance\relax,frame=off,offset=none] % This spans textwidth + margin width
+\startplacetable[location={here},title={}]
+\setupTABLE[c][1][background=color,backgroundcolor=gray]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\bTABLE[option=stratch,offset=1mm]
+\startCSV
+[background=DiagonalRule] \DiagonalLabel{Verfahren}{Merkmal}, Verlust, Ort, Übermittlung, Zugänglichkeit, Addressat, Intention
+mp3, behaftet
+flac, frei
+wav, behaftet
+AAC, behaftet
+Apple Lossless, frei
+\stopCSV
+\eTABLE
+\stopplacetable
+% \stopframedtext
+
+\subsubsection{Andere}
+
+\startframedtext[width=\dimexpr\textwidth+\rightmarginwidth+\rightmargindistance\relax,frame=off,offset=none] % This spans textwidth + margin width
+\startplacetable[location={here},title={}]
+\setupTABLE[c][1][background=color,backgroundcolor=gray]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\bTABLE[option=stratch,offset=1mm]
+\startCSV
+[background=DiagonalRule] \DiagonalLabel{Verfahren}{Merkmal}, Verlust, Kompressionsrate, Anwendungsbereich, Geschwindigkeit, Lizens
+zip, frei 
+lz4, frei, , "Kompression: > 500 MB/s pro Kern, Decodieren: mehrer GB/s pro Kern", "Dateisysteme: ZFS und SquashFS, Linux Kernel", BSD 2-Clause und GPL-2.0-or-later
+\stopCSV
+\eTABLE
+\stopplacetable
+\stopframedtext
+
+
+\subsection{LZ4}
+
+\startitemize[packed]
+\item Erscheinungsjahr: 2011
+\item Ziel: Hohe Kompressions- und Dekompressionsgeschwindigkeit
+\stopitemize
+
+\subsubsection{Komprimiertes Datenformat}
+
+Jeder komprimierter Block ist in Sequenzen aufgeteielt. Jede Sequenzen startet
+mit einem {\bf Token}. So ein token ist ein Ein-Byte-Wert, welcher in zwei
+4-Bits Felder aufgeteilt ist. Die ersten vier Bits geben die Länge der Literale
+
+
+
+
+
+

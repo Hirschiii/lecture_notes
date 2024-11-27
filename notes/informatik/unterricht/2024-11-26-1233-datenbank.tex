@@ -1,0 +1,79 @@
+\section{2024-11-26 Datenbank}
+
+\startitemize[packed]
+\item Was sind datenbanken im Informatischen sinne
+\item Wo werden sie eingesetzt?
+\item Was gibte es für Programme die einen unterstützen
+\item Neue Datenbank für die Schule Konstruieren
+\startitemize[packed]
+\item Welche Informationen müssen drinnen sein
+\item Wie gestaltet man so eien Datenbank
+\stopitemize
+\stopitemize
+
+\subsection{Was ist eine Datenbank}
+
+\startdefinition[title={Datenbank\sidenote{\cite[entry][database:oracle:what-is-database]}}]
+Eine Datenbank ist eine organisierte Sammlung von strukturierten Informationen oder Daten, die typischerweise elektronisch in einem Computersystem gespeichert sind. Eine Datenbank wird normalerweise von einem Datenbankverwaltungssystem (DBMS) gesteuert. Zusammen werden die Daten und das DBMS sowie die damit verbundenen Anwendungen als Datenbanksystem bezeichnet, das oft auf die reine Datenbank beschränkt ist.
+
+\blank
+
+Daten innerhalb der gängigsten Arten von heutigen Datenbanken werden typischerweise in Zeilen und Spalten in einer Reihe von Tabellen modelliert, um die Verarbeitung und Datenabfrage effizient zu gestalten. Die Daten können dann einfach abgerufen, verwaltet, modifiziert, aktualisiert, kontrolliert und organisiert werden. Die meisten Datenbanken verwenden die Structured Query Language (SQL) zum Schreiben und Abfragen von Daten.
+\stopdefinition
+
+\subsubsection{Anforderungen an eine Datenbank}
+
+\startplacetable[location={split},title={Thenem}]
+% <table class="threecol">
+
+\startbuffer[example-xml]
+<table class="threecol">
+<tr> <td>Funktion/Anforderung</td> <td>Erklärung</td> </tr> <tr> <td>Speicherung von Daten</td> <td>Datenbanken speichern elektronische Texte, Dokumente, Passwörter und andere Informationen, die durch Abfragen aufgerufen werden können.</td> </tr> <tr> <td>Überarbeitung von Daten &nbsp;</td> <td>Die meisten Datenbanken erlauben es – ­je nach Zugriffsrechten –, gespeicherte Informationen direkt zu bearbeiten.</td> </tr> <tr> <td>Löschung von Daten &nbsp;</td> <td>In Datenbanken enthaltene Datensätze lassen sich lückenlos löschen. In einigen Fällen können gelöschte Daten wiederhergestellt werden, in anderen sind die Informationen dann für immer verloren. </td> </tr> <tr> <td>Verwaltung der Metadaten &nbsp;</td> <td>Informationen werden in Datenbanken meist mit Metadaten bzw. Metatags gespeichert. Diese schaffen Ordnung innerhalb der Datenbank und machen z.&nbsp;B. eine Suchfunktion möglich. Auch werden oft Zugriffsrechte über Metadaten geregelt. Die Datenverwaltung folgt vier fundamentalen Operationen: Create, Read/Retrieve, Update und Delete. Dieses als <a href="https://www.ionos.de/digitalguide/websites/web-entwicklung/crud-die-wichtigsten-datenbankoperationen/" target="_top" class="internal-link link-internal" data-linkid="guides.content.link.int.crud-prinzip" title="CRUD – die wichtigsten Datenbankoperationen" data-guides-target-uid="1184">CRUD-Prinzip</a>&nbsp;bekannte Konzept gilt als Basis für die Datenverwaltung. </td> </tr> <tr> <td>Datensicherheit &nbsp;</td> <td>Datenbanken müssen sicher sein, damit Unbefugte keinen Zugriff auf gespeicherte Daten bekommen. Wesentlich für die Datensicherheit ist neben einem leistungsstarken Verschlüsselungsverfahren eine sorgfältige Verwaltung, besonders durch den Hauptadministrator. Datensicherheit meint meistens, die technischen Vorkehrungen zu treffen, um eine Manipulation oder den Verlust der Daten zu verhindern. Sie ist somit ein Kernkonzept des&nbsp;<a href="https://blog.ec4u.com/sicherheit-datenbanken-dsgvo-datenschutz/" target="_blank" class="external-link-new-window link-external" title="Datenbanken und die DSGVO" rel="noreferrer noopener noreferrer" data-linkid="guides.content.link.ext.datenschutzes">Datenschutzes</a>.</td> </tr> <tr> <td>Datenintegrität &nbsp;</td> <td>Datenintegrität bedeutet, dass Daten innerhalb einer Datenbank bestimmte Regeln einhalten, damit die Korrektheit der Daten gesichert und die Geschäftslogik der Datenbank definiert ist. Nur so ist sichergestellt, dass die Datenbank als Ganzes konstant und konsistent funktioniert. In relationalen Datenbankmodellen gibt es vier dieser Regeln: Bereichsintegrität, Entitätsintegrität, referenzielle Integrität und logische Konsistenz. </td> </tr> <tr> <td>Mehrbenutzerbetrieb &nbsp;</td> <td>Datenbankanwendungen erlauben den Zugriff auf die Datenbank von verschiedenen Geräten aus. Im Mehrbenutzerbetrieb sind die Verteilung von Rechten und die Datensicherheit elementar. Eine Herausforderung für Datenbanken bei Mehrbenutzerbetrieb ist außerdem, wie man bei gleichzeitigem Lese- und Schreibzugriff vieler Nutzer Daten konsistent hält, ohne die Performance zu sehr zu beeinträchtigen.</td> </tr> <tr> <td>Abfragenoptimierung &nbsp;</td> <td>Auf der technischen Seite muss eine Datenbank jede Abfrage möglichst optimal verarbeiten können, um eine gute Performance zu gewährleisten. Geht eine Datenbank „zu viele Wege“ bei einer Datenabfrage, leidet darunter die Gesamtleistung des Datenbanksystems.</td> </tr> <tr> <td>Trigger und Stored Procedures &nbsp;</td> <td>Diese Verfahren sind innerhalb eines Datenbank-Management-Systems gespeicherte Mini-Anwendungen, die bei bestimmten Änderungsaktionen abgerufen („getriggert“) werden. Damit wird u.&nbsp;a. eine Verbesserung der Datenintegrität erzielt. Bei relationalen Datenbanken sind Datenbank-Trigger und Stored Procedures typische Prozesse – Letztere können auch zur Systemsicherheit beitragen, wenn Nutzer Aktionen nur noch mit vorgefertigten Prozeduren ausführen dürfen.</td> </tr> <tr> <td>Systemtransparenz</td> <td>Systemtransparenz ist vor allem bei verteilten Systemen relevant: Indem die Datenverteilung und -implementierung dem Nutzer vorenthalten wird, gleicht die Nutzung der verteilten Datenbank dann der einer zentralisierten Datenbank. Verschiedene Stufen der Systemtransparenz legen die Hintergrundprozesse offen oder verschleiern sie. Die wesentliche Funktion ist jedoch, die Nutzung möglichst zu vereinfachen. </td> </tr> 
+</table>
+\stopbuffer
+% </table>
+
+% XML-Daten verarbeiten und anzeigen
+\xmlprocessbuffer{main}{example-xml}{}
+\stopplacetable
+
+
+
+\subsubsection{SQL}
+
+SQL ist eine Programmiersprache um Datenbanken zu Manipulieren und Abfragen zu
+tätigen, sowie die Zugriffsrechte zu definieren.
+
+Schlüssel Primärschlüssel zugeordneter Datensatz
+
+
+
+\subsection{Programme}
+
+\startitemize[packed]
+\item MongoDB
+\startitemize[packed]
+\item 
+\stopitemize
+\stopitemize
+
+\subsection{Schul datenbanken}
+
+\startitemize[packed]
+\item Schüler
+\startitemize[packed]
+\item ID
+\item Name
+\item Geburtstag
+\item Wohnort
+\item Rechnungsaddresse
+\item Krankenakte
+\item Vetragspartner
+\startitemize[packed]
+\item Name 
+
+\stopitemize
+\item Notfallkontakt
+\stopitemize
+\item Lehere
+\stopitemize
