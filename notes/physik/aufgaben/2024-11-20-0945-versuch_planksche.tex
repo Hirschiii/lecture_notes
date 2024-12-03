@@ -51,7 +51,7 @@ enddef;
 
 def draw_va(expr x, y, r) =
 	path c;
-	c = fullcircle scaled (1 * u) shifted (x * u, y * u);
+	c = fullcircle scaled (1.5 * u) shifted (x * u, y * u);
 	fill c withcolor white;
 	draw c;
 	label("V/A", (x * u, y * u));
@@ -91,7 +91,7 @@ enddef;
 
 
 path e;
-e = (-0.5u, 3u)--(-2u, 3u)--(-2u, 0u)--(2u, -0.5u)--(2u, 3u)--(0.5u, 3u);
+e = (-0.5u, 3u)--(-2u, 3u)--(-2u, 0u)--(2u, 0)--(2u, 3u)--(0.5u, 3u);
 draw e;
 
 draw (-2u, -1u)--(2u, -1u);
@@ -129,10 +129,11 @@ Beim vergrößern der Spannung konnten volgende Werte gemessen werden:
 damit ergeben sich folgende {\em Grenzspannungen:}
 
 \startplacetable[location={here},title={Grenzspannungen}]
-\bTABLE
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\bTABLE[frame=off,offset=1mm]
 \startCSV
 LED, Rot, Grün, Blau, UV
-Grenzspannung, "$1,13$", "$1,4$", "$1,7$", "$1,72$"
+Grenzspannung, "$1.13$", "$1.4$", "$1.7$", "$1.72$"
 \stopCSV
 \eTABLE
 \stopplacetable

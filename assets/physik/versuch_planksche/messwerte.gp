@@ -2,7 +2,7 @@
 # Speichern Sie dieses Skript z. B. unter "plot_leds.gp" und führen Sie es mit `gnuplot plot_leds.gp` aus.
 
 # set terminal png
-set terminal pngcairo enhanced font "DejaVu Sans,18" size 1000,800
+set terminal pngcairo enhanced font "DejaVu Sans,18" size 1200,700
 set output 'led_characteristics.png'
 
 set datafile separator ","
