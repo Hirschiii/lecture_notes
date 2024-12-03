@@ -118,6 +118,26 @@ draw_va(2, -0.5, 0);
 \typesetbuffer[mp:versuchsprotokoll:planksche:schaltskizze]
 }
 
+\section{Beobachtung}
+
+Beim vergrößern der Spannung konnten volgende Werte gemessen werden:
+
+\placefigure[force][reference]{Messung}{
+\externalfigure[assets/physik/versuch_planksche/led_characteristics.png]
+}
+
+damit ergeben sich folgende {\em Grenzspannungen:}
+
+\startplacetable[location={here},title={Grenzspannungen}]
+\bTABLE
+\startCSV
+LED, Rot, Grün, Blau, UV
+Grenzspannung, "$1,13$", "$1,4$", "$1,7$", "$1,72$"
+\stopCSV
+\eTABLE
+\stopplacetable
+
+
 \blank
 \hrule
 \blank
@@ -165,39 +185,6 @@ Beispielrechnung rote LED:
 \stopformula
 
 Das Ergebnis entspricht im Wahmen der Messgenauigkeit dem Literaturverzeichnis
-
-\usemodule[gnuplot]
-
-\setupGNUPLOT[terminal=tikz,option=color]
-
-% write a script for gnuplot
-% \startGNUPLOTscript[sin]
-% set title "LED Characteristics"
-% set xlabel "U (V)" font "Arial,12"
-% set ylabel "I (A)" font "Arial,12"
-%
-% set grid
-% set key outside
-%
-% # Achsen- und Diagrammoptionen
-% set xrange [0:*]
-% set yrange [0:*]
-%
-% # Daten aus den CSV-Dateien plotten
-% plot \
-% 	'assets/physik/versuch_planksche/messwerte-led-blau.csv' using 1:2 with linespoints title "Blue LED" lw 2 lc rgb "blue", \
-% 	'assets/physik/versuch_planksche/messwerte-led-gruen.csv' using 1:2 with linespoints title "Green LED" lw 2 lc rgb "green", \
-% 	'assets/physik/versuch_planksche/messwerte-led-rot.csv' using 1:2 with linespoints title "Red LED" lw 2 lc rgb "red", \
-% 	'assets/physik/versuch_planksche/messwerte-led-uv.csv' using 1:2 with linespoints title "UV LED" lw 2 lc rgb "purple"
-%
-% \stopGNUPLOTscript
-
-\startGNUPLOTscript[sin]
-   plot sin(x)
-\stopGNUPLOTscript
-
-
-\useGNUPLOTgraphic[sin]
 
 
 \startmode[single]
