@@ -8,10 +8,10 @@
 % \definebtxrendering[bibrendering][aps][dataset=main]
 
 \setvariables[meta]
-  [title={Elektronenbeugunsröhre},
-   subtitle={Versuchsprotokoll},
-   date={2024-10-18},
-   author={Niklas von Hirschfeld},
+  [title={Planck Konstante bestimmen},
+   subtitle={},
+   date={2024-12-03},
+   author={Magnus Rappuhn, Finn Garbers, Niklas von Hirschfeld},
   ]
 
 \setupinteraction[title={\getvariable{meta}{title}}]
@@ -29,9 +29,26 @@
 
 \startchapter[title=Versuchsprotokoll]
 
-\stopmode
+In der folgenden Messung  wird die Grenzspannung verschieden farbiger LEDs gemessen. Die Messung soll am Ende die Berechnung der Plankschen Konstante ermöglichen.  
 
-Schaltbilder
+Für den Aufbau werden die LEDs an ein Cassy Messgerät geschlossen, welches
+wiederum mit dem Netzteil verbunden ist, wie auch auf der Schaltskizze \in{in Abbildung}[mp:versuchsprotokoll:planksche:schaltskizze] zu sehen ist.  Um den Messwert zu erhalten wird die
+Spannung langsam erhöht, um die Grenzspannung zu erhalten. Außerdem werden die
+Messwerte an die Cassyapp auf dem Laptop übertragen um eine Visuelle
+Darstellung in eine Graphen zu erhalten 
+
+Materialien: 
+
+\startitemize[packed]
+\item Cassy Messgerät 
+\item Kabel  
+\item LEDs in verschieden Farben  
+\item Netzteil  
+\item Laptop
+\stopitemize
+
+
+\stopmode
 
 \startbuffer[mp:versuchsprotokoll:planksche:schaltskizze]
 \startMPpage
@@ -51,7 +68,7 @@ enddef;
 
 def draw_va(expr x, y, r) =
 	path c;
-	c = fullcircle scaled (1 * u) shifted (x * u, y * u);
+	c = fullcircle scaled (1.5 * u) shifted (x * u, y * u);
 	fill c withcolor white;
 	draw c;
 	label("V/A", (x * u, y * u));
@@ -91,7 +108,7 @@ enddef;
 
 
 path e;
-e = (-0.5u, 3u)--(-2u, 3u)--(-2u, 0u)--(2u, 0u)--(2u, 3u)--(0.5u, 3u);
+e = (-0.5u, 3u)--(-2u, 3u)--(-2u, 0u)--(2u, 0)--(2u, 3u)--(0.5u, 3u);
 draw e;
 
 draw (-2u, -1u)--(2u, -1u);
@@ -118,53 +135,83 @@ draw_va(2, -0.5, 0);
 \typesetbuffer[mp:versuchsprotokoll:planksche:schaltskizze]
 }
 
-\blank
-\hrule
-\blank
+\startsectionlevel[title={Beobachtung}]
 
-\section{Auswertung besprechung}
+Beim vergrößern der Spannung konnten volgende Werte gemessen werden:
 
-Wir haben frequenz energie diag
+\placefigure[force][reference]{Messung}{
+\externalfigure[assets/physik/versuch_planksche/led_characteristics.png]
+}
 
-Beispielrechnung rote LED:
+damit ergeben sich folgende {\em Grenzspannungen:}
+
+\startplacetable[location={here},title={Grenzspannungen}]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\bTABLE[frame=off,offset=1mm]
+\startCSV
+LED, Rot, Grün, Blau, UV
+Grenzspannung, "$1.13$", "$1.4$", "$1.7$", "$1.72$"
+\stopCSV
+\eTABLE
+\stopplacetable
+
+
+\stopsectionlevel
+
+\startsectionlevel[title={Auswertung}]
+
+Um die Planck Konstante zu berechnen, muss zunächst die Energie ($E$) und die Frequenz ($f$) ermittelt werden.
 
 \startformula
-\lambda_{\text{mx}}=\unit{6.32e-7 meter}
+E=e\cdot U_G
 \stopformula
 
 \startformula
-\startalign[n=3]
-\NC U_G=\NC\unit{1.2 Volt}\NC\NR
-\NC \NC\unit{1.19 Volt}\NC\NR
-\NC \NC\unit{1.27 Volt}\NC\NR
-\stopalign
+f  =\frac{c}{\lambda_{\text{max}}} 
 \stopformula
+
+Gegeben sind folgende Werte:
+
+\startplacetable[location={here},title={Gegebenen Werte für die LED's}]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\bTABLE[offset=1mm]
+
+\startCSV
+,Rot,Grün,Blau,UV
+$U_G$, $1.13$, $1.4$, $1.7$, $1.7$
+$\lambda _{max}$, $6.32 \cdot 10^8m$,$5.14 \cdot 10^8m$,$4.63 \cdot 10^8m$,$3.99 \cdot 10^8m$
+\stopCSV
+
+\eTABLE
+\stopplacetable
+
+Mit diesen wird für jede LED $E$ und $f$ bestimmt und daraus mit folgender
+Formel die Planck Konstante berechnet:
 
 \startformula
-\startalign[n=4]
-\NC E\NC=e\cdot U_G \NC \quad ; \quad e = \unit{1.602e-19 C} \NC \NR
-\NC \NC\approx \unit{1.922e-19 Joul} \NC \NC \NR
-\stopalign
+h = \frac{E}{f}
 \stopformula
 
-\startformula
-\[e\] \cdot \[U\] = C \cdot V = C \cdot \frac{J}{C}=J
-\stopformula
+Damit ergeben sich folgende Werte für $f$, $E$ und $h$:
 
-\startformula
-\startalign[n=4]
-\NC f \NC =\frac{c}{\lambda_{\text{max}}} \NC \quad \quad c = \unit{2.998e8 meter per second} \NC \NR
-\NC \NC \approx \unit{4.744e14 meter per second} \NC \NC \NR
-\stopalign
-\stopformula
+\startplacetable[location={here},title={Ergebnis}]
+\setupTABLE[c][1][background=color,backgroundcolor=gray]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\bTABLE[offset=1mm]
 
-\subsection{Direktes Rechnen}
+\startCSV
+LED, Rot, Grün, Blau, UV
+$E$ in $J$, $1.81 \cdot 10^{-19}$, $2.24J \cdot 10^{-19}$, $2.72J \cdot 10^{-19}$, $2.76J \cdot 10^{-19}$
+$f$, $4.74 \cdot 10^{14}$, $5.83 \cdot 10^{14}$, $6.47 \cdot 10^{14}$, $7.51 \cdot 10^{14}$
+$h$, $3.82 \cdot 10^{- 34}$, $4.64 \cdot 10^{- 34}$, $2.63 \cdot 10^{- 34}$, $2.29 \cdot 10^{- 34}$
+\stopCSV
+\eTABLE
+\stopplacetable
 
-\startformula
-\frac{E}{f}\approx \unit{4.051e-34 Joule times second}
-\stopformula
+Die Planck Konstante hat einen ungefähren Wert von $h=6.63\cdot 10^{-34}$.
+Unsere Werte liegen alle ungefähr in diesem Bereich.
 
-Das Ergebnis entspricht im Wahmen der Messgenauigkeit dem Literaturverzeichnis
+\stopsectionlevel
 
 \startmode[single]
 
@@ -174,7 +221,7 @@ Das Ergebnis entspricht im Wahmen der Messgenauigkeit dem Literaturverzeichnis
 
 \startbackmatter
 % \component c_definitions
-\component c_bibliography
+% \component c_bibliography
 \stopbackmatter
 \stoptext
 
