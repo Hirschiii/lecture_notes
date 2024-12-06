@@ -1,0 +1,72 @@
+\section{2024-12-03}
+
+\startframedtask
+Using a Venn diagram with three circles, compare the reactions of the charcters
+who have woken up: Titania, Bottom and the lovers.
+\stopframedtask
+
+
+\startbuffer[mp:fig:hammingocde:bits:darstellung]
+\startMPpage
+
+u := 1cm;
+% Farben definieren
+color blue; blue := (0.2, 0.3, 0.7);
+color green; green := (0.3, 0.6, 0.3);
+color orange; orange := (0.8, 0.5, 0.2);
+color yellow; yellow := (1, 0.8, 0.3);
+color gray; gray := (0.6, 0.6, 0.6);
+
+
+% Kreise definieren
+path cone, ctwo, cthree;
+cone := fullcircle scaled (3 * u) shifted (u * dir 0);
+ctwo := fullcircle scaled (3 * u) shifted (u * dir 120);
+cthree := fullcircle scaled (3 * u) shifted (u * dir 240);
+
+% Kreise mit Transparenz und Farben füllen
+fill cone withcolor blue withtransparency (1, 0.6);
+fill ctwo withcolor orange withtransparency (1, 0.6);
+fill cthree withcolor green withtransparency (1, 0.6);
+
+draw cone withcolor blue;
+draw ctwo withcolor orange;
+draw cthree withcolor green;
+
+label("Bottom", (u * 1.5 * dir 0));
+label("Titania", (u * 1.5 * dir 120));
+label("The Lovers", (u * 1.5 * dir 240));
+
+draw (u * dir 60)--(2u, 2u)--(4u, 2u);
+draw (u * dir 180)--(-2u, 1u)--(-4u, 1u);
+draw (u * dir 300)--(2u, -2u)--(4u, -2u);
+
+label("$d_4$", origin);
+
+
+
+\stopMPpage
+\stopbuffer
+
+\placefigure[here][mp:fig:hammingocde:bits:darstellung]{Visualisierung der Aufteilung unter den Bits}{
+\typesetbuffer[mp:fig:hammingocde:bits:darstellung]
+}
+
+\startitemize[packed]
+\item Titania
+\startitemize[packed]
+\item feels disoriented
+\item embarrassed
+\item confusion and shame
+\stopitemize
+\item Bottom
+\startitemize[packed]
+\item confused
+\item Awakens confused and thinks he had a \quotation{vision}
+\item largely unbothered by his surreal experience
+\stopitemize
+\item Lovers
+\startitemize[packed]
+\item 
+\stopitemize
+\stopitemize
