@@ -1,0 +1,45 @@
+\section{2025-01-09 - SQL}
+
+\subsection{MySQL}
+
+
+\subsection{Befehle}
+
+\startitemize[packed]
+\item Befehle werden immer GROß geschrieben
+\stopitemize
+
+\subsubsection{Aufbau}
+
+Elementar ist "SELECT" und 
+
+\starttyping
+SELECT * FROM teilnehmenden;
+\stoptyping
+
+Wichtig dabei ist das ; 
+
+\startplacetable[location={here},title={SQL Basic Befehle}]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\setupTABLE[c][1][background=color,backgroundcolor=lightgray]
+\bTABLE[offset=1mm]
+\startCSV
+"[background=color,backgroundcolor=gray] Befehl", Funktion
+"[background=color,backgroundcolor=gray,nc=2] Mit Datenbanken arbeiten"
+CREATE, Erstellt eine Datenbank oder Tabelle
+DROP, "Löscht eine Datenbank, Tabelle oder Attribut (Spalte)"
+"[background=color,backgroundcolor=gray,nc=2] Mit Tabellen arbeiten"
+SELECT, Bestimmt die zu verarbeitenden Attribute
+FROM, Wählt die Tabelle aus
+WHERE, Filtert aus den in SELECT bestimmten Attribute nach Inhalt
+ADD, Fügt ein Attribute (Spalte) hinzu
+"[background=color,backgroundcolor=gray,nc=2] Logik"
+AND, "Nur Zeilen verwenden, die beide Bedingungen erfüllen"
+OR, "Nur Zeilen verwenden, die eine der beiden Bedingungen erfüllen"
+ANY, "Zeilen, in denen mindestens eine Bedingung zutrifft"
+NOT, "Zeilten in denen die Bedingung nicht zutrifft"
+(), "Um Logik zu verknüpfen"
+\stopCSV
+\eTABLE
+\stopplacetable
+
