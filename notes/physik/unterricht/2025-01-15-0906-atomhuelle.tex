@@ -1,0 +1,180 @@
+\section{2025-01-15}
+
+\startbuffer[physik:atomhuellen:energienevau]
+\startMPpage
+% Einheit definieren
+u := 0.5cm;
+
+color purple;
+purple := (1, 0, 1); % RGB-Werte für Lila
+
+% Zeichne die Achse und Energieniveaus
+drawarrow (0,0)--(0,10u) withpen pencircle scaled 0.7pt;
+label.top(btex $E$ etex, (0,10.5u));
+
+% Energieniveaus
+draw (0,3u)--(4.5u,3u) withpen pencircle scaled 0.5pt;
+draw (0,6u)--(4.5u,6u) withpen pencircle scaled 0.5pt;
+draw (0,9u)--(4.5u,9u) withpen pencircle scaled 0.5pt;
+
+label.lft(btex $E_1$ etex, (6u,3u));
+label.lft(btex $E_2$ etex, (6u,6u));
+label.lft(btex $E_3$ etex, (6u,9u));
+
+% Absorptionspfeile
+drawarrow (2u,3u)--(2u,9u) withcolor blue;
+label.lft(btex $\lambda_1$ etex, (2u,4.5u));
+
+drawarrow (3u,3u)--(3u,6u) withcolor purple;
+label.rt(btex $\lambda_2$ etex, (3u,4.5u));
+
+drawarrow (4u,6u)--(4u,9u) withcolor green;
+label.rt(btex $\lambda_3$ etex, (4u,7.5u));
+
+% Zeichne die Achse und Energieniveaus
+drawarrow (10u,0)--(10u,10u) withpen pencircle scaled 0.7pt;
+label.top(btex $E$ etex, (10u,10.5u));
+
+% Energieniveaus
+draw (10u,3u)--(14.5u,3u) withpen pencircle scaled 0.5pt;
+draw (10u,6u)--(14.5u,6u) withpen pencircle scaled 0.5pt;
+draw (10u,9u)--(14.5u,9u) withpen pencircle scaled 0.5pt;
+
+label.lft(btex $E_1$ etex, (9u,3u));
+label.lft(btex $E_2$ etex, (9u,6u));
+label.lft(btex $E_3$ etex, (9u,9u));
+
+% Emissionsteil
+drawarrow (12u,9u)--(12u,3u) withcolor blue;
+label.lft(btex $\lambda_1'$ etex, (12u,4.5u));
+
+drawarrow (13u,9u)--(13u,6u) withcolor purple;
+label.rt(btex $\lambda_2'$ etex, (13u,7.5u));
+
+drawarrow (14u,6u)--(14u,3u) withcolor green;
+label.rt(btex $\lambda_3'$ etex, (14u,4.5u));
+
+% Beschriftung Absorption und Emission
+label.top(btex Absorption etex, (2u,12u));
+label.top(btex Emission etex, (12u,12u));
+
+% Formeln Absorption
+label.lft(btex $\Delta E = E_3 - E_1$ etex, (0,1.5u));
+label.lft(btex $E_{\text{Photon}} = h \cdot f = \frac{h \cdot c}{\lambda_1}$ etex, (0,0.5u));
+
+% Formeln Emission
+label.rt(btex $\Delta E = E_3 - E_1$ etex, (10u,1.5u));
+label.rt(btex $E_{\text{Photon}} = h \cdot f = \frac{h \cdot c}{\lambda_1'}$ etex, (10u,0.5u));
+
+\stopMPpage
+\stopbuffer
+
+\placefigure[force][physik:atomhuellen:energienevau]{Name}{
+\typesetbuffer[physik:atomhuellen:energienevau]
+}
+
+\startframedtask
+vlg. Buch S. 228
+\stopframedtask
+
+\section{2025-01-15 Fluoreszens und Phosphoreszens}
+
+\startframedtipp
+Bei Fluoreszens gibt es das angeregte Teilchen eine geringere Energie ab, als möglich wäre, bei Fostphoreszens findet die Emission verzögert in kleineren Teilschritten statt.
+\stopframedtipp
+
+
+\startbuffer[physik:atomhuellen:fluoreszens]
+\startMPpage
+% Einheit definieren
+u := 0.5cm;
+
+color purple;
+purple := (1, 0, 1); % RGB-Werte für Lila
+
+% Zeichne die Achse und Energieniveaus
+drawarrow (0,0)--(0,10u) withpen pencircle scaled 0.7pt;
+label.top(btex $E$ etex, (0,10.5u));
+
+% Energieniveaus
+draw (0,3u)--(4.5u,3u) withpen pencircle scaled 0.5pt;
+draw (0,6u)--(4.5u,6u) withpen pencircle scaled 0.5pt;
+draw (0,7.5u)--(4.5u,7.5u) withpen pencircle scaled 0.5pt;
+draw (0,8.25u)--(4.5u,8.25u) withpen pencircle scaled 0.5pt;
+draw (0,9u)--(4.5u,9u) withpen pencircle scaled 0.5pt;
+
+% label.lft(btex $E_1$ etex, (6u,3u));
+% label.lft(btex $E_2$ etex, (6u,6u));
+% label.lft(btex $E_3$ etex, (6u,9u));
+
+% Absorptionspfeile
+drawarrow (2u,3u)--(2u,9u) withcolor blue;
+label.lft(btex $E_{ab}$ etex, (2u,4.5u));
+
+drawarrow (3u,9u)--(3u,6u) withcolor purple;
+label.rt(btex $E_{emi}$ etex, (3u,7.5u));
+
+% drawarrow (4u,6u)--(4u,9u) withcolor green;
+% label.rt(btex $\lambda_3$ etex, (4u,7.5u));
+
+% Zeichne die Achse und Energieniveaus
+drawarrow (10u,0)--(10u,10u) withpen pencircle scaled 0.7pt;
+label.top(btex $E$ etex, (10u,10.5u));
+
+% Energieniveaus
+draw (10u,3u)--(14.5u,3u) withpen pencircle scaled 0.5pt;
+draw (10u,6u)--(14.5u,6u) withpen pencircle scaled 0.5pt;
+draw (10u,7.5u)--(14.5u,7.5u) withpen pencircle scaled 0.5pt;
+draw (10u,8.25u)--(14.5u,8.25u) withpen pencircle scaled 0.5pt;
+draw (10u,9u)--(14.5u,9u) withpen pencircle scaled 0.5pt;
+
+% Emissionsteil
+drawarrow (12u,3u)--(12u,8.25u) withcolor blue;
+label.lft(btex $E_{ab}$ etex, (12u,4.5u));
+
+drawarrow (13u,8.25u)--(13u,7.5u) withcolor purple;
+
+drawarrow (14u,7.5u)--(14u,6u) withcolor purple;
+
+drawarrow (15u,6u)--(15u,3u) withcolor purple;
+
+label.rt(btex $E_{emi 1}$ etex, (16u,7.825u));
+label.rt(btex $E_{emi 2}$ etex, (16u,6.75u));
+label.rt(btex $E_{emi 3}$ etex, (16u,4.5u));
+
+
+% Beschriftung Absorption und Emission
+label.top(btex Absorption etex, (2u,12u));
+label.top(btex Emission etex, (12u,12u));
+
+% Formeln Absorption
+label.lft(btex Fluoreszens etex, (0,1.5u));
+label.lft(btex $\lambda_{\text{rein}} < \lambda_{\text{raus}}$ etex, (0,0.5u));
+
+% Formeln Emission
+label.rt(btex Phosphoreszens etex, (10u,1.5u));
+label.rt(btex $\lambda_{\text{rein}} < \lambda_{\text{raus }3} < \lambda_2 < \lambda_1$ etex, (10u,0.5u));
+
+\stopMPpage
+\stopbuffer
+
+\placefigure[force][physik:atomhuellen:fluoreszens]{Name}{
+\typesetbuffer[physik:atomhuellen:fluoreszens]
+}
+
+\section{2025-01-17 Leuchtsoffröhren}
+
+
+Inhalt z.B.:
+\startitemize[packed]
+\item Neonröhren
+\item Quecksilber
+\item Argon
+\item Xenon
+\stopitemize
+
+Leuchtstoff wird mit bewegten Elektronen angeregt (vlg. Spektrallampe)
+
+Menschen sind kontinuirliche Spektrum der Sonne gewöhnt, mit Linien ist das Sehen von Farben nicht sinnvoll möglich.
+
+Um einem kontinuierlichen Spektrum nahezukommen, werden Leuchtstofflampen mit unterschiedlichen fluoreszierenden Stoffen beschichtet. 
