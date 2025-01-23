@@ -1,0 +1,100 @@
+\chapter{Analytische Geometrische}
+
+\section{Resourecen}
+
+\subsection{Kerncurriculum}
+
+https://cuvo.nibis.de/cuvo.php?p=download&upload=208
+
+\startitemize[packed]
+\item Raumanschauung und Koordinatisierung
+\startitemize[packed]
+  \item Punkte und Vektoren in Ebene und Raum durch Tupel beschreiben
+  \item die bildliche Darstellung und Koordinatisierung zur Beschreibung von Punkten, Strecken, ebenen Flächen und einfachen Körpern nutzen
+  \item Addition, Subtraktion und skalare Multiplikation von Vektoren anwenden und geometrisch veranschaulichen
+  \item Kollinearität zweier Vektoren überprüfen
+\stopitemize
+\item Darstellungsformen
+\startitemize[packed]
+  \item Geraden- und Ebenengleichungen in Parameterform verwenden
+  \item Ebenengleichungen in Normalen- und Koordinatenform verwenden
+  \item zwischen den Darstellungsformen wechseln
+\stopitemize
+\item Maße und Lagen
+\startitemize[packed]
+  \item Abstände zwischen Punkten, Geraden und Ebenen bestimmen
+  \item Skalarprodukt geometrisch als Ergebnis einer Projektion deuten und verwenden
+  \item Orthogonalität zweier Vektoren überprüfen
+  \item Winkelgrößen bestimmen
+  \item Lagebeziehungen von Geraden, Geraden und Ebenen sowie von Ebenen untersuchen und Schnittprobleme lösen
+  \item den Gauß-Algorithmus zur Lösung linearer Gleichungssysteme erläutern und in geeigneten Fällen anwenden
+\stopitemize
+\stopitemize
+
+\section{Punkte und Vektoren}
+
+\startbuffer[analytischegeometrie:punkte_vektoren:darstellung_vektor_punkt]
+\startMPpage
+	u := 1cm;
+	drawarrow (0, -0.5u)--(0, 4u);
+	drawarrow (-0.5u, 0)--(4u, 0);
+
+	label.lft(btex $x_2$ etex, (0, 4u));
+	label.bot(btex $x_1$ etex, (4u, 0));
+
+	drawarrow (0, 0)--(1u, 3u);
+	label.rt(btex $\vec{a}=\pmatrix{1;3}$ etex, (1u, 3u));
+
+	drawdot (3u, 1u) withpen pencircle scaled 3pt;
+	label.bot(btex $P(3|1)$ etex, (3u, 1u));
+\stopMPpage
+\stopbuffer
+
+\placefigure[left][analytischegeometrie:punkte_vektoren:darstellung_vektor_punkt]{Darstellung Vektor und Punkt}{
+\typesetbuffer[analytischegeometrie:punkte_vektoren:darstellung_vektor_punkt]
+}
+
+Ein Punkt beschreibt einen Ort in einem Raum. Dafür beeinhaltet er Koordinaten für alle Achsen:
+
+\startformula
+P(x_1|x_2|x_3)
+\stopformula
+
+Ein Vektor hingegen {\bf zeigt} in eine bestimmte Richtung und hat dabei ein feste Länge. Wie ein Punkt hat eine Vektor angaben
+
+\startformula
+\vec{a}=\pmatrix{x_1;x_2}
+\stopformula
+
+\startbuffer[analytischegeometrie:punkte_vektoren:satzdespythagora]
+\startMPpage
+
+u := 1cm;
+pair A, B, C;
+A:=(0, 0);
+B:=(0, 2u);
+C:=(2u, 0);
+
+draw A--B--C--cycle;
+\stopMPpage
+\stopbuffer
+
+\margintext{
+\placefigure[here][analytischegeometrie:punkte_vektoren:satzdespythagora]{Satz des Pythagoras}{
+\typesetbuffer[analytischegeometrie:punkte_vektoren:satzdespythagora]
+}}
+
+Die Länge eines Vektors berechnet man, in dem man den Satz des
+Pythagoras\sidenote{HI} mehrmals anwendet. So gesehen wendet
+man ihn erst auf den $x_1-x_2$-Abschnitt an und danach auf den
+$x_2-x_3$-Abschnitt.
+
+\startplaceformula[analytischegeometrie:punkte_vektoren:laenge_vektor]
+\startformula
+|\vec{a}|=\sqrt{x_1^2+x_2^2+x_3^2}
+\stopformula
+\stopplaceformula
+
+Das gleiche gilt auch für den Abstand zwischen zwei Punkten. Dafür muss man allerding erst den Vektor zwischen den beiden Punkten ermitteln.
+
+

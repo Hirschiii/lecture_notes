@@ -1,5 +1,11 @@
 \section{2025-01-21}
 
+\startframedtipp
+Energien können nicht negativ sein.
+
+Energie niveaus sind eigentlich keine Energien, sondern Potenziale. Um diese heraus zu bekommen benötigt es die positive Energie
+\stopframedtipp
+
 $$
 f = f_{Ry} \cdot (\frac{1}{m^2} - \frac{1}{n^2})
 $$
@@ -14,3 +20,76 @@ $3$, - , - , $\unit{1.5987e14}$, $\unit{2.3387e14}$
 \stopCSV
 \eTABLE
 \stopplacetable
+
+\startplaceformula[physik:unterricht:atomhuellen:energiedifferenz]
+\startformula
+\startalign
+\NC \Delta E = h \cdot f \quad \NC \text{mit} \quad f = f_R \cdot (\frac{1}{m^2} - \frac{1}{n^2}) \NR
+\NC \NC m,n \in \naturalnumbers _+; m \lt n \NR
+\stopalign
+\stopformula
+\stopplaceformula
+
+Wellenlänge $\lambda$ Photonen
+
+$$
+E = h \cdot \frac{c}{\lambda} \Leftrightarrow \lambda = h \cdot \frac{c}{E}
+$$
+
+
+\startitemize[packed]
+\item $c$ Lichtgeschwindigkeit: $\unit{2.998e8}$
+\item $h$ Planksche Konstante: $\unit{6.626070e-34}$
+\item $E$ Energiedifferenz: \in{s. Formel}[physik:unterricht:atomhuellen:energiedifferenz]
+\stopitemize
+
+\startframeddefinition[title={Energieniveaus}]
+Die Energieniveaus geben an, wieviel Energie nötig wäre, um  ein Elektron aus
+dr Atomhülle zu lösen. Die Elektroen können aus nur solche Energiemengen
+aufnehmen, die zu den Niveaus passen. Diese Energiemengen sind also
+quantisiert.
+\stopframeddefinition
+
+
+\startbuffer[physik:atomhuellen:energienevau:beispiel]
+\startMPpage
+% Einheit definieren
+u := 0.5cm;
+
+color purple;
+purple := (1, 0, 1); % RGB-Werte für Lila
+
+% Zeichne die Achse und Energieniveaus
+drawarrow (0,1)--(0,7u) withpen pencircle scaled 0.7pt;
+label.lft(btex $E$ etex, (0,7u));
+
+% Energieniveaus
+draw (0,2u)--(4.5u,2u) withpen pencircle scaled 0.5pt;
+draw (0,4u)--(4.5u,4u) withpen pencircle scaled 0.5pt;
+draw (0,5u)--(4.5u,5u) withpen pencircle scaled 0.5pt;
+draw (0,5.5u)--(4.5u,5.5u) withpen pencircle scaled 0.5pt;
+draw (0,6u)--(4.5u,6u) withpen pencircle scaled 0.5pt;
+
+\stopMPpage
+\stopbuffer
+
+\placefigure[left][physik:atomhuellen:energienevau:beispiel]{Name}{
+\typesetbuffer[physik:atomhuellen:energienevau:beispiel]
+}
+
+$m=1$, $m=3$ bedeutet $e^-$ geht vom $3.$ zum $1.$ Niveau bei Emmision
+
+
+\startframedtipp
+Im VorAbi wird:
+
+\startitemize[packed]
+\item Elektromagnetischer Schwingkreis
+\item Dinge die wir noch nicht in Klausuren gehabt haben
+\item Dinge die wahrscheinlich im Abi dran kommen werden
+\stopitemize
+\stopframedtipp
+
+\subsection{S. 232 A2}
+
+
