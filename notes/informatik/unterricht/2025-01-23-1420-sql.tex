@@ -1,0 +1,47 @@
+\section{2025-01-23}
+
+\starttyping
+SELECT Vorname, Nachname, Klasse, 'Schuelerliste1' as Schule FROM Schuelerliste1 WHERE (...) AND ... ORDER BY Nachnamen DESC
+UNION
+SELECT Vorname, Nachname, Klasse, 'Schuelerliste2' as Schule FROM Schuelerliste2 WHERE (...) AND ... ORDER BY Nachnamen DESC
+ORDER BY Nachnahme DESC;
+\stoptyping
+
+\subsection{S. 319 A2}
+
+\startitemize[packed,a]
+\item Die drei Ansichten können mit auf Basis folgenden Schema aufgebaut werden:
+
+Programm(ID, Name, Fortschritt, Sender, Genre, Zeit, Art, FKS, Tags, Folge, Dauer, Erscheinungsjahr, Beschreibung, Cover)
+
+In dieser Tabelle sind alle benötigten Informationen.
+
+\item 
+
+\startframedtext[width=\dimexpr\textwidth+\rightmarginwidth+\rightmargindistance\relax,frame=off,offset=none] % This spans textwidth + margin width
+\startplacetable[location={force},title={Beispiel Datensatz}]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\bTABLE
+\startCSV
+SendungsID, Sender, Sendung, Datum, Anfang, Ende, Genre, Infotext
+1, DasErste, Drei Fragezeichen, 20250101, 0000, 0020, Horror, "Die drei Fragezeichen sind auf der Scuher nach dem geheimen Artefakt, doch Justus Jonas hat andere Ideen"
+2, DasZweite, Wer wird Millionär?, 20261204, 1000, 1130, Satiere, "Zehn Fragen, ein Gewinner. Wer wird dieses mal gewinnen."
+3, RTL, NuNaJan, 20261104, 1130, 1230, Kinderverdummung, "keine Ahnung was hier abgeht"
+4, Nikelodion, Spongebob, 20260804, 1230, 1330, Kinderverdummung, "Ein Schwamm der unter wasser Lebt"
+\stopCSV
+\eTABLE
+\stopplacetable
+\stopframedtext
+
+\item Die SQL-Abfragen
+\startitemize[packed,r]
+\item Alle Sender, die die Tagesschau ausstrahlen
+\item Alle Nachrichten, die nach 10 Uhr ausgestrahlt werden, mit Sender, Sendung und wann sie beginnen
+\item Alle Sender die "schau" im Namen beinhlaten
+\item Es werden angegeben, wie viele Sendungen in einem Genre existieren, die nicht zu ZDFHD als Sender haben. Die Genre Show und Sport werden ausgeschlossen.
+\item Listet alle einzelnen Genres auf
+\item Alle Sendungen, die nach der Tagesschau ausgestrahlt werden.
+\stopitemize
+\stopitemize
+
+
