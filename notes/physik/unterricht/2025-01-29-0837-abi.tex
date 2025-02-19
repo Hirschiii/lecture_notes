@@ -1,0 +1,179 @@
+\section{2025-01-29}
+
+\startframedtipp
+{\bf Elektromagnetischer Schwingkreis}
+\stopframedtipp
+
+Vier aufgaben, drei davon müssen wir machen. Jede Aufgabe zu einem Rahmenthemer und einen Themenübergriff. Man kann kein Themengebiet raus lassen
+
+Themen die sich anbieten (Auflistung!! aus den Tafelbildern):
+
+Auswahl:
+
+\startitemize[packed,m]
+\item Überfliegen
+\item Markieren, was kann ich lösen? Für {\bf jede} Teilaufgabe
+\startitemize[packed]
+\item Kann ich das sehr gut?
+\item Kann ich das mit nach denken?
+\item Kann ich das garnicht?
+\stopitemize
+\stopitemize
+
+\startframedtipp
+\startitemize[packed]
+\item Elektromagnetischer Schwingkreis wird drann kommen
+\item Irgendwas mit Doppelspalt
+\startitemize[packed]
+\item Gleichung herleiten
+\item Aufbau
+\stopitemize
+\item Themen die noch noch nicht in normalen Klausuren dran kam
+\item Aufbabe zum Thema bewerten wird von ihm hochgeladen
+\item Grundsätzlich keine Formeln auswendig wissen
+\item Herleitungen müssen ggf. nachgeschlagne werden. Ergebnisse von Herleitungen 
+\item Geschwindigkeit geladenen Teilchen elektrische Felder wird drann kommen
+\item Elektronenkanone
+\item Wellenlaenge am gitter berechnen
+\stopitemize
+\stopframedtipp
+
+\startframedtipp
+\startitemize[packed,m]
+\item Ein oder zwei Abende die Inhalte aus dem vorheriegen Unterricht angucken
+\item
+\stopitemize
+\stopframedtipp
+
+\startframedtipp
+
+\startplaceformula[reference]
+\startformula
+
+\stopformula
+\stopplaceformula
+\stopframedtipp
+
+\section{2025-01-29 - Modell Atomhülle}
+
+Potenzialtopf (unendlich hoh, eindimensional)
+
+\startframedtipp
+Idee: Ein eindimensionaler Topf mit unendlich hohen Wänden, wird mit Atomen gefüllt.
+\stopframedtipp
+
+Energie $e^-$ in der Atomhülle ist in festen Niveaus, also quantisiert.
+
+\startbuffer[modell_atomhuelle:2025:01:29:skizze]
+\startMPpage
+
+u := 1cm;
+
+draw (-1.5u, 3u)--(-1.5u, 0)--(1.5u, 0)--(1.5u, 3u);
+
+label.top("Wand", (-1.5u, 3u));
+label.top("Wand", (1.5u, 3u));
+label.top(btex $e^-$ etex, (0, 3u));
+label.bot(btex $L$ etex, (0, 0));
+
+label.lft(btex n etex, (-1.5u, 3u));
+label.lft(btex 3 etex, (-1.5u, 2u));
+label.lft(btex 2 etex, (-1.5u, 1u));
+label.lft(btex 1 etex, (-1.5u, 0));
+
+
+draw (-1.5u, 2u){dir 45}..(0, 1.8u)..{dir -45}(1.5u, 2u) withcolor green;
+draw (-1.5u, 1u){dir 45}..{dir 45}(1.5u, 1u) withcolor red;
+draw (-1.5u, 0){dir 45}..{dir -45}(1.5u, 0);
+
+\stopMPpage
+\stopbuffer
+
+\placefigure[left][modell_atomhuelle:2025:01:29:skizze]{Modell}{
+\typesetbuffer[modell_atomhuelle:2025:01:29:skizze]
+}
+
+Mögliche Wellenlängen
+
+
+% \sidenote{}
+
+\sidenote{
+$n$ ist eine Zählvariable, Anzahl der Knoten ist gleich $n+1$
+}
+\startplaceformula[2025:01:29:wellenlaengen]
+\startformula
+\lambda_n = \frac{2L}{n}
+\stopformula
+\stopplaceformula
+
+de Brogli:
+
+\startplaceformula[2025:01:29:debrogli]
+\startformula
+p_n = \frac{h}{\lambda_n}=\frac{h\cdot n}{2L}
+\stopformula
+\stopplaceformula
+
+\startformula
+E_n=\frac{p_n^2}{2m}=\frac{h^2\cdot n^2}{8m \cdot L^2}=\frac{h^2}{8m}\cdot \frac{n^2}{L^2}
+\stopformula
+
+Daraus kann man die Wellenfunktion $\phi_n$ ermitteln.
+
+Bedingung: 
+
+\startplaceformula[2025:01:29:phi]
+\startformula
+\psi(x)+a\cdot \ddot{\psi}(x)=0
+\stopformula
+\stopplaceformula
+
+mit: $a \in \reals$
+
+Schrödingergleichung:
+
+\startplaceformula[2025:01:29:schroedinger]
+\startformula
+\ddot{\psi}(x)=-\frac{8\cdot \pi^2 \cdot m}{h^2} \cdot (E - E_{\text{pot}}(x)) \cdot \psi(x)
+\stopformula
+\stopplaceformula
+
+erfüllt mit $\sin-$ / $\cos-$ Fkt 
+
+\startframedwarning
+Abiturrelevant:
+\stopframedwarning
+
+$|\psi(x)|^2$ gibt die Aufenthaltswahrscheinlichkeit des $e^-$ am Ort $x$ an.
+
+\startitemize[packed]
+\item $n$: Quantenzahl -> Energieniveau
+\item Bez. S. 235
+\stopitemize
+
+\startframedtipp
+{\bf Orbital: S. 238 239}
+
+Das "richtige Potenzial ist angegeben links in der abbildung, sog collomb
+potenzial. Das beschreibt, wie die im endeffekt die anziehungskraft zwishen
+zwei Ladungen im 3D Raum.  $n=1$ ist der Grundzustand. Der Unterschied zu dem and er Tafel (Potenzialtopf):
+
+\startitemize[packed,m]
+\item 3D: relativ simple
+\item Hier angegebenes Potenzial realistischer
+\item Anziehungskraft wird schwächer, desto weiter weg, niemals null
+\item 
+\stopitemize
+
+Wenn wir n auf 2 setzen ist der abstand groeser
+\stopframedtipp
+
+
+
+\startframedtipp
+DeBrogli muss ich kennen
+Unter Quantenobjekte
+
+und Herleitung
+\stopframedtipp

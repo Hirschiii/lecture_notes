@@ -10,11 +10,11 @@ Es wird aber verlangt, Datenbanken ohne Annomalyn erstellen zu können, Normalis
 \item Es gibt 3 Normalformen
 \stopitemize
 
-\subsection{Erste Normalform}
+\subsection{Erste Normalform (1NF)}
 
 Eine Relation ist in der ersten Normalform, wenn alle zugrunde liegenden Attribute {\bf atomare Werte} enthalten (= elemntare Information).
 
-\subsection{Zweite Normalform}
+\subsection{Zweite Normalform (2NF)}
 
 Eine Relation ist in der 2. Normalform, wenn
 
@@ -22,6 +22,10 @@ Eine Relation ist in der 2. Normalform, wenn
 \item sie die Bedingungen der {\bf ersten Normalform} efüllt und
 \item jedes Nichtschlüsselattribut vom {\bf gesamten} Primärschlüssel {\bf voll funktional abhängig} ist.
 \stopitemize
+
+\startframedtipp
+Wenn nur genau {\bf ein} Schlüsselattribut vorliegt, gilt 2NF aus der 1NF direkt.
+\stopframedtipp
 
 \subsection{Dritte Normalform}
 
@@ -36,3 +40,7 @@ Eine Relation ist in der 3. Normalform, wenn
 \startframedtipp
 	Wenn man nicht witer kommt, andere aufgabenstaellungen lesen. Vielleicht sind da Informationen, die einen weiterebrigenen k;nnen
 \stopframedtipp
+
+Welche Annomalien könnten bei folgendem Datenbank Schema auftreten?
+
+Carsharing(_KundenNr_, Name, Tel, _Ausleihdatum_, _Kennzeichnen_, Hersteller, kmStand, Baujahr)
