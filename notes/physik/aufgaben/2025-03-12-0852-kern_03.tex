@@ -1,0 +1,75 @@
+\startmode[single]
+
+% \enabletrackers[publications, publications.crossref, publications.details, publications.cite, publications.strings]
+%
+% \usebtxdataset[main][bib/default.bib,bib/physik.bib,bib/mathe.bib,bib/seminarfach.bib]
+% \usebtxdefinitions[aps]
+% \setupbtx[dataset=main]
+% \definebtxrendering[bibrendering][aps][dataset=main]
+
+\setvariables[meta]
+  [title={Kernphysik:},
+   subtitle={Zerfallsarten / Strahlungsarten},
+   date={2025-03-12},
+   author={Niklas von Hirschfeld},
+  ]
+
+\setupinteraction[title={\getvariable{meta}{title}}]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+\component c_toc
+\stopfrontmatter
+
+\setuppagenumber[number=1]
+
+\startbodymatter
+
+\startchapter[title=\getvariable{meta}{subtitle}]
+
+\stopmode
+
+\section{Aufgabe 1}
+
+In den dargestellten Versuchsbeobachtungen werden die Eigenschaften von $\alpha
+-, \beta -, \gamma -$ Strahlungen getestet. Einmal in einem Magnetfeld (links)
+und mit verschiedenen Materialien (rechts).
+
+Zu beobachten ist, dass $\alpha -$ Strahlung in dem Magnetischen feld abgelenkt
+wird und zwar in die entgegen gesetzte Richtung, wie die in die die $\beta -$
+Strahlung abgelenkt wird. Sie muss also die entgegengesetze Ladung besitzen
+($\alpha -$ Strahlung besitzt eine positive Ladun $+2e$ und $\beta -$Strahlung
+eine negative $-e$).
+$\gamma -$ Strahlung hingegen hat keine Ladung und wird nicht in dem Feld
+abgelenkt. Auch kann man beobachten, dass $\alpha -$ Strahlung eine größere
+Masse als $\beta -$ Strahlung, da sie nicht so stark abgelenkt wird.
+
+Bei den Materialien wird beobachtet, dass $\alpha -$ nicht durch das Papier
+durchdringen kann. $\beta -$ hingegen tritt durch das Papier durch, wird aber
+von Alu geblock. $\gamma -$ Strahlung geht durh Papier und Alu hindurch und
+wird von Blei abgeblockt.
+
+\section{Aufgabe 2}
+
+\startitemize[packed]
+\item Var 1: Magnetfeld, Photoplatte unten, gucken, wie starkt abgelenkt
+\item Var 2: Elektrisches Feld, ...
+\item Var 3: Wien-Filter: senkrechtes Magnetfeld + elektrisches Querfled, so
+einstellen, dass Teilchen exakt geradeaus fliegen.
+\stopitemize
+
+\startmode[single]
+
+\stopchapter
+
+\stopbodymatter
+
+\startbackmatter
+% \component c_definitions
+\component c_bibliography
+\stopbackmatter
+\stoptext
+
+\stopmode

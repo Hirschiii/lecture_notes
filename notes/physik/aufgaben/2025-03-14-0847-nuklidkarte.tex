@@ -1,0 +1,105 @@
+\startmode[single]
+
+% \enabletrackers[publications, publications.crossref, publications.details, publications.cite, publications.strings]
+%
+% \usebtxdataset[main][bib/default.bib,bib/physik.bib,bib/mathe.bib,bib/seminarfach.bib]
+% \usebtxdefinitions[aps]
+% \setupbtx[dataset=main]
+% \definebtxrendering[bibrendering][aps][dataset=main]
+
+\setvariables[meta]
+  [title={PH10_AB_Nuklidkarte},
+   subtitle={},
+   date={2025-03-14},
+   author={Niklas von Hirschfeld},
+  ]
+
+\setupinteraction[title={\getvariable{meta}{title}}]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+\component c_toc
+\stopfrontmatter
+
+\setuppagenumber[number=1]
+
+\startbodymatter
+
+\startchapter[title=Nuklidkarte]
+
+\stopmode
+
+\section{Kennenlernen der Nuklidkarte}
+
+Zusätzlich angegeben:
+
+\startitemize[packed,m]
+\item Die Energie in MeV: $\alpha$
+\item Die Ordnungszahl: $Z$
+\item Die Anzahl der Neutronen: $N$
+\stopitemize
+
+\blank
+\hrule
+\blank
+
+Man verliert zwei Neutronen und zwei Protonen. Mann muss also zwei nach links
+(Neutrone) und zwei nach unten (Protonen). Damit landet man auf {\bf Rn222}.
+Ra-226 hat $\alpha -$ Starhlung, welche aus zwei Protonen und zwei Neutronen
+besteht.
+
+\blank
+\hrule
+\blank
+
+Bi-210. $\beta -$Strahlung. Wir verlieren ein Neutron und bekommen ein Proton
+(ein nach links und ein nach oben). Also ist das Nuklid: Po210
+
+\startframedtipp
+Nuklidkarte benuzten:
+
+\startplacetable[location={here},title={}]
+\bTABLE
+\startCSV
+$\alpha$, 2 links, 2 runter
+$\beta^-$, 1 links, 1 hoch
+$\gamma$, 
+\stopCSV
+\eTABLE
+\stopplacetable
+\stopframedtipp
+
+
+\section{Analyse des radioaktiven Mülls}
+
+\startframedtipp
+Castor behälter 
+\stopframedtipp
+
+
+
+\startplacetable[location={here},title={Nuklide für den CASTOR}]
+\bTABLE
+\startCSV
+Nuklid, Strahlungsart, Halbwertszeit
+
+\stopCSV
+\eTABLE
+\stopplacetable
+
+
+\startmode[single]
+
+\stopchapter
+
+\stopbodymatter
+
+\startbackmatter
+% \component c_definitions
+\component c_bibliography
+\stopbackmatter
+\stoptext
+
+\stopmode
