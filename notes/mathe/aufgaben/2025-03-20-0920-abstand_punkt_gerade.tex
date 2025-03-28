@@ -1,0 +1,117 @@
+\definemathmatrix[pmatrix]        % defining matrix with parentheses
+	[matrix:parentheses]
+	[simplecommand=pmatrix]
+
+\setvariables[meta]
+  [title={Abstand: Punkt zu Gerade},
+   subtitle={Anleitung},
+   date={2025-03-20},
+   author={Niklas von Hirschfeld},
+  ]
+\setupinteraction[title={\getvariable{meta}{title}}]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+% \component c_toc
+\stopfrontmatter
+
+\setuppagenumber[number=1]
+
+\startbodymatter
+
+\chapter{Abstand Punkt zu Ebene}
+
+Um den Abstand von einem Punkt zu einer Ebene zu ermitteln, muss zunächst ein
+Punkt auf der Ebene gefunden werden, welcher am {\em nächsten} an dem Punkt
+ist. Von dort aus wird der Abstand zwischen den beiden Punkten berechnet
+werden.
+
+Um den Punkt auf der Ebene zu ermitteln geht man wie folgt vor:
+
+\startitemize[packed,m]
+\item Normalenvektor der Ebene bestimmen
+\item Hilfsgerade mit Normalenvektor und Ortsvektor unseres gegeben Punkt aufstellen
+\item Schnittpunkt zwischen der Gerade und der gegebenen Ebenen ermitteln
+\stopitemize
+
+\blank
+\hrule
+\blank
+
+Je nach dem, welche Ebenenform gegeben ist, gibt es verschiedenen Wege an einen Normalenvektor heran zu kommen.
+
+\startitemize[packed,m]
+\item Bei der {\bf Parameterform} muss man das {\bf Keruzprodukt} der beiden {\bf Spannvektoren} berechnen. Daraus ergibt sich ein Normalenvektor. Wenn also folgende Ebenenform gegeben ist
+\startformula
+E: \vec{x} = \vec{a} + r \cdot \vec{b} + s \vec{c}
+\stopformula
+wird ein Normalenvektor wie folgt berechnet:
+\startformula
+\vec{n}=\vec{b}\times \vec{c}
+\stopformula
+\item Wenn die {\bf Koordinatenform} gegeben ist, lässt sich ein Normalenvektor aus dieser ablesen. Aus der Koordinatenform:
+\startformula
+E: n_1\cdot x_1 + n_2 \cdot x_2 + n_3 \cdot x_3 = d
+\stopformula
+geht folgender Normalenvektor hervor:
+\startformula
+\vec{n}=
+\startpmatrix
+\NC n_1 \NR 
+\NC n_2 \NR
+\NC n_3 \NR
+\stoppmatrix
+\stopformula
+\item Wenn eine {\bf Normalenform} gegeben ist, kann man diesen aus der Form übernehmen.
+\stopitemize
+
+Mit hilfe eines Normalenvektor wird nun die Hilfgerade aufgestellt. Mit dem gegebene Puntk $P$ ist eine mögliche Hilfgerade folgende:
+
+\startformula
+g: \vec{x}=\vec{OP} + r \cdot \vec{n}
+\stopformula
+
+Diese Gerade hat die eigenschaften, das sie {\bf Orthogonal}\sidenote{{\bf
+Orthogonal} bedeutet, dass der Vektor \quotation{senkrecht} zu dem andere
+steht} durch unsere Ebene verläuft und durch unseren Punkt $P$. Das ist wichtig
+für den folgenden Schritt. Da die Gerade die vorher genannten Eigentschaften
+erfüllt, ist ihr Schnittpunkt mit der Ebene genau der Punkt mit dem geringsten
+Abstand zu unserem Punkt $P$.
+
+\startformula
+g = E
+\stopformula
+
+Die dabei berechneten Parameter können in die Geraden- oder Ebenengleichung
+eingesetzt werden, um den Schnittpunkt $S$ zu berechnen. Mit diesem Punkt
+können wir den Abstand der Punkte $P$ und $S$ berechnen.
+
+\startformula
+|\overline{PS}|
+\stopformula
+
+\section{Abstand Punkt zu Punkt}
+
+Der Abstand von einem Vektor ist wie folgt definiert:
+
+\startformula
+|\vec{a}|=\sqrt{a_1^2+a_2^2+a_3^2}
+\stopformula
+
+Um also den Abstand zwischen zwei Punkten $A$ und $B$ zu berechnen, muss der
+Vektor $\vec{AB}$ zunächst ermittelt werden.
+\startformula
+\vec{AB}=\vec{OB} - \vec{OA}
+\stopformula
+
+\stopbodymatter
+
+\startbackmatter
+% \component c_definitions
+% \component c_bibliography
+\stopbackmatter
+
+\stoptext
+

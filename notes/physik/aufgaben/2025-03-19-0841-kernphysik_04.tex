@@ -1,0 +1,82 @@
+\startmode[single]
+
+% \enabletrackers[publications, publications.crossref, publications.details, publications.cite, publications.strings]
+%
+% \usebtxdataset[main][bib/default.bib,bib/physik.bib,bib/mathe.bib,bib/seminarfach.bib]
+% \usebtxdefinitions[aps]
+% \setupbtx[dataset=main]
+% \definebtxrendering[bibrendering][aps][dataset=main]
+
+\setvariables[meta]
+  [title={Elektronenbeugunsröhre},
+   subtitle={Versuchsprotokoll},
+   date={2024-10-18},
+   author={Niklas von Hirschfeld},
+  ]
+
+\setupinteraction[title={\getvariable{meta}{title}}]
+
+\starttext
+
+\startfrontmatter
+\component c_titlepage
+\component c_toc
+\stopfrontmatter
+
+\setuppagenumber[number=1]
+
+\startbodymatter
+
+\startchapter[title={Kernphysik 04 Abschirmung und Ausbreitung}]
+
+\stopmode
+
+
+\section{A1}
+
+\startplacetable[location={here},title={Ablesen der Zeiträume}]
+\setupTABLE[c][1][background=color,backgroundcolor=gray]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\bTABLE[frame=off,offset=1mm]
+\startCSV
+Zeitabschnitt, 1, 2, 3, 4, Durchschnittdifferenz
+Halbwertsdicke in $mm$, 6, 12, 17, 24, 6
+\stopCSV
+\eTABLE
+\stopplacetable
+
+\startframedtipp
+Beim grafischen Ablesen auch {\bf MARKIEREN}
+\stopframedtipp
+
+\startframedtipp
++ANKI
+\startformula
+a^{-b}=\frac{1}{a^b}
+\stopformula
+
+\blank
+\hrule
+\blank
+
+\startformula
+\ln(a)=-\ln(\frac{1}{a})
+\stopformula
+\stopframedtipp
+
+
+
+
+\startmode[single]
+
+\stopchapter
+
+\stopbodymatter
+
+\startbackmatter
+% \component c_definitions
+\component c_bibliography
+\stopbackmatter
+\stoptext
+
+\stopmode
