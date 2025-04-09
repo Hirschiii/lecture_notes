@@ -51,18 +51,18 @@ single:
 	$(MAKE) SINGLE=1
 
 # Rule to compile all unterricht files into a single PDF per directory
-# $(TEX) --mode=$(MODE_UNTERRICHT) --subject=$(FILE_SUBJECT) --result="unterricht-$(SUBJECT)" prd_document.tex &> /dev/null
+# $(TEX) --mode=$(MODE_UNTERRICHT) --subject=$(FILE_SUBJECT) --result="unterricht-$(SUBJECT)" prd_document.tex
 
 FILE_SUBJECT=$(word 2,$(subst /, ,$<))
 $(OUTPUT_DIR)/%/unterricht.pdf: $(SRC_BASE_DIR)/%/unterricht/*.tex
 	@echo "Rule matched for unterricht: Target=$@, Source=$<"
-	$(TEX) --mode=$(MODE_UNTERRICHT) --path=$(dir $<) --arguments=subject=$(FILE_SUBJECT),title="Unterricht - $(FILE_SUBJECT)" --result="unterricht-$(FILE_SUBJECT)" prd_document.tex &> /dev/null
+	$(TEX) --mode=$(MODE_UNTERRICHT) --path=$(dir $<) --arguments=subject=$(FILE_SUBJECT),title="Unterricht - $(FILE_SUBJECT)" --result="unterricht-$(FILE_SUBJECT)" prd_document.tex
 	@mkdir -p $(OUTPUT_DIR)/$(FILE_SUBJECT)/
 	@mv unterricht-$(FILE_SUBJECT).pdf $(OUTPUT_DIR)/$(FILE_SUBJECT)/unterricht.pdf
 
 $(OUTPUT_DIR)/%/wissen.pdf: $(SRC_BASE_DIR)/%/wissen/*.tex
 	@echo "Rule matched for wissen: Target=$@, Source=$<"
-	$(TEX) --mode=$(MODE_WISSEN) --path=$(dir $<) --arguments=subject=$(FILE_SUBJECT),title="Wissen - $(FILE_SUBJECT)" --result="wissen-$(FILE_SUBJECT)" prd_document.tex &> /dev/null
+	$(TEX) --mode=$(MODE_WISSEN) --path=$(dir $<) --arguments=subject=$(FILE_SUBJECT),title="Wissen - $(FILE_SUBJECT)" --result="wissen-$(FILE_SUBJECT)" prd_document.tex
 	@mkdir -p $(OUTPUT_DIR)/$(FILE_SUBJECT)/
 	@mv wissen-$(FILE_SUBJECT).pdf $(OUTPUT_DIR)/$(FILE_SUBJECT)/wissen.pdf
 
@@ -73,7 +73,7 @@ FILE_DIR=$(word 3,$(subst /, ,$<))
 $(OUTPUT_DIR)/%.pdf: $(SRC_BASE_DIR)/%.tex
 	@echo "Compiling $(FILE_DIR): Target=$@, Source=$<"
 	@mkdir -p $(dir $@)
-	$(TEX) --mode=$(MODE_AUFGABEN) --path=$< --arguments=subject=$(FILE_SUBJECT),title="Aufgabe - $(FILE_SUBJECT)" --result="aufgaben-$(FILE_SUBJECT)" prd_document.tex &> /dev/null
+	$(TEX) --mode=$(MODE_AUFGABEN) --path=$< --arguments=subject=$(FILE_SUBJECT),title="Aufgabe - $(FILE_SUBJECT)" --result="aufgaben-$(FILE_SUBJECT)" prd_document.tex
 	mv aufgaben-$(FILE_SUBJECT).pdf $(OUTPUT_DIR)/$(FILE_SUBJECT)/$(FILE_DIR)/$(basename $(notdir $<)).pdf
 
 # Rule to compile individual aufgaben, poster, and presentation files
@@ -83,6 +83,6 @@ $(OUTPUT_DIR)/%.pdf: $(SRC_BASE_DIR)/%.tex
 
 # Clean up
 clean:
-	context --purgeall &> /dev/null
+	context --purgeall
 
 .PHONY: all clean
